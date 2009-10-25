@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type="text/xsl" href="/resources/xslt/page.xsl"?>
+<my:doc xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"
+	xmlns:my="http://patrick.wagstrom.net/xml/webpage/1"
+	xmlns="http://www.w3.org/1999/xhtml"
+	title="Pat's crappy bandwidth explanation page"
+	style="default"
+	revision="$$">
+
+<my:infobox title="Why can't you link to that image?">
+<p>
+If you're here it's probably because you saw this nasty graphic on a page:
+</p>
+<center>
+<img src="/resources/images/bandwidthThief.png" width="400" height="151" alt="bandwidth thief graphic"/>
+</center>
+<p>
+Odd's are that it's not directly your fault, so I wouldn't be too concerned.  But here's a bit of
+an explanation.
+</p>
+<p>
+This site is run as a private sort of hobby for myself, my wife, and a few other family members.  Being
+as I'm broke, I just run it off my comcast cable modem.  Occassionaly someone on a higher traffic message
+board will find a picture of my site and link to it in a posting.  This causes many, many people to view
+this image, using my bandwidth, slowing my own connection, and does not let the viewer know the context or the
+source of the image.  As far as web-etiquette goes, this is
+considered to be very rude and also doesn't follow the BY-NC-SA license that I have on my works.  So,
+to conserve my bandwidth, I've resorted to checking referers.
+</p>
+<p>
+If you got this graphic, then your referer wasn't allowed.  But don't fear.  If its a legitimate site,
+email me and I'll add your site to list of sites that hotlink to images.  Here's the current list of
+sites that can hotlink (may be slightly out of date):
+</p>
+<pre>[blank referer string]
+bloglines.com
+google.com
+wm-eddie.info
+wplug.org
+xml.mfd-consult.dk
+chameleonreader.com
+</pre>
+</my:infobox>
+
+<my:links>
+	<my:link name="home" url="/"/>
+	<my:link name="resume" url="/resume/"/>
+	<my:link name="photos" url="/photos/"/>
+	<my:link name="weblog" url="/weblog/"/>
+	<my:link name="wedding" url="/wedding/"/>
+</my:links>
+</my:doc>

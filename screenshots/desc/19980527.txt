@@ -1,0 +1,1 @@
+Just me having a little fun with some of my apps like <A HREF="http://www.slickedit.com/">slickedit</A> and a <A HREF="http://www.java.com/">java</A> program that I never got fully working.  It was from before I knew how to use swing.  This is my first shot with <A HREF="http://www.windowmaker.org/">WindowMaker</A> as my window manager.</TD>

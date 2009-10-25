@@ -1,0 +1,6 @@
+Normally I'm a command line guy.  However, I discovered something nifty
+today while mucking around in Konqueror.  Apparently, I have a plugin that
+allows me insert a CD and drag <a href="http://www.vorbis.com/">Ogg
+Vorbis</a> or MP3 files right off the CD.  Ripping for brain dead people.
+Normally I'd just use <a href="http://nostatic.org/grip/">grip</a>, but this
+is pretty cool too.

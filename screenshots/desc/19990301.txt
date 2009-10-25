@@ -1,0 +1,4 @@
+Okay, I have VI with themes here, and everyone is okay with this?  Anyway, this is a shot
+of Vim 5.4e running on my box with the GTK frontend and the pixmap theme.  Normally I use
+the Marble3d Theme, but this was taken for dramatic effect.
+	

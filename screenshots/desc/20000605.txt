@@ -1,0 +1,3 @@
+Just a quick snapshot of my desktop at work.  I've spent most of the day trying
+to make a window manager like interface in Mozilla using the nightly builds so
+I can get alpha channel transparency support on PNG files.

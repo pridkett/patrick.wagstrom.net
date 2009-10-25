@@ -1,0 +1,4 @@
+I got sick of blue over the weekend.  So I first switched my iconset to the most
+excellent Noia-warm iconset.  I also darkened my colors a bit too.  I'm using
+Keramik for my KDE theme and Geramik for my GTK theme here.  I think I'll leave
+my emacs colors as it for a while as they seem to work really well.

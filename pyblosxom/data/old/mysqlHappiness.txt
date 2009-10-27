@@ -1,6 +1,0 @@
-MySQL Happiness?
-
-<!-- Date: 2003-01-20 07:13 -->
-<p>
-For a long time I was a bit of a <a href="http://www.mysql.com/">MySQL</a> bigot.  I preferred to use <a href="http://www.postgresql.org/">PostgreSQL</a> because it had some more advanced support built in for things like transactions.  Well, the conversion back to MySQL has been pretty nice.  I just found out about <a href="http://www.mysql.com/products/mysqlcc/index.html">MySQL Control Center</a> which is a nifty GUI by the MySQL people for administering databases.  Although I know SQL, the GUI makes it easy to do simple things.  This is a blessing and probably will result in me using more database driven stuff in the future.
-</p>

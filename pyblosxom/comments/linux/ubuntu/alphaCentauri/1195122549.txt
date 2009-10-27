@@ -1,37 +1,0 @@
-<my:comment>
-<my:author>Level 1</my:author>
-<my:commentTime>November 15, 2007 at 05:29</my:commentTime><my:body>I like the capcha.  Anyway, I followed all your instructions, and I still get a core dump trying to run the game.  (I get to the loading screen, but no farther).<br/>
-<br/>
-PremierSullivan@gmail.com<br/>
-<br/>
-Here's the core dump:<br/>
-Creating Loki preferences directory: /home/level1/.loki/<br/>
-Creating smac preferences directory: /home/level1/.loki/smac<br/>
-Creating Loki preferences directory: /home/level1/.loki/<br/>
-Creating smac preferences directory: /home/level1/.loki/smac<br/>
-Unable to create file: palcheck.tmp<br/>
-Unable to create file: shadow.tmp<br/>
-Unable to create file: spotlight.tmp<br/>
-Unable to create file: reddish.tmp<br/>
-Unable to create file: redtint.tmp<br/>
-Unable to create file: bluetint.tmp<br/>
-Unable to create file: fade.tmp<br/>
-Unable to create file: colorvals.tmp<br/>
-Unable to create file: explosions0.tmp<br/>
-<br/>
-BUG! (Segmentation Fault)  Going down hard...<br/>
-Sid Meier's Alien Crossfire 6.0a<br/>
-Built with glibc-2.1 on x86<br/>
-Stack dump:<br/>
-{<br/>
-        0x829cccb<br/>
-        0x81b7742<br/>
-        0x82239cb<br/>
-        0x82ae6b5<br/>
-        0x844063d<br/>
-        0x8048111<br/>
-}<br/>
-Please send a full bug report,<br/>
-along with the contents of autosave to: support@lokigames.com<br/>
-Unable to execute loki_qagent - exiting</my:body>
-</my:comment>

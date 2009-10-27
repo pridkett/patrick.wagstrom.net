@@ -1,5 +1,0 @@
-<my:comment>
-<my:author>Phil Wagstrom</my:author>
-<my:url>http://blogs.sun.com/pwags</my:url>
-<my:commentTime>July 30, 2007 at 09:47</my:commentTime><my:body>You might want to commit your changes.  Its still showing that you're 27.  :)</my:body>
-</my:comment>

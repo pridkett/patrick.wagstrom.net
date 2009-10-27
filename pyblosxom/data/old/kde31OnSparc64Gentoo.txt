@@ -1,8 +1,0 @@
-KDE 3.1 on Sparc64 Gentoo
-
-<!-- Date: 2003-02-05 03:59 -->
-<p>
-I'm currently typing this from my <a href="http://www.kde.org/">KDE 3.1</a> desktop on a sunblade at <a href="http://www.iit.edu/">school</a>.  I've got to say, it's a very nice setup to have.  The antialiased fonts really help out a lot.  The desktop also seems fairly zippy (well, relative for a 500MHz machine of course).  I'm not sure how much of this actually has to deal with me running <a href="http://www.gentoo.org/">Gentoo</a> or not.  Of course, I'd like to think that Gentoo is entirely responsible, as it makes me want to install it more on my computer, but I realize it's probably a combination of a lot of things.
-
-Anyway, go "emerge kde" now.
-</p>

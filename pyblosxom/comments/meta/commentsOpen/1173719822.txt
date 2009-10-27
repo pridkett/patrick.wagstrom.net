@@ -1,5 +1,0 @@
-<my:comment>
-<my:author>Patrick Wagstrom</my:author>
-<my:url>http://patrick.wagstrom.net/weblog/</my:url>
-<my:commentTime>March 12, 2007 at 13:17</my:commentTime><my:body>I was assuming more of a sucker punch ala Todd Bertuzzi.  Or perhaps it was just a typo that I missed in the original article.  Spellcheck catches words that are misspelled, but misses words that are spelled correctly and shouldn't be there.</my:body>
-</my:comment>

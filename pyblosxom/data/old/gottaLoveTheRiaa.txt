@@ -1,6 +1,0 @@
-Gotta love the RIAA
-
-<!-- Date: 2003-01-19 05:13 -->
-<p>
-I'm sure most people by now have heard of the evils of the <a href="http://www.riaa.org/">RIAA</a> and how Hillary Rosen is just plain misguided about technology.  Apparently at a conference in Cannes, France, Ms. Rosen <a href="http://story.news.yahoo.com/news?tmpl=story&amp;ncid=582&amp;e=3&amp;cid=582&amp;u=/nm/20030118/wr_nm/tech_internet_music_dc">suggested that there be a surcharge</a> for people who utilize peer to peer services.  This is impossible to enforce.  It would require an ISP to monitor every connection that is made and furthermore dig into the data.  Of course, <a href="http://www.slashdot.org/">slashdot</a> spun the story to make it sound as though Rosen was a fire-breathing hobgoblin who demanded the fee from all users, which isn't what she said at all.  She said that if ISPs gave access they should pay up.  I still think a better idea is compulsory licensing.
-</p>

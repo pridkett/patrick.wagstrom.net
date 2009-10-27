@@ -1,4 +1,0 @@
-<my:comment>
-<my:author>sleet</my:author>
-<my:commentTime>June 27, 2007 at 18:47</my:commentTime><my:body>Have you tried the knoppmyth or mythdora distributions with your setup?</my:body>
-</my:comment>

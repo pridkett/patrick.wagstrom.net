@@ -1,6 +1,0 @@
-More digital rights goodness
-
-<!-- Date: 2002-10-01 12:30 -->
-<p>
-Edward Felten has a blog up at <a href="http://www.freedom-to-tinker.com/">http://www.freedom-to-tinker.com/</a> with many an interesting thing on it.
-</p>

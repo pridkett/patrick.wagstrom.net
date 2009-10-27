@@ -1,9 +1,0 @@
-xmlsnipe now on SourceForge
-
-<!-- Date: 2004-10-18 21:04 -->
-<p>
-I went and created a <a href="http://www.sourceforge.net/">sourceforge</a>
-project page for <a href="http://xmlsnipe.sourceforge.net/">xmlsnipe</a>.
-I also submitted a link to <a href="http://www.freshmeat.net/">freshmeat</a>
-that hopefully will be posted soon.
-</p>

@@ -1,0 +1,22 @@
+CASOS Logo In SVG
+
+<!-- Date: 2005-02-09 18:15 -->
+<p>
+Here is the old logo for <a href="http://www.casos.cs.cmu.edu/">CASOS</a>.  It
+looks okay, but it's only in raster format and furthermore has lots of annoying
+artifacts from being JPEG compressed a few too many times.
+</p>
+<img src="/resources/images/blog/casosLogo.png"/>
+<p>
+I got tired of this, so I created a nice new vector image.  This was done using
+<a href="http://www.inkscape.org/">Inkscape</a> and <a href="http://autotrace.sf.net/">Autotrace</a> (for the words).  Now that it's SVG, not only is it smaller
+once compressed, but it also is infinitely scalable and convertable.  If you
+can see the picture, <a href="/resources/images/blog/casosLogo.svgz">click here</a> to download the SVG file.  You might need the SVG Plugin from Adobe.
+</p>
+<object data="/resources/images/blog/casosLogo.svgz" style="width: 240pt; height: 212pt;" type="image/svg+xml"/>
+<p>
+I was really impressed with how easy this was.  There still are a few tweaks
+that should be done to the letters, which will reduce the file size even more,
+but in general it's pretty nice for my first effort at creating a vector
+graphic.  Inkscape and Autotrace made it terribly easy too.
+</p>

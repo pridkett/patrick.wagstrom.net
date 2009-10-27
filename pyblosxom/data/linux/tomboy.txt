@@ -1,0 +1,14 @@
+Tomboy
+
+<!-- Date: 2004-10-12 23:15 -->
+<p>
+While I'm talking about cool and interesting applications, I shouldn't forget
+to mention <a href="http://www.beatniksoftware.com/tomboy/">Tomboy</a>, a
+nifty little note taking application that automagically links your notes
+together as you go.  Very cool.  Support is in the works for allowing you
+to annotate your desktop objects using Tomboy.  I can definately see this as
+something that will make its way into the <a href="http://www.gnome.org/">GNOME
+desktop</a> very fast.  Also, you can search your notes using <a href="http://www.gnome.org/projects/beagle/">Beagle</a>.  All this technology is mad cool.
+Now, if only I had a more up to date distro to run it on.  Oh well, after
+the quals.
+</p>

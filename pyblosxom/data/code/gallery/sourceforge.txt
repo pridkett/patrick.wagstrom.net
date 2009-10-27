@@ -1,0 +1,11 @@
+PennAve now on SourceForge
+
+<!-- Date: 2004-06-05 12:00 -->
+<p>
+<a href="http://pennave.sf.net/">PennAve</a> now has a home on 
+<a href="http://www.sf.net/">SourceForge</a>.  So please, go
+<a href="http://pennave.sf.net/">visit the homepage</a> or
+<a href="http://www.sf.net/projects/pennave/">visit the project page</a>
+and make me feel a little more loved.  Right now the only activity on the
+project is the stuff that I do myself.  Sad.
+</p>

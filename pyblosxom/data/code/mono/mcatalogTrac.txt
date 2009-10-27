@@ -1,0 +1,35 @@
+MCatalog Trac Available
+
+<!-- Date: 2006-04-27 12:04 -->
+<p>
+I'm making some good progress on my modifications of MCatalog.  I've already managed
+to remove the old Mozilla based shelf viewer for a shiny new one that uses
+<a href="http://www.cairographics.org/">Cairo</a>.  This has some nice performance
+improvements and provides better scaling.  Of course, layout changes are no longer a
+simple matter of changing HTML, but at the same time, I don't need to muck around
+with JavaScript anymore.  I might see about removing it for the presentation widget
+too, saving memory overall (I'm not sure how much more memory each Mozilla rendering
+widget takes up if Mozilla is already loaded, but I'd imagine it's a lot).
+</p>
+<p>
+To celebrate my accomplishments, I put up a
+<a href="https://secure.wagstrom.net/projects/mcatalog/">MCatalog Trac Server</a>.  It contains
+my web pages describing the project, but and feature requests that come to mind, and you
+can browse the source code there.  Also, it contains instructions on how to help me out.
+So, if you're so inclined, please visit <a href="https://secure.wagstrom.net/projects/mcatalog/">https://secure.wagstrom.net/projects/mcatalog/</a>
+and start browsing and helping out.
+</p>
+<p>
+I had really hoped that I wouldn't have to do all this, but I've sent a couple of
+emails to every email address I could find for the original author and haven't gotten a response.  I
+may have to try spanish pretty soon here.  I know he's still around, because he
+periodically <a href="http://www.mcatalog.net/blog/">updates his blog</a>.  That
+gives me some hope at least.  For right now, I'm almost willing to say it's approaching
+a fork of the original code.
+</p>
+<my:tags>
+	<my:tag>mcatalog</my:tag>
+	<my:tag>mono</my:tag>
+	<my:tag>cairo</my:tag>
+	<my:tag>trac</my:tag>
+</my:tags>

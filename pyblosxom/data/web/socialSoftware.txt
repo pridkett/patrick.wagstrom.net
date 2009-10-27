@@ -1,0 +1,18 @@
+Social Software
+
+<!-- Date: 2004-10-28 15:32 -->
+<p>
+As a method of procrastination, I've started to play a little bit with forms of social software.  Namely,
+I've started accounts on <a href="http://del.icio.us/">del.icio.us</a>, a social bookmark sharing site,
+and <a href="http://www.bloglines.com/">bloglines</a>.  I'm not entirely sure how much I'll use Bloglines,
+I'm moderately happy with Straw, but I understand how bloglines can be used to reduce demand on a site,
+which is helpful.
+</p>
+<p>
+The neat thing is that both of these sites make it possible to share your information, through RSS none
+the less.  So now anyone can go see my <a href="http://del.icio.us/pridkett/">bookmarks at del.icio.us</a> or see
+what <a href="http://www.bloglines.com/public/pridkett">blogs I'm reading at bloglines</a>.  What we
+really need is a way to integrate FOAF data into all of these so you can dynamically explore the
+communities of people with whom you share stuff in common.  Anyway, we'll see how long I continue
+on this fun spree.
+</p>

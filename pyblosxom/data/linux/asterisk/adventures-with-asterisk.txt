@@ -1,0 +1,41 @@
+Adventures with Asterisk
+
+<!-- Date: 2005-09-18 19:56 -->
+<p>
+Last week <a href="/weblog/computer/gizmo.xml">discovered Gizmo</a>, the neato VOIP
+service from <a href="http://www.sipphone.com/">SIPPhone.com</a>.  After talking to
+some <a href="http://www.wplug.org/">WPLUGgers</a>, I was inspired to install
+<a href="http://www.asterisk.org/">Asterisk</a>, the open source PBX software.
+If I actually had a land line, this might be more useful, but without one, I was
+determined to make use of it.  As I found out, it's pretty simple to do a gateway both
+to and from the PSTN.
+</p>
+<p>
+The first thing that I discovered is that it is possible to have Asterisk behave
+as your Gizmo client.  Using <a href="http://www.voip-info.org/tiki-index.php?page=Asterisk%20settings%20Gizmo">these
+instructions</a>, you'll quickly get it so folks dialing your Gizmo number will
+reach your Asterisk PBX.  Supposedly, those instructions will also let you use
+another client to make calls out to the GIZMO network, but I've been unable to
+get that to work yet.
+</p>
+<p>
+The next cool thing was getting a free Washington state phone number from <a href="http://www.ipkall.com/">IPKall</a>.
+It was terribly simple to set up, just fill out the form, and for the SIP proxy give it proxy01.sipphone.com,
+and my Gizmo phone number as the user, and within an hour I had a dial in number to my computer.
+So now I can go and dial 360-469-0573 and I'll reach my computer.  Right now it's just an echo
+test, but I'd eventually like to be able to dial into my MythTV box.
+</p>
+<p>
+Anyway, as I do more fun stuff, I'll post it here.  Next up is fun with <a href="http://www.fwd.pulver.com/">Free World
+Dialup</a>.  That will provide 1-800 number access direct from my box.  I was hoping
+that I could already have it working, but it's having problems with IAX (that's the Inter-Asterisk
+protocol) at the moment.  Also, it looks like <a href="http://www.iaxtel.com/">IAX Tel</a> is
+also not behaving well right now.
+</p> 
+
+<my:tags>
+	<my:tag>asterisk</my:tag>
+	<my:tag>voip</my:tag>
+	<my:tag>gizmo</my:tag>
+	<my:tag>fwd</my:tag>
+</my:tags>

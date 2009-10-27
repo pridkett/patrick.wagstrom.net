@@ -1,0 +1,6 @@
+<my:comment>
+<my:author>kenneth</my:author>
+<my:url>http://kenneths.org/flog</my:url>
+<my:commentTime>March 12, 2007 at 12:52</my:commentTime><my:body>What are hockey methods?<br/>
+Hitting the server w/ your stick at the knuckles?</my:body>
+</my:comment>

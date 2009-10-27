@@ -1,0 +1,11 @@
+Announcing PennAve
+
+<!-- Date: 2004-05-29 23:07 -->
+<p>
+Today I went and registered the gallery software over at source forge, and
+with that I also named the software, it's going to be called PennAve, which
+is a street by my house.  I figure that is better than pyDynaPhotoXMLGallery
+or whatever other stupid name most people give to projects.  I'm working
+on getting it installed on this server and will post a link to the demo when
+it's ready.
+</p>

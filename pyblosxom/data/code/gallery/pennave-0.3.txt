@@ -1,0 +1,25 @@
+PennAve 0.3 Is Out
+
+<!-- Date: 2006-08-11 16:34 -->
+<p>
+I released <a href="http://pennave.sf.net/">PennAve</a> 0.3 today.  This new
+release brings a slew of nifty new features that you can find on my <a href="http://patrick.wagstrom.net/gallery/">gallery</a>.
+Among them are:
+</p>
+<ul>
+<li>Slide show</li>
+<li>Nifty new graphics</li>
+<li>RSS feeds</li>
+<li>Customizable landing page</li>
+<li>Improved performance thanks to caching</li>
+</ul>
+<p>
+Anyway, if you're running <a href="http://www.gnome.org/">GNOME</a>, go grab
+<a href="http://www.f-spot.org/">F-Spot</a> and start sorting your photos.  Then
+put them online with <a href="http://pennave.sf.net/">PennAve</a>!
+</p>
+<my:tags>
+	<my:tag>pennave</my:tag>
+	<my:tag>oss</my:tag>
+	<my:tag>release</my:tag>
+</my:tags>

@@ -1,0 +1,8 @@
+Conversion
+
+<!-- Date: 2002-06-25 21:34 -->
+<p>
+I've been mucking with writing my own blogging software for the better part of the last few years, I'm realizing now that although there will never be a solution that I'm completely happy with, it's less effort for me to find a tool and use that.  Looking around the web, I found two interesting candidates <a href="http://www.monauraljerk.org/">Monaural Jerk</a> and <a href="http://www.movabletype.org/">Movable Type</a>.  Although Monaural Jerk really intersted me, it hasn't been updated in almost a year, so I'm using the <a href="http://www.perl.org/">Perl</a> based MovableType.  It seems like it can do everything I need it to do, except integrate tightly with my home page...working on that obviously.
+
+Supposedly this has support for RSS feeds.  I can hook up some RSS feeds to the system and use that on my home page.  Although I'd still like the first few entries on my home page.  Need to work that out.
+</p>

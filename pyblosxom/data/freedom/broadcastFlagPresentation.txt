@@ -1,0 +1,22 @@
+Presentation on the Broadcast Flag Now Available
+
+<!-- Date: 2005-10-18 13:12 -->
+<p>
+I gave another presentation this morning on the Broadcast Flag to the <a href="http://www.epp.cmu.edu/">EPP</a> tech policy group.
+It wasn't my best, perhaps a bit too soft.  I should have spent more time talking about some of the economic analysis of the issues.
+Anyway, the slides are <a href="/misc/20051018-epp-broadcastflag.pdf">available for download</a>.
+</p>
+<p>
+I did find out one VERY cool thing during this talk.  Another of the students in my department has a much cooler <a href="http://www.mythtv.org/">MythTV</a>
+setup than I do.  In his home country, connected to a $30/month FTTH link at a friends house he has a MythTV box set up to record television.  Then utilizing the job queue in MythTV he uploads
+the programs to his local MythTV system in Pittsburgh and watches it all on XBox frontend.  Wow.  Talk about cool.  He says it takes about 2 hours to get a 1
+hour MPEG stream, but still, quite cool and a very interesting use of technology.
+</p>
+<my:tags>
+	<my:tag>mythtv</my:tag>
+	<my:tag>presentations</my:tag>
+	<my:tag>epp</my:tag>
+	<my:tag>talks</my:tag>
+	<my:tag>broadcastflag</my:tag>
+	<my:tag>slides</my:tag>
+</my:tags>

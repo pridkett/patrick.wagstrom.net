@@ -1,0 +1,26 @@
+AnsiColoredConsoleAppender
+
+<!-- Date: 2004-08-28 12:01 -->
+<p>
+Hot on the heels of me <a href="http://patrick.wagstrom.net/weblog/academic/ossimLog4Net.xml">starting to
+use</a> <a href="http://logging.apache.org/log4net/">Log4Net</a> in OSSim, comes my first code addition
+to the project.  The original ColoredConsoleAppender only works on Windows because it calls Win32 APIs.
+I don't really like that fact because I use <a href="http://mono-project.com/">Mono</a> under 
+<a href="http://fedora.redhat.com/">Linux</a>.  However, I remember from my good old <a href="http://www.bbsdocumentary.com/">BBS days</a> that you could use ANSI escape codes to do fun colors.  These also
+work under Linux as that's what you use to colorize your prompts (something I'm a fan of as it allows
+me to easily see what system I'm on).
+</p>
+<p>
+With a little bit of hacking out comes <a href="/projects/personal/log4net/AnsiColoredConsoleAppender.cs">AnsiColoredConsoleAppender</a>.  This little puppy works just like the regular ColoredConsoleAppender
+except that it works under Linux and MacOSX.  Oh yeah, and you've got a new tag,
+<my:verbatim>attrs</my:verbatim> instead of adding on HighIntensity to the
+<my:verbatim>foreColor</my:verbatim> tag.  In addition, you have lots more values for the
+<my:verbatim>attrs</my:verbatim> tag such as
+<my:verbatim>Bright</my:verbatim>,
+<my:verbatim>Dim</my:verbatim>,
+<my:verbatim>Underscore</my:verbatim>,
+<my:verbatim>Blink</my:verbatim>,
+<my:verbatim>Reverse</my:verbatim>,
+<my:verbatim>Hidden</my:verbatim>, or
+<my:verbatim>Strikethrough</my:verbatim>.  Try it out and send me feedback.
+</p>

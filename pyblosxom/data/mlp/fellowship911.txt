@@ -1,0 +1,17 @@
+Fellowship 9/11
+
+<!-- Date: 2004-10-12 20:15 -->
+<p>
+I discovered <a href="http://www.fellowship911.com/">Fellowship 9/11</a> today.
+It's humorous, especially if you tend to think that Michael Moore may be full
+of poo.  Also, whats really cool that <a href="http://mplayerplug-in.sourceforge.net/">mplayerplug-in</a> lets it play just fine in Linux.  Yay for video
+and stuff.  Also, and upgraded version of a <a href="http://www.real.com/linux/">Real Player for Linux</a> seems to handle it fine.  I suggest going for the
+QuickTime stream as Mplayerplug-in lets you save it for later.  Like bubble
+gum on the bedpost overnight.
+</p>
+<p>
+Also, this post further highlights my problems with needed a better blogging
+system than Pyblosxom.  I'm sure there have been other MLP like posts in my
+blog, but I don't remember where I put them and couldn't decided where to
+put this, so I just made a new category.
+</p>

@@ -1,0 +1,69 @@
+Faster Transcoding on AMD Athlon 64's
+
+<!-- Date: 2006-01-13 11:18 -->
+<p>
+If you're running MythTV on an Athlon 64 platform, you've probably
+noticed that the CPU throttles itself down when transcoding and cutting
+commercials despite the fact that your processor may show as being
+100% utilized.  This results in much slower transcoding than one would
+normally expect, but saves a small amount of power.
+</p>
+<p>
+However, if you record a lot of stuff, or even a moderate amount of stuff
+in HD, this property and increased delay can be quite annoying.  It can take several extra hours to cut and
+transcode an hour long HDTV program when running at 1.2GHz instead of 2.4GHz (my analysis shows
+a greater then 2.5x slowdown - which is weird in itself).  First, let's cover the reason
+you system slow down, and then we'll cover what to do about it.
+</p>
+<p>
+Processors take a lot of power - most of that power is dissipated as heat
+because of the resistance in the CPU.  Slowly, <a href="http://www.amd.com/">AMD</a> and <a href="http://www.intel.com/">Intel</a> are realizing that people
+don't want extra heaters in their living room/office, that powering all of these computers puts a real dent in your wallet, and that most of the energy is wasted because the processor is idle anyway.  The solution?  Create not only more effecient processors,
+but also allow processors that throttle back to conserve power when they're not being fully
+utilized.  On the Athlon 64 platform this is called
+"<a href="http://www.amd.com/us-en/Processors/ProductInformation/0,,30_118_9485_9487%5E10272,00.html">Cool'n'Quiet</a>"
+and has been available since the Winchester core chips.
+</p>
+<p>
+Cool'n'Quiet works with a couple of different parts: a Cool'n'Quiet enabled
+processor, a Cool'n'Quiet enabled motherboard, and a software program that
+manages it all.  If you're running a socket 939 Athlon 64, you've almost
+certainly got the first two.  Under Linux, you can directly control the CPU
+power state through the <my:verbatim>proc</my:verbatim> file system, or you can have a
+daemon process, such as <my:verbatim>powernowd</my:verbatim>, manage it for you.  <a
+href="http://www.ubuntu.com/">Ubuntu</a> installs <my:verbatim>powernowd</my:verbatim> automatically and starts it for you, so out of the box you're getting
+some of the benefits of this technology.
+</p>
+<p>
+However, <my:verbatim>powernowd</my:verbatim> is configured to not take into
+account nice processes.  Normally, this is fine, nice processes can afford to
+run a bit slower, that's why they're nice in the first place.  Unfortunately,
+it is only set up to consider nice processes as a group and can't differentiate between a process that can't take advantage of increase speed and one that can, such as transcoding.  And, as you've probably guessed
+by now, to minimize interference with other programs, <a href="http://www.mythtv.org/">MythTV</a> runs transcoding and commercial flagging processes as nice.
+To speed them up all we need to do is tell <my:verbatim>powernowd</my:verbatim>
+to take into account nice processes.
+</p>
+<p>
+In Ubuntu, this is really straight forward.  Most startup scripts for daemons
+look in the <my:verbatim>/etc/default</my:verbatim> directory for local
+configuration overrides.  By default <my:verbatim>powernow</my:verbatim> is
+run with only the <my:verbatim>-q</my:verbatim> flag, telling it to be quiet.
+If we also pass the <my:verbatim>-n</my:verbatim> flag, it will take nice
+processes into account when deciding whether or not to throttle the processor.
+The solution, create a file <my:verbatim>/etc/default/powernowd</my:verbatim>
+with a single line in it:
+</p>
+<pre>OPTIONS="-q -n"</pre>
+<p>
+Then issue the command <my:verbatim>/etc/init.d/powernowd restart</my:verbatim>
+and your computer will no longer throttle itself when transcoding and commercial
+flagging.  Enjoy the increased speed of transcoding and happy MythTVing.
+</p>
+<my:tags>
+	<my:tag>MythTV</my:tag>
+	<my:tag>Ubuntu</my:tag>
+	<my:tag>transcoding</my:tag>
+	<my:tag>powernow</my:tag>
+	<my:tag>powernowd</my:tag>
+	<my:tag>power saving</my:tag>
+</my:tags>

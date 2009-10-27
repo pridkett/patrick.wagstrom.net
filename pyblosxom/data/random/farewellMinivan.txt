@@ -1,0 +1,66 @@
+Farewell to You Minivan
+
+<!-- Date: 2004-09-12 20:11 -->
+<p>
+Well, the van is dead.  It proved to be a good vehicle and had a good life.
+In the end it just couldn't keep up, and in the words of my Dad, I was supposed
+to "shoot it and put it out of it's misery".  With $500 of engine repair and
+$1300 or tranny repair and more costs to get it licensed in Pennsylvania,
+I had to give up.  It had a lived a nice good life.
+</p>
+<!-- <div style="text-align: center;">
+<a href="/resources/images/blog/farewellVanMileage.jpg"><img
+ src="/resources/images/blog/farewellVanMileageThumb.jpg" width="200"
+ height="71" alt="final van mileage"/><br />Final van Mileage</a>
+</div>
+-->
+<my:imagestrip>
+	<my:image src="/resources/images/blog/farewellVanMileageThumb.jpg"
+	          width="200" height="71" alt="final van mileage"
+	          caption="Final van Mileage"
+	          href="/resources/images/blog/farewellVanMileage.jpg"/>
+</my:imagestrip>
+<p>
+I decided to take a few pictures of the vehicle to give me something to
+remember it by.  In the end, it was good vehicle, lasted me for a little over
+four years, during which time I put about 60,000 miles on it.  It was able
+to get me here to Pittsburgh, and was able to get Kristina and I to and from
+Texas for the wedding and all.  Here are some pictures of it as it was being
+taken away.
+</p>
+<my:imagestrip>
+	<my:image src="/resources/images/blog/farewellVan1Thumb.jpg"
+	          width="200" height="150" alt="The van sitting there"
+	          href="/resources/images/blog/farewellVan1.jpg"
+	          caption="The immobile van"/>
+
+	<my:image src="/resources/images/blog/farewellVan2Thumb.jpg"
+	          width="200" height="150" alt="Loading the van up"
+	          href="/resources/images/blog/farewellVan2.jpg"
+	          caption="Hoisting it up"/>
+
+	<my:image src="/resources/images/blog/farewellVan3Thumb.jpg"
+	          width="200" height="150" alt="Driving away with the van"
+	          href="/resources/images/blog/farewellVan3.jpg"
+	          caption="Towing it away"/>
+</my:imagestrip>
+<!--
+<div style="text-align: center;">
+ <a href="/resources/images/blog/farewellVan1.jpg"><img
+ src="/resources/images/blog/farewellVan1Thumb.jpg" width="200" height="150"
+ alt="The van sitting there"/></a>
+ <a href="/resources/images/blog/farewellVan2.jpg"><img
+ src="/resources/images/blog/farewellVan2Thumb.jpg" width="200" height="150"
+ alt="Loading the van up"/></a>
+ <a href="/resources/images/blog/farewellVan3.jpg"><img
+ src="/resources/images/blog/farewellVan3Thumb.jpg" width="200" height="150"
+ alt="Driving away with the van"/></a>
+</div>
+-->
+<p>
+In related news, we're going to go looking for a new car next weekend.  No word
+on whether or not we're going to buy one or not.  If anyone knows of any good
+dealers in Pittsburgh (or has references about the dealers on Liberty ave),
+let us know.  Unfortunately, we're basically confined to the Liberty avenue
+dealers as they're the only ones withing walking distance.
+</p>

@@ -1,0 +1,15 @@
+Motorola DCT 6200 Firewire Workaround
+
+<!-- Date: 2005-11-10 18:48 -->
+<p>
+I wrote a <a href="http://cvs.mythtv.org/trac/changeset/7836">patch</a> for <a href="http://www.mythtv.org/">MythTV</a>
+that fixes some of the issues with a DCT 6200 being on a system where node 1 is not established.  This is useful
+for folks like me have multiple firewire ports on their PCs.   I feel ownership in MythTV now.  Woot.
+</p>
+<my:tags>
+	<my:tag>mythtv</my:tag>
+	<my:tag>code</my:tag>
+	<my:tag>oss</my:tag>
+	<my:tag>firewire</my:tag>
+	<my:tag>dct6200</my:tag>
+</my:tags>

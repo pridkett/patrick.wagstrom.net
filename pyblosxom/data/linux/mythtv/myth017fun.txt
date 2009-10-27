@@ -1,0 +1,36 @@
+Myth 0.17 Fun
+
+<!-- Date: 2005-03-03 15:33 -->
+<p>
+Now that my system has some reasonable hard drive, I've been working on other
+bells and whistles with <a href="http://www.mythtv.org/">MythTV</a>.  After
+the 0.17 upgrade I found that my remote no longer worked, mainly because I
+forgot to tell Myth to compile with <a href="http://www.lirc.org/">LIRC</a>
+support.  I decided since I was flubbing around, I might as well upgrade my
+system kernel to the K7 kernel (my mythbox is an Athlon 700).  This went well,
+but somewhere along the line (I think before the upgrade) the alsa drivers for
+my SB!Live card got toasted.  Oddly enough, I can load the driver, but I don't
+get any sound out of the system.  If I unload the <my:verbatim>snd_emu10k1</my:verbatim>
+driver and stop alsa and load the OSS <my:verbatim>emu10k1</my:verbatim>
+then stuff seems to work okay in OSS mode.  Still a pain.  Because the system
+is basically only a Myth Box this should work okay.
+</p>
+<p>
+Long story short on all these problems is that I need to document what I've
+been doing better.  Specifically the fact that I'm not using the LIRC kernel
+driver for my remote, I'm using the Linux input layer.  This caused me endless
+frustration especially when I saw that LIRC refused to create valid kernel
+modules for the system.
+</p>
+<p>
+I also hacked around some of my startup scripts so the system is dead simple
+to use now.  Basically when the computer starts up it starts a GDM session
+first, and another XSession just for Myth afterwards.  I'll post some of that
+on how I did it in my <a href="/tutorials/">tutorials</a> section sometime
+next week.
+</p>
+<p>
+With regards to 0.17, it's quite nice.  I especially like the time speedup
+option for viewing programs.  While 1.5x starts to be a little annoying, 
+watching Conan at 1.2x normal speed is really nice.
+</p>

@@ -1,0 +1,20 @@
+    </div>
+    <div id="footer">
+      #if $getVar("startEntry",-1) >= 0 and $startEntry+10 <= $numEntries
+         #set $nextLink="/start/" + str($startEntry+10)
+         <a href="$CGI_URL$actions$nextLink">&#171; Older Entries</a> |
+      #end if
+
+      Copyright &copy; 1998-2008 Patrick Wagstrom
+      #if $getVar("startEntry",0) != 0
+         #set $start = max($startEntry-10,0)
+         #if $start > 0
+           #set $startLink="/start/" + str($start)
+         #else
+           #set $startLink=""
+         #end if
+         | <a href="$CGI_URL$actions$startLink">Newer Entries &#187;</a>
+      #end if
+    </div>
+  </body>
+</html>

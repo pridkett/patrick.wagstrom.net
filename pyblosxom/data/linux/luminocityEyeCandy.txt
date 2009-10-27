@@ -1,0 +1,25 @@
+Holy X Windows Eye Candy Batman!
+
+<!-- Date: 2005-03-23 22:05 -->
+<p>
+The Uber cool <a href="http://www.gnome.org/~seth/">Seth Nickell</a>, previously
+of <a href="http://www.gnome.org/~seth/blog/storage-speaking-notes">storage</a>
+fame has released some <a href="http://www.gnome.org/~seth/blog//xshots">AMAZING videos of what's coming up in the desktop
+for Linux</a>.
+</p>
+<p>
+To sum it up in a nutshell, Owen Taylor, of GTK fame, has written a cracktastic
+GL compositing X server where everything is rendered as a GL texture, ala
+Mac OS X.  This allows us to do all sorts of cool stuff with the desktop, just
+like Mac OS X does.  Also, he shows off some of the really cool progress that
+is being made in integrating <a href="http://www.gtk.org/">GTK</a> with
+<a href="http://cairographics.org/">Cairo</a> for great vector rendering on
+the Linux desktop.  Go watch to videos.  Grab the
+<a href="http://www.theora.org/">theora</a> versions for extra goodness.
+</p>
+<my:tags>
+	<my:tag>linux</my:tag>
+	<my:tag>luminocity</my:tag>
+	<my:tag>x</my:tag>
+	<my:tag>desktop</my:tag>
+</my:tags>

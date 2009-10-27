@@ -1,0 +1,13 @@
+EditCSS for Firebird
+
+<!-- Date: 2003-11-21 20:31 -->
+<p>
+I just stubled across a neat enhancement for <a
+href="http://www.mozilla.org/products/firebird/">Firebird</a>.  <a
+href="http://editcss.mozdev.org/index.html">Edit CSS</a> allows you to edit the
+CSS of a web page on the fly.  It's great for when you want to see either how a
+web page did something or you want to change something in your web page.  If I
+still did full time web development this would be my new best friend.  You can
+find more information at <a
+href="http://editcss.mozdev.org/">http://editcss.mozdev.org/</a>.
+</p>

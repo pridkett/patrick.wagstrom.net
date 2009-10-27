@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type="text/xsl" href="/resources/xslt/page.xsl"?>
+<my:doc xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"
+	xmlns:my="http://patrick.wagstrom.net/xml/webpage/1"
+	xmlns="http://www.w3.org/1999/xhtml"
+	title="Resume"
+	style="default"
+	revision="$Revision: 1.3 $">
+
+<my:infobox title="So you wanna hire me?">
+<p>
+Either that or you're just curious about who I am.  Well, I'm not really looking for a job right now because I just started
+work on Ph.D.  Maybe in the future when I'm closer to being done with my Ph.D. or when I need something to do on a lazy
+Sunday afternoon I'll work on putting my resume back up.
+</p>
+</my:infobox>
+
+<my:infobox title="Curriculum Vitae">
+<p>
+This has a little higher priority than the resume.  I'll get this going when stuff calms down in a few weeks here.  Brief info goes something like this.
+Graduated with High honors with three bachelor of science degrees from Illinois
+Institute of Technology in May of 2002 (Computer Science, Computer Engineering,
+Electrical Engineering).  Graduated with a master of science in Computer Science
+degree from Illinois Institute of Technology in July of 2003.
+</p>
+<p>
+Currently enrolled in the Ph.D. program in Engineering and Public Policy in
+Center for the Computational Analysis of Social and Organizational Systems
+at Carnegie Mellon University.  My first year was funded under an NSF IGERT
+grant.  Years 2 through 4 (2004-2007) will be funded through an NSF Graduate
+Research Fellowship.
+</p>
+</my:infobox>
+
+
+<my:links>
+	<my:link name="home" url="/"/>
+	<my:link name="resume" url="/resume/"/>
+	<my:link name="photos" url="/photos/"/>
+	<my:link name="weblog" url="/weblog/"/>
+	<my:link name="wedding" url="/wedding/"/>
+</my:links>
+</my:doc>

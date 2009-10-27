@@ -1,0 +1,25 @@
+I Guess I'm the MCatalog Maintainer
+
+<!-- Date: 2006-05-09 18:46 -->
+<img src="/resources/images/blog/mcatalogWebLogo.png" width="264" height="55" alt="MCatalog: Multimedia Catalog" align="right" style="margin-top: 10px"/>
+<p>
+Apparently some of my original emails to Cesar, the author of
+<a href="https://secure.wagstrom.net/projects/mcatalog/">MCatalog</a> got
+lost in transit, or his replies did, or something.  Anyway, after my
+requests, Cesar asked if I would like to maintain MCatalog, I agreed
+to the task.  So that will make my branch of MCatalog more or less the
+official trunk of MCatalog.
+</p>
+<p>
+I wish I could say something like "To celebrate the momentus occassion,
+I present to you MCatalog 0.3," but I can't.  I had a few <a href="https://secure.wagstrom.net/projects/mcatalog/milestone/0.3">issues marked for 0.3</a>,
+but when they were all resolved it didn't feel like a new release.  At least,
+not a jump from 0.2 to 0.3, maybe a 0.2.1 release or something.  So, I went
+and added more stuff to my todo list of 0.3.  Anyway, look for a release in
+the next few weeks.  Also, please download it, try it out, and give it some
+love.  It compiles pretty easily once you've added the <my:verbatim>mono-dev</my:verbatim> package in <a href="http://www.ubuntu.com/">Ubuntu</a> Dapper.
+</p>
+<my:tags>
+	<my:tag>mcatalog</my:tag>
+</my:tags>
+

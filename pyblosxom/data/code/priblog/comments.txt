@@ -1,0 +1,17 @@
+Comments Added
+
+<!-- Date: 2005-09-24 14:15 -->
+<p>
+Priblog is fast on it's way to Dogfood state.  I've just implemented comments
+into the system.  It's not pretty by any stretch of the imagination, but
+it seems to work just fine.  They're all foaf-enabled, so you can still have
+all your fun by pulling up information for users through the XML interfaces.
+In addition, the comment interface is entity agnostic, meaning that that
+roughly the same comment system will be used for photos and links too once
+I get a chance to add them.  Woot.
+</p>
+<my:tags>
+	<my:tag>priblog</my:tag>
+	<my:tag>python</my:tag>
+	<my:tag>comments</my:tag>
+</my:tags>

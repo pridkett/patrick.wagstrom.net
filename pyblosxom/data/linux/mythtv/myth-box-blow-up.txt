@@ -1,0 +1,70 @@
+My MythTV Box Blew Up
+
+<!-- Date: 2005-11-07 15:18 -->
+<p>
+While not entirely true, that's the gist of what happened.  Last Sunday, October 30th, the machine
+was hanging a lot.  After lots of cussing, I decided just to shut the machine off and banish it to
+the corner for a while.  When I got back the machine wouldn't post and was making a funky smell.
+I'm still not sure if it's the motherboard, processor, or power supply.  I hope it's just the power
+supply.
+</p>
+<p>
+In any case, it provided a nice excuse to upgrade my computer with new toys.  All of the cards and
+drives inside the computer were fine.  Unfortunately, I couldn't reuse much of the other components such as memory, or rather chose not to
+reuse much of it.  Here's what I got for the new computer:
+</p>
+<ul>
+	<li>AMD Athlon 64 3200+ (Venice core)</li>
+	<li>MSI K8N-Neo4 Platinum Motherboard</li>
+	<li>XFX GeForce 6600 (256MB ram)</li>
+	<li>1GB Ram</li>
+	<li>Antec Overture II Media Center Case</li>
+</ul>
+<p>
+Since then I've been fighting to get everything working again.  But it looks like it's all basically
+going.  We were able to watch the high-definition version of
+<a href="http://www.imdb.com/title/tt0198781/">Monsters Inc.</a> with little problem.  The DVD player
+and remote work fine.  I even have it controlling the cable box so we can record digital cable or
+high definition right from the cable box.  Tonight I'm going to get <a href="http://www.pchdtv.com/">pcHDTV card</a> working on it, provided that
+I can actually get XvMC to work properly.  I'm working on a thorough writeup on how to get MythTV
+working in this sorta setup, and I'll post it soon.
+</p>
+<p>
+In the mean time, here are some pictures of the system as I built it and put it in the entertainment
+center.  For reference on what the old setup looked like, you may want to see these pictures: <a href="http://patrick.wagstrom.net/resources/images/blog/mythTVBox.jpg">old mythtv box</a>, <a href="http://patrick.wagstrom.net/resources/images/blog/mythTVSetup.jpg">old entertainment center</a>.
+</p>
+<my:imagestrip>
+        <my:image src="/resources/images/blog/newMythClosedCase.thumb.jpg"
+                width="200" height="150" alt="MythTV Box"
+                href="/resources/images/blog/newMythClosedCase.jpg"
+                caption="Antec Overture II case before being loaded up with components"/>
+	<my:image src="/resources/images/blog/newMythOpenedCase.thumb.jpg"
+		width="200" height="150" alt="Opened Case"
+		href="/resources/images/blog/newMythOpenedCase.jpg"
+		caption="The inside of the case is still remarkably roomy compared to many desktop and media center cases"/>
+	<my:image src="/resources/images/blog/newMythMessyCables.thumb.jpg"
+		width="200" height="150" alt="Cables"
+		href="/resources/images/blog/newMythMessyCables.jpg"
+		caption="Messy cables behind the entertainment center"/>
+	<my:image src="/resources/images/blog/newMythEntertainmentCenter.thumb.jpg"
+		width="200" height="150" alt="In the entertainment center"
+		href="/resources/images/blog/newMythEntertainmentCenter.jpg"
+		caption="At home in the entertainment center watching Monsters, Inc in high definition"/>
+</my:imagestrip>
+<p><b>Update 11/08/2005:</b> I started writing this yesterday, but didn't donwload the
+photos until this morning.  In the mean time I've managed to get XvMC working
+by beating it into submission using a brute force method.  This means that HDTV
+is more or less working, but I can tell that my disk I/O is hurting.  It may
+be time to invest in that large RAID 5 array soon.
+</p>
+<my:tags>
+	<my:tag>mythtv</my:tag>
+	<my:tag>linux</my:tag>	
+	<my:tag>new hottness</my:tag>
+	<my:tag>old and busted</my:tag>
+	<my:tag>antec</my:tag>
+	<my:tag>television</my:tag>
+	<my:tag>media center</my:tag>
+	<my:tag>athlon64</my:tag>
+	<my:tag>ubuntu</my:tag>
+</my:tags>

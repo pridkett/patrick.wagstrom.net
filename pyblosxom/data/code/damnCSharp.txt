@@ -1,0 +1,11 @@
+Idiocy with C#
+
+<!-- Date: 2004-04-24 21:47 -->
+<p>
+I just wasted three hours of my life debugging some C# code because what should
+have been <my:verbatim>public class RandomString</my:verbatim> was only marked
+as <my:verbatim>class RandomString</my:verbatim>.  This meant it worked fine
+when it was linked into the main program, but didn't like being in a seperate
+assembly.  So remember kids, the <my:verbatim>public</my:verbatim> statement is
+important.
+</p>

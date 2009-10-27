@@ -1,0 +1,26 @@
+MythTV Talk @ WPLUG - Saturday June 4th, 10am - 2pm
+
+<!-- Date: 2005-05-31 13:51 -->
+<p>
+This is just a little post to pimp my own talk at
+<a href="http://www.wplug.org/">WPLUG</a> this weekend.  On Saturday I'll be
+giving a talk about <a href="http://www.mythtv.org/">MythTV</a> and the
+alphabet soup of standards and regulations that accompany it, including
+NSTC, ATSC, MPEG, and more!  I'll also talk a little bit about the broadcast
+flag and why we still need to be on the look out for future similar legislation.
+</p>
+<p>
+For those that are interested in seeing a live system, I'll have it running on
+both my laptop and my desktop while there.  We won't be able to play with live
+TV but you should get a feel for the other features of the system.  If you've
+got particular issues you'd like me to talk about, shoot me an email and I'll
+try to work them in.
+</p>
+<b>Rough Schedule</b><br />
+<b>10:00am - 11:00am</b> - Doors open and donuts<br />
+<b>11:00am - 12:15pm</b> - MythTV talk<br />
+<b>12:15pm - 2:00pm</b> - Geeks talking and eating pizza<br/>
+<my:tags>
+	<my:tag>wplug</my:tag>
+	<my:tag>mythtv</my:tag>
+</my:tags>

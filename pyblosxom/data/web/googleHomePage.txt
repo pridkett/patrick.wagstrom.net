@@ -1,0 +1,14 @@
+Today's New Google Toy
+
+<!-- Date: 2005-07-06 08:52 -->
+<p>
+It appears that <a href="http://www.google.com/">Google</a> is well on it's path to complete
+world domination.  Earlier this year they released the excellent <a href="http://maps.google.com/">Google Maps</a>.
+About a week ago they came out with <a href="http://earth.google.com/">Google Earth</a>.  And today I see
+that they've finally come up with a suitable home page in <a href="http://www.google.com/ig">Google Personalizable Home Page</a>.
+They don't have a ton of options right now, but it suits the geek market pretty nicely.  I can't wait until they
+allow you to have the system automatically snarf random RSS feeds.
+</p>
+<p>
+All this reminds me, Google still stores everything you do on their site.  That's actually really scary.
+</p>

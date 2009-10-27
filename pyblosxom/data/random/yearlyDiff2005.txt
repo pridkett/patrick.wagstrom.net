@@ -1,0 +1,22 @@
+Yearly Home Page Update
+
+<!-- Date: 2005-07-27 13:01 -->
+<p>
+Today was the day for my yearly <a href="http://patrick.wagstrom.net/">homepage
+update</a>.  The full diff of which appears below.
+</p>
+<pre>--- index.xml.old	Wed Jul 27 13:00:03 2005
++++ index.xml	Wed Jul 27 13:00:16 2005
+@@ -10,7 +10,7 @@
+ &lt;my:infobox title="A Little About Me" minheight="255"&gt;
+ &lt;p&gt;
+ &lt;img src="resources/images/me.jpg" align="left" class="margin10pxright"/&gt;
+-This is the requisite bit of information about me.  I'm a 25 year old graduate
++This is the requisite bit of information about me.  I'm a 26 year old graduate
+ student in the &lt;a href="http://www.epp.cmu.edu/"&gt;Department of Engineering and
+ Public Policy&lt;/a&gt; at &lt;a href="http://www.cmu.edu/"&gt;Carnegie Mellon
+ University&lt;/a&gt;.  I'm currently looking at various aspects of software policy,</pre>
+<my:tags>
+	<my:tag>birthday</my:tag>
+	<my:tag>blah</my:tag>
+</my:tags>

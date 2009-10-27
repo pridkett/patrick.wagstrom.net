@@ -1,0 +1,15 @@
+<my:comment>
+<my:author>Drazen</my:author>
+<my:url>urbanvine.com</my:url>
+<my:commentTime>August 11, 2007 at 20:55</my:commentTime><my:body>Thanks, you sure saved me a lot of time monkeying around with server plumbing!  <br/>
+<br/>
+Its a shame the majority of webapps think logging into your account over HTTP is fine.  To be expected though.  I once had a bitch of a time convincing an old boss at a major Telco that his CSR webapp that handled credit card data absolutely had to go over SSL.  He seemed to think it was a nice to have and was perplexed as to why I was so insistent.<br/>
+<br/>
+Are you still a fan of Tracks and GTD after using it for a while?  It looks like a pretty good system to enforce task discipline, but I'm a little wary of falling into the busywork trap (constantly creating, modifying and reorganizing overly detailed actions) without actually achieving an end result<br/>
+<br/>
+I haven't read Allen's book so I don't know if GTD addresses the issues of setting priorities between projects or of determining the relevance and reasonableness of projects towards meeting one's larger goals.<br/>
+<br/>
+I've hacked my version of Tracks to include the concept of Goals to which I associate all projects.  The Goal documents what I am trying to achieve and more importantly WHY I'm trying to achieve it.  Having the big picture and reasons for it in my face helps me stay motivated, identifies make-work projects that aren't contributing to the overall goal, and helps to prioritize between projects.<br/>
+<br/>
+RoR definitely has a low barrier to entry... about 1 hour of monkey see/monkey do and I had my rudimentary Goal enhancement.  Definitely will consider RoR for any custom webapp development, but I'll pass on the Kool-aid...</my:body>
+</my:comment>

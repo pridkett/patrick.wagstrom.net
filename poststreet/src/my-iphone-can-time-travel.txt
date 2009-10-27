@@ -1,0 +1,14 @@
+My iPhone Can Time Travel
+<!-- Date: 2008-08-14 10:21 -->
+
+<p>When the iPhone was first released it was hailed as the "Jesus Phone".  The
+one phone that would surpass all other phones and bring a new era of non-suckiness to our personal communications.  With the release of the iPhone App Store, it's only
+gotten better.  However, I believe in all the marketing about the iPhone 3G and it's new features like GPS, they forgot one tiny fact out.  It allows the user to time travel.  Witness this undoctored screenshot from <a href="http://www.inetworktest.com/">iNetworkTest</a>:
+</p>
+<my:captionimage src="/resources/images/blog/inetworktest-timetravel.png"
+width="320" height="480">Wow, I sent 256KB in -14.707 seconds!</my:captionimage>
+<my:tags>
+  <my:tag>iphone</my:tag>
+  <my:tag>fail</my:tag>
+  <my:tag>timetravel</my:tag>
+</my:tags>

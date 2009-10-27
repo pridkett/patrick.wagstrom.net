@@ -1,0 +1,73 @@
+Open Source Screencasting part 2
+<!-- Date: 2007-12-10 00:21 -->
+
+<p>
+This is a followup to my original article on <a
+href="/weblog/linux/open-source-screencasting.xml">Open Source
+Screencasting with VNC in GNOME</a> from a few days ago.  Since then,
+I've been on a bit of an adventure learning about Flex, ActionScript,
+and finding out ways that I can manage to hack on this nifty little
+program with minimal pain.
+</p>
+<p>
+The most important thing, is that I've found the <a
+href="http://www.adobe.com/products/flex/downloads/">free Flex2
+SDK</a>.  The compiler and tools appear to be written in Java, so
+they'll work just fine under Linux.  Of course, there are those that
+will be quick to note that these tools are only free as in beer, and
+not Free as in speech.  This means that if you're not a student and
+you can't get your hands on FlexBuilder for free, you can still hack
+on the code.
+</p>
+<p>
+Thanks to these tools, I've been able to start modifying the original
+code to <a href="http://www.osflash.org/fvnc/">FVNC</a> to suit my
+needs as screencasting application.  Thus far, I've added a set of
+extra parameters that can be passed in the flashVars attribute of the
+embed tag.
+</p>
+<ul>
+<li> server - a servername to populate connection list with</li>
+<li> port - port number to connect to</li>
+<li> connect - set to "true" if you'd like to autoconnect based on values from server and port variables.</li>
+<li> hide - set to "true" if you'd like the connection dialog to automatically disappear when connect is called.</li>
+<li> fit - set to "true" if fitToScreen should be automatically checked</li>
+<li> title - set to a value for a new title in the app</li>
+<li> disableServer - set to "true" to disable changing server</li>
+<li> disablePort - set to "true" to disable changing port</li>
+</ul>
+<p>
+Thus, through some interesting use of the <b>server</b>, <b>port</b>,
+<b>connect</b>, and <b>hide</b> flashVars, I can make it so opening
+the page automatically connects to the VNC instance and allows the
+user to start viewing the presentation right away (or be prompted for
+a password first).  This really has taken the resources necessary for
+a remote presentation down quite a bit.
+</p>
+<p>
+For my talks, I'll probably combine this with the free conference
+service from <a href="http://www.gizmoproject.com/">Gizmo</a>, that
+allows folks to dial in with regular phones and then listen to the
+talk and slides at the same time.  It's a pretty slick solution.  If
+only there was a nice way to include a component in the modified FVNC
+that also channeled my voice and some video, then it would be really
+great.  I'd imagine there is a way to do that using some of the nifty
+stuff in Flex2, but I'm by no means an expert in the technology.
+</p>
+<p>
+In the mean time, if folks would like my modifications, including a
+precompiled binary of the modified FVNC.swf program, you can get it by
+using git and cloning <a
+href="http://patrick.wagstrom.net/git/fvnc.git">http://patrick.wagstrom.net/git/fvnc.git</a>.
+</p>
+<my:tags>
+    <my:tag>vnc</my:tag>
+    <my:tag>presentations</my:tag>
+    <my:tag>fvnc</my:tag>
+    <my:tag>collaboration</my:tag>
+    <my:tag>netmeeting</my:tag>
+    <my:tag>screencasting</my:tag>
+    <my:tag>flex</my:tag>
+    <my:tag>flash</my:tag>
+    <my:tag>git</my:tag>
+</my:tags>

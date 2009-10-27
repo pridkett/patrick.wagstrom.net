@@ -1,0 +1,18 @@
+Me in South Park
+
+<!-- Date: 2005-05-02 22:00 -->
+<p>
+Ever wondered what a grad student like me would look like as a South Park
+character?  Well, I just designed myself.  Feel free to <a href="http://www.planearium2.de/flash/sp-studio-e.html">make your own South Park character</a>.
+</p>
+<img src="/resources/images/blog/meInSouthPark.png" width="383" height="382" alt="Life as a grad student in South Park"/>
+<p>
+Mad props to the <a href="http://planet.freedesktop.org/">planet fd.o</a>
+folk for showing me this.
+</p>
+<my:tags>
+	<my:tag>mlp</my:tag>
+	<my:tag>meme</my:tag>
+	<my:tag>southpark</my:tag>
+	<my:tag>random</my:tag>
+</my:tags>	

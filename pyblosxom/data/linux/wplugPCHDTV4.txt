@@ -1,0 +1,33 @@
+20 pcHDTV Cards on The Shelf...
+
+<!-- Date: 2005-04-25 17:53 -->
+<p>
+Ah yes, there's nothing like coming back from seminar to see that you've got
+20 <a href="http://www.pchdtv.com/">pcHDTV tuner cards</a> waiting for you in
+your office.  These were prviously written about <a href="http://patrick.wagstrom.net/weblog/linux/wplugPCHDTV.xml">here</a>, <a href="http://patrick.wagstrom.net/weblog/linux/wplugPCHDTV2.xml">here</a>, and <a href="http://patrick.wagstrom.net/weblog/linux/wplugPCHDTV3.xml">here</a>.  In any case, they're in and I've
+got a BIG ASS charge on my credit card.  Yay.
+</p>
+<p>
+For giggles, here's some photographic proof of the cards and me with them.
+Unfortunately, they come in really non-descript cardboard boxes, which makes
+me a little sad as it makes the pictures a bit more boring.
+</p>
+<my:imagestrip>
+    <my:image src="/resources/images/blog/singlePCHDTVCardZoom.thumb.jpg"
+        width="200" height="150" alt="A Single pcHDTV card"
+        href="/resources/images/blog/singlePCHDTVCardZoom.jpg"
+        caption="A single pcHDTV card"/>
+    <my:image src="/resources/images/blog/20cardsonShelf.thumb.jpg"
+        width="200" height="150" alt="20 cards on the shelf"
+        href="/resources/images/blog/20cardsonShelf.jpg"
+        caption="20 cards on the shelf"/>
+    <my:image src="/resources/images/blog/meAnd20PCHDTVCards.thumb.jpg"
+        width="200" height="150" alt="Me with 20 pcHDTV cards"
+        href="/resources/images/blog/meAnd20PCHDTVCards.jpg"
+        caption="Proof that I really do have 20 pcHDTV cards right now"/>
+</my:imagestrip>
+
+<my:tags>
+	<my:tag>wplug</my:tag>
+	<my:tag>pchdtv</my:tag>
+</my:tags>

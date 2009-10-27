@@ -1,0 +1,29 @@
+Pittsburgh from the Duquesne Incline
+
+<!-- Date: 2006-04-16 14:53 -->
+<p>
+Pittsburgh has seen some absolutely amazing weather this weekend, which
+all things considered, is quite rare.  On Saturday,
+<a href="http://kristina.wagstrom.net/">Kristina</a> and I, along with a
+couple of friends decided to ride the inclines on Mount Washington.  The
+Monongahela and Duquesne inclines both provide excellent views of the
+city and if you're a student at <a href="http://www.pitt.edu/">Pitt</a>
+or <a href="http://www.cmu.edu/">CMU</a> you get to ride for free.  At
+the top of the Duquesne incline I took a couple of pictures and then
+pieced together a panorama of the city.  I'm fairly pleased with the results,
+the coloration on the camera is a little off, but not bad for our little
+point and click camera.
+</p>
+<center>
+<a href="/resources/images/blog/pittsburghPanorama.jpg"><img src="/resources/images/blog/pittsburghPanorama.thumb.jpg" width="800" height="143" alt="Pittsburgh as viewed from the Duquesne Incline"/></a>
+</center>
+<p>
+The image is under a <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/">Creative Commons By-NonCommercial-ShareAlike license</a>.  If you'd like the full resolution image (7430x1326) or to use it for other
+purposes, email me.
+</p>
+<my:tags>
+	<my:tag>pittsburgh</my:tag>
+	<my:tag>photos</my:tag>
+	<my:tag>panorama</my:tag>
+	<my:tag>duquesne inclince</my:tag>
+</my:tags>

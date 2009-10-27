@@ -1,0 +1,16 @@
+XML Based Database Program
+
+<!-- Date: 2003-12-23 15:00 -->
+<p>
+I've started to work on a native XML database program that I can use as a backend for my weblog.  It's not
+that I dislike PyBlosxom, it's just not groovy enough for me and the simplicity is perhaps a bit too
+much for me.  I would like some more features and I saw some of the nifty stuff that <a href="http://www.syncato.org/">Syncato</a>
+can do.  Unfortunately, I'm not too keen on getting XMLDB installed.  So I might as well write my own that allows
+for XPATH queries and what not.
+</p>
+<p>
+So last night and today I started work on PriDB.  It basically loads a set of XML documents and allows you to perform XPATH queries
+on them.  The nice thing is that it's a little like a real database, in that it's client/server.  It's also easily embedable in other
+Python programs.  The client/server thing is nice because it means that I don't have to parse the XML over and over.  Which is a
+great savings when your webserver is only a 200MHz K6 that was your desktop machine when you first started college in 1997.
+</p>

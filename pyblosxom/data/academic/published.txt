@@ -1,0 +1,10 @@
+My book chapter finally was published!
+
+<!-- Date: 2004-01-29 14:39 -->
+<p>
+That's right!  Just when I thought it would never get published a book shows
+up for me today in the office.  Right there in chapter 5 is what I wrote.
+It's a little strange because it has three different affiliations listed for
+me, Argonne National Lab, Illinois Institute of Technology, and Carnegie
+Mellon Univeristy.  Anyway, go <a href="http://www.wiley.com/WileyCDA/WileyTitle/productCd-0471332887.html">buy a copy</a> or just ask to borrow mine.
+</p>

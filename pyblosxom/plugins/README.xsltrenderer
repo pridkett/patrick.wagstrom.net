@@ -1,0 +1,72 @@
+xsltrenderer.py - a simple XSLT rendering engine for pyblosxom
+
+copyright (c) 2003 by Patrick Wagstrom <wagspat@iit.edu>
+released under the GNU General Public License version 2
+[ insert GNU license here ]
+
+This is a simple little plugin that allows a pyblosxom site to send back pure
+XML documents instead of formatted HTML documents.  These documents can be
+linked to an XSLT stylesheet which will then allow advanced clients, such as
+Mozilla Firebird, to do most of the formatting on the client side.  Believe it
+or not, this means much greater flexibility on the designer end.
+
+However, as not everyone has Firebird and most of the world still uses IE,
+which doesn't have quite as good of XSLT support, there needs to be a way to
+render the pages on the server side and then send to the client.  Lucky for
+us, this is the case.
+
+In new stuff, I've added the ability to use libxslt to do the stylesheet
+translations on the server side.  This is more efficient than shelling out
+to XSLTPROC all the time.  I've left the old code in if you don't have the
+libraries installed.
+
+Also, the system now groks the XML documents it's going to output and find the
+link to the stylesheet that is embedded in them (if it's really there).  It
+then uses this to override the settings in xsltSheets.  I'm convinced there
+really isn't any good reason to continue using the xsltproc renderer method.
+
+Usage:
+
+drop xsltrenderer.py into your plugins directory and make pyblosxom load it
+
+add the following configuration variables to your config.py
+
+py['xsltFlavours']
+  and array of flavours for which the xslt renderer plugin should be used
+py['xsltBrowsers']
+  an array of regular expressions that matches browser user agents that can do
+  xslt rendering on the client side
+py['xsltEngine']
+  a string containing either 'libxslt' or 'xsltproc' to indicate rendring engine
+py['xsltSheets']
+  a dict that maps flavours to the XSLT sheets used to transform the XML.  This
+  should be updated so that in the future it is found automagically.
+py['xsltEngineParams']
+  a dict object containting a pairing of the engine parameters thatyou wish to use
+py['serverBase']
+  a string providing the root directory to the web server configuration.  This
+  is done because you'll need to use an absolute path to the XSLT stylesheet from
+  your pyblosxom template.  This allows libxslt to find the stylesheet.
+
+Here are the values that I have in my configuration:
+
+# the browsers are those based on mozilla > 1.4 (firebird > 0.6)
+py['xsltBrowsers'] = ['rv:1.[4-9]']
+py['xsltSheets'] = { 'xml' : "/home/patrick/Documents/www/resources/xslt/blog.xsl" }
+py['xsltFlavours'] = ['xml']
+py['xsltEngine'] = 'libxslt'
+py['xsltEngineParams'] = {"dynamic" : "'false'"}
+py['serverBase'] = '/home/patrick/Documents/www'
+
+Known deficiencies:
+
+The content-type on server rendered documents is forced to text/html.  For most
+cases this shouldn't be a problem, but I'd like to try doing an SVG renderer
+at some point in time, so this will need to be found from the output.
+
+Other crap in this file:
+
+In the helper directory I've included the template files that I've used for the
+flavour to generate the XML.  I've also included and XSLT file and
+corresponding stylesheet to go along with it.  This should give you a good idea
+of the capabilities of the system.

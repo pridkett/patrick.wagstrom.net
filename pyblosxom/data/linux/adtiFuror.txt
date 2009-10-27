@@ -1,0 +1,16 @@
+Ken Brown, Microsoft, and the Tooth Fairy
+
+<!-- Date: 2004-05-27 08:57 -->
+<p>
+Recently there has been a bit of a furor over the forthcominb book from the <a href="http://sourcefrog.net/weblog/issues/adti/">Alexis de Tocqueville Institution</a> (<a href="http://sourcefrog.net/weblog/issues/adti/">AdTI</a>) that touts how Linus did
+not really write the kernel.  I haven't have a chance to read the book yet, but
+would like to.  The gist that I've seen, from sources like <a href="http://www.cs.vu.nl/~ast/brown/">Andrew Tennenbaum</a> (author of Minix) and <a href="http://www.groklaw.net/article.php?story=20040523172344599">GrokLaw</a> is that
+it's pretty poorly written trash.  I agree with Martin Pool when he says that
+if <a href="http://www.wired.com/news/linux/0,1411,52973,00.html">Microsoft paid
+for this report</a> they didn't get much for their money.
+</p>
+<p>
+Anyway, the writeup on <a href="http://sourcefrog.net/weblog/issues/adti/">Martin Pool's page</a> does a good job of dissecting the book for all to enjoy.  I'm
+sure that Microsoft will trumpet this trash, so it's important that everyone be
+informed.
+</p>

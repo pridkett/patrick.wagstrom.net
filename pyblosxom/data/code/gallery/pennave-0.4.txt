@@ -1,0 +1,36 @@
+PennAve 0.4 Released Today
+
+<!-- Date: 2007-05-23 09:02 -->
+<p>
+<a href="http://pennave.sf.net/">PennAve</a>, the web gallery application that
+works in conjunction with <a href="http://www.f-spot.org/">F-Spot</a> released
+version 0.4 today.  This newest release brings a slew of new features
+including:
+</p>
+<ul>
+	<li>New user interface</li>
+	<li>Better support for internationalization</li>
+	<li>Improvements to splash intro page</li>
+	<li>Use of the much improved <a href="http://www.cherrypy.org/">CherryPy 3.0</a></li>
+	<li>Option for server side rendering of HTML</li>
+	<li>Canvas tag support for intro pages</li>
+	<li>A slew of little bug fixes</li>
+</ul>
+<p>
+I haven't gotten my <a href="http://patrick.wagstrom.net/gallery/">personal
+gallery</a> running this newest version yet, but I hope to do so in the next
+few days.  In the mean time, if you use PennAve, I highly recommend checking
+out this package for sharing your photos online.  With it, publishing a nice
+web gallery is as simple as running rsync.  PennAve natively utilizes copies of
+your F-Spot data files, leaving very little additonal work or tools for you.
+Just create a tag called "Public" and start tagging photos that you want share.
+All while retaining complete control over the presentation of your photos.
+</p>
+<my:tags>
+	<my:tag>pennave</my:tag>
+	<my:tag>oss</my:tag>
+	<my:tag>release</my:tag>
+	<my:tag>f-spot</my:tag>
+	<my:tag>gallery</my:tag>
+	<my:tag>photos</my:tag>
+</my:tags>

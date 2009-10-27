@@ -1,0 +1,27 @@
+Curling
+
+<!-- Date: 2005-03-06 20:24 -->
+<p>
+Last night Kristina and I went out with a group of folks from school to the
+<a href="http://www.rmuislandsports.org/">Robert Morris University Island
+Sports Center</a> and hung out with the <a href="http://www.pittsburghcurlingclub.com/">Pittburgh Curling Club</a>.  It was different to say the least.  I
+think every one of us fell down at least a few times.  But it was definately
+fun and I think we may consider doing it again.  At the very least, at $10 a
+person, it was a very cheap way to spend a Saturday evening.
+</p>
+<p>
+Here's two of the shots I took.  Unfortunately, I realized after I left that
+the light balance was off.  Also, the PowerShot A75 is not the best for getting
+active shots.  Oh yeah, and my batteries died during the evening.  Hopefully
+<a href="http://www.andrew.cmu.edu/~phines/">Paul</a> got some better shots.
+</p>
+<my:imagestrip>
+	<my:image src="/resources/images/blog/ameliaThrowing.thumb.jpg"
+		width="200" height="150" alt="Amelia Throwing"
+		href="/resources/images/blog/ameliaThrowing.jpg"
+		caption="Amelia throwing a stone down the lane"/>
+	<my:image src="/resources/images/blog/maryThrowing.thumb.jpg"
+		width="200" height="150" alt="Mary Throwing"
+		href="/resources/images/blog/maryThrowing.jpg"
+		caption="Mary throwing with Kristina and Vanessa sweeping"/>
+</my:imagestrip>

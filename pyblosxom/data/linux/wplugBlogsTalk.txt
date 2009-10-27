@@ -1,0 +1,16 @@
+Slides for October 15, 2005 WPLUG Talk
+
+<!-- Date: 2005-10-17 13:44 -->
+<p>
+The slides from my October 15 <a href="http://www.wplug.org/">WPLUG</a>
+talk on Blogs, XML, and lots of Acronyms are now <a href="/misc/20051015-wplug-blogs.pdf">available for download</a>.  Feel free to mirror them.  It doesn't
+say in the slides, but they're under a <a href="http://creativecommons.org/licenses/by/2.0/">Creative Commons By</a> license.
+</p>
+<my:tags>
+	<my:tag>wplug</my:tag>
+	<my:tag>presentation</my:tag>
+	<my:tag>blogs</my:tag>
+	<my:tag>cc:by</my:tag>
+	<my:tag>slides</my:tag>
+	<my:tag>talks</my:tag>
+</my:tags>

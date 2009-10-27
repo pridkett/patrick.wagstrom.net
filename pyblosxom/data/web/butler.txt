@@ -1,0 +1,29 @@
+Butler for Firefox
+
+<!-- Date: 2005-03-14 21:26 -->
+<p>
+Ah yes, the joys of an open platform bringing innovation back to the web.  It's
+really a wonder to see all the cool extensions hackers are creating for
+<a href="http://www.spreadfirefox.com/?q=affiliates&amp;id=38177&amp;t=82">FireFox</a>.  A few weeks ago I installed
+<a href="http://ackroyd.de/googlepreview/">Google Preview</a>, which provides
+very cool tumbnails of webpages on Google.  Today, I found out about
+<a href="http://greasemonkey.mozdev.org/">GreaseMonkey</a> which lets you add
+custom scripts for different webpages.  For example,
+<a href="http://www.fidelity.com/">Fidelity</a> still has some b0rkage in
+their login on Firefox in Linux (it doesn't recognize X11 as a platform so
+things don't quite work right, like research of stocks and funds).  I can go
+and hack together a script and it will automagically fix the site for me.  One
+could imagine some cool extensions for web based games, ala the cool old school
+Trade Wars 2002 scripts for Telix.
+</p>
+<p>
+But I didn't just stumble upon (which is another extension, I haven't played
+with it yet though) <a href="http://greasemonkey.mozdev.org/">GreaseMonkey</a>.
+It was discovered because I found <a href="http://diveintomark.org/">Mark
+Pilgrim's</a> great new script called
+<a href="http://diveintomark.org/projects/butler/">Butler</a>.  This little
+guy hacks up the search results for Google and removes all the ads and
+provides additional links to interesting sites.  Most cool.  I'm cotinually
+amazed by the innovation that comes out folks hacking on FireFox.  I feel very
+meek in comparasion to their geekiness.
+</p>

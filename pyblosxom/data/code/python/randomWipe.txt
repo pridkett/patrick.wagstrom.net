@@ -1,0 +1,126 @@
+RandomWipe
+
+<!-- Date: 2005-09-11 20:39 -->
+<p>
+I'm in the process of getting rid of a bunch of stuff laying around the
+house.  One of these things that I'll never use again is my Parallel Port
+zip drive.  In fact, I haven't been able to use it for the last three years
+because I lost the power supply.  Last spring, <a href="http://www.epp.cmu.edu/">my department</a> was giving away some stuff, and one of them was a zip drive.
+At the time I thought it was another parallel port one, but really it was
+a SCSI one, with the 25 pin scsi connector, which is the exact same thing
+as a parallel cable.  Anyway, long story short, I've been using the power
+supply from the SCSI drive to power my parallel port drive and then dump the
+data that's relevant back to my hard disk.
+</p>
+<p>
+Some of this stuff is personal stuff, photos from college that I already
+have stored elsewhere, letters, etc.  Some of it is old stuff from when I
+worked at <a href="http://www.lecltd.com/">LEC Ltd</a> and <a href="http://www.mypoints.com/">MyPoints</a>, and some of it is REALLY old -- like my phone
+listing from Telemate 4.22 and Telix 3.11; apparently the Gate's three lines
+were 858-8218, 858-8219, and 858-8260.  In any case, I'm not so silly
+as to think that moving the files off the disks really deletes them (see
+<a href="http://www.simson.net/clips/2003/2003.CSO.04.Hard_disk_risk.htm">this
+article by Simson Garfinkel</a> or <a href="http://news.bbc.co.uk/2/hi/technology/4229550.stm">this article from the BBC</a> for more info).
+</p>
+<p>
+Of course, the proper solution is to do <my:verbatim>dd if=/dev/random of=/dev/sda4</my:verbatim> a couple of times.  But this is really slow.  You can speed
+it up by doing <my:verbatim>dd if=/dev/urandom of=/dev/sda4</my:verbatim>, and
+just hope that no one cracks the pseudo-random nature of /dev/urandom.  But
+this still can't deal with the issue that my parallel port zip drive is REALLY
+REALLY slow.  I'm lazy, impatient, and most importantly, intolerant of my
+system coming to a crawl while dumping data to the parallel port.
+</p>
+<p>
+The next step was to try some big magnets.  My father-in-law repairs appliances
+and gave us a bunch of microwave magnetron magnets.  They're mega strong.  I
+piled them around the disks and shuffled the pile for a few minutes, but the
+disks still read.  I'm lazy, I just want to make retreiving the data
+sufficiently difficult without having to wait forever.  Enter RandomWipe.
+</p>
+<p>
+RandomWipe is a simple little python script that randomly rewrites locations
+on a disk with crap from /dev/urandom.  You can also have it write over the
+initial section of the disk too.  Really quite nice.  Here's the code for 
+RandomWipe, which I place in the public domain and disclaim all warranty on.
+Please note, only this snippet of python code below is in the public domain.
+</p>
+<pre><tt><b><font color="#0000FF">from</font></b> optparse <b><font color="#0000FF">import</font></b> OptionParser
+<b><font color="#0000FF">import</font></b> logging
+<b><font color="#0000FF">import</font></b> random
+<b><font color="#0000FF">import</font></b> sys
+
+logging<font color="#990000">.</font><b><font color="#000000">basicConfig</font></b><font color="#990000">(</font><font color="#990000">)</font>
+log <font color="#990000">=</font> logging<font color="#990000">.</font><b><font color="#000000">getLogger</font></b><font color="#990000">(</font><font color="#FF0000">"randomwipe"</font><font color="#990000">)</font>
+log<font color="#990000">.</font><b><font color="#000000">setLevel</font></b><font color="#990000">(</font>logging<font color="#990000">.</font>INFO<font color="#990000">)</font>
+
+parser <font color="#990000">=</font> <b><font color="#000000">OptionParser</font></b><font color="#990000">(</font><font color="#990000">)</font>
+parser<font color="#990000">.</font><b><font color="#000000">add_option</font></b><font color="#990000">(</font><font color="#FF0000">"-v"</font><font color="#990000">,</font><font color="#FF0000">"--verbose"</font><font color="#990000">,</font> dest<font color="#990000">=</font><font color="#FF0000">"verbose"</font><font color="#990000">,</font>
+                  help<font color="#990000">=</font><font color="#FF0000">"verbose debugging"</font><font color="#990000">,</font>
+                  action<font color="#990000">=</font><font color="#FF0000">"store_true"</font><font color="#990000">,</font> default<font color="#990000">=</font>False<font color="#990000">)</font>
+
+parser<font color="#990000">.</font><b><font color="#000000">add_option</font></b><font color="#990000">(</font><font color="#FF0000">"-m"</font><font color="#990000">,</font><font color="#FF0000">"--maxseek"</font><font color="#990000">,</font> dest<font color="#990000">=</font><font color="#FF0000">"maxseek"</font><font color="#990000">,</font>
+                  help<font color="#990000">=</font><font color="#FF0000">"maximum seek"</font><font color="#990000">,</font>
+                  action<font color="#990000">=</font><font color="#FF0000">"store"</font><font color="#990000">,</font> default<font color="#990000">=</font><font color="#993399">100000000</font><font color="#990000">)</font>
+
+parser<font color="#990000">.</font><b><font color="#000000">add_option</font></b><font color="#990000">(</font><font color="#FF0000">"-i"</font><font color="#990000">,</font><font color="#FF0000">"--iterations"</font><font color="#990000">,</font>dest<font color="#990000">=</font><font color="#FF0000">"iterations"</font><font color="#990000">,</font>
+                  help<font color="#990000">=</font><font color="#FF0000">"iterations"</font><font color="#990000">,</font>
+                  action<font color="#990000">=</font><font color="#FF0000">"store"</font><font color="#990000">,</font> default<font color="#990000">=</font><font color="#993399">100</font><font color="#990000">)</font>
+
+parser<font color="#990000">.</font><b><font color="#000000">add_option</font></b><font color="#990000">(</font><font color="#FF0000">"-b"</font><font color="#990000">,</font><font color="#FF0000">"--blocksize"</font><font color="#990000">,</font> dest<font color="#990000">=</font><font color="#FF0000">"blocksize"</font><font color="#990000">,</font> help<font color="#990000">=</font><font color="#FF0000">"blocksize"</font><font color="#990000">,</font>
+                  action<font color="#990000">=</font><font color="#FF0000">"store"</font><font color="#990000">,</font> default<font color="#990000">=</font><font color="#993399">1024</font><font color="#990000">)</font>
+
+parser<font color="#990000">.</font><b><font color="#000000">add_option</font></b><font color="#990000">(</font><font color="#FF0000">"-f"</font><font color="#990000">,</font><font color="#FF0000">"--fat"</font><font color="#990000">,</font> dest<font color="#990000">=</font><font color="#FF0000">"fatkiller"</font><font color="#990000">,</font> help<font color="#990000">=</font><font color="#FF0000">"fat"</font><font color="#990000">,</font>
+                  action<font color="#990000">=</font><font color="#FF0000">"store_true"</font><font color="#990000">,</font> default<font color="#990000">=</font>False<font color="#990000">)</font>
+<font color="#990000">(</font>options<font color="#990000">,</font> args<font color="#990000">)</font> <font color="#990000">=</font> parser<font color="#990000">.</font><b><font color="#000000">parse_args</font></b><font color="#990000">(</font><font color="#990000">)</font>
+
+<b><font color="#0000FF">if</font></b> options<font color="#990000">.</font>verbose<font color="#990000">:</font>
+    log<font color="#990000">.</font><b><font color="#000000">setLevel</font></b><font color="#990000">(</font>logging<font color="#990000">.</font>DEBUG<font color="#990000">)</font>
+
+options<font color="#990000">.</font>blocksize <font color="#990000">=</font> <b><font color="#000000">int</font></b><font color="#990000">(</font>options<font color="#990000">.</font>blocksize<font color="#990000">)</font>
+options<font color="#990000">.</font>iterations <font color="#990000">=</font> <b><font color="#000000">int</font></b><font color="#990000">(</font>options<font color="#990000">.</font>iterations<font color="#990000">)</font>
+options<font color="#990000">.</font>maxseek <font color="#990000">=</font> <b><font color="#000000">int</font></b><font color="#990000">(</font>options<font color="#990000">.</font>maxseek<font color="#990000">)</font>
+
+<b><font color="#0000FF">if</font></b> <b><font color="#0000FF">not</font></b> args<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font><font color="#990000">:</font>
+    <b><font color="#0000FF">print</font></b> <font color="#FF0000">"Usage: randomwipe [OPTIONS] device"</font>
+    sys<font color="#990000">.</font><b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#990000">)</font>
+    
+f1 <font color="#990000">=</font> <b><font color="#000000">open</font></b><font color="#990000">(</font>args<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font><font color="#990000">,</font><font color="#FF0000">"wb"</font><font color="#990000">)</font>
+f2 <font color="#990000">=</font> <b><font color="#000000">open</font></b><font color="#990000">(</font><font color="#FF0000">"/dev/urandom"</font><font color="#990000">,</font> <font color="#FF0000">"rb"</font><font color="#990000">)</font>
+
+<b><font color="#0000FF">if</font></b> options<font color="#990000">.</font>fatkiller<font color="#990000">:</font>
+    f1<font color="#990000">.</font><b><font color="#000000">seek</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">)</font>
+    f1<font color="#990000">.</font><b><font color="#000000">write</font></b><font color="#990000">(</font>f2<font color="#990000">.</font><b><font color="#000000">read</font></b><font color="#990000">(</font><font color="#993399">16</font><font color="#990000">*</font><font color="#993399">1024</font><font color="#990000">)</font><font color="#990000">)</font>
+
+<b><font color="#0000FF">for</font></b> x <b><font color="#0000FF">in</font></b> <b><font color="#000000">xrange</font></b><font color="#990000">(</font>options<font color="#990000">.</font>iterations<font color="#990000">)</font><font color="#990000">:</font>
+    <b><font color="#0000FF">if</font></b> options<font color="#990000">.</font>verbose<font color="#990000">:</font>
+        log<font color="#990000">.</font><b><font color="#000000">debug</font></b><font color="#990000">(</font><font color="#FF0000">"writing count: %d"</font><font color="#990000">,</font> x<font color="#990000">)</font>
+    <b><font color="#0000FF">if</font></b> x<font color="#990000">%</font><font color="#993399">10</font> <font color="#990000">=</font><font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">:</font>
+        log<font color="#990000">.</font><b><font color="#000000">info</font></b><font color="#990000">(</font><font color="#FF0000">"writing count: %d"</font><font color="#990000">,</font> x<font color="#990000">)</font>
+
+    f1<font color="#990000">.</font><b><font color="#000000">seek</font></b><font color="#990000">(</font>random<font color="#990000">.</font><b><font color="#000000">randint</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">,</font>options<font color="#990000">.</font>maxseek<font color="#990000">-</font>options<font color="#990000">.</font>blocksize<font color="#990000">)</font><font color="#990000">)</font>
+    f1<font color="#990000">.</font><b><font color="#000000">write</font></b><font color="#990000">(</font>f2<font color="#990000">.</font><b><font color="#000000">read</font></b><font color="#990000">(</font>options<font color="#990000">.</font>blocksize<font color="#990000">)</font><font color="#990000">)</font>
+
+f1<font color="#990000">.</font><b><font color="#000000">close</font></b><font color="#990000">(</font><font color="#990000">)</font>
+f2<font color="#990000">.</font><b><font color="#000000">close</font></b><font color="#990000">(</font><font color="#990000">)</font>
+</tt>
+</pre>
+<p>
+I've been running it using the following set of commands:
+<my:verbatim>python randomwipe.py /dev/sda4 -b 4096 -i 500 -f &amp;&amp; mount -t vfat /dev/sda4 /mnt/image &amp;&amp; umount /dev/sda4; mkfs.vfat /dev/sda4</my:verbatim>.
+This basically goes and writes 4096 bytes of random data in 500 different
+locations on the disk and additionally blows away the beginning of the file
+allocation table.  It then attempts a mount just to make sure and finally
+creates a new filesystem on the disk.  I can process a disk in about a minute
+like this with a reasonable assurance of security (what I call good enough).
+</p>
+<p>
+As an aside, if you're interested in the drives (parallel and scsi) along with
+14 100MB disks, let me know.  I give discounts to blog readers.
+</p>
+<my:tags>
+	<my:tag>python</my:tag>
+	<my:tag>security</my:tag>
+	<my:tag>code</my:tag>
+	<my:tag>randomwipe</my:tag>
+	<my:tag>zip</my:tag>
+</my:tags>

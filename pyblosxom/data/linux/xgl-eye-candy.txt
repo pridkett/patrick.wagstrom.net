@@ -1,0 +1,39 @@
+Serious Xgl Eyecandy
+
+<!-- Date: 2006-02-24 08:49 -->
+<p>
+Last year I wrote about some of the work that <a href="http://www.gnome.org/~seth/">Seth Nickell</a> was showing off regarding Luminocity, a GL acclerated fun
+fest of X.  Well, times are moving along, and now it appears we've got a spat
+on our hands between <a href="http://www.novell.com/linux/xglrelease/">Xgl from
+Novell</a>, and <a href="http://fedoraproject.org/wiki/RenderingProject/aiglx">AIGLX from Fedora/RedHat</a>.  The gist is that Fedora/RedHat thinks that Novell
+didn't do it in enough of a community fashion and has taken to bashing Xgl with
+claims like "it's too revolutionary" and the like.  Someone should tell RedHat
+that it just makes them look like asses doing that sort of stuff.  Seriously,
+Novell beat you out with XGL, they're functionally different anyway.  XGL is
+an entirely GL based X-server, AIGLX renders stuff in GL off screen.  From what
+I can tell, XGL is much closer to the future of the desktop.
+</p>
+<p>
+With that in mind, <a href="http://www.freedesktop.org/~davidr/xgl-demo1.xvid.avi">David Reveman of Novell put out an mindboggling demo</a>.  It's 58 megs of
+xvid goodness, but shows some seriously cool stuff.  There's more videos of
+the demo at the <a href="http://www.novell.com/linux/xglrelease/">Xgl page at
+Novell</a>.  Likewise, there are also some nifty <a href="http://fedoraproject.org/wiki/RenderingProject/aiglx">AIGLX videos</a>.  But I don't see a semi
+transparent Quake 3 running on the corner of a cube metaphor desktop in the latter.
+</p>
+<my:imagestrip>
+        <my:image src="/resources/images/blog/quakeCorner.thumb.jpg"
+                  width="200" height="150" alt="Accelerated, transparent Quake 3 on a Corner"
+                  href="/resources/images/blog/quakeCorner.jpg"
+                  caption="Accelrated and transparent Quake 3 on a corner!"/>
+</my:imagestrip>
+<my:tags>
+	<my:tag>xgl</my:tag>
+	<my:tag>aiglx</my:tag>
+	<my:tag>linux</my:tag>
+	<my:tag>novell</my:tag>
+	<my:tag>redhat</my:tag>
+	<my:tag>fedora</my:tag>
+	<my:tag>x</my:tag>
+	<my:tag>desktop</my:tag>
+	<my:tag>eyecandy</my:tag>
+</my:tags>

@@ -1,0 +1,72 @@
+Emacs in Full-Screen Mode
+<!-- Date: 2006-03-15 10:28 -->
+
+<p>
+Last most graduate students I'm enjoying my spring break doing work.  But hey, at least I
+don't have many meetings this week.  Most of my work has been on trying to get a paper out
+the door and finished up for a <a href="http://www.cscw2006.org/">CSCW 2006</a> this fall.
+It's a little weird trying to explain to my non-CS type friends that most CS conferences
+you submit a full paper, and it's a lot like a journal publication process.
+</p>
+<p>
+However, it's not always easy, I find that I'm pretty easily distracted, especially now that
+I just got this shiny new <a href="http://www.thinkwiki.org/wiki/Category:T43p">T43p laptop</a> from <a href="http://www.casos.cs.cmu.edu/bios/carley/carley.html">my advisor</a>.  Desperately seeking a way to make myself
+a little more productive, or maybe just kill a bit of time, I swung over to everyone's favorite
+productivity/<a href="http://del.icio.us/tag/gtd">GTD</a> site, <a href="http://www.43folders.com/">43folders</a>.   It was there that I
+read about <a href="http://www.43folders.com/2005/11/15/fake-fullscreen/">full screen mode</a>,
+and how it might be able to help me out.  On linux, you've got a couple of choices for that,
+you can run in console mode, which is really fast, but greatly restricts the amount of information
+you can have on the screen.  You can run with a lightweight window manager that puts no borders on
+the windows, such as <a href="http://www.nongnu.org/ratpoison/">ratpoison</a> -- but this would
+require me to restart my X-session, which while probably good, is not what I was looking for.
+</p>
+<p>
+Then I remembered something from <a href="http://www.burtonini.com/">Ross Burton</a>, <a href="http://www.gnome.org/">GNOME</a> hacker
+extraordinairre, <a href="http://www.burtonini.com/blog/computers/devilspie">Devil's Pie</a>.
+This little tool lets you write a bunch of s-expressions to match windows and do funky things with
+them, like minimize them, move them a particular desktop, remove them from the task list, etc.  It
+was originally intended to be a replacement for the fact that Metacity doesn't support matched
+windows like <a href="http://sawmill.sourceforge.net/">Sawfish</a> used to.  Normally you start up Devil's Pie in the background of your session
+and it watches for windows that match a set of scripts you feed it.  This little Devil's Pie
+script should take care of that:
+</p>
+<pre>;;
+;; simple devils pie to cause emacs windows to go all full screen
+;; no distractions is good!
+;;
+(if (or (contains (window_class) "emacs") (contains (window_class) "Emacs"))
+	(undecorate fullscreen))
+</pre>
+<p>
+However, this is not exactly what I wanted to do, I wanted to make Emacs full screen only when I
+told it to be full screen, not all the time.  This required some selective bash hackery to start
+up Devil's Pie with an icon click and then kill it when it had finished it's work.  This little
+script does that:
+</p>
+<pre>#!/bin/sh
+# simple script that will full-screen mode your emacs session
+# see http://www.43folders.com/2005/11/15/fake-fullscreen/
+devilspie -a $HOME/emacs/emacs-maximize.ds &amp;
+sleep 2
+kill %1 2&gt; /dev/null &gt; /dev/null
+</pre>
+<p>
+Saving these scripts as <my:verbatim>emacs/emacs-maximize.ds</my:verbatim> and
+<my:verbatim>emacs/emacs-maximize.sh</my:verbatim> should do the trick for you.  Then create
+an icon on your panel that launches the second script, and voila.  Click and full screen for
+your emacs session.
+</p>
+<p>
+I had given some thought to making an unmaximize icon, however I decided that if I maximized the
+window full screen it was probably for a very good reason, and I shouldn't make it that easy to
+unmaximize it.
+</p>
+<my:tags>
+	<my:tag>emacs</my:tag>
+	<my:tag>gtd</my:tag>
+	<my:tag>hacks</my:tag>
+	<my:tag>devil's pie</my:tag>
+	<my:tag>gnome</my:tag>
+	<my:tag>full screen mode</my:tag>
+</my:tags>
+

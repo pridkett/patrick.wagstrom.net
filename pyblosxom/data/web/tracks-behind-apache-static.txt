@@ -1,0 +1,66 @@
+Tracks Behind Apache With Non-Proxied Static Content
+
+<!-- Date: 2006-07-30 14:30 -->
+<p>
+In my <a href="/weblog/web/tracks-behind-apache.xml">previous post on setting up Tracks
+and Ruby on Rails to run behind an Apache proxy</a>, there was a bit of symlink hokerey
+that one had to do to make it serve the static content properly.  What if we didn't have
+to do that?  What if we could get by with only adding the line:
+</p>
+<pre>ActionController::AbstractRequest.relative_url_root = "/tracks"</pre>
+<p>To your <my:verbatim>~/tracks/config/environment.rb</my:verbatim> file?  Wouldn't that
+just be grand?  What if we could go beyond that and make Apache serve up all the static
+content?  It's one less component to break while proxying requests back and forth.  Well,
+we can.
+</p>
+<p>
+In additon to the ability of <my:verbatim>ProxyPass</my:verbatim> statements to direct
+requests to a remote proxy, they can also be used to deny certain URLs from a proxy.  That's
+the techinique that we'll be using here.  Previously, the configuration section of interest
+looked like this:
+</p>
+<pre>RewriteEngine on
+RewriteRule ^/tracks$ https://secure.wagstrom.net/tracks/ [R,L]
+ProxyPass /tracks/ http://127.0.0.1:3000/tracks/
+ProxyPassReverse /tracks/ http://127.0.0.1:3000/tracks/
+ProxyPreserveHost on</pre>
+<p>
+Now, we just add in some lines to Apache to let it know what URLs not to proxy and how
+to handle those urls.  Just change the section so it now appears as follows:
+</p>
+<pre>RewriteEngine on
+RewriteRule ^/tracks$ https://secure.wagstrom.net/tracks/ [R,L]
+
+RequestHeader set X_FORWARDED_PROTO 'https'
+
+ProxyPass /tracks/images !
+ProxyPass /tracks/stylesheets !
+ProxyPass /tracks/javascripts !
+ProxyPass /tracks/favicon.ico !
+Alias /tracks "/home/patrick/tracks/public/"
+&lt;Directory /home/patrick/tracks/public/&gt;
+	Options FollowSymLinks
+	Allow from all
+	Order allow,deny
+&lt;/Directory&gt;
+
+ProxyPass /tracks/ http://127.0.0.1:3000/tracks/
+ProxyPassReverse /tracks/ http://127.0.0.1:3000/tracks/
+ProxyPreserveHost on</pre>
+<p>
+The first four ProxyPass statements tell Apache not to proxy requests to <my:verbatim>/tracks/images</my:verbatim>,
+<my:verbatim>/tracks/stylesheets</my:verbatim>, <my:verbatim>/tracks/javascripts</my:verbatim>, and
+<my:verbatim>/tracks/favicon.ico</my:verbatim>.  The next six lines make it so Apache actually knows how to
+serve the static content.  You'll obviously want to replace <my:verbatim>/home/patrick/tracks/public</my:verbatim>
+with wherever your location of the Tracks public data is.  Now, restart Apache and you should have Apache
+serving the static content and Rails serving the dynamic content.  Awesome.
+</p>
+<my:tags>
+	<my:tag>apache</my:tag>
+	<my:tag>rubyonrails</my:tag>
+	<my:tag>rails</my:tag>
+	<my:tag>tracks</my:tag>
+	<my:tag>proxy</my:tag>
+	<my:tag>howto</my:tag>
+	<my:tag>web</my:tag>
+</my:tags>

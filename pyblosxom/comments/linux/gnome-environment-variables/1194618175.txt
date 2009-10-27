@@ -1,0 +1,4 @@
+<my:comment>
+<my:author>Noah</my:author>
+<my:commentTime>November 09, 2007 at 09:22</my:commentTime><my:body>I think you mean "sourcing," not symlinking... though either would work, in theory.</my:body>
+</my:comment>

@@ -1,0 +1,6 @@
+Seti@Home Fun
+
+<!-- Date: 2003-02-04 18:35 -->
+<p>
+I went a redid my little <a href="http://setiathome.ssl.berkeley.edu/">seti@home</a> script to take data off the XML version of the pages.  Also, it dumps the data into the <a href="http://www.mysql.com/">MySQL</a> database now too.  You can see more information about how I'm doing in SETI, along with my brothers, at <a href="http://patrick.wagstrom.net/misc/seti.php">http://patrick.wagstrom.net/misc/seti.php</a>.
+</p>

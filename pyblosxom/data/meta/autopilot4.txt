@@ -1,0 +1,15 @@
+AutoPilot Again
+
+<!-- Date: 2005-07-08 20:18 -->
+<p>
+Yeah, so knowing my luck no one will get a chance to read this.  I'm going out of town for
+a week or so.  With any luck I won't have internet access while I'm gone.  This means that
+scissors will be on autopilot.  This also means that it will probably crash 10 minutes after
+I leave for the airport.
+</p>
+<p>
+If you're interested in where I'm going, I'm presenting some of my research at
+<a href="http://oss2005.case.unibz.it/">OSS 2005</a> in Genoa, Italy.  <a href="http://kristina.wagstrom.net/">Kristina</a>
+is staying behind, so it's not like I've got a romantic first anniversary on the
+Italian Riviera planned.  Oh well, I'll make it up to her when I get back on the 16th.
+</p>

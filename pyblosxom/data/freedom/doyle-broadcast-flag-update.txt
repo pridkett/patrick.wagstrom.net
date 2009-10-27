@@ -1,0 +1,24 @@
+Update on Doyle and the Broadcast Flag
+
+<!-- Date: 2005-10-08 10:45 -->
+<p>
+On Thursday morning I finally managed to get through to <a href="http://www.house.gov/doyle/">Congressman
+Mike Doyle's</a> office on the issue of the broadcast flag.  For once I was even able to speak to his
+technical aide on the issue.  The basic gist that I got was that representative Doyle favors the need to
+protect copyrighted work from unauthorized distribution on the internet.  Not all that surprising given
+his stance on internet decency and censorship.
+</p>
+<p>
+On the bright side he is in favor of time shifting and allowing us to copy media for personal use.  However,
+he doesn't seem to understand the ramifications behind this.  Any sort of DRM will inevitibly be broken
+and just be a pain for innovation and home users.  I still have to get around to forwarding him the
+<a href="http://crypto.stanford.edu/DRM2002/darknet5.doc">Darknet paper</a> to better explain the problems
+with this logic.  Anyway, I'm hopeful.  But still, not ideal.
+</p>
+<my:tags>
+	<my:tag>broadcastflag</my:tag>
+	<my:tag>doyle</my:tag>
+	<my:tag>freedom</my:tag>
+	<my:tag>drm</my:tag>
+	<my:tag>politics</my:tag>
+</my:tags>

@@ -1,0 +1,8 @@
+#include $TEMPLATE_DIR+"/header.html"
+    #if $getVar('entries',None)
+      #for entry in $entries
+        #set global $entry=$entry
+        #include $TEMPLATE_DIR+"/entry.html"
+      #end for
+    #end if
+#include $TEMPLATE_DIR+"/footer.html"

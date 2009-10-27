@@ -1,0 +1,21 @@
+Bigger Myth Hard Disk
+
+<!-- Date: 2005-02-22 23:11 -->
+<p>
+On Sunday morning I ordered myself a nice little pre-passing-qualifiers
+present: a shiny new 200 GB hard drive from Staples.  After rebate I got
+it for about $40 or so.  Not a bad deal.  However, installing it was a
+royal pain.  I'm convinced that if I buy more I'm just going to get a firewire
+card and make them external.
+</p>
+<p>
+The problem resulted from the wiring in my case, which still uses ribbon ATA
+cables and how I needed to move some drives around and disable my plain 56x
+CD rom drive.   Then I made the mistake of using the MaxBlast setup software,
+which ended up blowing away my installation of GRUB.  Unfortunately, the
+Ubuntu Live-CD was providing no love when it came to reinstalling grub.  So
+I went and made a fresh Ubuntu install on the new drive, then used that to
+fix my grub for my old drive.  Much more hassle than it should be.  Fortunately,
+my system recognizes that 200GB drive in linux, even though the bios says it's
+only 137GB.  Yay.  This means 200 hours of TV.
+</p>

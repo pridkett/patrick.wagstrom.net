@@ -1,0 +1,7 @@
+<my:comment>
+<my:author>Alex</my:author>
+<my:url>www.derhofbauer.at</my:url>
+<my:commentTime>October 02, 2007 at 13:56</my:commentTime><my:body>Hi!<br/>
+<br/>
+Thanks for your hard work!</my:body>
+</my:comment>

@@ -1,0 +1,80 @@
+My Parent's TV Runs Linux
+
+<!-- Date: 2005-08-26 17:44 -->
+<p>
+My parents recently purchased a new house in the exurbs.  So far out that
+Google maps doesn't have any photos for the four highest settings.  It's
+44 miles one-way to the nearest mall.  Yup, that's the middle of nowhere.
+My Dad built a nice set of cabinets for their living room.  Including a
+a mantle over the natural gas fireplace.  When they moved in, unfortunately,
+their old TV didn't fit.  It hung over the front edge about half an inch.
+Clearly this was not acceptable.  The only rememdy, go out and buy a big
+badass flat panel TV.  And they got a nice good one, I believe its the
+<a href="http://www.amazon.com/exec/obidos/tg/detail/-/B0007WKB4G/002-3775664-1979212?v=glance">Panasonic TH-37PX50U</a>; a 37 inch widescreen plasma screen.  I'm jealous.
+</p>
+<p>
+Unfortunately, it's stuck in the stretch aspect ratio, which means that all
+4:3 content gets stretch to its 16:9 dimensions, kinda strange.  Anyway, I
+was trying to fix this by playing around in the menus when I found that there
+was option for "license".  Naturally I clicked on it.
+</p>
+<my:imagestrip>
+        <my:image src="/resources/images/blog/tvLicense1.thumb.jpg"
+                  width="200" height="150" alt="TV License 1"
+                  href="/resources/images/blog/tvLicense1.jpg"
+                  caption="License Shot 1"/>
+        <my:image src="/resources/images/blog/tvLicense2.thumb.jpg"
+                  width="200" height="150" alt="TV License 2"
+                  href="/resources/images/blog/tvLicense2.jpg"
+                  caption="License Shot 2"/>
+</my:imagestrip>
+<p>
+Here's the full text of the license, transcribed by me:
+</p>
+<pre>This product utilizes the following so called
+"open source" software:
+(1)the software which is licensed under the
+  GNU GENERAL PUBLIC LICENSE,
+(2)the software which is licensed under the
+  GNU LESSER GENERAL PUBLIC LICENSE,
+and
+(3)software developed by the third parties and
+available under certain terms and conditions.
+For the software categorized as (1) and (2),
+please refer to the terms and conditions of
+GNU GENERAL PUBLIC LICENSE and GNU LESSER GENERAL
+PUBLIC LICENSE in the following screen.
+If you wish to get further information as to
+the software, please contact the web site below.
+http://ww.am-linux.jp/dl/DTV05U</pre>
+<p>
+The problem is, I could not figure out how to get the screen to pull up
+the GPL or LGPL, which would have been kinda cool.  But alas, no dice.
+Furthermore, when visiting <a href="http://www.am-linux.jp/dl/DTV05U">http://www.am-linux.jp/dl/DTV05U</a> one is greeted with a nice 404 error.  That's
+just not cool.  I even tried switching the model from DTV05U to DTVO5U, but
+it still didn't work.  Crapola.  So then I visited <a href="http://www.am-linux.jp/">http://www.am-linux.jp/</a> which makes me wonder again, WTF is wrong with
+Japaneese people.  Really, why do those bunnies need to be there?!  I even
+followed the click stream looking for the USA software and couldn't find
+anything.  Sigh.  The Japaneese stuff is there at least.
+</p>
+<my:imagestrip>
+        <my:image src="/resources/images/blog/tvScreen1.thumb.png"
+                  width="200" height="150" alt="Homepage"
+                  href="/resources/images/blog/tvScreen1.png"
+                  caption="Am-Linux.jp home page"/>
+        <my:image src="/resources/images/blog/tvScreen2.thumb.png"
+                  width="200" height="150" alt="Click for source"
+                  href="/resources/images/blog/tvScreen2.png"
+                  caption="Click for source"/>
+        <my:image src="/resources/images/blog/tvScreen3.thumb.png"
+                  width="200" height="150" alt="No Source code?"
+                  href="/resources/images/blog/tvScreen3.png"
+                  caption="No Source code?"/>
+</my:imagestrip>
+<my:tags>
+	<my:tag>hdtv</my:tag>
+	<my:tag>gpl</my:tag>
+	<my:tag>television</my:tag>
+	<my:tag>linux</my:tag>
+	<my:tag>panasonic</my:tag>
+</my:tags>

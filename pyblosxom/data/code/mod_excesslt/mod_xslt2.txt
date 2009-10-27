@@ -1,0 +1,11 @@
+mod-xslt2
+
+<!-- Date: 2004-06-06 09:03 -->
+<p>
+Apparently I won't have to take my time to write my own version of an
+Apache XSLT handler.  Behold <a href="http://www.mod-xslt2.com/">mod-xslt2</a>.
+It seems like it does everything I want it to do.  Including using the
+<my:verbose>&lt;xsl-stylesheet ...&gt;</my:verbose> header for fetching
+XSLT sheets.  Could be a nice combination with <a href="http://pennave.sf.net/">PennAve</a>, of course, it's not difficult to put the translation in PennAve
+either.
+</p>

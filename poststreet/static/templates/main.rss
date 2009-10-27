@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    #if $singleEntry
+    <title>$weblog.title - $entries[0].title - comments</title>
+    <description>Comments </description>
+    <link>http://$SERVER_NAME$CGI_URL/$entries[0].permalink()</link>
+    <atom:link href="http://$SERVER_NAME$CGI_URL/$entries[0].permalink()/index.rss" rel="self" type="application/rss+xml"/>
+    #else
+      #if $actions
+        <title>$weblog.title (subfeed - $actions)</title>
+      #else
+        <title>$weblog.title</title>
+      #end if
+    <description>$weblog.subtitle</description>
+    <link>http://$SERVER_NAME$CGI_URL</link>
+    <atom:link href="http://$SERVER_NAME$CGI_URL$actions/index.rss" rel="self" type="application/rss+xml"/>
+    #end if 
+    <generator>PostStreet</generator>
+    <copyright>Copyright 2008 Patrick Wagstrom</copyright>
+    <language>en-us</language>
+    #set $fileExt=".xml"
+    #if $singleEntry
+    #for $comment in $entries[0].comments
+    <item>
+        <title>Comment by $comment.name at $comment.createDate</title>
+        <description>$comment.rssBody()</description>
+        <pubDate>$comment.isoPubDate()</pubDate>
+        <link>http://$SERVER_NAME$CGI_URL/$entries[0].permalink()#comment$comment.id</link>
+    </item>
+    #end for
+    #else
+    #for $entry in $entries
+    <item>
+        <title>$entry.title</title>
+        <description>$entry.rssBody()</description>
+        <pubDate>$entry.isoPubDate()</pubDate>
+        <guid>http://$SERVER_NAME$CGI_URL/$entry.permalink()</guid>
+        <link>http://$SERVER_NAME$CGI_URL/$entry.permalink()</link>
+    </item>
+    #end for
+    #end if
+  </channel>
+</rss>

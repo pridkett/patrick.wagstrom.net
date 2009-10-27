@@ -1,0 +1,18 @@
+<my:blogEntry title="$title"
+              name="$fn"
+              category="$category"
+              categoryURL="$base_url/$category"
+              permalinkURL="$base_url/$file_path.xml"
+              dateLinkURL="$base_url/$yr/$mo/$da#$fn"
+              dateFull="$dw, $month $daord, $yr"
+              dateYear="$yr"
+              dateMonth="$month"
+              dateDay="$day"
+              dateTime="$ti"
+              dateOrdinal="$daord"
+              dayName="$dw"
+              canonicalDay="$canonDay"
+              numComments="$numComments">
+$body
+$comments
+</my:blogEntry>

@@ -1,0 +1,21 @@
+Updated Style
+
+<!-- Date: 2007-03-10 21:31 -->
+<p>
+I went through and decided to give my weblog a facelift.  Originally I had
+intended it to be much more exhaustive, but I settled on something pretty
+simple for right now.  I'd still like to add the ability to leave comments
+at some point in the near future.  However, it always comes down to this
+issue of updating my Pyblosxom software, which is so incredibly branched
+from old school version 0.8, or writing new software.
+</p>
+<p>
+Anyway, if you've got comments on the new style, email them to me.  I'll
+add the ability for comments in the future.
+</p>
+<my:tags>
+	<my:tag>weblog</my:tag>
+	<my:tag>style</my:tag>
+	<my:tag>css</my:tag>
+	<my:tag>pyblosxom</my:tag>
+</my:tags>

@@ -1,0 +1,36 @@
+Fives about Ubuntu Dapper
+
+<!-- Date: 2006-03-20 08:00 -->
+<p>
+<a href="http://www.ubuntu.com/">Ubuntu</a> 06.06 (note the delay from the original 06.04), aka Dapper Drake,
+is well into development, and being as I have a shiny new laptop, I decided to give it a shot.  So,
+here's a list of five things that I like about Dapper and five things that could use some work.  Many of
+these aren't necessary Dapper specific, but they're things that I didn't do with Breezy (or Hoary, or Warty...).
+</p>
+<b>Five Things That Rock</b>
+<ol>
+<li><a href="http://raphael.slinckx.net/deskbar/">deskbar applet</a> - totally changes the way you use your computer.  Alt-F3 is your friend.</li>
+<li><a href="http://www.gnome.org/projects/NetworkManager/">NetworkManager</a></li>
+<li>Improved startup time</li>
+<li><a href="http://www.banshee-project.org/Main_Page">Banshee</a> and iPod transcoding</li>
+<li>SSHFS doesn't crash in Nautilus</li>
+</ol>
+<b>Five things that need help</b>
+<ol>
+<li>gtkmozembed needs some serious help - breaks <a href="http://developer.imendio.com/wiki/Blam">Blam!</a> and <a href="http://liferea.sourceforge.net/">Liferea</a></li>
+<li>Sleep/Hibernate not so hot on my T43p</li>
+<li>xgl halts my T43p</li>
+<li>No built in support for fingerprint scanner (but it does work)</li>
+<li>NetworkManager tends to halt sometimes - especially if I unplug the network cable</li>
+</ol>
+<p>
+Overall I'm really impressed.  I'm hoping that by the May <a href="http://www.wplug.org/">WPLUG</a> installfest
+I can have <a href="http://www.freedesktop.org/wiki/Software/Xgl">xgl</a> working and all bugs hammered out.  Of
+course, my dream for a Ubuntu focused installfest is dead because <a href="http://lwn.net/Articles/175272/">Dapper
+is delayed</a>.
+</p>
+<my:tags>
+	<my:tag>linux</my:tag>
+	<my:tag>dapper</my:tag>
+	<my:tag>ubuntu</my:tag>
+</my:tags>

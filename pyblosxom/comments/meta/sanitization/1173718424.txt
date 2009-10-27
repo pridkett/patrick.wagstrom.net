@@ -1,0 +1,6 @@
+<my:comment>
+<my:author>kenneth</my:author>
+<my:commentTime>March 12, 2007 at 12:53</my:commentTime><my:body>Hrm, maybe I should re-think what I'm posting as well as my flickr pics.<br/>
+<br/>
+Btw, I had a bad burrito and need to use your bathroom. I'm outside on your wireless, can I use the first floor john?</my:body>
+</my:comment>

@@ -1,0 +1,18 @@
+Tinyurl and LastURLs for PimpBot
+
+<!-- Date: 2003-12-03 09:59 -->
+<p>
+I wrote a couple of new plugins for PimpBot last night.  The first is a module
+that will take any URL that is posted in the channel over a certain length
+and submit it to <a href="http://tinyurl.com/">TinyURL</a> to get a tiny
+version of the URL.  The result usually comes shortly after a message as
+the bot has got to submit the request to TinyURL.  I should add some timeout
+functionality to it in case TinyURL goes down so the bot doesn't miss stuff.
+</p>
+<p>
+The second collects all the URLs posted in the channel and allows you to query
+them.  Normally this is done by typing <my:verbatim>!urls</my:verbatim>, at
+which point the most recent 10 urls will be returned.  You can also specify a
+search string, like <my:verbatim>!urls sportsbybrooks</my:verbatim> which will
+return the 10 most recent urls that contain a specific string in them.
+</p>

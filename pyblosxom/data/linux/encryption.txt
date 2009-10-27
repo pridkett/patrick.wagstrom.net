@@ -1,0 +1,12 @@
+Sign My Key Please!
+
+<!-- Date: 2004-09-14 15:31 -->
+<p>
+I've recently had the need to start using encryption again.  I've had my
+<a href="http://pgp.mit.edu:11371/pks/lookup?op=get&amp;search=0xF78EF927">current
+encryption key</a> since 2001, but never really had the need for anyone to
+sign it.  So, anyone out there want to sign my key?
+</p>
+<p>
+Then I can feel like the cool kids.
+</p>

@@ -1,0 +1,12 @@
+Curse you Dosbox!
+
+<!-- Date: 2003-11-11 23:04 -->
+<p>
+As never seems to fail, I broke down and started to play video games again.
+This time I was feeling a little retro, so out came <a
+href="http://dosbox.sourceforge.net/">dosbox</a> and some old school games that
+I actually own:
+</p>
+<img src="/resources/images/blog/wasteland.png" alt="Wasteland" width="650" height="427"/><br/>
+<img src="/resources/images/blog/masterOfMagic.png" alt="Master of Magic" width="650" height="427"/>
+

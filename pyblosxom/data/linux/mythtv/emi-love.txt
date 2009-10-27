@@ -1,0 +1,28 @@
+Electromagnetic Lovin
+
+<!-- Date: 2005-11-20 21:20 -->
+<p>
+After much frustration I've decided that no matter how many bells and
+whistles the <a href="http://www.msi.com.tw/program/products/mainboard/mbd/pro_mbd_detail.php?UID=637">MSI K8N-Neo4 Platinum</a> has, it still can't
+make up for the fact that I get some crazy bad electormagnetic interference
+when the system is under heavy load.  At first I thought it was just going to
+be on the pcHDTV HD-3000 card, but today during the Steelers game, while I was
+watching the game while it was recording and had commercial flagging running
+and the MPEG file just started to crap out.  Then blammo, MythTV died.  This
+is really annoying.  It doesn't appear to actually mess up data on the bus,
+just the ability of the tuners to pull in channels using internal tuners.
+</p>
+<p>
+After three weeks of fighting, vengeance will be mine.  I'm returning the
+board and getting a new <a href="http://www.asrock.com.tw/product/product_939Dual-SATA2.htm">ASRock 939Dual-SATA2</a> board instead.  This requires me
+to pick up a firewire card too and means that all the slots will be filled
+up from the get go.  But whatever, we'll see how this works.  I may
+have to do another return if that doesn't work well.
+</p>
+<my:tags>
+	<my:tag>mythtv</my:tag>
+	<my:tag>emi</my:tag>
+	<my:tag>msi</my:tag>
+	<my:tag>asrock</my:tag>
+	<my:tag>interference</my:tag>
+</my:tags>

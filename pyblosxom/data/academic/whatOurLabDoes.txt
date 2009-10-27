@@ -1,0 +1,8 @@
+What does CASOS do?
+
+<!-- Date: 2004-10-29 16:43 -->
+<p>
+Wired has a <a href="http://www.wired.com/news/technology/0,1282,65299,00.html?tw=wn_tophead_3">little article</a> that
+describes what CASOS does.  At the end there are a few quotes from Kathleen about making predictions with the software
+we write.
+</p>

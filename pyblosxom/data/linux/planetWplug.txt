@@ -1,0 +1,13 @@
+Hello Planet WPLUG
+
+<!-- Date: 2005-03-24 16:28 -->
+<p>
+This is just a quick note to say "hi" to anyone who reads my blog on
+<a href="http://wm-eddie.info/planet/">Planet WPLUG</a>.  I can feel all
+cool because I'm syndicated now.  Of course, now I probably won't have a
+chance to post anything for another few weeks.
+</p>
+<my:tags>
+	<my:tag>wplug</my:tag>
+	<my:tag>planet</my:tag>
+</my:tags>

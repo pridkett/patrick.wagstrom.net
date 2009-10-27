@@ -1,0 +1,21 @@
+Bittorrent On A Slow DSL Line
+
+<!-- Date: 2003-11-05 23:10 -->
+<p>
+Today the new release of <a href="http://fedora.redhat.com/">fedora</a> came
+out.  Like any good sensible people, rather than getting slashdotted, they put
+up some bittorrent releases for people to download.  Anyway, so while I was at
+school today I was getting 400k/s on both the upstream and downstream channels.
+When I went home I was only getting 8k/s download and about 16k/s upload.
+Needless to say I was not pleased.  It also was quite difficult for me to go
+look at other stuff on the net.  The problem is that my upstream communications
+were saturating the line and drowning out the necessary packets (including ACKs
+for downstream data).  When I went and I throttled the uplink to 10k/s
+magically the downstream connection jumped to 80k/s.  So the lesson, if you're
+on a DSL, throttle the upstream to slightly below your maximum throughput.
+</p>
+
+<p>
+The alternative solution is to set up a firewall to <a
+href="http://www.benzedrine.cx/ackpri.html">prioritize outgoing acks</a>.
+</p>

@@ -1,0 +1,19 @@
+MythTV Wiki
+
+<!-- Date: 2005-05-04 16:09 -->
+<p>
+I set up a <a href="http://myth.wagstrom.net/">MythTV Wiki</a> today.  I should be doing work.  But I guess
+this was a nice little distraction.  If you're a <a href="http://www.wplug.org/">WPLUGer</a> who just got
+a card stop by and help me fill in some details.
+</p>
+<p>
+I'm aware that there is already a <a href="http://www.mythtv.info/">general MythTV wiki</a> but something
+about that just bothers me.  It is of such poor quality, and really <a href="http://wikipedia.sourceforge.net/">MediaWiki</a> is so much nicer than 
+<a href="http://moinmoin.wikiwikiweb.de/">MoinMoin</a> (I'm saying this even as a <a href="http://www.python.org/">Python</a> lover).  Anyway, for folks just randomly browsing the web,
+feel free to add to it.  It's glacially slow right now.  Sorry, it's running on my 200MHz box.  I'll see
+about moving it something faster later.
+</p>
+<my:tags>
+	<my:tag>mythtv</my:tag>
+	<my:tag>wiki</my:tag>
+</my:tags>

@@ -1,0 +1,5 @@
+<my:comment>
+<my:author>cabbey</my:author>
+<my:url>http://cabbey-blog.blogspot.com/</my:url>
+<my:commentTime>October 14, 2007 at 06:39</my:commentTime><my:body>I suppose with all the Debian slant on that post it would be pointless to mention that delta rpms have been around for a number of years now, SuSE has been using them to great benefit. I think Fedora might use them now too.</my:body>
+</my:comment>

@@ -1,0 +1,31 @@
+The Prescaler Has Landed
+
+<!-- Date: 2004-08-04 16:20 -->
+<p>
+I went through and wrote a prescaler program for
+<a href="http://pennave.sf.net/">PennAve</a> yesterday and perfected it today. 
+This means that if you run PennAve on a very slow computer, you don't have
+to worry about the overhead of the CGI call every time, instead it uses
+the precached files.  This makes the program run MUCH faster, but also hides
+a lot of the coolness that was originally written into PennAve.
+</p>
+<p>
+I also took the time to make it so little snap shots of the previous and
+next image were shown when you're lookings at individual images.  I don't
+quite have the ability to jump around yet, but it should be coming.  That might
+require a bit more work.  We'll have to see.
+</p>
+<p>
+The code is still holding up quite well, but it's showing some signs of where
+I hacked too many things together.  This is especially true with some of the
+initial code to handle paths.  I'm slowly fixing all those bugs and making it
+handle everything to proper way.
+</p>
+<p>
+As far as a demo goes, I'll probably get something going soon.  I've got a
+bunch of wedding photos that I'd like to put online but just haven't had a
+chance to yet.  I'm also still waiting for a few photo CDs from the underwater
+cameras.  That should be a crap shoot in terms of quality.  When I get all
+those, I'll use PennAve as the default gallery.  This means that I'll also have
+to land the internal XSLT engine for bad browsers.
+</p>

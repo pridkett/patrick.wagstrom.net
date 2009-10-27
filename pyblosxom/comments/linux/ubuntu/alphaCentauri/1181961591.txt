@@ -1,0 +1,5 @@
+<my:comment>
+<my:author>Mark</my:author>
+<my:commentTime>June 15, 2007 at 22:39</my:commentTime><my:body>I found a working link for updates here:<br/>
+https://babelize.org/download/lokigames/updates/</my:body>
+</my:comment>

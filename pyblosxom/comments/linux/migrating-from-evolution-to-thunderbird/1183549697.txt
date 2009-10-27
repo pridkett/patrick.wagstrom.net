@@ -1,0 +1,6 @@
+<my:comment>
+<my:author>Michael Pacey</my:author>
+<my:commentTime>July 04, 2007 at 07:48</my:commentTime><my:body>I think you have Caret mode enabled and there is a known bug:<br/>
+<br/>
+http://www.go-evolution.org/FAQ#Why_does_the_message_scroll_to_the_bottom_in_the_preview_pane.3F</my:body>
+</my:comment>

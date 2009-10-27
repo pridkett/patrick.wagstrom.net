@@ -1,9 +1,0 @@
-Figuring out Bloglines Subscribers
-
-<!-- Date: 2004-12-14 21:45 -->
-<p>
-This is a bit of a lazyweb request.  Does anyone know of a way so I can
-see who the six people who subscribe to my feed on <a href="http://www.bloglines.com/">BlogLines</a>.
-If it's truly fostering a social atmosphere then you should be able to
-see who is subscribed, ala <a href="http://del.icio.us/">del.icio.us</a>.
-</p>

@@ -1,12 +1,0 @@
-<my:comment>
-<my:author>Keith</my:author>
-<my:commentTime>June 15, 2007 at 17:37</my:commentTime><my:body>Hey I'm a noob so maybe my opinion isn't valid but I've got some issues with installing Alpha Centauri - I've tryed wine, It runs and crashes first turn. I've tryed Cedega, it doesn't instal with cedega.<br/>
-<br/>
-your link  "sunsite.dk." seems to be broken.<br/>
-<br/>
-I'm not sure how to patch this thing or make it run properly, I've read your instructions and I'm not to sure i understand.<br/>
-<br/>
-Anyhelp would be great.<br/>
-<br/>
-farquan3@hotmail.com</my:body>
-</my:comment>

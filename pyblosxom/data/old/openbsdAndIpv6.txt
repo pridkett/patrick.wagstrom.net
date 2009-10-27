@@ -1,6 +1,0 @@
-OpenBSD and IPv6
-
-<!-- Date: 2003-05-21 05:28 -->
-<p>
-There used to be a good page at <a href="http://www.2600.org.au/">2600 Australia</a> about how to set up IPv6 with <a href="http://www.openbsd.org/">OpenBSD</a>, sadly that page is gone.  However, I did find a little gem from <a href="http://www.sans.org/">SANS</a> about <a href="http://www.sans.org/rr/paper.php?id=807">Building an IPv6 Firewall with OpenBSD</a>.  It looks a little up to date as it uses OpenBSD 3.0 (3.3 is the current version right now).  Anyway, when I get all mine set up all nice, I'll post a good walkthrough on how to do it.  Then I'll post another one once I get my computers behind my firewall to work over IPv6 also.
-</p>

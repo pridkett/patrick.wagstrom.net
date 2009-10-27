@@ -1,18 +1,0 @@
-<my:comment>
-<my:author>Stan Penkala</my:author>
-<my:commentTime>October 15, 2007 at 12:19</my:commentTime><my:body>I don't know if this page is still being viewed, now that we're in the Fall of 2007, but I did have a few comments based on my own experiences as a Judge of Elections for my district.<br/>
-<br/>
-That 2006 primary election was the first use of electronic machines in Allegheny County ever. Our district did not run into any problems with people voting on the machines. There are 3 districts sharing the same facility as a polling place. One of the other districts managed to screw up during initialization of their machines [RTFM - Read The F------ Manual], and they were unable to print out a zero tape. So they HAD to use paper ballots until the machine techs could get to them and reset their machine.<br/>
-<br/>
-With the very light turnout, our election crew were able to learn how the machines worked without the pressure of a "normal" general election. We even tried to use the "vision-impaired" voter option. If at all possible, avoid using this option. The instructions are not clear, and the voter has to have enough vision to push several color-coded buttons, and the voting review process resulted in canceling prior selections.<br/>
-<br/>
-The "lack of a voter verifiable paper trail" is a bogus issue. There was no "verifiable paper trail" at any time in the past with the old lever voting machines, and the PA law prohibits maintaining a chronologic record of voter's selections, as that could be correlated to a specific voter's selections by using the voter registration log.<br/>
-<br/>
-The summary votes are printed out at the end of voting on a paper tape similar to a gigantic supermarket register tape. What wasn't emphasized in training was that the machines store the summary and individual voter options both in the PEB that is returned to election headquarters AND on individual machine Flash cards, similar to the storage cards in digital cameras. Individual voter options are available to verify the summary data, but those individual voter records are scrambled in the electronic memory so there is no way of tracking which voter created which voter record [to satisfy PA law].<br/>
-<br/>
-Paperwork handling to close the election place and get materials to the election headquarters was a madhouse. A lot of the problem was the conflicting paperwork and the treatment of "conditional" ballots.<br/>
-<br/>
-With this light turnout in Spring 2006, the general election in the Fall of 2006 went smoothly, and the primary election in Spring 2007 was even easier. Paperwork instructions were improved. Election materials were reduced from multiple storage boxes to a single box with a popout handle to aid in getting the stuff back to election headquarters.<br/>
-<br/>
-Continued training and refresher courses for election officials have improved and smoothed voting procedures, so that I don't anticipate any problems with this Fall 2007 general election.</my:body>
-</my:comment>

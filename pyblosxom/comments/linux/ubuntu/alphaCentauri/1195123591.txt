@@ -1,12 +1,0 @@
-<my:comment>
-<my:author>Level 1</my:author>
-<my:commentTime>November 15, 2007 at 05:46</my:commentTime><my:body>Sorry for the double post, but theres more data.  I ran it as root and was a little more successful;  this time I got all the way to the city status screen before it crashed.  Also, no sound.<br/>
-<br/>
-error message:<br/>
-<br/>
-level1@level1-computer:~/Org$ sudo "./alpha centuari"<br/>
-X Error:  BadMatch<br/>
-  Request Major code 66 ()<br/>
-  Error Serial #531<br/>
-  Current Serial #534</my:body>
-</my:comment>

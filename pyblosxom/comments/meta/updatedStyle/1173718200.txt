@@ -1,4 +1,0 @@
-<my:comment>
-<my:author>kenneth</my:author>
-<my:commentTime>March 12, 2007 at 12:50</my:commentTime><my:body>new layout looks okay- I miss the 50 badges of doom</my:body>
-</my:comment>

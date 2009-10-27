@@ -1,6 +1,0 @@
-XServer in an applet
-
-<!-- Date: 2002-11-05 11:59 -->
-<p>
-I just found out about <a href="http://www.tam.cornell.edu/Computer/remoteaccess/weirdmind/">WeirdMind </a>.  It's a pretty cool program, combines an SSH1 client with a the <a href="http://www.jcraft.com/weirdx/index.html">WeirdX</a> Java XServer implementation.  So I can plop down an HTML file on my server and get full X access.  That's pretty sweet.  Far better than VNC, in my opinion.
-</p>

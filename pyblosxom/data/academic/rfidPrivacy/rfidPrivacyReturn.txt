@@ -1,9 +1,0 @@
-Back from Boston
-
-<!-- Date: 2003-11-19 21:38 -->
-<p>
-I got back from Boston around 6pm tonight.  Took a nap and then caught up on what <a href="http://www.mythtv.org/">MythTV</a> got in my absence.  For some reason the encoder doesn't seem to be encoding at the proper bit rate anymore.  It means I loose half the space, which is a lot when you've got a small hard disk.
-</p>
-<p>
-Anyway, the conference was great.  I learned a lot of interesting stuff and met some cool people.  I've got lots of notes that I'm going to be going through this week once I get caught up in my classes again.  I'll post em to my blog in incremental sections.
-</p>

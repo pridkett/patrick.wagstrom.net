@@ -1,11 +1,0 @@
-<my:comment>
-<my:author>pwags</my:author>
-<my:url>http://blogs.sun.com/pwags</my:url>
-<my:commentTime>March 13, 2007 at 16:28</my:commentTime><my:body>I'm disappointed.  While I can fully understand removing entries related to your wife and family, removal of other information (such a political views and opinions) from a general purpose blog is quite another.  Spot sanitizing "hot topics" after the fact makes it look like you're trying to protect your political butt for some future run at public office.<br/>
-<br/>
-Also, if you're looking at removing stuff about the reactions of refried beans and jalapeño peppers with your digestive track, how is that much different from writings about a Wii, or a mythTV box?<br/>
-<br/>
-It would seem better just to can the whole thing and start from scratch again with a single purpose instead of trying to rewrite history to match your current goals.<br/>
-<br/>
-So what is the point of your blog going to be?  A technical editorial column?  A political column?  What?</my:body>
-</my:comment>

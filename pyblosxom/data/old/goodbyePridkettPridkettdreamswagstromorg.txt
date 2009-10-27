@@ -1,6 +1,0 @@
-Goodbye pridkett [pridkett@dreams.wagstrom.org]
-
-<!-- Date: 2003-06-12 21:01 -->
-<p>
-I'm a little sad.  <a href="http://www.he.net/">Hurricane Electric</a> had to filter IRC traffic over their <a href="http://www.tunnelbroker.net/">TunnelBroker</a> IPv6 service.  Apparently some people were doing dos attacks with it.  That makes me sad, I enjoyed it because I could set my own reverse DNS. I still can for IPv6, but I just can't use IRC through IPv6 anymore.
-</p>

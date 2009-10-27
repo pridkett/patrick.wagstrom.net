@@ -1,11 +1,0 @@
-<my:comment>
-<my:author>pwags</my:author>
-<my:url>http://blogs.sun.com/pwags</my:url>
-<my:commentTime>October 15, 2007 at 10:59</my:commentTime><my:body>Under Solaris, what you're talking about is a patch for incremental RPM's and a Update Release (eg. Solaris 10 Update 4) for key frames.  <br/>
-<br/>
-Patches only contain the delta from the base package. A higher version of a patch would obviously contain all of the files from a lower version + any additional files too.  By default, patchadd archives the older files before applying the patch since bad patches happen and you do need to back out occasionally.  Unfortunately, in the patch sense, there isn't a way to clear out older versions of a patch automatically.  So, if you've installed each patch version from 01 through 12, you'll have 12 copies of redundant data laying around.<br/>
-<br/>
-Updates are a bit different.  The packages that are installed already have the patch included in them.  The patch will show up under "showrev -p" but you can't back it out.  Unfortunately again, if you apply a higher version of that patch, you're getting all of bits that are a delta from the _original_ version of the package, not a delta from the Update version of package.<br/>
-<br/>
-There's a few patches that have picked up so much stuff due to dependencies (like the Kernel Patch) that the patch gets rejuvinated.  Meaning that a base patch is required and that would be a "key frame" in a sense, and a new patch number is created and changes are made from there.  Not an optimal solution, but better than nothing.</my:body>
-</my:comment>

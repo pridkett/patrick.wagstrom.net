@@ -1,0 +1,255 @@
+/*
+ * overall default colors
+ * listed here for convenience
+ *
+ * light border color: #aaaaaa
+ * preformatted background: #ffffcc;
+ */
+
+body {
+	font-family: sans;
+}
+
+h1 {
+	color: #00003f; 
+	text-align: center;
+	margin-bottom: 0px;
+	background-color: #ddddff;
+	border: solid 1px #aaaaaa;
+	margin-top: 35px;
+	margin-bottom: 10px;
+}
+
+h2 {
+	font-size: 125%;
+	font-weight: bold;
+	color: #00003f;
+	border-bottom: dotted 1px #aaaaaa;
+}
+
+h3 {
+	font-size: 110%;
+	font-weight: bold;
+	color: #00003f;
+	border-bottom: dotted 1px #aaaaaa;
+}
+
+a {
+	color: #00009f;
+	text-decoration: underline;
+}
+
+a:visited {
+	color: #00003f;
+	text-decoration: underline;
+}
+
+a:hover {
+	background: #ffff00;
+}
+
+.infobox {
+	/* background-color: #ddddff;
+	border: 1px solid black; 
+	padding-top: -20px; */
+	margin-top: 0em;
+	margin-bottom: 2em;
+	padding-left: 1em;
+	padding-right: 1em;
+	text-align: justify;
+}
+
+.infoboxSub {
+	margin: 1em;
+}
+
+img.margin10pxright {
+	margin-right: 10px;
+}
+
+div.menubar {
+	left: 0px;
+	position: absolute;
+	width: 100%;
+	top: 0px;
+	border-bottom: 2px dotted #aaaaaa;
+	background: #ddddff;
+	text-align: right;
+}
+
+div.mainbody {
+	position: abolute;
+	margin-left: 0px;
+	padding-left: 1em;
+	padding-right: 1em;
+	width: 77%;
+	border-right: solid 1px #aaa;
+}
+
+div.sidebar {
+	position: absolute;
+	left: 77%;
+	margin-left: 2em;
+	top: 20px;
+	width: 150px;
+	list-style-type: none;
+	padding: 1em;
+	font-size: 85%;
+}
+
+div.blogEntry {
+	text-align: justify;
+}
+
+ul.sidebar {
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+	margin-bottom: 10px;
+}
+
+ul.sidebarSmall {
+	text-transform: uppercase;
+	font-size: 50%;
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+div.sidebarTitle {
+	text-transform: uppercase;
+	font-weight: bold;
+	text-align: left;
+}
+
+
+a.buttonLink {
+	color: white;
+	text-decoration: none;
+}
+
+a.buttonLink:hover {
+	background: none;
+	color: yellow;
+}
+
+.blueButton {
+	font-family: verdana, sans-serif;
+	font-size: 10px;
+	font-weight:bold;
+	text-decoration:none;
+	color: white;
+	background-color: #039;
+	border-left:1px solid #36C;
+	border-top:1px solid #36C;
+	border-right:1px solid #036;
+	border-bottom:1px solid #036;
+	padding:0px 3px 0px 3px;
+	margin:3px 0px 3px 0px;
+	text-align: center;
+	width: 6em;
+}
+
+.rssButton {
+	font-family: verdana, sans-serif;
+	font-size: 10px;
+	font-weight:bold;
+	text-decoration:none;
+	color: white;
+	background-color: #f60;
+	border-left:1px solid #C96;
+	border-top:1px solid #CA9;
+	border-right:1px solid #930;
+	border-bottom:1px solid #310;
+	padding:0px 3px 0px 3px;
+	margin:3px 0px 3px 0px;
+	text-align: center;
+	width: 6em;
+}
+
+.txtButton {
+	font-family: verdana, sans-serif;
+	font-size: 10px;
+	font-weight:bold;
+	text-decoration:none;
+	color: white;
+	background-color: #090;
+	border-left:1px solid #0C0;
+	border-top:1px solid #0F0;
+	border-right:1px solid #060;
+	border-bottom:1px solid #030;
+	padding:0px 3px 0px 3px;
+	margin:3px 0px 3px 0px;
+	text-align: center;
+	width: 6em;
+}
+
+pre {
+	background: #ffffcc;
+	margin-left: 20px;
+	margin-right: 20px;
+	border: 1px solid #aaaaaa;
+	padding-left: 1ex;
+	overflow: auto;
+}
+
+div.blogDate {
+	text-align: left;
+	font-size: 150%;
+	font-weight: bold;
+	background-color: #eeeeff;
+	border: 1px solid #aaaaaa;
+	padding-left: 1ex;
+}
+
+div.blogEntryLinks {
+	margin-bottom: 2em;
+}
+
+/*
+ * stuff for the calendar
+ */
+.calendar {
+	text-align: center;
+}
+
+.calendarDay {
+}
+
+.calendarDayToday {
+	background: #aaccaa;
+	border: solid 1px #aaaaaa;
+}
+
+.calendarDayCurrent {
+	background: #cccccc;
+	border: 1px solid #aaaaaa;
+}
+
+.calendarDayHeader {
+	font-weight: bold;
+}
+
+.calendarTitle {
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.calendarHeader {
+	border: 2px solid #ff0000;
+}
+
+.verbatim {
+	font-family: courier;
+	font-weight: bold;
+	font-size: 80%;
+	background: #fdf;
+	border: 1px solid #aaa;
+}
+
+blockquote {
+	border: 1px solid #aaaaaa;
+	padding: 2px;
+	background: #dfd;
+}
+

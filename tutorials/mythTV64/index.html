@@ -1,0 +1,1798 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:t="http://patrick.wagstrom.net/xml/tutorial/1">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>MythTV, Ubuntu, Athlon64, WinTVPVR, Comcast Digital Cable, and a pcHDTV HD-3000 in a pear tree!</title>
+<link rel="stylesheet" type="text/css" href="tutorial.css">
+<script language="javascript" type="text/javascript">
+          function setStatusIndicatorExpand(statusLayer) {
+            document.getElementById(statusLayer).innerHTML="[+]";
+          }
+          function setStatusIndicatorCollapse(statusLayer) {
+            document.getElementById(statusLayer).innerHTML="[-]";
+          }
+          function toggleLayer(whichLayer)
+          {
+            var statusLayer = whichLayer + "Status";
+            if (document.getElementById)
+            {
+              // Mozilla et al
+              var style2 = document.getElementById(whichLayer).style;
+              style2.display = style2.display=="none"? "block":"none";
+              if (style2.display == "none") {
+                  setStatusIndicatorExpand(statusLayer);
+              } else {
+                  setStatusIndicatorCollapse(statusLayer);
+              }
+            }
+            else if (document.all)
+            {
+              // MSIE
+              var style2 = document.all[whichLayer].style;
+              style2.display = style2.display=="none"? "block":"none";
+              if (style2.display == "none") {
+                  setStatusIndicatorExpand(statusLayer);
+              } else {
+                  setStatusIndicatorCollapse(statusLayer);
+              }
+            }
+            else if (document.layers)
+            {
+              // FIXME: Status indicator not properly updated for NN4...oh well...
+              // Netscape Navigator 4
+              var style2 = document.layers[whichLayer].style;
+              style2.display = style2.display=="none"? "block":"none";
+            }
+          }
+        </script>
+</head>
+<body>
+<h1>MythTV, Ubuntu, Athlon64, WinTVPVR, Comcast Digital Cable, and a pcHDTV HD-3000 in a pear tree!</h1>
+<h2>By Patrick Wagstrom</h2>
+<h2>Original November 6, 2005 last update January 27, 2006</h2>
+<h2>Overview</h2>1. <a href="#section1">Introduction</a><br>2. <a href="#section2">Hardware</a><br>3. <a href="#section3">Hardware Wiring</a><br>4. <a href="#section4">Software Requirements</a><br>5. <a href="#section5">First Things First...</a><br>6. <a href="#section6">Build Environment Setup</a><br>7. <a href="#section7">Firewire, IVTV, and Lirc, Oh My!</a><br>8. <a href="#section8">Building MythTV</a><br>9. <a href="#section9">Building MythPlugins</a><br>10. <a href="#section10">Final Configuration and Automatic Startup</a><br>11. <a href="#section11">The Finished Product</a><br><div style="background: #ffcccc; border: 3px solid black; margin: 2em; padding: 1em;">
+<b>WARNING:</b> This document is a work in progress.  Many things are likely incomplete and files
+        may not work yet.  This is a massive project to document everything.  I hope to eventually finish everything and make this a useful
+        resource.  At this point, you cannot consider this document to be a complete walkthrough on how to install MythTV on a system described
+        below.</div>
+<div class="level1" id="section-1">
+<a name="section1"></a><h1 class="sectionTitle">1. <a onclick="toggleLayer('span-1');">Introduction<span class="expandStatus" id="span-1Status">[-]</span></a>
+</h1>
+<span id="span-1">
+    <p>
+      MythTV is the ultra flexible framework for media that belongs in your
+      living room.  Originally MythTV focused on allowing a user to get TiVo
+      like functionality from their PC, but it has since expanded to a complete
+      solution for media management.  It supports a wide variety of TV tuner
+      cards included Hauppauge WinTV-PVR series and even Comcast DCT-6200
+      cable boxes over the firewire connection.
+    </p>
+    <p>
+      I first installed MythTV in May of 2003 after getting a sweet deal on a
+      Hauppauge WinTV-PVR 250.  This original version ran on RedHat 7.3 at the
+      same time as my desktop operating system.  The hardware was a relatively
+      modest AMD Athlon 700 with 768MB of ram and 45GB of hard disk.  For SDTV
+      it worked perfectly fine.
+    </p>
+    <p>
+      Over time I managed to upgrade the machine with bigger hard drives and
+      purchased an HDTV tuner card even though I couldn't really use it.  It
+      seemed like I was going to stay with this setup for a while even though
+      the HDTV didn't really work.  However, then a disaster happened.  The
+      five and a half year old system died.  It started to crash quite
+      frequently and then stopped powering on.  Suck.  Not wanting to go
+      without I shelled out about $600 to pick up a new system that actuall fit
+      well in my entertainment center.
+    </p>
+    <p>
+      I've prepared this document in an attempt to provide a comprehensive set
+      of instructions on how to get MythTV running on an Athlon64 with Ubuntu,
+      a WinTV PVR-250, pcHDTV HD-3000, and firewire connection to a Motorola
+      DCT-6200 cable box.  This is not going to be a 100% complete walkthrough
+      beacuse some things, like setting up the database, didn't have to be
+      done again.  Yes, this was not going to be an easy task.
+    </p>
+    <div class="level2" id="section-1.1">
+<a name="section1.1"></a><h2 class="sectionTitle">1.1. <a onclick="toggleLayer('span-1.1');">A Word About Notation and Navigation<span class="expandStatus" id="span-1.1Status">[-]</span></a>
+</h2>
+<span id="span-1.1">
+      <p>
+        Throughout this document you'll see certain key phrases
+        highlighted in various colors.  If you get lost, use this key
+        to figure out what they mean.
+      </p>
+      <table border="1" cellpadding="0" cellspacing="3">
+        <tr>
+<td><span class="programname">apt</span></td>
+<td>The name of a
+        specific program.  This is just to make program names stick
+        out, you should not type these at the prompt at this time
+        though.</td>
+</tr>
+        <tr>
+<td><span class="command">ls -lR</span></td>
+<td>A command you
+        should type at the command line.  Please, don't just take my
+        word for these though, make sure you understand what the
+        command is going to do first.</td>
+</tr>
+        <tr>
+<td><span class="commandRoot">modprobe ivtv</span></td>
+<td>A
+        command to be executed either as root or using
+        <span class="programname">sudo</span> to gain root access.</td>
+</tr>
+        <tr>
+<td style="width: 20em;"><div class="commandBlock">
+        <span class="commandPrompt">#</span> cd libavc1394-0.5.1
+        <br><span class="commandPrompt">libavc1394-0.5.1#</span> ./configure
+        </div></td>
+<td>A set of commands that should be typed
+        at the command line.  The stuff in bold and ending with the
+        <span class="quote">#</span> is the command prompt.  You will probably
+        see something slightly different depending on your system and
+        configuration.</td>
+</tr>
+        <tr>
+<td><span class="pathname">/etc/init.d/mythtv-backend</span></td>
+<td>A
+        specific file on the system.  Just highlighted for
+        reference.</td>
+</tr>
+        <tr>
+<td><span class="quote">universe</span></td>
+<td>Specific quoted
+        output from a program or a file.</td>
+</tr>
+        <tr>
+<td><a href="http://www.google.com/">Google!</a></td>
+<td>A
+        hyperlink</td>
+</tr>
+      </table>
+      <p>
+        Also, for brevity, some of the sections of this document are
+        hidden..  You can chose to hide or reveal various portions of
+        the document by clicking on the section headers.
+      </p>
+    </span>
+</div>
+    <div class="level2" id="section-1.2">
+<a name="section1.2"></a><h2 class="sectionTitle">1.2. <a onclick="toggleLayer('span-1.2');">Contributing to this Document<span class="expandStatus" id="span-1.2Status">[-]</span></a>
+</h2>
+<span id="span-1.2">
+      <p>
+        Eventually I'd like to set up a public subversion archive for users
+        who wish to contribute to this document.  For right now, feel free
+        to edit the XML version and send me diffs.  If you're interested,
+        you can find the <a href="tutorial.xsl">XSLT sheet here</a>, and the
+        <a href="tutorial.css">CSS sheet here</a>.  What you're reading is
+        the XML source that should have been translated by your browser
+        automagically.  If someone wants to give this some serious design
+        loving I would appreciate it.  Please email diffs to wagspat at
+        iit dot edu.
+      </p>
+    </span>
+</div>
+    <div class="level2" id="section-1.3">
+<a name="section1.3"></a><h2 class="sectionTitle">1.3. <a onclick="toggleLayer('span-1.3');">Supporting this Document<span class="expandStatus" id="span-1.3Status">[-]</span></a>
+</h2>
+<span id="span-1.3">
+      <p>
+        This document has taken a long time to prepare and the creation of
+        the nice <a href="tutorial.xsl">XSLT sheet</a> was not the most
+        straightforward of tasks.  If you find this useful, you can send
+        some money to me on paypal.  I'm
+        not trying to make a lot of money from this, but at some point it
+        would be nice if I could get a real hosting service for this.  So
+        help a brotha out.  Give me a dollar for the tip jar.
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but21.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHVwYJKoZIhvcNAQcEoIIHSDCCB0QCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYCuXLl0CZqT7aHcOQz/aqwV4yJujykY0P7Dcfb/1vjHPuXhP1LkwjvK6YQxVG37IkwQ0WkSMXVlt1p8mwbmTc5i9qgfrs0h+2Xe3ReHRRyy91dOIvVOI9ASUQkErNqS2eLfDeHf9M3yvJ5Ius14n6uK2v1VJHuiootVQTuX5Rlu6TELMAkGBSsOAwIaBQAwgdQGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQIeju3kot6tLGAgbAuDD4pWTpTYI0ro5yjFiY9eFTOcIkBIBqDUVa4IXXFshJkfTvc7HAtkANFo/nAiJs50dUjyfN//Gu4AS1z4I7s56KmAnHhp9UWC9CIbFGaelLWVei9ShFsLxMSGA+QgcnLr6hf7a5Kn2/XN/ALfnN3MlYJyw6kSlGvXyHS6UXujpNcQJY+IP6pL6hO+uiXQILkYFgxQn2vs572EoIboZChwV7p+ehWcsca0FtQTrOLIKCCA4cwggODMIIC7KADAgECAgEAMA0GCSqGSIb3DQEBBQUAMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTAeFw0wNDAyMTMxMDEzMTVaFw0zNTAyMTMxMDEzMTVaMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAwUdO3fxEzEtcnI7ZKZL412XvZPugoni7i7D7prCe0AtaHTc97CYgm7NsAtJyxNLixmhLV8pyIEaiHXWAh8fPKW+R017+EmXrr9EaquPmsVvTywAAE1PMNOKqo2kl4Gxiz9zZqIajOm1fZGWcGS0f5JQ2kBqNbvbg2/Za+GJ/qwUCAwEAAaOB7jCB6zAdBgNVHQ4EFgQUlp98u8ZvF71ZP1LXChvsENZklGswgbsGA1UdIwSBszCBsIAUlp98u8ZvF71ZP1LXChvsENZklGuhgZSkgZEwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tggEAMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADgYEAgV86VpqAWuXvX6Oro4qJ1tYVIT5DgWpE692Ag422H7yRIr/9j/iKG4Thia/Oflx4TdL+IFJBAyPK9v6zZNZtBgPBynXb048hsP16l2vi0k5Q2JKiPDsEfBhGI+HnxLXEaUWAcVfCsQFvd2A1sxRr67ip5y2wwBelUecP3AjJ+YcxggGaMIIBlgIBATCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwCQYFKw4DAhoFAKBdMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTA3MDIyMDAyNDUzMFowIwYJKoZIhvcNAQkEMRYEFDCqvxzrwWY+QeJCHNhUUreG9B4uMA0GCSqGSIb3DQEBAQUABIGAlSTYa4+ShrtET9TfJ5WY4cXZDXo+NFCXdy4bRc2HjQ+BA9cIGNoLW5nLQOx6uMLyvvr54l76MkUA0MmFmge/NzlTDCICYRKkVf1KGx6LcCWbguRWXy1BI4y+rrTfQBqM//KBEo6hvtEsVEYTkOj8m/sRTNKrAE7wH0Ok/jf4RB4=-----END PKCS7----- ">
+</form>
+      </p>
+    </span>
+</div>
+  </span>
+</div>
+<div class="level1" id="section-2">
+<a name="section2"></a><h1 class="sectionTitle">2. <a onclick="toggleLayer('span-2');">Hardware<span class="expandStatus" id="span-2Status">[-]</span></a>
+</h1>
+<span id="span-2">
+    <p>
+      When building a dedicated MythTV box, the choice of hardware is very
+      important.  While MythTV will run on almost any hardware, it never hurts
+      to make sure you get the good stuff.  That being said, here are the parts
+      that reside in the actual computer.
+    </p>
+    <ul>
+      <li>
+<a href="http://www.amd.com/">AMD</a> Athlon 64 3200+ - This
+      was basically a no brainer.  The 3200+ is the most bang for your
+      buck right now.  A recent analysis said that 3000+ was the best,
+      but I got the 3200+ for a few extra bucks.  While the Intel
+      Pentium 4 supposedly has a bit easier time decoding HDTV, it
+      also is a power hog and produces lots of heat.  I wanted a cool
+      system that didn't make a huge dent on my power bill.  Really,
+      if you think that Intel's are a better bet here, you're probably
+      deluding yourself.</li>
+      <li>
+<a href="http://www.msi.com.tw/program/products/mainboard/mbd/pro_mbd_detail.php?UID=637">MSI
+      K8N-Neo4 Platinum</a> - A motherboard with all the features.
+      Built in firewire, lots of USB ports, PCI-Express x16, dual
+      gigabit ethernet, 4x SATA ports, and 4x SATA2 ports.  It also
+      has some great settings for overclocking, which I'm not really
+      into, but it may come in handy.  The board takes a socket 939
+      processor, which means I'll be able to plop in an Athlon64x2
+      processor, which is helpful for MythTV in transcoding and
+      commercial flagging.</li>
+      <li>
+<a href="http://www.asrockamerica.com/Products/939DSATA2.htm">ASRock
+      939Dual-SATA2</a> - For a while I thought I was getting EMI
+      issues on the MSI board above, so I tried this board, which is
+      not as sophisticated instead.  It's a really simple board and
+      has only 2 SATA1 ports and a single SATA2 port.  You'll need to
+      add a firewire card for firewire support and the ethernet driver
+      is not built into the linux kernel, but I've got some help on
+      how to build it in this document.  After much testing, I
+      realized that my problem was probably disk issues when combined
+      with the DVB driver issues.  I have not resolved this problem yet.
+      </li>
+      <li>
+<a href="http://www.xfxforce.com/web/product/listConfigurationDetails.jspa?productConfigurationId=20028">XFX
+      nVidia GeForce 6600 w/256MB ram</a> - the extra memory is on the
+      off chance that I decide to play something like doom 3 on the
+      computer.  The main reason for a GeFroce is because it supports
+      XvMC, which decreases the CPU load for playing HDTV.  Important:
+      apparently there are some issues with XvMC and the nVidia 64 bit
+      drivers.  I've not gotten this to work fully yet.</li>
+      <li>
+<a href="http://www.antec.com/us/productDetails.php?ProdID=15730">Antec
+      Overture II Case</a> - When building a media center system, it
+      is important to have your system fit into your media center.  My
+      old setup was just a tower case that sat next to the
+      entertainment center.  This is a case designed for media centers
+      with pleanty of low noise fans and a sleek look that makes it
+      fit in.</li>
+      <li>1GB Kingston RAM - Nothing special about this RAM.  I didn't
+      see much of a need to go for ultra low latency or dual channel
+      ram, even though the K8N-Neo4 board supports it.</li>
+      <li>
+<a href="http://www.hauppauge.com/pages/products/data_pvr250.html">WinTV
+      PVR-250</a> - The defacto standard MythTV tuner.  Purchased from
+      CompUSA in 2003 for $99 during their Memorial Day sale.  This
+      came with a remote that I use to control MythTV.</li>
+      <li>
+<a href="http://www.pchdtv.com/">pcHDTV HD-3000</a> -
+      Excellent HDTV tuner card with support built into newer versions
+      of the Linux kernel through the DVB drivers.  I organized a
+      group buy on these and got them for $150 or so.</li>
+      <li>3x200 GB IDE Hard Disk - all of these drives were under $50
+      after rebates.  7200RPM with 8MB cache.  Pretty solid so far.
+      However, this could be part of the reason for my bottle neck in
+      performance.</li>
+    </ul>
+    <p>
+    In addition to the above parts, you're going to need a display,
+    speakers, and other fun stuff that makes a media center nice.  I
+    truthfully haven't gone that all out on these, but they do provide
+    a very nice environment.
+    </p>
+    <ul>
+      <li>Dell 2005FPW 20.1" LCD monitor - This was picked up off a <a href="http://www.fatwallet.com/">FatWallet</a> deal for a
+      little under $400 back in April.  It has a native 1680x1050
+      resolution with inputs for VGA, DVI, Svideo, and composite.
+      Overally it's a pretty nice monitor, and the 16:10 aspect ratio
+      provides for nice viewing of 4:3 ratio programming by stripping
+      off the top and bottom 10%.</li>
+      <li>Motorola DCT6200 Comcast Box - The 6200 is very well
+      supported and has DVI, svideo, composite, component, coax and
+      firewire out.  The firewire is most important as it allows you
+      to tune in the HD broadcasts or easily control the box from your
+      MythTV.</li>
+      <li>Generic speakers - one of these days I should really update
+      this system to a nice surround sound environment, my motherboard
+      supports 7.1 channel sound, so I might as well use it.</li>
+    </ul>
+  </span>
+</div>
+<div class="level1" id="section-3">
+<a name="section3"></a><h1 class="sectionTitle">3. <a onclick="toggleLayer('span-3');">Hardware Wiring<span class="expandStatus" id="span-3Status">[-]</span></a>
+</h1>
+<span id="span-3">
+    <p>
+      Hopefully I managed to not lose you in the last description of
+      hardware.  For a bit more, figure <a href="#figure-wiringDiagram">1</a>
+      shows how everything is wired up.
+    </p>
+    <a href="figures/wiringDiagram.svg"><a name="figure1"></a><a name="figure-wiringDiagram"></a><div class="figure" id="wiringDiagram"><img src="figures/wiringDiagram.png" width="" height="" alt="Wiring Diagram (click for SVG)"></div>
+<div class="figureTitle">
+      Figure 1: Wiring Diagram (click for SVG)</div></a>
+    <p>
+      Here's a brief description of how things are connected in bullted form for a
+      better explanation.
+    </p>
+    <ul>
+      <li>From the wall cable outlet I have a three way splitter
+      leading to the DCT6200, pcHDTV, and WinTV PVR250 cards.</li>
+      <li>From the DCT6200 I have the following connections made to the computer:
+        <ul>
+          <li>Firewire cable to firewire on motherboard</li>
+          <li>SVideo to PVR-250</li>
+          <li>RCA-&gt;headphone cable from audio to PVR-250</li>
+        </ul>
+      </li>
+      <li>On the computer I have the following connections:
+        <ul>
+          <li>DVI to 2005FPW monitor</li>
+          <li>IR dongle from PVR250 to 2005FPW (velcroed on)</li>
+          <li>Speaker connection from motherboard to speakers</li>
+          <li>Ethernet to WRT54G</li>
+        </ul>
+      </li>
+    </ul>
+  </span>
+</div>
+<div class="level1" id="section-4">
+<a name="section4"></a><h1 class="sectionTitle">4. <a onclick="toggleLayer('span-4');">Software Requirements<span class="expandStatus" id="span-4Status">[-]</span></a>
+</h1>
+<span id="span-4">
+    <p>
+      I'm not really the type of person who always picks the best tool
+      for the job, usually I pick what I'm familiar with, in this
+      case, we'll be using <a href="http://www.ubuntulinux.com/">Ubuntu Linux</a> version
+      2005.10 (aka Breezy Badger).  We've got a 64 bit processor, so
+      we might as well use a 64 bit operating system, right?  Most of
+      the other software choices were mades on this.  In all reality,
+      installing the 32 bit version of MythTV is MUCH easier.  Daniel
+      Hyams has an excellent writeup on <a href="http://hyams.webhop.net/mythtv/myth_ubuntu.html">installing
+      MythTV on Ubuntu i386</a>.  It involves a lot less compiling and
+      lot less work.
+    </p>
+    <p>
+      For completeness, here's a list of the main pieces of software
+      used in this guide.  Where a version is not listed, it was
+      probably the default from Ubuntu.
+    </p>
+    <ul>
+      <li>Ubuntu Linux 2005.10 (Breezy Badger)</li>
+      <li>MythTV 0.18.1</li>
+      <li>IVTV 0.4.0 Driver</li>
+    </ul>
+  </span>
+</div>
+<div class="level1" id="section-5">
+<a name="section5"></a><h1 class="sectionTitle">5. <a onclick="toggleLayer('span-5');">First Things First...<span class="expandStatus" id="span-5Status">[-]</span></a>
+</h1>
+<span id="span-5">
+    <div class="level2" id="section-5.1">
+<a name="section5.1"></a><h2 class="sectionTitle">5.1. <a onclick="toggleLayer('span-5.1');">Chicken and the Egg (ASRock 939 Dual SATA2 Only)<span class="expandStatus" id="span-5.1Status">[+]</span></a>
+</h2>
+<span style="display: none;" id="span-5.1">
+      <p>
+        The ASRock on board NIC does not work well with the stock
+        Ubuntu kernel.  This certainly creates a chicken and egg
+        problem as you need a network connection to download the new
+        driver.  If you'd like the network to work, you can download
+        <a href="files/uli526x.ko.gz">this module</a> which is
+        compiled for Ubuntu kernel 2.6.12-9.amd64-k8.  Then copy the
+        file to your root directory and run the following commands:
+      </p>
+      <div class="commandBlock">
+        <span class="commandPrompt">#</span> gzip -d /uli526x.ko
+        <br><span class="commandPrompt">#</span> mv /uli526x.ko /lib/modules/2.6.12-9-amd64-k8/kernel/drivers/net/tulip
+        <br><span class="commandPrompt">#</span> depmod
+      </div>
+      <p>
+        There is one final requirement.  Apparently the device is still not properly picked up by
+        the hotplug infrastructure.  Here's a complete and total hack you can do to get it to work.  If someone
+        knows a better way, let me know.  Open up <span class="pathname">/etc/init.d/networking</span>.  Go
+        down to the <span class="quote">start</span> function, around line 80 or so.  And add the following lines
+        at the beginning of the function:
+      </p>
+      <a name="snippet1"></a><a name="snippet-"></a><div class="snippet" id=""><pre>modprobe -r tulip
+modprobe -r uli526x
+modprobe uli526x</pre></div>
+<div class="snippetTitle">
+      Snippet 1: Stuff to add to /etc/init.d/networking</div>
+      <p>
+        This forceably removes the old drivers and reloads the drivers
+        in the correct order when starting up the network.  Like I
+        said, it's a total hack.  Also, you'll need to recompile the
+        module whenever you switch kernels.  If you're running the
+        stock 2.6.12-9-amd64-generic kernel this module might still
+        work.
+      </p>
+      <p>
+        For future reference, you can download the driver from <a href="ftp://www.uli.com.tw/driver/Linux_K2.6.x_Integrated132.zip">ULI's
+        download site</a> and recompile the driver.  I haven't found a
+        need for the other drivers yet.  Also, I've been bad and
+        haven't checked out the license on this module yet, so if
+        you're a GPL zealot, this might break stuff.  Then again,
+        later in this walkthrough you'll be installing the proprietary
+        <a href="http://www.nvidia.com/">nVidia</a> drivers.
+      </p>
+    </span>
+</div>
+    <div class="level2" id="section-5.2">
+<a name="section5.2"></a><h2 class="sectionTitle">5.2. <a onclick="toggleLayer('span-5.2');">Everything Else<span class="expandStatus" id="span-5.2Status">[-]</span></a>
+</h2>
+<span id="span-5.2">
+    <p>
+      Now that you've got your shiny new AMD64 system, you probably
+      want a kernel to take advantage of it.  Also, I'd imagine you'd
+      like to have support for your video card in X.  Ubuntu, being
+      based on Debian, uses the <span class="programname">apt</span> utility to
+      handle package dependencies and automatically download required
+      packages.  The configuration for this program in stored in
+      <span class="pathname">/etc/apt/sources.list</span>.  You need to
+      modify it to enable to universe and multiverse repositories.
+      In this file you'll see a line that looks something like this:
+    </p>
+    <a name="snippet2"></a><a name="snippet-aptCutLines"></a><div class="snippet" id="aptCutLines"><pre>
+## Uncomment the following two lines to add software from the 'universe'
+## repository.</pre></div>
+<div class="snippetTitle">
+      Snippet 2: Lines to look for in /etc/apt/sources.list</div>
+    <p>
+      Uncomment those lines, and after the word
+      <span class="quote">universe</span> add the word
+      <span class="quote">multiverse</span>.  This will give you access to the
+      full range of software available for Breezy.  If you're
+      ambitious, you might want to changing the location for mirror
+      site too.  I use <span class="quote">mirror.cs.umn.edu</span> and
+      typically have found that updates are an order of magnitude
+      faster than from the main Ubuntu sites.
+    </p>
+    <p>
+      Next, we'll tell <span class="programname">apt</span> to update the list
+      of available packages with the following command:
+
+      <span class="commandRoot">apt-get update</span>  
+
+      Now your system knows what packages are available, their
+      versions, sizes, and dependencies.  You can now begin installing
+      lots of wonderful new software.  Most of this stuff is not
+      supported by <a href="http://www.canonical.com/">Canonical</a>,
+      and may break your installation of Ubuntu.  First up, upgrading
+      the kernel, installing the packages to compile software, and
+      getting the updated drivers for your shiny nVidia video card.
+      Running this single command should take care of all that for
+      you.  Just answer yes to the prompt it gives you.
+
+      <span class="commandRoot">sudo apt-get install nvidia-glx
+      nvidia-settings nvidia-kernel-source linux-headers-amd64-k8
+      linux-image-amd64-k8 build-essential gcc-3.4
+      g++-3.4 module-assistant</span>
+
+      If you're lucky enough to have an x2 processor, add a
+      <span class="quote">-smp</span> after the <span class="quote">amd64-k8</span>
+      above.  Now, reboot to take advantage of the new kernel that is
+      customized for your AMD Athlon64 processor.  If you're running
+      an SMP system, this should also provide the support for both of
+      your processors.
+
+    </p>
+    <p>
+      However, if you're like me, there is a good chance that your
+      graphics display won't come back up.  This is because we need to
+      compile the nVidia kernel module to go along with the new
+      kernel.  Luckily, <span class="programname">module-assistant</span>, a
+      program which we installed in the last step, makes this very
+      easy.  Run the following command as root:
+      <span class="commandRoot">module-assistant</span>
+
+      Select <span class="quote">update</span>, then
+      <span class="quote">prepare</span> and finally
+      <span class="quote">select</span>.  On the select menu scroll down to
+      <span class="quote">nvidia-kernel</span>.  Highlight it with space, then
+      hit return.  Select <span class="quote">build</span> and then
+      <span class="quote">install</span>.  This should build and install the
+      module.
+
+    </p>
+    <p>
+      Now, we just make sure that the system knows to use the driver.
+      First, we'll build the new database of available modules using this command:
+      <span class="commandRoot">depmod</span>
+      After the new database of drivers is compiled, you can load the driver using following command:
+      <span class="commandRoot">modprobe nvidia</span>
+      Finally, edit <t:path>/etc/X11/xorg.conf</t:path> and scroll
+      down to the <span class="quote">Device</span> section.  Make sure it
+      says <span class="quote">Driver "nvidia"</span> rather than the old
+      <span class="quote">Driver "nv"</span>.  The <span class="quote">nv</span>
+      driver is the open source driver, while the
+      <span class="quote">nvidia</span> is the accelerated closed source
+      driver.
+
+      Finally, run the following command to enable the usage of the
+      new nVidia driver.  Reboot after this command and you should
+      have a graphical display back.  Most of the reason for this
+      problem is because the <span class="programname">nv</span> Free driver for
+      <span class="programname">Xorg</span> does not support some of the newer
+      nVidia cards.  The proprietary driver offers more features and
+      is still "free enough" for me.
+
+      <span class="commandRoot">nvidia-glx-config enable</span>
+      
+      As an alternative, if you don't want to reboot, you may be able
+      to issue the command to just restart the graphical display
+      system: 
+
+      <span class="commandRoot">/etc/init.d/gdm restart</span>
+    </p>
+    <p>
+      At this point, it might also be useful to install openssh-server
+      on your computer.  My MythTV sits in the entertainment center
+      and isn't the easiest thing to work on.  <span class="commandRoot">apt-get
+      install openssh-server</span> Now you'll be able to do
+      most of the rest of this walkthrough from a laptop or other
+      computer in your house.
+    </p>
+    </span>
+</div>
+  </span>
+</div>
+<div class="level1" id="section-6">
+<a name="section6"></a><h1 class="sectionTitle">6. <a onclick="toggleLayer('span-6');">Build Environment Setup<span class="expandStatus" id="span-6Status">[-]</span></a>
+</h1>
+<span id="span-6"> 
+    <p>
+      Before installing MythTV, you'll need to install quite a bit of
+      other software.  Unfortunately, Ubuntu doesn't even ship with a
+      compiler.  Luckily, <span class="programname">apt-get</span> makes it
+      really easy to install software.  But, before we can intsall the
+      packages, we need to tell <span class="programname">apt-get</span> where
+      it can find the packages.  This is done by enabling the universe
+      and multiverse repositories.  Ubuntu has documentation on how to
+      do this at system-&gt;help-&gt;Ubuntu 5.10 Starter Guide-&gt;Intsalling
+      Applications, point #3.  Enable these repositories and update
+      your list of avaialable files.  Then we're up to the point that
+      we can install a bunch of packages that we're going to need.
+      And yes, I mean it's a bunch.  Running the following command
+      should install everything that you'll need.  
+      
+      <span class="commandRoot">
+      apt-get install gcc g++ install liblame-dev libttf-dev
+      libqt3-mt-mysql libqt3-mt-dev libxvmc-dev lirc liblircclient-dev
+      libavc1394-dev build-essential fakeroot dpkg-dev debhelper
+      autoconf automake1.8 gcc-3.4 g++-3.4 libxxf86vm-dev mysql-server
+      mysql-client</span>
+    </p>
+    <p>
+      I cannot guarantee that this will be everything that you'll
+      need, or even that you'll need all of this, but it should get
+      you started.
+    </p>
+    <p>
+      Next up, we need to install the drivers for the nVidia card.
+      Fortunately, Ubuntu released that this was going to be a common
+      task and made it simple.  Select system-&gt;help-&gt;Ubuntu 5.10
+      Starter Guide-&gt;Hardware.  The very first question is on how to
+      install the 3D Nvidia video card driver.  Follow those steps,
+      then you'll probably want to restart your computer.  Just to be
+      sure.  You can be certain that the driver is working because
+      when X starts up you'll see a nice nVidia logo.
+    </p>
+  </span>
+</div>
+<div class="level1" id="section-7">
+<a name="section7"></a><h1 class="sectionTitle">7. <a onclick="toggleLayer('span-7');">Firewire, IVTV, and Lirc, Oh My!<span class="expandStatus" id="span-7Status">[-]</span></a>
+</h1>
+<span id="span-7">
+    <p>
+      Before getting too involved with the installation of MythTV, we
+      need to upgrade and install some drivers first.  Although Ubuntu
+      ships with firewire support, it's really old and not useful for
+      what we need.  IVTV support is right out, and as we'll see, LIRC
+      support isn't too terribly difficult.
+    </p>
+    <div class="level2" id="section-7.1">
+<a name="section7.1"></a><h2 class="sectionTitle">7.1. <a onclick="toggleLayer('span-7.1');">Firewire<span class="expandStatus" id="span-7.1Status">[-]</span></a>
+</h2>
+<span id="span-7.1">
+      <p>
+        MythTV supports the use of a DCT-6200 digital cable box as a
+        tuner for high definition television.  This is mainly because
+        the FCC has mandated that "must carry" channels be sent
+        unencrypted out the firewire port of new cable boxes.
+        Translation: you can take a firewire cable from your PC to
+        your cable box and tune in the high definition feeds for your
+        local broadcast stations.  Pretty slick.  Your other option is
+        to use the box to tune SDTV digital cable, which won't come
+        out of the firewire port, but you can still change channels
+        over the firewire connection.
+      </p>
+      <p>
+        There are three different components that we'll be working
+        with.  Unfortunately, I didn't document what you need for just
+        channel changing and what you need to do to use it as a tuner.
+      </p>
+      <t:helpwanted>If someone knows which of the below you need for
+      IEEE 1394 tuning and what you need for 6200ch to change
+      channels, let me know and I'll update it.</t:helpwanted>
+      <ul>
+        <li>libavc1394 - provides audio visual support for working
+        with IEEE 1394 (firewire) devices.</li>
+        <li>libiec61883 - provides a high level API for streaming MPEG
+        over IEEE 1394.</li>
+        <li>libraw1394 - allows for raw access to IEEE 1394 devices
+        (to change channels etc)</li>
+      </ul>
+      <p>
+        The bad part is that Ubuntu doesn't really ship with up to date version of
+        these and I could not find a source for them.  So we'll need to just go
+        download them ourselves.  The next three subsections document how to go
+        about this procedure.  In all cases, we're going to be performing a normal
+        installation and not really worrying about the Ubuntu packages.  Not good
+        form, but it seems to work well enough.
+      </p>
+      <div class="level3" id="section-7.1.1">
+<a name="section7.1.1"></a><h3 class="sectionTitle">7.1.1. <a onclick="toggleLayer('span-7.1.1');">libraw1394<span class="expandStatus" id="span-7.1.1Status">[-]</span></a>
+</h3>
+<span id="span-7.1.1">
+        <p>
+          Here's the simple order of commands to download and install
+          libraw1394.  As of this writing, the most current stable
+          release is 1.2.0.
+        </p>
+        <div class="commandBlock">
+          <span class="commandPrompt">#</span> wget http://www.linux1394.org/dl/libraw1394-1.2.0.tar.gz
+          <br><span class="commandPrompt">#</span> tar -zxvf libraw1394-1.2.0.tar.gz
+          <br><span class="commandPrompt">#</span> cd libraw1394-1.2.0
+          <br><span class="commandPrompt">libraw1394-1.2.0#</span> ./configure
+          <br><span class="commandPrompt">libraw1394-1.2.0#</span> make
+          <br><span class="commandPrompt">libraw1394-1.2.0#</span> sudo make install
+        </div>
+      </span>
+</div>
+      <div class="level3" id="section-7.1.2">
+<a name="section7.1.2"></a><h3 class="sectionTitle">7.1.2. <a onclick="toggleLayer('span-7.1.2');">libiec61883<span class="expandStatus" id="span-7.1.2Status">[-]</span></a>
+</h3>
+<span id="span-7.1.2">
+        <p>
+          This follows a very similar procedure as the one stated above.
+        </p>
+        <div class="commandBlock">
+          <span class="commandPrompt">#</span> wget http://www.linux1394.org/dl/libiec61883-1.0.0.tar.gz
+          <br><span class="commandPrompt">#</span> tar -zxvf libiec61883-1.0.0.tar.gz
+          <br><span class="commandPrompt">#</span> cd libiec61883-1.0.0
+          <br><span class="commandPrompt">libiec61883-1.0.0#</span> ./configure
+          <br><span class="commandPrompt">libiec61883-1.0.0#</span> make
+          <br><span class="commandPrompt">libiec61883-1.0.0#</span> sudo make install
+        </div>
+      </span>
+</div>
+      <div class="level3" id="section-7.1.3">
+<a name="section7.1.3"></a><h3 class="sectionTitle">7.1.3. <a onclick="toggleLayer('span-7.1.3');">libavc1394<span class="expandStatus" id="span-7.1.3Status">[-]</span></a>
+</h3>
+<span id="span-7.1.3">
+        <p>
+          Finally, we follow the same procedure for libavc1394.
+        </p>
+        <div class="commandBlock">
+          <span class="commandPrompt">#</span> wget http://umn.dl.sourceforge.net/sourceforge/libavc1394/libavc1394-0.5.1.tar.gz
+          <br><span class="commandPrompt">#</span> tar -zxvf libavc1394-0.5.1.tar.gz
+          <br><span class="commandPrompt">#</span> cd libavc1394-0.5.1
+          <br><span class="commandPrompt">libavc1394-0.5.1#</span> ./configure
+          <br><span class="commandPrompt">libavc1394-0.5.1#</span> make
+          <br><span class="commandPrompt">libavc1394-0.5.1#</span> sudo make install
+        </div>
+      </span>
+</div>
+    </span>
+</div>
+    <div class="level2" id="section-7.2">
+<a name="section7.2"></a><h2 class="sectionTitle">7.2. <a onclick="toggleLayer('span-7.2');">IVTV<span class="expandStatus" id="span-7.2Status">[-]</span></a>
+</h2>
+<span id="span-7.2">
+      <p>
+        The <a href="http://www.ivtvdriver.org/">IVTV driver</a> is
+        used by Hauppauge WinTV PVR 150/250/350/500 analog tuner
+        cards.  This driver has been in development for some time and
+        is reasonably feature complete.  For the WinTV PVR 350 line of
+        cards it also provides accelerated MPEG output to a
+        television.  However, being as I'm not using the PVR 350, that
+        issue is not addressed here.
+      </p>
+      <p>
+        The build process is really straight forward for the driver,
+        but there are some catches that you need to pay attention to.
+        Notably, it installs the drivers to the wrong directory and
+        also conflicts with one of the modules that the pcHDTV card
+        needs, but we'll tell you how to get around this.
+      </p>
+      <div class="commandBlock">
+        <span class="commandPrompt">#</span> wget http://dl.ivtvdriver.org/ivtv/archive/0.4.x/ivtv-0.4.0.tar.gz
+        <br><span class="commandPrompt">#</span> cd ivtv-0.4.0
+        <br><span class="commandPrompt">ivtv-0.4.0#</span> make
+        <br><span class="commandPrompt">ivtv-0.4.0#</span> make install
+      </div>
+      <p>
+        We're not quite there yet.  Now we need to hide some of the old
+        modules and move the new modules somewhere that
+        <span class="programname">depmod</span> can find them.
+      </p>
+      <div class="commandBlock">
+        <span class="commandPrompt">ivtv-0.4.0#</span> sudo mv /lib/modules/2.6.12-9-amd64-generic/kernel/drivers/media/video/msp3400.ko /lib/modules/2.6.12-9-amd64-generic/kernel/drivers/media/video/msp3400.ko.HIDE
+        <br><span class="commandPrompt">ivtv-0.4.0#</span> sudo mv /lib/modules/2.6.12-9-amd64-generic/kernel/drivers/media/video/tda9887.ko /lib/modules/2.6.12-9-amd64-generic/kernel/drivers/media/video/tda9887.ko.HIDE
+        <br><span class="commandPrompt">ivtv-0.4.0#</span> sudo mv /lib/modules/2.6.12-9-amd64-generic/kernel/drivers/media/video/tuner.ko /lib/modules/2.6.12-9-amd64-generic/kernel/drivers/media/video/tuner.ko.HIDE
+        <br><span class="commandPrompt">ivtv-0.4.0#</span> sudo mv /lib/modules/2.6.12-9-amd64-generic/kernel/drivers/media/video/tveeprom.ko /lib/modules/2.6.12-9-amd64-generic/kernel/drivers/media/video/tveeprom.ko.HIDE
+        <br><span class="commandPrompt">ivtv-0.4.0#</span> sudo cp -r /lib/modules/2.6.12/ivtv /lib/modules/2.6.12-9-amd64-generic
+        <br><span class="commandPrompt">ivtv-0.4.0#</span>sudo depmod -a        
+      </div>
+      <p>
+        Your driver is now installed, but you'll still need to get the
+        firmware for the driver.  There are lots of versions, and
+        while the version on your install CD will probably work, it's
+        not the ideal version.  For that, you'll need to trust me that
+        the version you can pull from the internet is better.  Here
+        are the last commands you'll need to run:
+      </p>
+      <div class="commandBlock">
+FIXME: fill in commands later
+      </div>
+      <p>
+        If everything is going okay, you should be able run the
+        command <span class="command">dmesg</span> and see a bunch of output
+        from the loading of the driver.  Here is what it looked like
+        on my computer:
+      </p>
+      <div class="commandOutput"><pre>
+[  527.049576] ivtv:  ==================== START INIT IVTV ====================
+[  527.049580] ivtv:  version 0.4.0 (tagged release) loading
+[  527.049582] ivtv:  Linux version: 2.6.12-9-amd64-k8 gcc-3.4
+[  527.049584] ivtv:  In case of problems please include the debug info
+[  527.049586] ivtv:  between the START INIT IVTV and END INIT IVTV lines when
+[  527.049587] ivtv:  mailing the ivtv-devel mailinglist.
+[  527.050711] ivtv0: Autodetected WinTV PVR 250 card (iTVC15 based)
+[  527.051113] ACPI: PCI Interrupt Link [APC2] enabled at IRQ 17
+[  527.051118] ACPI: PCI Interrupt 0000:01:07.0[A] -&gt; Link [APC2] -&gt; GSI 17 (level, low) -&gt; IRQ 17
+[  527.051124] ivtv0: Unreasonably low latency timer, setting to 64 (was 32)
+[  527.052469] ivtv0: i2c attach to card #0 ok [client=tveeprom, addr=50]
+[  527.055894] ivtv0: i2c attach to card #0 ok [client=(tuner unset), addr=61]
+[  527.057705] tuner 3-0061: chip found @ 0xc2 (ivtv i2c driver #0)
+[  527.093153] tveeprom: Hauppauge: model = 48052, rev = I110, serial# = 6124656
+[  527.093156] tveeprom: tuner = Philips FI1236 MK2 (idx = 10, type = 2)
+[  527.093159] tveeprom: tuner fmt = NTSC(M) (eeprom = 0x08, v4l2 = 0x00001000)
+[  527.093161] tveeprom: audio_processor = MSP3445 (type = 12)
+[  527.125649] saa7115 3-0021: saa7115 found @ 0x42 (ivtv i2c driver #0)
+[  527.204219] ivtv0: i2c attach to card #0 ok [client=saa7115, addr=21]
+[  527.220596] msp34xx: ivtv version
+[  527.220598] msp34xx: init: chip=MSP3445G-B8, has NICAM support, simple (D) mode, simpler (G) no-thread mode
+[  527.220602] msp34xx: $Id$ compiled on: Nov 12 2005 16:12:19
+[  527.386240] ivtv0: i2c attach to card #0 ok [client=MSP3445G-B8, addr=40]
+[  527.391827] tda9885/6/7: (ivtv) chip found @ 0x86
+[  527.700157] ivtv0: loading /lib/modules/ivtv-fw-enc.bin
+[  527.702773] ivtv0: loading /lib/modules/ivtv-fw-dec.bin
+[  527.810041] ivtv0: Encoder revision: 0x02050032
+[  527.815045] ivtv0: Decoder revision: 0x02020023
+[  527.815965] ivtv0: Allocate DMA encoder MPEG stream: 128 x 32768 buffers (4096KB total)
+[  527.816993] ivtv0: Allocate DMA encoder YUV stream: 194 x 10800 buffers (2048KB total)
+[  527.818045] ivtv0: Allocate DMA encoder VBI stream: 120 x 17472 buffers (2048KB total)
+[  527.819058] ivtv0: Allocate DMA encoder PCM audio stream: 455 x 4608 buffers (2048KB total)
+[  527.819292] tuner 3-0061: type set to 2 (Philips NTSC (FI1236,FM1236 and compatibles))
+[  528.273607] ivtv0: Initialized WinTV PVR 250, card #0
+[  528.273614] ivtv:  ====================  END INIT IVTV  ====================
+      </pre></div>
+        
+    </span>
+</div>
+    <div class="level2" id="section-7.3">
+<a name="section7.3"></a><h2 class="sectionTitle">7.3. <a onclick="toggleLayer('span-7.3');">LIRC<span class="expandStatus" id="span-7.3Status">[-]</span></a>
+</h2>
+<span id="span-7.3">
+      <p>
+        There are two different ways that you can get support for your
+        remote control, both require some work because unfortunately
+        Ubuntu doesn't ship with great LIRC support and the
+        lirc-modules-source still doesn't work for building kernel
+        modules for Linux 2.6.  Both of these methods will require the
+        installation of the LIRC package.
+      </p>
+      <p>
+        Most of this part is specific to my style remote, as pictured
+        in figure <a href="#figure-remoteControl">2</a>.  Newer cards from
+        Hauppauge have a different remote that has dedicated arrow
+        keys and the colored buttons near the bottom.  I consider that
+        style remote superior to mine because you're not doing double
+        duty for the channel and volume keys.  With that being said,
+        don't be surprised if a lot of this does not work on your
+        remote.
+      </p>
+      <a name="figure2"></a><a name="figure-remoteControl"></a><div class="figure" id="remoteControl"><img src="figures/remote.jpg" width="74" height="200" alt="My Remote"></div>
+<div class="figureTitle">
+      Figure 2: My Remote</div>
+      <div class="level3" id="section-7.3.1">
+<a name="section7.3.1"></a><h3 class="sectionTitle">7.3.1. <a onclick="toggleLayer('span-7.3.1');">ir-kbd-i2c<span class="expandStatus" id="span-7.3.1Status">[-]</span></a>
+</h3>
+<span id="span-7.3.1">
+        <p>
+          If you're worried about compiling kernel drivers, you can
+          use the <span class="quote">ir-kbd-i2c</span> kernel module to
+          connect your remote to the linux input layer.  The
+          <span class="quote">ir-kbd-i2c</span> kernel module is include with
+          Ubuntu, however the linux input layer drivers are not.
+          There are two major caveats for this method:
+          <ol>
+            <li>Key presses are not repeated -- if you'd like to
+            change the volume a lot, be prepared to hit the volume
+            button repeatedly.</li>
+            <li>As key presses on remote are mapped to the input
+            layer, some of the keys will be mapped as keys and may be
+            registered multiple times.</li>
+          </ol>
+        </p>
+        <p>
+          The first step is to download the linux input stack, compile it, and install it.
+          <div class="commandBlock">
+            <span class="commandPrompt">#</span> wget http://dl.bytesex.org/cvs-snapshots/input-20040421-115547.tar.gz
+            <br><span class="commandPrompt">#</span> tar -zxvf input-20040421-115547.tar.gz
+            <br><span class="commandPrompt">#</span> cd input
+            <br><span class="commandPrompt">input#</span> make
+            <br><span class="commandPrompt">input#</span> sudo cp lsinput /usr/local/bin
+            <br><span class="commandPrompt">input#</span> sudo cp input-kbd /usr/local/bin
+            <br><span class="commandPrompt">input#</span> sudo cp input-events /usr/local/bin
+            <br><span class="commandPrompt">intpu#</span> sudo modprobe -v ir-kbd-i2c
+          </div>
+          Now that you've got the input stack installed you can look
+          at the various devices on the bus that affect the input
+          subsystem.  Now, we need to come up with a clever
+          configuration file and way to get everything going.  This is
+          actually a two stage process that involves loading the input
+          driver and then configuring LIRC itself.  For right now, if
+          you've got a PVR 250 standard remote, just follow these
+          instructions to grab the appropriate files and set up your
+          system to automagically start LIRC.
+          <div class="commandBlock">
+            <span class="commandPrompt">#</span> sudo /etc/inid.d/lirc stop
+            <br><span class="commandPrompt">#</span> sudo update-rc.d -f lirc remove
+            <br><span class="commandPrompt">#</span> sudo wget http://patrick.wagstrom.net/tutorials/mythTV64/files/lirc/lirc2 -O /etc/init.d/lirc2
+            <br><span class="commandPrompt">#</span> sudo wget http://patrick.wagstrom.net/tutorials/mythTV64/files/lirc/pvr250.conf -O /etc/lirc/pvr250.conf
+            <br><span class="commandPrompt">#</span> sudo update-rc.d lirc2 defaults 20
+            <br><span class="commandPrompt">#</span> sudo /etc/inid.d/lirc2 start
+          </div>
+          Now, if you run <span class="programname">irw</span> you'll see the keys inputs show up in the window.  
+        </p>
+      </span>
+</div>
+      <div class="level3" id="section-7.3.2">
+<a name="section7.3.2"></a><h3 class="sectionTitle">7.3.2. <a onclick="toggleLayer('span-7.3.2');">lirc_i2c<span class="expandStatus" id="span-7.3.2Status">[-]</span></a>
+</h3>
+<span id="span-7.3.2">
+        <p>
+          Here we're going to do something very bad thta we probably
+          shouldn't do, but unfortunately it's the only way that I
+          could figure out how to get everything to work.  Install
+          LIRC and tell it that you're going to be using i2c devices
+          and that it will be a hauppauge card.  Next, tell LIRC not
+          to load the <span class="programname">lircmd</span> driver - it's only
+          necessary if we wanted to emulate mouse movements with the
+          remote control, which we don't.  Make sure the line that
+          reads <span class="quote">START_LIRCMD=false</span> is not commented
+          out in <span class="pathname">/etc/lirc/hardware.conf</span>.
+        </p>
+        <p>
+          Now comes the part that makes you a bad person.  The
+          <span class="programname">lirc-modules-source</span> package is broken
+          and will not compile 2.6 kernel modules.  However, we can
+          compile kernel modules for a newer version of LIRC and use
+          those instead.  So just follow these instructions:
+        </p>
+        <div class="commandBlock">
+          <span class="commandPrompt">#</span> wget http://internap.dl.sourceforge.net/sourceforge/lirc/lirc-0.7.2.tar.bz2
+          <br><span class="commandPrompt">#</span> tar -jxvf lirc-0.7.2.tar.bz2
+          <br><span class="commandPrompt">#</span> cd lirc-0.7.2
+          <br><span class="commandPrompt">lirc-0.7.2#</span> ./configure
+          <br><span class="commandPrompt">lirc-0.7.2#</span> cd drivers
+          <br><span class="commandPrompt">lirc-0.7.2/drivers#</span> make
+          <br><span class="commandPrompt">lirc-0.7.2/drivers#</span> sudo make install
+          <br><span class="commandPrompt">lirc-0.7.2/drivers#</span> sudo /etc/init.d/lirc restart
+        </div>
+        <p>
+          That's really all that you need to do. Now, LIRC should be
+          up and running, your kernel modules should be compiled, and
+          you should be off on your way to using your remote control.
+          If you'd like to make sure that your receiver is receiving
+          messages from your remote run the command
+          <span class="programname">irw</span>, this will print out the messages
+          received by the remote control as it receives them.
+        </p>
+      </span>
+</div>
+      <div class="level3" id="section-7.3.3">
+<a name="section7.3.3"></a><h3 class="sectionTitle">7.3.3. <a onclick="toggleLayer('span-7.3.3');">lirc configuration<span class="expandStatus" id="span-7.3.3Status">[-]</span></a>
+</h3>
+<span id="span-7.3.3">
+        <p>
+          We're going to build MythTV directly with LIRC support, this means that it will read the configuration for LIRC
+          out of <span class="pathname">~/.mythtv/lircrc</span> instead of the standard <span class="pathname">~/.lircrc</span>.  I've provided
+          a preconfigured file for you <a href="files/lirc/lircrc">here</a> that should work if you were using the <span class="quote">lirc_i2c</span>
+          route described above.  If you're using the <span class="quote">ir-kbd-i2c</span> route, you'll need to modify the file to match
+          your buttons.  Use <span class="programname">irw</span> to get a listing of the button names.
+        </p>
+      </span>
+</div>
+      
+    </span>
+</div>
+    <div class="level2" id="section-7.4">
+<a name="section7.4"></a><h2 class="sectionTitle">7.4. <a onclick="toggleLayer('span-7.4');">pcHDTV HD-3000<span class="expandStatus" id="span-7.4Status">[-]</span></a>
+</h2>
+<span id="span-7.4">
+      
+      <p>
+        Ready to compile more drivers?  Too bad.  The drivers for the
+        pcHDTV are already built into Breezy.  However, there is one
+        caveat, you need to make sure that <span class="programname">ivtv</span>
+        is loaded before <span class="programname">cx88-dvb</span>.
+        Furthermore, you'll cannot use the IVTV
+        <span class="pathname">tveeprom.ko</span> as this will cause
+        errors.  If you have PVR-250 card you should be okay at this
+        point, if you have a PVR-150 or a PVR-500 you may need to play
+        around with some module ordering.  This is an issue with the IVTV
+        drivers, and not the pcHDTV drivers.
+      </p>
+      <p>
+        You'll need to do one more small step to get the card working, download
+        the firmware.  This is a simple matter of downloading the firmware and
+        then placing it in <span class="pathname">/usr/lib/hotplug/firmware</span>.
+      </p>
+      <div class="commandBlock">
+        <span class="commandPrompt">#</span> wget http://www.pchdtv.com/downloads/firmware.tar.gz
+        <br><span class="commandPrompt">#</span> tar -zxvf firmware.tar.gz
+        <br><span class="commandPrompt">#</span> sudo cp firmware/* /usr/lib/hotplug/firmware
+        <br><span class="commandPrompt">#</span> rm -rf firmware
+      </div>
+      <p>
+        From this point, you'll need to decide whether or not you're
+        going to use over-the-air HDTV broadcast (called ATSC) or the
+        signal from your cable provider (called QAM).  Over-the-air
+        works quite well for most people, especially if you live
+        someplace flat.  The drivers are well tested and generally
+        stable.  QAM is an option for people who live places
+        not-so-flat (like Pittsburgh) and need to get their HDTV
+        signal from their cable provider.
+      </p>
+      <div class="level3" id="section-7.4.1">
+<a name="section7.4.1"></a><h3 class="sectionTitle">7.4.1. <a onclick="toggleLayer('span-7.4.1');">ATSC<span class="expandStatus" id="span-7.4.1Status">[-]</span></a>
+</h3>
+<span id="span-7.4.1">
+        <p>
+          If you're going ATSC route, then you're probably going to need an
+          antenna to receive the signal.  The problem is that there are lots
+          of different antennas available for HDTV signal reception and it's
+          difficult to know which one to use.  Thankfully, the fine folks
+          at the <a href="http://www.ce.org/">Consumer Electronics Association</a>
+          have put together <a href="http://www.antennaweb.org/">AntennaWeb</a>
+          to help you choose your antenna.  Simply select where you live and it
+          will tell you what type of antenna you need and how to orient it.
+        </p>
+        <p>
+          As I haven't been able to get a good HDTV signal over the air, I can't
+          provide much more help on this issue.  For further reference I recommend
+          <a href="http://www.penlug.org/twiki/bin/view/Main/DigitalTelevisionDVB">this writeup from PenLug</a>.
+        </p>
+      </span>
+</div>
+      <div class="level3" id="section-7.4.2">
+<a name="section7.4.2"></a><h3 class="sectionTitle">7.4.2. <a onclick="toggleLayer('span-7.4.2');">QAM<span class="expandStatus" id="span-7.4.2Status">[-]</span></a>
+</h3>
+<span id="span-7.4.2">
+        <p>
+          QAM is a strange beast that really pushes most peoples HDTV
+          tuner cards.  The first thing to know is that just because
+          your cable box is perfectly willing to show you TNT-HD and
+          Discovery-HD, that doesn't mean your cable company is
+          willing to let you get them on your tuner card.  Thanks to
+          the wonders of 5C encryption, you probably won't be able to
+          get anything more from a direct cable connection to your
+          HDTV tuner than you would from the firewire output of a motorola
+          DCT-6200 cable box.  Thankfully, I've heard many reports from
+          people who don't have Comcast that they've had great luck getting
+          these other channels on their pcHDTV cards.
+        </p>
+        <p>
+          The first thing that you're going to need is the pcHDTV
+          tools.  You can either download these directly from the <a href="http://www.linuxtv.org/">Linux TV</a> site through
+          CVS, or grab the copies from <a href="http://www.pchdtv.com/">pcHDTV</a>.  I'm going to use
+          the pcHDTV stuff as it's probably a bit more straightforward.
+        </p>
+      </span>
+</div>
+      <div class="level3" id="section-7.4.3">
+<a name="section7.4.3"></a><h3 class="sectionTitle">7.4.3. <a onclick="toggleLayer('span-7.4.3');">Adding in HDTV Channels<span class="expandStatus" id="span-7.4.3Status">[-]</span></a>
+</h3>
+<span id="span-7.4.3">
+        <p>
+          Adding in channels for HDTV is not the most straightforward
+          of processes.  However, I've gotten quite a few questions
+          about how to do this, until I get a chance to write up this
+          section, I'll refer you to <a href="http://www.gossamer-threads.com/lists/mythtv/users/150118?do=post_view_threaded#150118">this
+          thread on the MythTV mailing list</a>.
+        </p>
+      </span>
+</div>
+    </span>
+</div>
+  </span>
+</div>
+<div class="level1" id="section-8">
+<a name="section8"></a><h1 class="sectionTitle">8. <a onclick="toggleLayer('span-8');">Building MythTV<span class="expandStatus" id="span-8Status">[-]</span></a>
+</h1>
+<span id="span-8">
+    <p>
+      Congratulations on making it this far.  Believe it or now,
+      you've already made it past some of the harder parts of MythTV
+      setup, but don't worry, there are a few spots where adventure
+      lies ahead.  That being said, let's learn how to compile MythTV.
+    </p>
+    <p>
+      There are a few different version of MythTV out there, there is
+      the main release, which is, as of this writing, 0.18.1 and there
+      the development release, sometimes called <span class="quote">svn</span>
+      and identified with a four or five digit number after it.  This
+      tells you how to install the main release.  First, surf on over
+      to the <a href="http://www.mythtv.org/">http://www.mythtv.org/</a> and
+      download all of the packages.  I would put some wget commands
+      here, but it doesn't seem to like that much.  I'll trust that
+      you can get thes files yourself.  Now, unpack MythTV using
+      <span class="command">tar -jxvf mythtv-0.18.1.tar.bz2</span>.
+    </p>
+    <p>
+      Before we can go about compiling MythTV a few changes are in order for Ubuntu and Breezy.
+      <ol>
+        <li>Modify line 1669 of <span class="pathname">configure</span> so
+        the configuration script searches for for
+        <span class="quote">/usr/bin/xinit</span> instead of
+        <span class="quote">/usr/X11R6/bin/xinit</span>.</li>
+        <li>Modify line 1682 of <span class="pathname">configure</span> to
+        search for
+        <span class="quote">/usr/include/X11/extensions/Xrandr.h</span>
+        instead of <span class="quote">/usr/X11R6/include/X11/extensions/Xrandr.h</span>.</li>
+        <li>Change the area around line 1699 of
+        <span class="pathname">configure</span> so it tries to link to
+        <span class="quote">libXvMCNVIDIA</span> before it tries to link to
+        <span class="quote">libXvMCW</span>.  I've had some issues using
+        <span class="quote">libXvMCW</span>, this forces MythTV to use the
+        nVidia library instead.</li>
+      </ol>
+    </p>
+    <p>
+      Now, we're ready to configure MythTV.  Here are all the
+      arguments that I passed to MythTV:
+      <table border="1">
+        <tr>
+<td>--enable-xvmc</td>
+<td>Provide support for XvMC MPEG
+        accelleration.  In theory this drops the CPU load of your
+        system while playing back MPEGs.  I've had mixed luck with
+        XvMC, but some folks swear by it.  In reality for this level
+        of computer you really don't need XvMC.</td>
+</tr>
+        <tr>
+<td>--enable-opengl-vsync</td>
+<td>Supposed to help out
+        with video synchronization issues.  I'm not 100% sold on this
+        option and there is no way to toggle it at runtime.  Some
+        folks on the users list suspect this may cause video
+        stuttering issues with different versions of the nVidia driver.</td>
+</tr>
+        <tr>
+<td>--enable-dvb
+        --dvb-path=/usr/src/linux-headers-2.6.12-9-amd64-k8/include</td>
+<td>Enable
+        DVB support in MythTV.  Needed for proper support of the
+        pcHDTV HD-3000 card.</td>
+</tr>
+        <tr>
+<td>--enable-lirc</td>
+<td>Remote control support for MythTV -- you'll want this.</td>
+</tr>
+        <tr>
+<td>--enable-firewire</td>
+<td>Support for capturing video from the Motorola DCT-6200 tunerbox over firewire.</td>
+</tr>
+      </table>
+      There is one last little quirk to deal with, MythTV does not
+      compile well with <span class="programname">GCC</span> 4.0, fortunately we
+      already installed the 3.4 branch.  Here are the lines that you
+      can use to build and then install MythTV.
+    </p>
+    <div class="commandBlock">
+      <span class="commandPrompt">#</span> CXX=g++-3.4 CC=gcc-3.4 ./configure --enable-xvmc --enable-opengl-vsync --enable-dvb --dvb-path=/usr/src/linux-headers-2.6.12-9-amd64-k8/include --enable-lirc --enable-firewire
+      <br><span class="commandPrompt">#</span> CXX=g++-3.4 CC=gcc-3.4 qmake mythtv.pro
+      <br><span class="commandPrompt">#</span> CXX=g++-3.4 CC=gcc-3.4 make
+      <br><span class="commandPrompt">#</span> CXX=g++-3.4 CC=gcc-3.4 sudo make install
+    </div>
+    <p>
+      Congratulations, you should now have MythTV installed into your
+      tree at <span class="pathname">/usr/local</span>.
+    </p>
+  </span>
+</div>
+<div class="level1" id="section-9">
+<a name="section9"></a><h1 class="sectionTitle">9. <a onclick="toggleLayer('span-9');">Building MythPlugins<span class="expandStatus" id="span-9Status">[-]</span></a>
+</h1>
+<span id="span-9">
+    <div class="level2" id="section-9.1">
+<a name="section9.1"></a><h2 class="sectionTitle">9.1. <a onclick="toggleLayer('span-9.1');">MythMusic<span class="expandStatus" id="span-9.1Status">[-]</span></a>
+</h2>
+<span id="span-9.1">
+      <p>
+        MythMusic required a small bit of modifications to compile
+        properly.  On line 57 of
+        <t:filename>mythmusic/mythmusic/aacdecoder.c</t:filename>
+        change <span class="quote">unsigned long sample_rate;</span> to
+        <span class="quote">unsigned int sample_rate;</span>.  I've heard
+        reports that this may break some things, but it seems to work
+        fine for me.
+      </p>
+    </span>
+</div>
+    <div class="level2" id="section-9.2">
+<a name="section9.2"></a><h2 class="sectionTitle">9.2. <a onclick="toggleLayer('span-9.2');">MythDVD<span class="expandStatus" id="span-9.2Status">[-]</span></a>
+</h2>
+<span id="span-9.2">
+      <p>
+      The current SVN version of MythTV has a built in DVD player, but
+      the stable release does not yet -- in order to play DVDs you'll
+      need to install an external DVD playing application.  The most
+      popular are <span class="programname">xine</span> and
+      <span class="programname">mplayer</span>.
+      </p>
+      <div class="level3" id="section-9.2.1">
+<a name="section9.2.1"></a><h3 class="sectionTitle">9.2.1. <a onclick="toggleLayer('span-9.2.1');">Xine<span class="expandStatus" id="span-9.2.1Status">[-]</span></a>
+</h3>
+<span id="span-9.2.1">
+        <p>
+          For video player the two dominant choices on Linux are Xine
+          and MPlayer.  Personally, I've had more luck with using Xine
+          for DVDs.  Installation is straightforward just run:
+          <span class="commandRoot">apt-get install xine-ui</span> Then,
+          when it asks for the command line to use enter <span class="quote">xine
+          -pfhq %s</span>.  You might want to grab my lirc
+          configuration from above to ensure that you get LIRC
+          support.
+        </p>
+      </span>
+</div>
+      <div class="level3" id="section-9.2.2">
+<a name="section9.2.2"></a><h3 class="sectionTitle">9.2.2. <a onclick="toggleLayer('span-9.2.2');">MPlayer<span class="expandStatus" id="span-9.2.2Status">[-]</span></a>
+</h3>
+<span id="span-9.2.2">
+        <p>
+          Installation of MPlayer is fairly straight-forward.  Simply
+          run: <span class="commandRoot">apt-get install mplayer</span>
+          This will install MPlayer for you, and it works pretty well
+          out of the box on Ubuntu.  Unfortunately for you, I don't
+          use MPlayer to watch DVDs, so that's all the documentation I
+          can provide.  Please note, the legal status of
+          <span class="programname">MPlayer</span> is questionable due to the
+          software patent situation in the United States.
+        </p>
+      </span>
+</div>
+    </span>
+</div>
+    <div class="level2" id="section-9.3">
+<a name="section9.3"></a><h2 class="sectionTitle">9.3. <a onclick="toggleLayer('span-9.3');">MythWeather<span class="expandStatus" id="span-9.3Status">[-]</span></a>
+</h2>
+<span id="span-9.3">
+      <p>
+        MythWeather built without any modifications to the source
+        code.  You can configure it from the setup menu of
+        <span class="programname">MythFrontend</span>.
+      </p>
+    </span>
+</div>
+    <div class="level2" id="section-9.4">
+<a name="section9.4"></a><h2 class="sectionTitle">9.4. <a onclick="toggleLayer('span-9.4');">MythVideo<span class="expandStatus" id="span-9.4Status">[-]</span></a>
+</h2>
+<span id="span-9.4">
+      <p>
+        MythVideo also built without any modifications.  You'll
+        probably want to install Xine or MPlayer for watching the
+        videos as discussed earlier in this section.
+      </p>
+    </span>
+</div>
+    <div class="level2" id="section-9.5">
+<a name="section9.5"></a><h2 class="sectionTitle">9.5. <a onclick="toggleLayer('span-9.5');">MythGallery<span class="expandStatus" id="span-9.5Status">[-]</span></a>
+</h2>
+<span id="span-9.5">
+      <p>
+        MythGallery required two changes to the source code in order
+        to function.  First, modify line 77 of
+        <t:filename>mythgallery/mythgallery/qtiffio.cpp</t:filename>
+        to read <span class="quote">(long) MAP_FAILED</span> instead of
+        <span class="quote">int MAP_FAILED</span>.  This is a fix required for
+        the x86_64 architecutre only.  The second fix is to modify the
+        area around line 61 of
+        <span class="quote">mythgallery/mythgallery/galleryutil.cpp</span> and
+        remove the evaluation of the new lib exif stuff.  For some
+        reason <a href="http://www.ubuntulinux.com/">Ubuntu</a> has
+        problems with this otherwise.
+      </p>
+      <a name="snippet3"></a><a name="snippet-"></a><div class="snippet" id=""><pre><strike>#if NEW_LIB_EXIF</strike>
+                        exif_entry_get_value(entry, exifvalue, 1023);
+                        QString value = exifvalue;
+<strike>#else</strike>
+                        <strike>QString value = exif_entry_get_value(entry);</strike>
+<strike>#endif</strike></pre></div>
+<div class="snippetTitle">
+      Snippet 3: Changes required to mythgallery/mythgallery/galleryutil.cpp</div>
+      <p>
+        You should be ready to go for MythGallery now.
+      </p>
+    </span>
+</div>
+    <div class="level2" id="section-9.6">
+<a name="section9.6"></a><h2 class="sectionTitle">9.6. <a onclick="toggleLayer('span-9.6');">MythGame<span class="expandStatus" id="span-9.6Status">[-]</span></a>
+</h2>
+<span id="span-9.6">
+      <div class="level3" id="section-9.6.1">
+<a name="section9.6.1"></a><h3 class="sectionTitle">9.6.1. <a onclick="toggleLayer('span-9.6.1');">MAME<span class="expandStatus" id="span-9.6.1Status">[-]</span></a>
+</h3>
+<span id="span-9.6.1">
+        <p>
+          <a href="http://x.mame.net/">MAME</a> is the venerable
+          arcade machine emulator from Nicola Salmoria.  Currently it
+          emaultes about 2000 different games and countless variations
+          and bootlegs of those.  Unfortunately, in most cases, unless
+          you own the original arcade machine, the ROMs for these
+          games are protected under copyright.  If you'd like to get
+          some legal roms, <a href="http://www.starroms.com/">StarRoms</a> may be a good
+          choice for you.  Your other choice is to buy the game boards
+          off eBay and then dump the roms yourself.  A nice project if
+          you're an electrical engineer (like I was in a past life).
+        </p>
+        <p>
+          The problem with MAME compilations is that it has more
+          options than you'll ever be able to use.  I've had the best
+          luck using the <a href="http://www.libsdl.org/">SDL</a>
+          version of MAME.  To start out with, you'll need to ensure
+          that the SDL development libraries are installed.
+        </p>
+        <span class="commandRoot">apt-get install libsdl1.2-dev libsdl1.2debian-alasa libsdl-ttf2.0-dev libsdl-mixer1.2-dev libsdl-image1.2-dev</span>
+        <p>
+          Now, running the following commands should get you going
+          with compilation.  This will download and unpack the source
+          and then download my configuration to compile the program.
+        </p>
+        <div class="commandBlock">
+          <span class="commandPrompt">#</span> wget http://x.mame.net/download/xmame-0.101.tar.bz2
+          <br><span class="commandPrompt">#</span> tar -jxvf xmame-0.101.tar.bz
+          <br><span class="commandPrompt">#</span> cd xmame-0.101
+          <br><span class="commandPrompt">xmame-0.101#</span> wget http://patrick.wagstrom.net/tutorials/mythTV64/files/mythgame/makefile.unix
+          <br><span class="commandPrompt">xmame-0.101#</span> make
+          <br><span class="commandPrompt">xmame-0.101#</span> sudo make install
+        </div>
+        <p>
+          Unfortuantely, there still is a little more work that is
+          needed to get MythTV to function properly with this version
+          of MAME.  MythTV expects the version of MAME to be only two
+          characters long, while this version has three characters.
+          Unfortunately, I still need to write-up how to do that.
+        </p>
+        <div class="todo">
+<span class="todoHeader">TODO:</span>write-up section on how to modify MythGame for new versions of MAME</div>
+      </span>
+</div>
+
+      <div class="level3" id="section-9.6.2">
+<a name="section9.6.2"></a><h3 class="sectionTitle">9.6.2. <a onclick="toggleLayer('span-9.6.2');">ZSnes<span class="expandStatus" id="span-9.6.2Status">[-]</span></a>
+</h3>
+<span id="span-9.6.2">
+        <p>
+          ZSnes has large portions of the code written in x86
+          assembly.  Unfortunately, as we're running in x86_64 mode,
+          this isn't very useful.  Attempting to compile ZSnes with a
+          target of i686 gives an error that the selected cpu does not
+          support the x86_64 instruction set.  Compiling it for the
+          Athlon64 reports errors that the assembly modules cannot be
+          linked in.  I've heard that using <a href="http://www.tortall.net/projects/yasm/">Yasm</a> may
+          make compilation possible, but I haven't gotten this to work
+          yet.  ZSnes does work just fine on x86.
+        </p>
+        <p>
+          To get around this, you've got two options, both of which
+          are suboptimal.  First, you can try to run a
+          work-in-progress version of ZSnes, available from <a href="http://www.ipherwipsite.com/">http://www.ipherswipsite.com/</a>.
+          Download the source code here and then try to get it going.
+          I didn't have any luck as there still were issues with the
+          64bit assembly language conversions.  Trying it with Yasm
+          produced something that compiles, but crashed with an
+          illegal instruction.  Yikes.
+        </p>
+        <p>
+          Your other option is to run the 386 version directly on your
+          system.  You can download an up to date release from <a href="http://www.safaribans.com/gpl/zsnes-cvs_cvs-20050927-1_i386.deb">here</a>.
+          Then it is possible to install it by passing
+          <span class="quote">--force-architecture</span> to dpkg when
+          installing it.  The downside to this is that it can't read
+          the axes on my joystick anymore, so I can only game with the
+          keyboard.
+        </p>
+      </span>
+</div>
+      <div class="level3" id="section-9.6.3">
+<a name="section9.6.3"></a><h3 class="sectionTitle">9.6.3. <a onclick="toggleLayer('span-9.6.3');">Snes9x<span class="expandStatus" id="span-9.6.3Status">[-]</span></a>
+</h3>
+<span id="span-9.6.3">
+        <p>
+          To the best of my knowledge Snes9x does not work in 64bit
+          mode.  It crashes out when it tries to load a rom.  If
+          you've gotten it to work let me know. You can run the 32 bit
+          version by installing a 32 bit deb, like previously
+          described for ZSnes, but once again, you'll lose joystick
+          support.
+        </p>
+      </span>
+</div>
+      <div class="level3" id="section-9.6.4">
+<a name="section9.6.4"></a><h3 class="sectionTitle">9.6.4. <a onclick="toggleLayer('span-9.6.4');">gamelist.xml<span class="expandStatus" id="span-9.6.4Status">[-]</span></a>
+</h3>
+<span id="span-9.6.4">
+        <p>
+          It would be a little silly if after being based on a Linux
+          box, MythTV couldn't play the games that were available for
+          Linux.  By default this is controlled through
+          <span class="pathname">/usr/games/gamelist.xml</span>, although
+          this setting can be changed easily enough in your settings.
+          Just create a similar file.  Here's a simple example of what
+          I have for mine.  You can also download my <a href="files/mythgame/gamelist.xml">my complete gamelist.xml</a>.
+        </p>
+        <a name="snippet4"></a><a name="snippet-gamelist.xml"></a><div class="snippet" id="gamelist.xml"><pre>&lt;gamelist&gt;
+  &lt;game&gt;
+    &lt;name&gt;TuxRacer&lt;/name&gt;
+    &lt;command&gt;/usr/bin/ppracer&lt;/command&gt;
+    &lt;genre&gt;Racer&lt;/genre&gt;
+    &lt;year&gt;2001&lt;/year&gt;
+  &lt;/game&gt;
+  &lt;game&gt;
+    &lt;name&gt;Quake 4&lt;name&gt;
+    &lt;command&gt;/usr/local/games/quake4/quake4&lt;/command&gt;
+    &lt;genre&gt;Shooter&lt;/genre&gt;
+    &lt;year&gt;2005&lt;/year&gt;
+  &lt;/game&gt;
+&lt;/gamelist&gt;
+        </pre></div>
+<div class="snippetTitle">
+      Snippet 4: Sample Gamelist.xml</div>
+        <p>
+          MythGame also provides a way to display images in the menus.
+          For each PC game place a file with the exact name of the
+          game in <span class="pathname">/var/lib/mythgame/screens</span>.
+          For example, for <span class="programname">Quake 4</span> you'd place
+          in screenshot in <span class="pathname">/var/lib/mythgame/screens/Quake
+          4.jpg</span>, the space in the filename is required.
+        </p>
+        <div class="level4" id="section-9.6.4.1">
+<a name="section9.6.4.1"></a><h4 class="sectionTitle">9.6.4.1. <a onclick="toggleLayer('span-9.6.4.1');">Quake 4<span class="expandStatus" id="span-9.6.4.1Status">[-]</span></a>
+</h4>
+<span id="span-9.6.4.1">
+          <p>
+            I'm a sucker for FPS games once in a while, and now that I have a
+            computer powerful enough to run Quake 4, I figured I'd pick it up for
+            cheap the day after thanksgiving.  Here's what you need to do to get
+            it going.
+          </p>
+          <p>
+            First, go and download the linux client from the <a href="http://zerowing.idsoftware.com:6969/">ID Software
+            BitTorrent Tracker</a>.  This will take a little while to
+            download, but not too terribly wrong.  Then run the
+            following commands to install the game: <span class="command">sudo sh
+            quake4-linux-1.0.5.x86.run</span>.  This will install
+            <span class="programname">quake4</span>, most likely into
+            <span class="pathname">/usr/local/games/quake4</span>.  Then,
+            follow the instructions and copy all the pk4 files off the
+            cds or dvd.
+          </p>
+          <p>
+            Now, we need to play a little fun and get the emulation
+            layer for x86 setup - id software does not provide an
+            x86_64 executable yet. This is actually really easy.  Go
+            and download libsdl1.2debian-alsa and libasound2 and extract them
+            to a new directory <span class="pathname">/emul/ia32-linux</span>.
+          </p>
+          <div class="commandBlock">
+            <span class="commandPrompt">#</span> wget http://archive.ubuntu.com/ubuntu/pool/main/libs/libsdl1.2/libsdl1.2debian-alsa_1.2.9-0.0ubuntu1_i386.deb
+            <br><span class="commandPrompt">#</span> wget http://archive.ubuntu.com/ubuntu/pool/main/a/alsa-lib/libasound2_1.0.9-2_i386.deb
+            <br><span class="commandPrompt">#</span> mkdir /emul
+            <br><span class="commandPrompt">#</span> mkdir /emul/ia32-linux
+            <br><span class="commandPrompt">#</span> dpkg -X libsdl1.2debian-alsa_1.2.9-0.0ubuntu1_i386.deb /emul/ia32-linux
+            <br><span class="commandPrompt">#</span> dpkg -X libasound2_1.0.9-2_i386.deb /emul/ia32-linux
+          </div>
+          <p>
+            Finally, modify your
+            <span class="pathname">/etc/ld.so.conf</span> to include
+            <span class="pathname">/emul/ia32-linux/usr/lib</span> as the
+            first entry.  Now, run <span class="command">sudo
+            ldconfig</span>.  With any luck, you may be able to
+            run <span class="command">/usr/local/games/quake4/quake4</span>
+            and start playing.  But, if you're like me, you'll have
+            some nasty sound issues.  To remedy that, just run
+            <span class="command">/usr/local/games/quake4/quake4 +set s_driver
+            oss +set s_numberOfSpeakers 2</span>.  Now, you
+            should be running Quake4 just fine.
+          </p>
+          <div class="todo">
+<span class="todoHeader">TODO:</span>fix formatting of this section</div>
+        </span>
+</div>
+        <div class="level4" id="section-9.6.4.2">
+<a name="section9.6.4.2"></a><h4 class="sectionTitle">9.6.4.2. <a onclick="toggleLayer('span-9.6.4.2');">Tux Racer / Planet Penguin Racer<span class="expandStatus" id="span-9.6.4.2Status">[-]</span></a>
+</h4>
+<span id="span-9.6.4.2">
+          <p>
+            This is an addictive game that basically anyone can play.
+            It requires only a modest system, and is completely free.
+            Best of all, there are precompiled packages for it.  You
+            can install it by running this command:
+            <span class="commandRoot">apt-get install planetpenguin-racer</span>
+            To run Planet Penguin racer run:
+            <span class="command">ppracer</span>
+          </p>
+        </span>
+</div>
+        <div class="level4" id="section-9.6.4.3">
+<a name="section9.6.4.3"></a><h4 class="sectionTitle">9.6.4.3. <a onclick="toggleLayer('span-9.6.4.3');">Doom 3<span class="expandStatus" id="span-9.6.4.3Status">[-]</span></a>
+</h4>
+<span id="span-9.6.4.3">
+          <p>
+            First, make sure you have your emulation layer setup as I
+            described in the section for Quake 4.  Then, download the
+            linux installer from the <a href="http://zerowing.idsoftware.com:6969/">iD Software
+            BitTorrent tracker</a>.  Finally, copy over your .pk4
+            files as needed and the game should run just fine.  For
+            more information, consult the <a herf="http://zerowing.idsoftware.com/linux/doom/">Linux
+            Doom 3 page at iD Software</a>.
+          </p>
+        </span>
+</div>
+        <div class="level4" id="section-9.6.4.4">
+<a name="section9.6.4.4"></a><h4 class="sectionTitle">9.6.4.4. <a onclick="toggleLayer('span-9.6.4.4');">Wolfenstein Enemy Territory<span class="expandStatus" id="span-9.6.4.4Status">[-]</span></a>
+</h4>
+<span id="span-9.6.4.4">
+          <p>
+            Wolfenstein Enemy Territory is a free (as in beer) online
+            game built on the Return to Castle Wolfenstein game
+            engine.  You can download it for free from the <a href="http://zerowing.idsoftware.com:6969/">iD Software
+            BitTorrent tracker</a>.  Installation went smoothly for
+            this game, but I couldn't get sound to work natively, for
+            that you'll need to run the following command as root
+            every time the system reboots:<span class="command">echo "et.x86 0 0
+            direct" &gt; /proc/asound/card0/pcm0p/oss</span>
+          </p>
+        </span>
+</div>
+      </span>
+</div>
+    </span>
+</div>
+    <div class="level2" id="section-9.7">
+<a name="section9.7"></a><h2 class="sectionTitle">9.7. <a onclick="toggleLayer('span-9.7');">MythPhone<span class="expandStatus" id="span-9.7Status">[-]</span></a>
+</h2>
+<span id="span-9.7">
+      <p>
+        I don't currently use MythPhone, so I can't really comment on how easy it is to use.  In the future, I'd
+        like to hook MythPhone up to an Asterisk setup so you can receive phone calls at the television.
+      </p>
+    </span>
+</div>
+    <div class="level2" id="section-9.8">
+<a name="section9.8"></a><h2 class="sectionTitle">9.8. <a onclick="toggleLayer('span-9.8');">MythBrowser<span class="expandStatus" id="span-9.8Status">[-]</span></a>
+</h2>
+<span id="span-9.8">
+      <p>
+        I don't use MythBrowser.
+      </p>
+    </span>
+</div>
+    <div class="level2" id="section-9.9">
+<a name="section9.9"></a><h2 class="sectionTitle">9.9. <a onclick="toggleLayer('span-9.9');">MythNews<span class="expandStatus" id="span-9.9Status">[-]</span></a>
+</h2>
+<span id="span-9.9">
+      <p>
+        I don't use MythNews.
+      </p>
+    </span>
+</div>
+  </span>
+</div>
+<div class="level1" id="section-10">
+<a name="section10"></a><h1 class="sectionTitle">10. <a onclick="toggleLayer('span-10');">Final Configuration and Automatic Startup<span class="expandStatus" id="span-10Status">[-]</span></a>
+</h1>
+<span id="span-10">
+    <div class="level2" id="section-10.1">
+<a name="section10.1"></a><h2 class="sectionTitle">10.1. <a onclick="toggleLayer('span-10.1');">MythBackend<span class="expandStatus" id="span-10.1Status">[-]</span></a>
+</h2>
+<span id="span-10.1">
+      <p>
+        You'll probably want to make MythBackend start automatically
+        at system boot.  Here's a set of commands you can use to make
+        this happen automatically.
+      </p>
+      <div class="commandBlock">
+        <span class="commandPrompt">#</span> wget http://patrick.wagstrom.net/tutorials/mythTV64/files/mythtv-backend
+        <br><span class="commandPrompt">#</span> sudo chmod +x mythtv-backend
+        <br><span class="commandPrompt">#</span> sudo mv mythtv-backend /etc/init.d/mythtv-backend
+        <br><span class="commandPrompt">#</span> sudo update-rc.d mythtv-backend defaults
+        <br><span class="commandPrompt">#</span> sudo /etc/init.d/mythtv-backend start
+      </div>
+    </span>
+</div>
+    <div class="level2" id="section-10.2">
+<a name="section10.2"></a><h2 class="sectionTitle">10.2. <a onclick="toggleLayer('span-10.2');">Keeping Your Programs Up To Date<span class="expandStatus" id="span-10.2Status">[-]</span></a>
+</h2>
+<span id="span-10.2">
+      <p>
+        It is now possible to have MythTV automatically connect and
+        download television listings without the need for using
+        <span class="programname">cron</span>, however, if you're old school
+        like me and would like to still use
+        <span class="programname">cron</span> here's a line you can use.  First
+        run <span class="command">crontab -e</span> and then enter this line
+        in the file.
+      </p>
+      <a name="snippet5"></a><a name="snippet-mythFillDatabaseCron"></a><div class="snippet" id="mythFillDatabaseCron"><pre>55 13 * * * /usr/local/bin/mythfilldatabase</pre></div>
+<div class="snippetTitle">
+      Snippet 5: Lines to Put in your cron file</div>
+      <p>
+        The above command will automatically fetch the schedule at
+        1:55pm localtime.  Most users setup their system to download
+        the schedules sometime in the night, but the folks at <a href="http://labs.zap2it.com/">Zap2It</a> have requested that
+        all times be set between 9am and midnight Central time.
+        Obviously, you'll probably want to move the time some.  It
+        would be horrible if everyone started downloading their
+        schedules at 1:55pm.
+      </p>
+      <p>
+        I've got a slight modification to my file.  I would like my
+        HDTV tuner to only record high definition programs, to achieve
+        this I actually use the following line (put all on one line by
+        removing backslashes):
+      </p>
+      <a name="snippet6"></a><a name="snippet-mythFillDatabaseCron2"></a><div class="snippet" id="mythFillDatabaseCron2"><pre>55 13 * * * /usr/local/bin/mythfilldatabase ; \
+  echo "delete from program where chanid &gt; 3000 and chanid &lt; 4000 and hdtv=0;" \
+  | mysql -u mythtv -pmythtv mythconverg</pre></div>
+<div class="snippetTitle">
+      Snippet 6: Fill Database and Wipe Non-HDTV</div>
+      <p>
+        You'll most likely have to do some hacking in the MySQL
+        database to get the exact command line here, so make sure you
+        know what you're doing.  Basically, MythTV assigns each video
+        source a number and then appends the channel number.  On my
+        system, the HDTV is source 3 (it's configured to be only
+        HDTV), so I wipe everything from channles 3000 - 4000 that is
+        not HDTV.  In the future there is a good chance that it will
+        be possible to mark a tuner as HDTV only, but as of 0.18.1
+        that is not possible.
+      </p>
+    </span>
+</div>
+    <div class="level2" id="section-10.3">
+<a name="section10.3"></a><h2 class="sectionTitle">10.3. <a onclick="toggleLayer('span-10.3');">MythFrontend<span class="expandStatus" id="span-10.3Status">[-]</span></a>
+</h2>
+<span id="span-10.3">
+      <div class="level3" id="section-10.3.1">
+<a name="section10.3.1"></a><h3 class="sectionTitle">10.3.1. <a onclick="toggleLayer('span-10.3.1');">Automatically Logging In as MythTV<span class="expandStatus" id="span-10.3.1Status">[-]</span></a>
+</h3>
+<span id="span-10.3.1">
+        <p>
+          Ubuntu utilizes a program called GDM to provide the nice
+          graphical boot menu you see when first starting up.  GDM is
+          a very flexible infrastructure that has the ability to
+          automatically log in a user on system start and if the login
+          menu has been idle for too long.  We'll use both of those
+          functions to ensure that MythTV starts when the machine
+          starts and also to restart MythTV if it crashes and dies.
+          At the same time we'll keep a moderate delay before GDM
+          starts MythTV up again to allow you to log in as a different
+          user if you choose.
+        </p>
+        <p>
+          The main configuration file for GDM is
+          <span class="pathname">/etc/X11/gdm/gdm.conf</span>.  Open up
+          this file as root and modify the beginning of the
+          <span class="quote">[daemon]</span> section to read as follows:
+        </p>
+        <a name="snippet7"></a><a name="snippet-GDMModifications"></a><div class="snippet" id="GDMModifications"><pre>[daemon]
+# Automatic login, if true the first local screen will automatically logged
+# in as user as set with AutomaticLogin key.
+AutomaticLoginEnable=true
+AutomaticLogin=myth
+
+# Timed login, useful for kiosks.  Log in a certain user after a certain
+# amount of time
+TimedLoginEnable=true
+TimedLogin=myth
+TimedLoginDelay=30</pre></div>
+<div class="snippetTitle">
+      Snippet 7: Changes to /etc/X11/gdm/gdm.conf to Automagically Start MythTV</div>
+      </span>
+</div>
+      <div class="level3" id="section-10.3.2">
+<a name="section10.3.2"></a><h3 class="sectionTitle">10.3.2. <a onclick="toggleLayer('span-10.3.2');">MythTV Desktop Session Setup<span class="expandStatus" id="span-10.3.2Status">[-]</span></a>
+</h3>
+<span id="span-10.3.2">
+        <div class="level4" id="section-10.3.2.1">
+<a name="section10.3.2.1"></a><h4 class="sectionTitle">10.3.2.1. <a onclick="toggleLayer('span-10.3.2.1');">XvMC<span class="expandStatus" id="span-10.3.2.1Status">[-]</span></a>
+</h4>
+<span id="span-10.3.2.1">
+          <p>
+            XvMC is short for XVideo Motion Compensation - using this
+            technology it is possible to offload a large amount of the
+            work in processing movies to the graphics card,
+            unfortunately it still is rather hit and miss.  I've found
+            that when watching HD content it does lower my CPU load to
+            about 15%, however the playback stutters for a few seconds
+            when the OSD is up and occassionally I see a frame that is
+            out of sync.  Research into this problem has shown that it
+            is related to the driver quality for x86_64.
+          </p>
+          <p>
+            So here's the problem, apparently under x86_64, XvMC has
+            trouble obtaining the proper handles to the video card.
+            You'll experience anywhere between one and 30 failures
+            before successfully grabbing your first context.  After
+            this first context is obtained, everything will work just
+            fine after that.  Being lazy, we can automate the process
+            with a custom version of MPlayer and a very short movie
+            that won't actually show anything.
+          </p>
+          <div class="commandBlock">
+            <span class="commandPrompt">#</span> cd 
+            <br><span class="commandPrompt">#</span> mkdir bin
+            <br><span class="commandPrompt">#</span> wget http://patrick.wagstrom.net/tutorials/mythTV64/files/xvmc/fix.mpg -O bin/fix.mpg
+            <br><span class="commandPrompt">#</span> wget http://patrick.wagstrom.net/tutorials/mythTV64/files/xvmc/fixXvmc.sh -O bin/fixXvmc.sh
+          </div>
+          <p>
+            The script <span class="programname">fixXvmc.sh</span> repeatedly
+            calls a version of <span class="programname">MPlayer</span> with
+            XvMC compiled in to play the file.  If XvMC fails, the
+            script tries again, up to 100 times.  When it finally
+            succeeds you'll see a little black box appear and then
+            disappear quickly on the screen. You should have XvMC
+            support for the rest of your session.
+          </p>
+        </span>
+</div>
+        <div class="level4" id="section-10.3.2.2">
+<a name="section10.3.2.2"></a><h4 class="sectionTitle">10.3.2.2. <a onclick="toggleLayer('span-10.3.2.2');">LIRC For Other Applications<span class="expandStatus" id="span-10.3.2.2Status">[-]</span></a>
+</h4>
+<span id="span-10.3.2.2">
+          <div class="commandBlock">
+            <span class="commandPrompt">#</span> cd
+            <br><span class="commandPrompt">#</span> wget http://patrick.wagstrom.net/tutorials/mythTV64/files/lirc/dotlircrc -O .lircrc
+          </div>
+          <div class="level5" id="section-10.3.2.2.1">
+<a name="section10.3.2.2.1"></a><h5 class="sectionTitle">10.3.2.2.1. <a onclick="toggleLayer('span-10.3.2.2.1');">Xine<span class="expandStatus" id="span-10.3.2.2.1Status">[-]</span></a>
+</h5>
+<span id="span-10.3.2.2.1">
+            <p>
+              The script in the previous section should have taken
+              care of setting up your remote control to work with
+              Xine.  Pressing the menu button will take you to the
+              root DVD menu, the arrows move around, volume works the
+              same as MythTV.  If you'd like to zoom in or zoom out
+              use the 1 and 3 buttons.  This is helpful if you'd like
+              a movie to take up more of the screen.  Pressing 2 will
+              zoom back to the normal level.  Pressing the blank
+              button toggles the deinterlacing in the player.
+            </p>
+          </span>
+</div>
+          <div class="level5" id="section-10.3.2.2.2">
+<a name="section10.3.2.2.2"></a><h5 class="sectionTitle">10.3.2.2.2. <a onclick="toggleLayer('span-10.3.2.2.2');">DPMS Monitor Power<span class="expandStatus" id="span-10.3.2.2.2Status">[-]</span></a>
+</h5>
+<span id="span-10.3.2.2.2">
+            <p>
+              One nice thing that we'd like to do is setup the remote
+              so pressing the power button turns the monitor on and
+              off.  Thankfully, with DPMS, it is possible to send a
+              command to the monitor to power the monitor off, or just
+              place it in standby.  Using this setup will make you
+              think that you have a real monitor.  Just follow these
+              commands as your MythTV user.
+            </p>
+            <div class="commandBlock">
+              <span class="commandPrompt">#</span> cd
+              <br><span class="commandPrompt">#</span> mkdir bin
+              <br><span class="commandPrompt">#</span> wget http://patrick.wagstrom.net/tutorials/mythTV64/files/monitorToggle.sh -O bin/monitorToggle.sh
+            </div>
+          </span>
+</div>
+        </span>
+</div>
+      </span>
+</div>
+      <div class="level3" id="section-10.3.3">
+<a name="section10.3.3"></a><h3 class="sectionTitle">10.3.3. <a onclick="toggleLayer('span-10.3.3');">MythWeb<span class="expandStatus" id="span-10.3.3Status">[-]</span></a>
+</h3>
+<span id="span-10.3.3">
+        <p>
+          MythWeb was not addressed in the section on plugins because
+          it's not a plugin per-say.  It's acutally a separate program
+          that you can in conjunction with a
+          <span class="programname">PHP</span> enabled webserver to manage your
+          MythTV box when you're away.  Before doing this, beware that
+          unless you know what you're doing, you're probably going to
+          introduce a security hole here.  I highly recommend using
+          MythWeb over SSL connections ONLY.  As it will be very few
+          people who are connecting it, it doesn't matter who signs
+          your certificate, it can even be a dummy certificate.  I
+          would recommend visiting the fine people at <a href="http://www.cacert.org/">CACert.org</a> and joining
+          their web of trust to get a more legitimate certificate.
+        </p>
+        <p>
+          All that being said, have fun losing all your stuff to some
+          random web crawling script if you're not protecting your
+          MythWeb install enough.
+        </p>
+      </span>
+</div>
+      <div class="level3" id="section-10.3.4">
+<a name="section10.3.4"></a><h3 class="sectionTitle">10.3.4. <a onclick="toggleLayer('span-10.3.4');">Channel Icons<span class="expandStatus" id="span-10.3.4Status">[-]</span></a>
+</h3>
+<span id="span-10.3.4">
+        <p>
+          If you're in the United States, you're using the Zap2It
+          DataDirect connection to download your listings.  While this
+          system is nice because your channel listing doesn't break
+          every time the web pages change, it lacks the ability to
+          download the icons for channels in the database.  Luckily,
+          MythTV has a way to get around this.  First of all,
+          disregard what the documentation says about using
+          <span class="programname">mkiconmap.pl</span>, it relies on the layout
+          of the pages, which have changed.  Instead, we'll just brute
+          force the system to download icons.
+        </p>
+        <p>
+          In your MythTV source directory you'll find a file called
+          <span class="pathname">contrib/master_iconmap.xml</span>, this
+          file has mappings for most of the channels in the United
+          States, although it may not be 100% accurate.  If you're
+          adventurous you can probably edit the file and make sure
+          your channels are listed.  I live in Pittsburgh and was
+          pleased to find good coverage of local stations.  Now, it's
+          just a matter of running a single command as your MythTV
+          user:
+        </p>
+        <div class="commandBlock">
+          <span class="commandPrompt">#</span> mythfilldatabase --import-icon-map ~/src/mythtv/contrib/master_iconmap.xml --update-icon-map
+        </div>
+        <p>
+          This command compares the listing of available channels in
+          your database with those in the iconmap and downloads the
+          channel icons as appropriate.  After this, when browsing
+          channels in LiveTV, you should see the icons indicating what
+          channel you're currently watching.
+        </p>
+      </span>
+</div>
+    </span>
+</div>
+  </span>
+</div>
+<div class="level1" id="section-11">
+<a name="section11"></a><h1 class="sectionTitle">11. <a onclick="toggleLayer('span-11');">The Finished Product<span class="expandStatus" id="span-11Status">[-]</span></a>
+</h1>
+<span id="span-11">
+    <p>
+      Hopefully this guide helped clear up a few of the nasty hurdles
+      related to getting MythTV working on Athlon64s and Ubuntu.
+      Here's a a gratioutous photo just to prove that yes, it can
+      actually be done.  The video playing is ABC's HDTV broadcast of <a href="http://www.imdb.com/title/tt0198781/"><i>Monsters, Inc.</i></a>
+      from October, 2005.
+    </p>
+    <a name="figure3"></a><a name="figure-finishedProduct"></a><div class="figure" id="finishedProduct"><a href="figures/newMythEntertainmentCenter.jpg"><img src="figures/newMythEntertainmentCenter.jpg" width="200" height="150" alt="The Finished Product"></a></div>
+<div class="figureTitle">
+      Figure 3: The Finished Product</div>
+  </span>
+</div>
+</body>
+</html>

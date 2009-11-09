@@ -1,0 +1,39 @@
+#!/bin/sh
+
+DEVICEID=`/usr/local/bin/lsinput 2>&1 | grep -B 1 BUS_I2C | head -n 1 | sed -e "s/\/dev\/input\/event//"`
+INPUT_CONFIG=/etc/lirc/pvr250.conf
+
+. /lib/lsb/init-functions
+
+lirc_start() {
+cat ${INPUT_CONFIG} | sed -e "s/#.*//" | awk '$0 != "" { print $0; }' | /usr/local/bin/input-kbd -f - ${DEVICEID} 1&> /dev/null 2&> /dev/null
+lircd -H dev/input -d /dev/input/event${DEVICEID}
+}
+
+case "$1" in
+  start)
+    log_begin_msg "Starting Infrared Setup..."
+    if [ $DEVICEID ]; then
+      lirc_start
+    else
+      log_failure_msg "Unable to determine device ID from lsinput"
+    fi
+    log_end_msg $?
+    ;;
+  stop)
+    if [ -f /var/run/lircd.pid ]; then
+      log_begin_msg "Stopping infrared setup..."
+      kill `cat /var/run/lircd.pid`
+      log_end_msg $?
+    else
+      log_failure_msg "Unable to determine process id"
+    fi
+    exit 1
+    ;;
+  *)
+    log_success_msg "Usage: /etc/init.d/lirc {start}"
+    log_success_msg "  start - starts the infrared controller"
+    exit 1
+    ;;
+esac
+exit 0

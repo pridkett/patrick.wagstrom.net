@@ -1,0 +1,14 @@
+<my:links>
+	<my:link name="home" url="/"/>
+	<my:link name="resume" url="/resume/"/>
+	<my:link name="projects" url="/projects/"/>
+	<my:link name="photos" url="/photos/"/>
+	<my:link name="weblog" url="/weblog/"/>
+	<my:link name="wedding" url="/wedding/"/>
+</my:links>
+
+<my:categories>
+$xmlcategories
+</my:categories>
+
+</my:doc>

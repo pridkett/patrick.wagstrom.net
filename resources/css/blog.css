@@ -1,0 +1,286 @@
+div#blogHeader {
+	background-color: #ccffcc;
+	border: 2px solid #bbeebb;
+	width: 800px;
+	background: url(/resources/images/blog/headerBackground.jpg);
+	background-repeat: no-repeat;
+	height: 140px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.header a {
+	text-decoration: none;
+	color: white;
+}
+
+h1.header {
+	margin: 0px;
+	margin-top: 12pt;
+	margin-left: 12pt;
+	color: white;
+}
+
+h2.header {
+	margin: 0px;
+	margin-left: 12pt;
+	color: white;
+}
+
+body {
+	width: 804px;
+	font-family: arial;
+	margin-left: auto;
+	margin-right: auto;
+	background: url(/resources/images/blog/backgroundImage.png);
+	background-repeat: repeat-x;
+	background-color: #0f006f;
+	background-attachment: fixed;
+}
+
+div.blogBody {
+	background-color: white;
+	border: 2px solid #bbeebb;
+	text-align: justify;
+	margin-top: 12pt;
+	padding: 6pt;
+}
+
+div.sidebarLinks {
+	float: right;
+	width: 200px;
+	border-left: 1px solid #bbeebb;
+	border-bottom: 1px solid #bbeebb;
+	padding: 3pt;
+	margin-top: -6pt;
+	margin-right: -6pt;
+	margin-left: 3pt;
+	margin-bottom: 3pt;
+	font-size: 80%;
+	background-color: white;
+}
+
+div.sidebarTitle {
+	text-align: center;
+	font-weight: bold;
+}
+
+.sidebarLinks ul {
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+	margin-bottom: 10px;
+}
+
+div.calendar {
+	text-align: center;
+}
+
+.calendarDay {
+	background: #ffffee;
+	border: solid 1px #eeeeee;
+	-moz-border-radius: 5px;
+}
+
+.calendarDayLink {
+	background: #ffffee;
+	border: solid 1px #eeeeee;
+	-moz-border-radius: 5px;
+}
+
+.calendarDayLink:hover {
+	background: #ffff77;
+	border-color: #aaaaaa;
+}
+
+.calendarDayToday {
+	background: #aaccaa;
+	border: solid 1px #aaaaaa;
+	-moz-border-radius: 5px;
+}
+
+.calendarDayTodayLink:hover {
+	background: #ffff77;
+	border-color: #aaaaaa;
+}
+
+.calendarDayTodayLink {
+	background: #aaccaa;
+	border: solid 1px #aaaaaa;
+	-moz-border-radius: 5px;
+}
+
+.calendarDayCurrent {
+	background: #cccccc;
+	border: 1px solid #aaaaaa;
+	-moz-border-radius: 5px;
+}
+
+.calendarDayCurrentLink:hover {
+	background: #ffff77;
+	border-color: #aaaaaa;
+}
+
+.calendarDayCurrentLink {
+	background: #cccccc;
+	border: 1px solid #aaaaaa;
+	-moz-border-radius: 5px;
+}
+
+.calendarDayHeader {
+	font-weight: bold;
+	width: 2ex;
+}
+
+.calendarTitle {
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.calendarHeader {
+	border: 2px solid #ff0000;
+}
+
+/* blog entry stuff */
+div.blogEntry {
+	margin-bottom: 36pt;
+}
+
+div.blogEntry h2 {
+	margin: 0px;
+}
+
+div.blogEntry h2 a {
+	text-decoration: none;
+	color: black;
+}
+
+div.blogEntry h2 a:hover {
+	text-decoration: underline;
+}
+
+div.blogEntry h2.blogDate {
+	font-size: 85%;
+}
+
+div.blogEntry h2.blogDate a {
+	color: blue;
+}
+
+
+.verbatim {
+	font-family: courier;
+	font-weight: bold;
+	font-size: 80%;
+	background: #fef;
+	border: 1px solid #aaa;
+    -moz-border-radius: 3px;
+}
+
+blockquote {
+	border: 1px solid #aaaaaa;
+	padding: 2px;
+	background: #dfd;
+}
+
+
+.imageStrip {
+	text-align: center;
+	background-color: #fff3f9;
+	border: thin solid #aaa;
+	-moz-border-radius: 10px;
+	margin: 0.5em;
+	padding: 0.5em;
+}
+
+div.imageStrip a p.imageCaption{
+  text-decoration: underline;
+}
+
+
+div.imageStrip p {
+  vertical-align: top;
+  text-align: center;
+  font-size: smaller;
+  text-indent: 0;
+  display: table-cell;
+  padding: 0px;
+  margin: 0px;
+}
+
+div.imageStrip a:hover img {
+  border-color: #ffff77;
+}
+                                                                               
+div.imageStrip p + p {
+  vertical-align: top;
+  display: table-caption;
+  caption-side: bottom;
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  margin-top: -0.3em;
+}
+
+pre {
+	background: #ffffdd;
+	margin-left: 20px;
+	margin-right: 20px;
+	border: 1px solid #aaaaaa;
+	padding-left: 1ex;
+	overflow: auto;
+}
+
+/* tags stuff */
+div.technoratiTags {
+	font-size: 80%;
+}
+div.technoratiTags ul {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+	display: inline;
+}
+
+div.technoratiTags li {
+	display: inline;
+}
+
+div.technoratiTags ul li:after {
+	content: ", ";
+}
+
+div.technoratiTags ul li.technoratiTagsLast:after {
+	content: ". ";
+}
+
+/* comment elements */
+div.comment {
+	margin-top: 12pt;
+	border-top: 1px dotted black;
+}
+
+div.commentHeaader {
+	font-size: 80%;
+}
+
+/* form elements */
+div.commentForm {
+	margin-top: 20pt;
+	border-top: 1px dotted black;
+	padding-top: 12pt;
+}
+
+span.formField {
+	display: block;
+}
+
+span.formTitle {
+	font-size: 90%;
+	font-weight: bold;
+}
+
+.program {
+    font-family: monospace;
+    font-weight: bold;
+}

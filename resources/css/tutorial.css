@@ -1,0 +1,34 @@
+div.figure {
+    text-align:center;
+}
+
+div.figureTitle {
+    text-align:center;
+    font-weight: bold;
+}
+
+div.snippet {
+    border: 1px solid #cccccc;
+    background: #ffffcc;
+}
+
+div.snippetTitle {
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    background: #777777;
+    margin-bottom: 1em;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    background: yellow;
+}
+
+span.command {
+    font-face: courier;
+    font-weight: bold;
+}

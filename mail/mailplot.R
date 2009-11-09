@@ -31,7 +31,7 @@ plot.all <- function(indata) {
 }
 
 generic.plot <- function(indata, mode) {
-    svg(width=8, height=4, file=sprintf("mail-%s.svg", mode))
+    svg(width=6, height=3, pointsize=8, file=sprintf("mail-%s.svg", mode))
     par(bg="black", mar=c(2.5,2,0.5,2)+0.1)
     plot(x=indata$date, y=indata$unread, type="l", xlab="", ylab="",
          frame.plot=F, lwd=2, col=col.line, bg=col.bg, axes=F, ylim=c(0,max(indata$unread)))

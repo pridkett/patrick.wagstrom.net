@@ -1,0 +1,44 @@
+#!/bin/bash
+
+DVB_APPS_TREE="$HOME/src/dvb-apps"
+AZAP="$DVB_APPS_TREE/util/szap/azap"
+MENCODER="mencoder"
+TESTDVR="$DVB_APPS_TREE/test/test_dvr"
+ATSCSCAN="$DVB_APPS_TREE/util/scan/atscscan"
+FREQTABLE="$DVB_APPS_TREE/util/scan/atsc/us-Cable-Standard-center-frequencies-QAM256"
+
+AZAPTIME=5
+TSLEN="75m"
+
+echo "`date +%X` - scanning frequencies"
+${ATSCSCAN} -A2 -U -q ${FREQTABLE} > channels.conf
+
+let count=`sed -n $= channels.conf`
+
+[ -f list.txt ] && rm -r list.txt
+[ -e streams ] && rm -r streams
+mkdir streams
+mkdir streams/raw
+
+for (( i = 1; i <= count; i++ )) ; do
+  line=`sed -n ${i}p channels.conf`
+  chan=`sed -n ${i}p channels.conf | cut -d: -f1`
+  freq=`sed -n ${i}p channels.conf | cut -d: -f2`
+  prog=`sed -n ${i}p channels.conf | cut -d: -f6`
+  [ -z `echo "$chan" | grep "^\\["` ] && continue
+  if [ "$freq" != "$lastfreq" ] ; then
+    echo "`date +%X` - tuning to ${freq}hz"
+    ${AZAP} -c channels.conf ${chan} > /dev/null &
+    sleep $AZAPTIME
+    killall -w ${AZAP} > /dev/null 2>&1
+    echo "`date +%X` - capturing from ${freq}hz"
+    ${TESTDVR} /dev/stdout 0x2000 2> /dev/null | head -c ${TSLEN} > streams/raw/${freq}.ts
+    lastfreq=${freq}
+  fi
+  fname=`echo "${chan}" | sed s/^.// | sed s/.$//`
+  echo "`date +%X` - testing prog ${prog} on ${freq}hz"
+  ${MENCODER} streams/raw/${freq}.ts -quiet -oac copy -ovc copy -tsprog ${prog} -o streams/${fname}.ts > /dev/null 2> /dev/null
+  [ -f streams/${fname}.ts ] && echo "${line}" >> list.txt
+done
+
+grep -v ^\\[...-....\\] channels.conf >> list.txt

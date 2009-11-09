@@ -1,0 +1,15 @@
+<my:blogEntry title="$title"
+              name="$fn"
+              category="$path"
+              categoryURL="$base_url/$path"
+              permalinkURL="$base_url/$file_path.xml"
+              dateLinkURL="$base_url/$yr/$mo/$da#$fn"
+              dateFull="$dw, $month $daord, $yr"
+              dateYear="$yr"
+              dateMonth="$month"
+              dateDay="$day"
+              dateTime="$ti"
+              dateOrdinal="$daord"
+              dayName="$dw">
+$body
+</my:blogEntry>

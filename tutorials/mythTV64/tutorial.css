@@ -1,0 +1,155 @@
+body {
+    font-family: sans-serif;
+}
+
+div.figure {
+    text-align:center;
+}
+
+div.figureTitle {
+    text-align:center;
+    font-weight: bold;
+}
+
+div.snippet {
+    border: 1px solid #cccccc;
+    background: #ffffcc;
+}
+
+div.snippetTitle {
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    background: #777777;
+    margin-bottom: 1em;
+}
+
+div.todo {
+    border: 2px solid black;
+    background: #ffff00;
+}
+
+span.todo {
+    font-weight: bold;
+    font-size: 110%;
+}
+
+/* headlines should always be black */
+h1 a {
+    color: black;
+}
+
+h2 a {
+    color: black;
+}
+
+h3 a {
+    color: black;
+}
+
+h4 a {
+    color: black;
+}
+
+h5 a {
+    color: black;
+}
+
+/* links by default have no decoration and get underline and yellow background
+   when moused over */
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    background: yellow;
+}
+
+span.command {
+    font-family: monospace;
+    background-color: #ccffcc;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    border: 1px dashed #cccccc;
+    display: block;
+    margin: 2px;
+}
+
+span.commandRoot {
+    font-family: monospace;
+    background-color: #ffdddd;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    border: 1px solid #cccccc;
+    display: block;
+    margin: 2px;
+}
+    
+span.programname {
+    font-family: monospace;
+    color: #cc0000;
+}
+
+span.pathname {
+    font-family: monospace;
+    color: #cc0000;
+}
+
+span.quote {
+    font-family: monospace;
+    color: #0000cc;
+}
+
+/* should be similar to command, but not bold */
+div.commandBlock {
+    font-family: monospace;
+    background-color: #ccffcc;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    border: 1px dashed #cccccc;
+    margin: 2px;
+}
+
+span.commandPrompt {
+    font-weight: bold;
+}
+
+span.warning {
+    font-weight: bold;
+    color: red;
+}
+
+/* this lets you apply custom styles to different levels of indentation, the
+   xslt sheet puts everything nested here.  So div.level2 should always be
+   beneath div.level1 */
+div.level1 {
+}
+
+div.level2 {
+    margin-left: 2em;
+}
+
+div.level3 {
+    margin-left: 2em;
+}
+
+div.level4 {
+    margin-left: 2em;
+}
+
+div.level5 {
+    margin-left: 2em;
+}
+
+/* the little links that tell the state of a section */
+span.expandStatus {
+    margin-left: 1ex;
+    font-weight: normal;
+}

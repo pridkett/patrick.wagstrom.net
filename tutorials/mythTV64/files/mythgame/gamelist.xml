@@ -1,0 +1,44 @@
+<gamelist>
+  <game>
+    <name>Doom 3</name>
+    <command>/usr/local/games/doom3/doom3</command>
+    <genre>Shooter</genre>
+    <year>2004</year>
+  </game>
+  <game>
+    <name>Enemy Territory</name>
+    <command>/usr/local/bin/et</command>
+    <genre>Shooter</genre>
+    <year>2003</year>
+  </game>
+  <game>
+    <name>Enemy Territory Fortress</name>
+    <command>/usr/local/bin/et-f</command>
+    <genre>Shooter</genre>
+    <year>2005</year>
+  </game>
+  <game>
+    <name>TuxRacer</name>
+    <command>/usr/games/ppracer</command>
+    <genre>Racer</genre>
+    <year>2001</year>
+  </game>
+  <game>
+    <name>Quake 4</name>
+    <command>/usr/local/games/quake4/quake4</command>
+    <genre>Shooter</genre>
+    <year>2005</year>
+  </game>
+  <game>
+    <name>Neverball</name>
+    <command>/usr/local/bin/neverball</command>
+    <genre>Puzzle</genre>
+    <year>2004</year>
+  </game>
+  <game>
+    <name>Neverputt</name>
+    <command>/usr/local/bin/neverputt</command>
+    <genre>Sports</genre>
+    <year>2004</year>
+  </game>
+</gamelist>

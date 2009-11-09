@@ -1,0 +1,629 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type="text/xsl" href="/resources/xslt/blog.xsl"?>
+<my:doc xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"
+	xmlns:my="http://patrick.wagstrom.net/xml/blog/1"
+	xmlns="http://www.w3.org/1999/xhtml"
+	title="My Delusional Dream"
+	url="http://patrick.wagstrom.net/weblog/"
+	style="default">
+
+<my:calendar title="March 2005" year="2005" month="March" abbr="Mar" link="http://patrick.wagstrom.net/weblog/2005/Mar" leftLink="http://patrick.wagstrom.net/weblog/2005/Feb">
+<my:calendarHeader><my:calendarDay type="Header">Su</my:calendarDay><my:calendarDay type="Header">Mo</my:calendarDay><my:calendarDay type="Header">Tu</my:calendarDay><my:calendarDay type="Header">We</my:calendarDay><my:calendarDay type="Header">Th</my:calendarDay><my:calendarDay type="Header">Fr</my:calendarDay><my:calendarDay type="Header">Sa</my:calendarDay></my:calendarHeader>
+<my:calendarRow><my:calendarDay/><my:calendarDay/><my:calendarDay> 1</my:calendarDay><my:calendarDay> 2</my:calendarDay><my:calendarDay link="http://patrick.wagstrom.net/weblog/2005/Mar/03"> 3</my:calendarDay><my:calendarDay> 4</my:calendarDay><my:calendarDay link="http://patrick.wagstrom.net/weblog/2005/Mar/05"> 5</my:calendarDay></my:calendarRow>
+<my:calendarRow><my:calendarDay link="http://patrick.wagstrom.net/weblog/2005/Mar/06"> 6</my:calendarDay><my:calendarDay link="http://patrick.wagstrom.net/weblog/2005/Mar/07"> 7</my:calendarDay><my:calendarDay> 8</my:calendarDay><my:calendarDay> 9</my:calendarDay><my:calendarDay>10</my:calendarDay><my:calendarDay link="http://patrick.wagstrom.net/weblog/2005/Mar/11">11</my:calendarDay><my:calendarDay link="http://patrick.wagstrom.net/weblog/2005/Mar/12">12</my:calendarDay></my:calendarRow>
+<my:calendarRow><my:calendarDay>13</my:calendarDay><my:calendarDay type="Today" link="http://patrick.wagstrom.net/weblog/2005/Mar/14">14</my:calendarDay><my:calendarDay>15</my:calendarDay><my:calendarDay>16</my:calendarDay><my:calendarDay>17</my:calendarDay><my:calendarDay>18</my:calendarDay><my:calendarDay>19</my:calendarDay></my:calendarRow>
+<my:calendarRow><my:calendarDay>20</my:calendarDay><my:calendarDay>21</my:calendarDay><my:calendarDay>22</my:calendarDay><my:calendarDay>23</my:calendarDay><my:calendarDay>24</my:calendarDay><my:calendarDay>25</my:calendarDay><my:calendarDay>26</my:calendarDay></my:calendarRow>
+<my:calendarRow><my:calendarDay>27</my:calendarDay><my:calendarDay>28</my:calendarDay><my:calendarDay>29</my:calendarDay><my:calendarDay>30</my:calendarDay><my:calendarDay>31</my:calendarDay><my:calendarDay/><my:calendarDay/></my:calendarRow>
+</my:calendar>
+<my:blogEntry title="Bulter for Firefox"
+              name="butler"
+              category="web"
+              categoryURL="http://patrick.wagstrom.net/weblog/web"
+              permalinkURL="http://patrick.wagstrom.net/weblog/web/butler.xml"
+              dateLinkURL="http://patrick.wagstrom.net/weblog/2005/Mar/14#butler"
+              dateFull="Monday, March 14th, 2005"
+              dateYear="2005"
+              dateMonth="March"
+              dateDay="14"
+              dateTime="21:33"
+              dateOrdinal="14th"
+              dayName="Monday"
+              canonicalDay="Mon, 14 Mar 2005 21:33:35 +0000">
+
+<!-- Date: 2005-03-14 21:26 -->
+<p>
+Ah yes, the joys of an open platform bringing innovation back to the web.  It's
+really a wonder to see all the cool extensions hackers are creating for
+<a href="http://www.spreadfirefox.com/?q=affiliates&amp;id=38177&amp;t=82">FireFox</a>.  A few weeks ago I installed
+<a href="http://ackroyd.de/googlepreview/">Google Preview</a>, which provides
+very cool tumbnails of webpages on Google.  Today, I found out about
+<a href="http://greasemonkey.mozdev.org/">GreaseMonkey</a> which lets you add
+custom scripts for different webpages.  For example,
+<a href="http://www.fidelity.com/">Fidelity</a> still has some b0rkage in
+their login on Firefox in Linux (it doesn't recognize X11 as a platform so
+things don't quite work right, like research of stocks and funds).  I can go
+and hack together a script and it will automagically fix the site for me.  One
+could imagine some cool extensions for web based games, ala the cool old school
+Trade Wars 2002 scripts for Telix.
+</p>
+<p>
+But I didn't just stumble upon (which is another extension, I haven't played
+with it yet though) <a href="http://greasemonkey.mozdev.org/">GreaseMonkey</a>.
+It was discovered because I found <a href="http://diveintomark.org/">Mark
+Pilgrim's</a> great new script called
+<a href="http://diveintomark.org/projects/butler/">Butler</a>.  This little
+guy hacks up the search results for Google and removes all the ads and
+provides additional links to interesting sites.  Most cool.  I'm cotinually
+amazed by the innovation that comes out folks hacking on FireFox.  I feel very
+meek in comparasion to their geekiness.
+</p>
+
+</my:blogEntry>
+<my:blogEntry title="More Interesting RSS Problems"
+              name="badBloglines"
+              category="code/mythTorrent"
+              categoryURL="http://patrick.wagstrom.net/weblog/code/mythTorrent"
+              permalinkURL="http://patrick.wagstrom.net/weblog/code/mythTorrent/badBloglines.xml"
+              dateLinkURL="http://patrick.wagstrom.net/weblog/2005/Mar/12#badBloglines"
+              dateFull="Saturday, March 12th, 2005"
+              dateYear="2005"
+              dateMonth="March"
+              dateDay="12"
+              dateTime="11:26"
+              dateOrdinal="12th"
+              dayName="Saturday"
+              canonicalDay="Sat, 12 Mar 2005 11:26:00 +0000">
+
+<!-- Date: 2005-03-12 11:26 -->
+<p>
+I just noticed another interesting <a href="http://www.bloglines.com/">Bloglines</a> problem.  Apparently
+BlogLines doesn't properly handly article updating as it should.  This means that if it fetches my
+<a href="http://patrick.wagstrom.net/mythTorrent/mythTorrent.rss">mythTorrent feed</a> while a show is
+recording then it will include the show twice, adding it again after the show is completed.  Mainly this
+is because the entries for filesize will vary.  The solution to this is to have entries not show up until
+after they are finished recording.  Shouldn't be a big deal.  Bear with me, repairs in progress.
+</p>
+
+</my:blogEntry>
+<my:blogEntry title="My RSS Feed Is Sick"
+              name="rssFeedSickness"
+              category="meta"
+              categoryURL="http://patrick.wagstrom.net/weblog/meta"
+              permalinkURL="http://patrick.wagstrom.net/weblog/meta/rssFeedSickness.xml"
+              dateLinkURL="http://patrick.wagstrom.net/weblog/2005/Mar/12#rssFeedSickness"
+              dateFull="Saturday, March 12th, 2005"
+              dateYear="2005"
+              dateMonth="March"
+              dateDay="12"
+              dateTime="11:04"
+              dateOrdinal="12th"
+              dayName="Saturday"
+              canonicalDay="Sat, 12 Mar 2005 11:04:00 +0000">
+
+<!-- Date: 2005-03-12 11:04 -->
+<p>
+Apparently my <a href="http://patrick.wagstrom.net/index.rss">RSS feed</a> is sick.  I'm
+not quite sure why.  There are two major ways that this sickness is showing itself.  Firstly,
+it's not putting spaces around links on <a href="http://www.bloglines.com/">BlogLines</a>.  This
+was pointed out by a helpful reader and it appears to be doing it on all my entries.  Secondly,
+when I read the entries on <a href="http://www.imendio.com/projects/blam/">Blam!</a> it really does
+a good job of mangling them.
+</p>
+<p>
+I've tracked this down to a few different problems in my setup.  First off, I need to point out that
+I'm using <a href="http://roughingit.subtlehints.net/pyblosxom/">PyBlosxom 0.82</a> and have no intention
+of upgrading.  I've got too many custom modules to deal with.  Anyway, basically PyBlosxom just takes an
+entry and pastes the entire contents into the page returned.  While this works well for HTML pages, in
+an RSS feed I need to escape all the &lt; and &gt; symbols.  Or at least I think I do.  In any case, I'm
+pretty sure the unescaped HTML in the body is confusing Blam!  The unescaped HTML also makes my feed fail
+to validate as most of the HTML tags are not defined for RSS.
+</p>
+<p>
+The other problem is that I use some custom XML in these pages.  When you view the pages on the web at
+<a href="http://patrick.wagstrom.net/weblog/">http://patrick.wagstrom.net/weblog/</a>, you're really
+downloading a plain old XML file.  This XML file has a preprocessor directive that tells your browser
+to go grab an XSLT stylesheet to render the page.  If you're using <a href="http://www.spreadfirefox.com/?q=affiliates&amp;id=38177&amp;t=82">FireFox</a> to read this, do a view source command to see what I mean.  
+Your browser then takes care of transforming the
+XML into HTML on the client side.  It's all rather neato.  If you have a browser that can't do this
+properly, like Internet Explorer, then the server does it for you, but only for the HTML pages.
+This means that when you
+download the RSS feed, you still see these weird XML tags because the feed has not been run against my stylesheet.  For example in the RSS feed, you may see something like
+<my:verbatim>&lt;my:imagestrip&gt;...&lt;/my:imagestrip&gt;</my:verbatim> instead of a nice row of pictures.  This is my special markup for a strip of images in the web page.
+Well, that won't get rendered in your feed reader.  Suckage.
+</p>
+<p>
+Fortunately, if we remember that the actual page is XML, we might be able to cook up a solution.  It's
+not a secret that I'm not a big fan of the way that PyBlosxom does some stuff, especially how much of
+the stuff like RSS is hard coded.  What I can do is cook up an XSLT stylesheet that will take the same
+XML that your browser downloads and use that to create an RSS feed.  Which is probably what I'm
+going to do.  However, I've got a <a href="http://www-2.cs.cmu.edu/~guestrin/Class/10701/">machine
+learning</a> test on Monday and a house to buy a week after that, so don't expect it real soon, but
+you never know.   When that happens, I'll also try to make a nice ATOM feed so I can hang out with the
+cool kids.
+</p>
+
+</my:blogEntry>
+<my:blogEntry title="Noel &amp; Jad"
+              name="noelAndJad"
+              category="random"
+              categoryURL="http://patrick.wagstrom.net/weblog/random"
+              permalinkURL="http://patrick.wagstrom.net/weblog/random/noelAndJad.xml"
+              dateLinkURL="http://patrick.wagstrom.net/weblog/2005/Mar/11#noelAndJad"
+              dateFull="Friday, March 11th, 2005"
+              dateYear="2005"
+              dateMonth="March"
+              dateDay="11"
+              dateTime="14:34"
+              dateOrdinal="11th"
+              dayName="Friday"
+              canonicalDay="Fri, 11 Mar 2005 14:34:00 +0000">
+
+<!-- Date: 2005-03-11 14:34 -->
+<p>
+Paul introduced me to <a href="http://www.noelandjad.com/">Noel &amp; Jad</a>,
+but sadly they don't seem to have much
+<a href="http://c2.com/cgi/wiki?GoogleJuice">Google juice</a> going for them.
+So this is a little bit of an attempt to make their website show up.  It's
+Christian acoustic rock, not half bad.  As an aside,
+<a href="http://www.wikipedia.org/">Wikipedia</a> is lacking an entry for Google
+Juice.
+</p>
+
+</my:blogEntry>
+<my:blogEntry title="TV Out Joy!"
+              name="tvOutJoy"
+              category="linux/mythtv"
+              categoryURL="http://patrick.wagstrom.net/weblog/linux/mythtv"
+              permalinkURL="http://patrick.wagstrom.net/weblog/linux/mythtv/tvOutJoy.xml"
+              dateLinkURL="http://patrick.wagstrom.net/weblog/2005/Mar/07#tvOutJoy"
+              dateFull="Monday, March 7th, 2005"
+              dateYear="2005"
+              dateMonth="March"
+              dateDay="7"
+              dateTime="20:42"
+              dateOrdinal="7th"
+              dayName="Monday"
+              canonicalDay="Mon, 07 Mar 2005 20:42:00 +0000">
+
+<!-- Date: 2005-03-07 20:42 -->
+<p>
+I've had my MGA G400-MAX dual head video card since I built my current desktop
+computer back in April of 2000.  I've used the second head for xinerama and dual
+monitor work in the past, it always worked pretty nicely.  I sold the second
+monitor last year after I got my laptop.  I figured I might as well get the
+second head to output on the TV.
+</p>
+<p>
+Using the drivers provided by Matrox I was able to get the second head to
+output to the TV, but I couldn't get XV accelerated video.  This left me
+very sad as it meant that I there wasn't any chance of me getting 
+<a href="http://www.mythtv.org/">MythTV</a> running on the TV.  Well, today
+I finally fixed that problem.  Yay!
+</p>
+<p>
+I utilized the nice <a href="http://davedina.apestaart.org/download/doc/Matrox-TVOUT-HOWTO-0.1.txt">G400 TVOut HowTo</a> from
+<a href="http://thomas.apestaart.org/">Thomasvs</a> to get going.  Amazingly,
+almost everything was easily installed from apt.  The kernel already had all
+of the modules compiled, so that was no problem.
+<my:verbatim>fbset</my:verbatim> was installed via apt.  I needed to go visit
+the <a href="http://packages.debian.org/unstable/misc/matroxset">debian
+matroxset packages</a>.  On <a href="http://www.ubuntulinux.com/">Ubuntu</a>
+these installed without any problem.
+</p>
+<p>
+The next thing I did was to make the system load the appropriate modules
+at run time.  So I added the following lines to my
+<my:verbatim>/etc/modules</my:verbatim> file, which autoloads modules at
+system boot time.
+</p>
+<pre># needed for doing TVOut
+mga
+i2c_matroxfb
+matroxfb_crtc2
+matroxfb_maven
+</pre>
+<p>
+The next step was to create a startup script.  I've pasted that below.  Save
+this as <my:verbatim>/etc/init.d/matroxTVOut</my:verbatim>.
+</p>
+<pre>#!/bin/sh
+
+. /lib/lsb/init-functions
+. /etc/default/rcS
+
+MATROXSET=/usr/bin/matroxset
+FBSET=/usr/sbin/fbset
+FBDEV=/dev/fb0
+FBDEV2=/dev/fb1
+
+# test to ensure that the proper tools are present
+echo "Testing for matrox set"
+test -f $MATROXSET || exit 0
+echo "Testing for fbset"
+test -f $FBSET || exit 0
+echo "Testing for fbdev"
+test -c $FBDEV || exit 0
+echo "everything seems to be present"
+
+case "$1" in
+        start)
+                log_begin_msg "Initializing Matrox TV out..."
+                $MATROXSET -f $FBDEV -m 0
+                $MATROXSET -f $FBDEV -m 3
+                $MATROXSET -f $FBDEV -o 1 2
+                $FBSET -fb $FBDEV -xres 800 -yres 600
+                $FBSET -fb $FBDEV -left 54 -right 26 -lower 32 -upper 80 -hslen 40
+                log_end_msg $?
+                ;;
+        stop)
+                log_begin_msg "Stopping Matrox TV out..."
+                $MATROXSET -f $FBDEV -m 0
+                $MATROXSET -f $FBDEV2 -m 0
+                $MATROXSET -f $FBDEV -m 1
+                $FBSET -fb $FBDEV -left 0 -right 0 -lower 0 -upper 0
+                log_end_msg $?
+                ;;
+        *)
+                log_success_msg "Usage: matroxTVOut {start|stop}"
+                exit 1
+                ;;
+esac
+</pre>
+<p>
+And you'll need to add this your default startup scripts using
+<my:verbatim>update-rc.d</my:verbatim>.  We're almost there, the final step
+is to setup X11 so we can run it on the framebuffer device.  The default
+Ubuntu setup is basically right, but we need to make some changes.  We need
+to change the <my:verbatim>device</my:verbatim> setting.
+</p>
+<pre>Section "Device"
+        Identifier      "Matrox Graphics, Inc. MGA G400 AGP"
+        Driver          "mga"
+        BusID           "PCI:1:0:0"
+        Option          "hw cursor" "off"
+        Option          "UseFBDev" "on"
+EndSection
+</pre>
+<p>
+And the last little touch is to setup the output resolution in X11.  This little
+snippet should take care of it for you.
+</p>
+<pre>Section "Screen"
+        Identifier      "Default Screen"
+        Device          "Matrox Graphics, Inc. MGA G400 AGP"
+        Monitor         "AccuSync 95F"
+        DefaultDepth    16
+        DefaultFbBPP    16
+        SubSection "Display"
+                Depth 16
+                Modes "800x600"
+        EndSubSection
+EndSection
+</pre>
+<p>
+And voila.  We should have everything setup to make X11 run at 800x600 mode
+with output on both the monitor and the TV.  You'll want to look at Thomasvs'
+<a href="http://davedina.apestaart.org/download/doc/Matrox-TVOUT-HOWTO-0.1.txt">howto</a> for more information on what I did with <my:verbatim>fbset</my:verbatim>.
+</p>
+<my:imagestrip>
+        <my:image src="/resources/images/blog/mythWithTV1.thumb.jpg"
+                width="200" height="150" alt="MythTV Goodness"
+                href="/resources/images/blog/mythWithTV1.jpg"
+                caption="MythTV TV Out Goodness"/>
+        <my:image src="/resources/images/blog/mythWithTV2.thumb.jpg"
+                width="200" height="150" alt="More MythTV Goodness"
+                href="/resources/images/blog/mythWithTV2.jpg"
+                caption="MythTV Showing TV Out"/>
+</my:imagestrip>
+
+
+</my:blogEntry>
+<my:blogEntry title="Loki Games Under Ubuntu : Alpha Centauri"
+              name="alphaCentauri"
+              category="linux/ubuntu"
+              categoryURL="http://patrick.wagstrom.net/weblog/linux/ubuntu"
+              permalinkURL="http://patrick.wagstrom.net/weblog/linux/ubuntu/alphaCentauri.xml"
+              dateLinkURL="http://patrick.wagstrom.net/weblog/2005/Mar/07#alphaCentauri"
+              dateFull="Monday, March 7th, 2005"
+              dateYear="2005"
+              dateMonth="March"
+              dateDay="7"
+              dateTime="17:25"
+              dateOrdinal="7th"
+              dayName="Monday"
+              canonicalDay="Mon, 07 Mar 2005 17:25:00 +0000">
+
+<!-- Date: 2005-03-07 17:25 -->
+<p>
+It's spring break so I decided I would play a few video games.  I've got
+a bunch of the old Linux ports of games from
+<a href="http://www.lokigames.com/">LokiGames</a> (which went bankrupt in
+a mess of supposed lies and missed payments in January, 2002).  Unfortunately,
+these games need some work to function in Linux.  Well, at least the ones that
+I've tried.
+</p>
+<p>
+For Alpha Centauri, you should first go and fetch the patch for SMAC.  The
+updates can be found at
+<a href="ftp://sunsite.dk/mirrors/lokigames/updates/">sunsite.dk</a>.  Go
+and download that.  Also, go and download the updated version of loki_patch
+from <a href="http://icculus.org/~msphil/loki/x86/">icculus</a>.  Now, install
+the game as you would normally.  The install worked just fine under my
+version of Ubuntu (Warty, aka 4.10).
+</p>
+<p>
+The tricky part comes with patching Alpha Centauri.  Running the patch generates
+the following output:
+</p>
+<pre>Verifying archive integrity...OK
+Uncompressing Sid Meier's Alpha Centauri 6.0a Update...................
+./update.sh: line 60: 11336 Segmentation fault      loki_patch --verify patch.dat
+The program returned an error code (1)
+</pre>
+<p>
+This clearly isn't right.  So instead of running the patch normally, we've got
+to do a bit of work.  Instead, run the patch with
+<my:verbatim>sh ./smac-6.0a-x86.run --keep</my:verbatim>, this will preserve
+the unarchived files in a directory called
+<my:verbatim>smac-6.0a-x86</my:verbatim>.  Copy the new version of loki_patch
+to smac-6.0a-x86/bin/Linux/x86/loki_patch.  Then go into the directory and
+run <my:verbatim>update.sh</my:verbatim>.
+</p>
+<p>
+So now we've got a nice updated version of Alpha Centauri, but it still wasn't
+spitting out sound on my version of Ubuntu (I've mangled some stuff with
+regards to <a href="http://http://www.alsa-project.org/">ALSA</a> and ESD.
+Also, I've read that there are some other issues with kernel versions.  To fix
+this I created a little script and use this to run SMAC.
+</p>
+<pre>#!/bin/sh
+LD_ASSUME_KERNEL=2.4.6 SDL_AUDIODRIVER=esd /usr/local/games/smac/smacpack $*
+</pre>
+<p>
+It may be possible to do other fun stuff using the 
+<a href="ftp://ptah.lnf.kth.se/pub/misc/sdl-env-vars">other SDL environment
+variables</a>.  As a side note, I could not get the dynamic version to function
+properly, which is bummer because it means that I can't really update the
+libraries and try other fun stuff with them.
+</p>
+<p>
+As I play with other old games I'll post updates on how to get them going
+in the weblog.
+</p>
+
+</my:blogEntry>
+<my:blogEntry title="Curling"
+              name="curling"
+              category="random"
+              categoryURL="http://patrick.wagstrom.net/weblog/random"
+              permalinkURL="http://patrick.wagstrom.net/weblog/random/curling.xml"
+              dateLinkURL="http://patrick.wagstrom.net/weblog/2005/Mar/06#curling"
+              dateFull="Sunday, March 6th, 2005"
+              dateYear="2005"
+              dateMonth="March"
+              dateDay="6"
+              dateTime="20:24"
+              dateOrdinal="6th"
+              dayName="Sunday"
+              canonicalDay="Sun, 06 Mar 2005 20:24:00 +0000">
+
+<!-- Date: 2005-03-06 20:24 -->
+<p>
+Last night Kristina and I went out with a group of folks from school to the
+<a href="http://www.rmuislandsports.org/">Robert Morris University Island
+Sports Center</a> and hung out with the <a href="http://www.pittsburghcurlingclub.com/">Pittburgh Curling Club</a>.  It was different to say the least.  I
+think every one of us fell down at least a few times.  But it was definately
+fun and I think we may consider doing it again.  At the very least, at $10 a
+person, it was a very cheap way to spend a Saturday evening.
+</p>
+<p>
+Here's two of the shots I took.  Unfortunately, I realized after I left that
+the light balance was off.  Also, the PowerShot A75 is not the best for getting
+active shots.  Oh yeah, and my batteries died during the evening.  Hopefully
+<a href="http://www.andrew.cmu.edu/~phines/">Paul</a> got some better shots.
+</p>
+<my:imagestrip>
+	<my:image src="/resources/images/blog/ameliaThrowing.thumb.jpg"
+		width="200" height="150" alt="Amelia Throwing"
+		href="/resources/images/blog/ameliaThrowing.jpg"
+		caption="Amelia throwing a stone down the lane"/>
+	<my:image src="/resources/images/blog/maryThrowing.thumb.jpg"
+		width="200" height="150" alt="Mary Throwing"
+		href="/resources/images/blog/maryThrowing.jpg"
+		caption="Mary throwing with Kristina and Vanessa sweeping"/>
+</my:imagestrip>
+
+</my:blogEntry>
+<my:blogEntry title="Ubuntu NFS Woes Ate My Forrest Gump"
+              name="transcoding"
+              category="linux/mythtv"
+              categoryURL="http://patrick.wagstrom.net/weblog/linux/mythtv"
+              permalinkURL="http://patrick.wagstrom.net/weblog/linux/mythtv/transcoding.xml"
+              dateLinkURL="http://patrick.wagstrom.net/weblog/2005/Mar/05#transcoding"
+              dateFull="Saturday, March 5th, 2005"
+              dateYear="2005"
+              dateMonth="March"
+              dateDay="5"
+              dateTime="14:00"
+              dateOrdinal="5th"
+              dayName="Saturday"
+              canonicalDay="Sat, 05 Mar 2005 14:00:00 +0000">
+
+<!-- Date: 2005-03-05 14:00 -->
+<p>
+The title about sums it up.  Apparently
+<a href="http://www.ubuntulinux.com/">Ubuntu</a> is being bit in the ass by
+a rather nasty <a href="https://bugzilla.ubuntu.com/show_bug.cgi?id=6749">NFS
+server bug</a> that prevents writing to the NFS drives.  It just creates 0
+byte files.  Well, not exactly.
+</p>
+<p>
+I realized that when my laptop (2GHz) is on the wired connnection it can
+transcode recorded programs much faster than my master backend (700MHz).  So
+I figured I'd have the laptop transcode 
+<a href="http://www.imdb.com/title/tt0109830/">Forrest Gump</a> and
+<a href="http://www.imdb.com/title/tt0085995/">Vacation</a> for me.  I went
+through and cut out all of the commercials and set the laptop to trim the
+files for me.  It seemed like everything was going well enough.  A check on
+the NFS directory showed the .nuv.tmp files were be created by
+<my:verbatim>mythtranscode</my:verbatim>.  There were a few errors being
+spit out by the laptops instance of <my:verbatim>mythbackend</my:verbatim>,
+but usually I can ignore those.  Then disaster.  When done transcoding the
+original .nuv file is removed and replaced by the .nuv.tmp file.  This failed.
+Bye bye Forrest.
+</p>
+<p>
+So I'm back to transcoding on the Athlon backend, no biggie, just takes longer.
+But I have to wonder, when will I be able to replace Forrest?  Sigh.  Let's hope
+the good guys at Ubuntu get this fixed soon.  Until then, DO NOT USE KERNEL
+2.6.8.1-5 ON UBUNTU.  At least not if you're running an NFS server, it'll
+hork your files and eat your children.
+</p>
+
+</my:blogEntry>
+<my:blogEntry title="Myth 0.17 Fun"
+              name="myth017fun"
+              category="linux/mythtv"
+              categoryURL="http://patrick.wagstrom.net/weblog/linux/mythtv"
+              permalinkURL="http://patrick.wagstrom.net/weblog/linux/mythtv/myth017fun.xml"
+              dateLinkURL="http://patrick.wagstrom.net/weblog/2005/Mar/03#myth017fun"
+              dateFull="Thursday, March 3rd, 2005"
+              dateYear="2005"
+              dateMonth="March"
+              dateDay="3"
+              dateTime="15:33"
+              dateOrdinal="3rd"
+              dayName="Thursday"
+              canonicalDay="Thu, 03 Mar 2005 15:33:00 +0000">
+
+<!-- Date: 2005-03-03 15:33 -->
+<p>
+Now that my system has some reasonable hard drive, I've been working on other
+bells and whistles with <a href="http://www.mythtv.org/">MythTV</a>.  After
+the 0.17 upgrade I found that my remote no longer worked, mainly because I
+forgot to tell Myth to compile with <a href="http://www.lirc.org/">LIRC</a>
+support.  I decided since I was flubbing around, I might as well upgrade my
+system kernel to the K7 kernel (my mythbox is an Athlon 700).  This went well,
+but somewhere along the line (I think before the upgrade) the alsa drivers for
+my SB!Live card got toasted.  Oddly enough, I can load the driver, but I don't
+get any sound out of the system.  If I unload the <my:verbatim>snd_emu10k1</my:verbatim>
+driver and stop alsa and load the OSS <my:verbatim>emu10k1</my:verbatim>
+then stuff seems to work okay in OSS mode.  Still a pain.  Because the system
+is basically only a Myth Box this should work okay.
+</p>
+<p>
+Long story short on all these problems is that I need to document what I've
+been doing better.  Specifically the fact that I'm not using the LIRC kernel
+driver for my remote, I'm using the Linux input layer.  This caused me endless
+frustration especially when I saw that LIRC refused to create valid kernel
+modules for the system.
+</p>
+<p>
+I also hacked around some of my startup scripts so the system is dead simple
+to use now.  Basically when the computer starts up it starts a GDM session
+first, and another XSession just for Myth afterwards.  I'll post some of that
+on how I did it in my <a href="/tutorials/">tutorials</a> section sometime
+next week.
+</p>
+<p>
+With regards to 0.17, it's quite nice.  I especially like the time speedup
+option for viewing programs.  While 1.5x starts to be a little annoying, 
+watching Conan at 1.2x normal speed is really nice.
+</p>
+
+</my:blogEntry>
+<my:blogEntry title="Why I like Mark Cuban"
+              name="markCubanIsSmart"
+              category="freedom"
+              categoryURL="http://patrick.wagstrom.net/weblog/freedom"
+              permalinkURL="http://patrick.wagstrom.net/weblog/freedom/markCubanIsSmart.xml"
+              dateLinkURL="http://patrick.wagstrom.net/weblog/2005/Feb/26#markCubanIsSmart"
+              dateFull="Saturday, February 26th, 2005"
+              dateYear="2005"
+              dateMonth="February"
+              dateDay="26"
+              dateTime="15:20"
+              dateOrdinal="26th"
+              dayName="Saturday"
+              canonicalDay="Sat, 26 Feb 2005 15:20:00 +0000">
+
+<!-- Date: 2005-02-26 15:20 -->
+<p>
+<a href="http://www.blogmaverick.com/">Mark Cuban</a> takes a lot of
+crap from people for being a little out there.  He reminds me a bit of
+Howard Dean, he's doing things to shake people up and get them off their
+comfortable asses.  He's not only the owner of the Dallas Mavericks, but
+also is a major player in the migration to HDTV.  Last week he wrote
+a great article about why FCC should <a href="http://www.blogmaverick.com/entry/1234000893032857">call the broadcater's bluff</a>.
+</p>
+<p>
+To sum it up, HDTV is out of the bag.  It's big business.  The content
+producers will not stop broadcasting in HDTV if they don't get their crappy
+little flag.  The flag is anti-consumer, and Mark is proud to say that his
+production companies aren't going to use it.  So the flag is of great
+value for him, not because it will protect his content, he's smart enough to
+realize that you can't, but because his stuff won't use it and it will make
+the consumers happy.  Cheers for him.
+</p>
+
+</my:blogEntry>
+<my:links>
+	<my:link name="home" url="/"/>
+	<my:link name="resume" url="/resume/"/>
+	<my:link name="projects" url="/projects/"/>
+	<my:link name="photos" url="/photos/"/>
+	<my:link name="weblog" url="/weblog/"/>
+	<my:link name="wedding" url="/wedding/"/>
+	<my:link name="tutorials" url="/tutorials/"/>
+</my:links>
+
+<my:categories>
+<my:category url="http://patrick.wagstrom.net/weblog" num="429" name="" fullname=""/>
+<my:category url="http://patrick.wagstrom.net/weblog/" num="429" name="" fullname="/"/>
+<my:category url="http://patrick.wagstrom.net/weblog/academic" num="14" name="academic" fullname="/academic"/>
+<my:category url="http://patrick.wagstrom.net/weblog/academic/rfidPrivacy" num="4" name="rfidPrivacy" fullname="/academic/rfidPrivacy"/>
+<my:category url="http://patrick.wagstrom.net/weblog/books" num="42" name="books" fullname="/books"/>
+<my:category url="http://patrick.wagstrom.net/weblog/books/hadEnough" num="2" name="hadEnough" fullname="/books/hadEnough"/>
+<my:category url="http://patrick.wagstrom.net/weblog/books/mysteryOfMarriage" num="1" name="mysteryOfMarriage" fullname="/books/mysteryOfMarriage"/>
+<my:category url="http://patrick.wagstrom.net/weblog/books/mythicalManMonth" num="16" name="mythicalManMonth" fullname="/books/mythicalManMonth"/>
+<my:category url="http://patrick.wagstrom.net/weblog/books/wildAtHeart" num="11" name="wildAtHeart" fullname="/books/wildAtHeart"/>
+<my:category url="http://patrick.wagstrom.net/weblog/books/winningWithSoftware" num="9" name="winningWithSoftware" fullname="/books/winningWithSoftware"/>
+<my:category url="http://patrick.wagstrom.net/weblog/car" num="2" name="car" fullname="/car"/>
+<my:category url="http://patrick.wagstrom.net/weblog/code" num="46" name="code" fullname="/code"/>
+<my:category url="http://patrick.wagstrom.net/weblog/code/bibtexml" num="3" name="bibtexml" fullname="/code/bibtexml"/>
+<my:category url="http://patrick.wagstrom.net/weblog/code/c" num="2" name="c" fullname="/code/c"/>
+<my:category url="http://patrick.wagstrom.net/weblog/code/gallery" num="7" name="gallery" fullname="/code/gallery"/>
+<my:category url="http://patrick.wagstrom.net/weblog/code/misc" num="1" name="misc" fullname="/code/misc"/>
+<my:category url="http://patrick.wagstrom.net/weblog/code/mod_excesslt" num="2" name="mod_excesslt" fullname="/code/mod_excesslt"/>
+<my:category url="http://patrick.wagstrom.net/weblog/code/mono" num="2" name="mono" fullname="/code/mono"/>
+<my:category url="http://patrick.wagstrom.net/weblog/code/mono/mono.readline" num="1" name="mono.readline" fullname="/code/mono/mono.readline"/>
+<my:category url="http://patrick.wagstrom.net/weblog/code/mythTorrent" num="3" name="mythTorrent" fullname="/code/mythTorrent"/>
+<my:category url="http://patrick.wagstrom.net/weblog/code/pimpbot" num="3" name="pimpbot" fullname="/code/pimpbot"/>
+<my:category url="http://patrick.wagstrom.net/weblog/code/priblog" num="2" name="priblog" fullname="/code/priblog"/>
+<my:category url="http://patrick.wagstrom.net/weblog/code/pridb" num="3" name="pridb" fullname="/code/pridb"/>
+<my:category url="http://patrick.wagstrom.net/weblog/code/python" num="7" name="python" fullname="/code/python"/>
+<my:category url="http://patrick.wagstrom.net/weblog/computer" num="2" name="computer" fullname="/computer"/>
+<my:category url="http://patrick.wagstrom.net/weblog/faith" num="4" name="faith" fullname="/faith"/>
+<my:category url="http://patrick.wagstrom.net/weblog/freedom" num="14" name="freedom" fullname="/freedom"/>
+<my:category url="http://patrick.wagstrom.net/weblog/freedom/drm" num="1" name="drm" fullname="/freedom/drm"/>
+<my:category url="http://patrick.wagstrom.net/weblog/freedom/induce" num="2" name="induce" fullname="/freedom/induce"/>
+<my:category url="http://patrick.wagstrom.net/weblog/house" num="3" name="house" fullname="/house"/>
+<my:category url="http://patrick.wagstrom.net/weblog/linux" num="27" name="linux" fullname="/linux"/>
+<my:category url="http://patrick.wagstrom.net/weblog/linux/mythtv" num="5" name="mythtv" fullname="/linux/mythtv"/>
+<my:category url="http://patrick.wagstrom.net/weblog/linux/sco" num="1" name="sco" fullname="/linux/sco"/>
+<my:category url="http://patrick.wagstrom.net/weblog/linux/thinkpad" num="1" name="thinkpad" fullname="/linux/thinkpad"/>
+<my:category url="http://patrick.wagstrom.net/weblog/linux/ubuntu" num="1" name="ubuntu" fullname="/linux/ubuntu"/>
+<my:category url="http://patrick.wagstrom.net/weblog/macquarium" num="1" name="macquarium" fullname="/macquarium"/>
+<my:category url="http://patrick.wagstrom.net/weblog/meta" num="37" name="meta" fullname="/meta"/>
+<my:category url="http://patrick.wagstrom.net/weblog/mlp" num="4" name="mlp" fullname="/mlp"/>
+<my:category url="http://patrick.wagstrom.net/weblog/old" num="140" name="old" fullname="/old"/>
+<my:category url="http://patrick.wagstrom.net/weblog/photo" num="1" name="photo" fullname="/photo"/>
+<my:category url="http://patrick.wagstrom.net/weblog/pittsburgh" num="1" name="pittsburgh" fullname="/pittsburgh"/>
+<my:category url="http://patrick.wagstrom.net/weblog/politics" num="25" name="politics" fullname="/politics"/>
+<my:category url="http://patrick.wagstrom.net/weblog/politics/election" num="1" name="election" fullname="/politics/election"/>
+<my:category url="http://patrick.wagstrom.net/weblog/project175" num="5" name="project175" fullname="/project175"/>
+<my:category url="http://patrick.wagstrom.net/weblog/random" num="49" name="random" fullname="/random"/>
+<my:category url="http://patrick.wagstrom.net/weblog/web" num="11" name="web" fullname="/web"/>
+</my:categories>
+
+</my:doc>

@@ -3,8 +3,10 @@
 DATAFILE = "/www/patrick/mail/mailcheck.csv"
 ORIGIN = ISOdatetime(1970,1,1,0,0,0, tz="UTC")
 
-col.line = rgb(0.95, 0.2, 0.2, 1.0)
-col.line2 = rgb(0.4, 0.4, 0.95, 1.0)
+col.line = rgb(0.95, 0.2, 0.2, 0.6)
+col.line2 = rgb(0.4, 0.4, 0.95, 0.6)
+lwd.line = 1.0
+lwd.line2 = 1.0
 col.axis = rgb(0.70, 0.1, 0.1, 1.0)
 col.axis.font = rgb(0.7, 0.7, 0.7, 1.0)
 col.bg = rgb(0.0, 0.0, 0.0, 1.0)
@@ -34,7 +36,7 @@ generic.plot <- function(indata, mode) {
     svg(width=6, height=3, pointsize=8, file=sprintf("mail-%s.svg", mode))
     par(bg="black", mar=c(2.5,2,0.5,2)+0.1)
     plot(x=indata$date, y=indata$unread, type="l", xlab="", ylab="",
-         frame.plot=F, lwd=2, col=col.line, bg=col.bg, axes=F, ylim=c(0,max(indata$unread)))
+         frame.plot=F, lwd=lwd.line, col=col.line, bg=col.bg, axes=F, ylim=c(0,max(indata$unread)))
     axis(side=2, at=pretty(range(indata$unread, na.rm=T)), col.axis=col.line,
          fg=col.axis, line=-0.25)
     #axis(side=1, at=pretty(range(maildata$date, na.rm=T)), col.axis=col.axis.font,
@@ -55,7 +57,7 @@ generic.plot <- function(indata, mode) {
     }
     par(new=T)
     plot(x=indata$date, y=indata$total, type="l", xlab="", ylab="",
-         frame.plot=F, lwd=2, col=col.line2, axes=F)
+         frame.plot=F, lwd=lwd.line2, col=col.line2, axes=F)
     axis(side=4, at=pretty(range(indata$total, na.rm=T)), col.axis=col.line2,
            fg=col.axis, line=-0.25)
      dev.off()

@@ -37,7 +37,7 @@ generic.plot <- function(indata, mode) {
     par(bg="black", mar=c(2.5,2,0.5,2)+0.1)
     plot(x=indata$date, y=indata$unread, type="l", xlab="", ylab="",
          frame.plot=F, lwd=lwd.line, col=col.line, bg=col.bg, axes=F, ylim=c(0,max(indata$unread)))
-    axis(side=2, at=pretty(range(indata$unread, na.rm=T)), col.axis=col.line,
+    axis(side=2, at=pretty(range(append(indata$unread, 0), na.rm=T)), col.axis=col.line,
          fg=col.axis, line=-0.25)
     #axis(side=1, at=pretty(range(maildata$date, na.rm=T)), col.axis=col.axis.font,
     #     fg=col.axis, line=1,
@@ -58,7 +58,7 @@ generic.plot <- function(indata, mode) {
     par(new=T)
     plot(x=indata$date, y=indata$total, type="l", xlab="", ylab="",
          frame.plot=F, lwd=lwd.line2, col=col.line2, axes=F)
-    axis(side=4, at=pretty(range(indata$total, na.rm=T)), col.axis=col.line2,
+    axis(side=4, at=pretty(range(append(indata$total, 0), na.rm=T)), col.axis=col.line2,
            fg=col.axis, line=-0.25)
      dev.off()
 }

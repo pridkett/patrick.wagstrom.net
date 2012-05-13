@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: mythtv | My Delusional Dream]]></title>
+  <link href="http://patrick.wagstrom.net/weblog/blog/categories/mythtv/atom.xml" rel="self"/>
+  <link href="http://patrick.wagstrom.net/weblog/"/>
+  <updated>2012-05-12T20:51:14-04:00</updated>
+  <id>http://patrick.wagstrom.net/weblog/</id>
+  <author>
+    <name><![CDATA[Patrick Wagstrom]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Safely Migrating Recordings in MythTV]]></title>
+    <link href="http://patrick.wagstrom.net/weblog/2009/03/24/safely-migrating-recordings-in-mythtv/"/>
+    <updated>2009-03-24T16:49:01-04:00</updated>
+    <id>http://patrick.wagstrom.net/weblog/2009/03/24/safely-migrating-recordings-in-mythtv</id>
+    <content type="html"><![CDATA[<p>As I mentioned in my <a href="http://patrick.wagstrom.net/weblog/2009/03/20/drobo-as-primary-storage-considered-harmful/">previous article about using a Drobo as primary MythTV storage</a>, the optimal solution for using a Drobo in MythTV is to record to an internal hard drive and then migrate the recordings later to the Drobo.  When migrating recordings care is required because the recording could be in use, either as a result of someone watching the recording or because transcode/commercial flagging jobs are running on the recording.  Fortunately, MythTV stores almost everything in a MySQL database, which makes it really easy to find out the status of a recording.</p>
+
+<p>There are two tables that you'll need to examine to ensure a recording is not currently in use.  The first table to check is the <strong>jobqueue</strong> table.  This table lists every recording that has pending jobs on it, whether user jobs or internal jobs such as commercial flagging.  It also leaves entries in the table for logs, so you can't just make sure there are no entries for a program in the table.  The trick here is that you'll want to make sure that the program you're examining has a status that is greater than 255, which indicates that there isn't a pending job.  All statuses over 255 indicate some sort of completion.</p>
+
+<p>The second step is to make sure the program isn't currently recording or being watched.  This is accomplished by looking at the <strong>inuseprogram</strong> table.  If a program has an entry in here, you certainly should not try to move the recording, and instead just wait until some later time to move it.</p>
+
+<p>When you combine these two checks, you can be fairly certain that recording isn't in use and moving it will be safe.  Rather than having to perform these checks by hand, I've created a script called MythMigrator which looks at a storage group and will migrate all recordings no in use to another group.  I've made a git repository available at <a href="http://patrick.wagstrom.net/git/cgit.cgi/mythmigrate">http://patrick.wagstrom.net/git/cgit.cgi/mythmigrate</a> where you can download the script.</p>
+
+<p>To utilize the script you'll need to have two different storage groups defined, one where your recordings are initially stored, and another where they are archived for long term storage.  In my case these are called "Default" and "Long Term".  Now it's as simple as running a cron job at some lightly loaded time, for me this is about 9am, with the following command:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>python MythMigrator.py <span class="s2">&quot;Default&quot;</span> <span class="s2">&quot;Long Term&quot;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>That's all there is to it.  My recordings are safely migrated every morning and I hope this script can help you too.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Drobo as Primary Storage Considered Harmful?]]></title>
+    <link href="http://patrick.wagstrom.net/weblog/2009/03/20/drobo-as-primary-storage-considered-harmful/"/>
+    <updated>2009-03-20T10:01:30-04:00</updated>
+    <id>http://patrick.wagstrom.net/weblog/2009/03/20/drobo-as-primary-storage-considered-harmful</id>
+    <content type="html"><![CDATA[<p><div class='bogus-wrapper'><notextile>	<figure class='center'>
+		<img src="/media/2009/03/drobo-promo.jpg">
+		<figcaption>Advertisement from mwave.com billing Drobo as your new Primary Storage </figcaption>
+	</figure></notextile></div></p>
+
+<p>In October 2008 I purchased a 1st generation <a href="http://www.drobo.com/">Drobo</a> to provide additional storage space for my growing collection of recordings from <a href="http://www.mythtv.org/">MythTV</a>.  The plan was to use the Drobo as primary storage for MythTV recordings, something I believed to be acceptable because recording high-definition television maxes out at a couple of megabytes a second.  The Drobo is equipped with a USB2 connection and should be able to push well more than that.  The Drobo also provided some great advantages, such as on the fly addition of disks to the array, and data redundancy.  Along with the Drobo I purchased two Western Digital 1TB green drives.  After migrating some drives from my old array I had a Drobo with 2x1TB and 2x320GB drives.  I was able to take the number of drives in the actual case for my MythTV box down to just two, and in the process, reduce heat and noise from the machine.</p>
+
+<p>I'm now about five months into this little experiment, and it's been met with mixed results.  After installing the Drobo I had about 700GB of a 1.6TB drive occupied.  Writes were fast and I never had problems with recording multiple shows, watching recordings, and even transcoding recordings all at the same time.  However, the Drobo allowed me to be lazy, I no longer needed to worry about diligently transcoding recordings.  Soon I found my 1.6TB drive filling up and yellow lights appeared telling me that I had better upgrade a disk in the array. Rather than inserting a new disk, I took the opportunity to transcode hundreds of recordings from MythTV.  When combined with cutting commercials and a small decrease in resolution, I can take a 4GB HDTV episode of the Office and drop it down to around 500MB with little degradation.</p>
+
+<p>At this point I started to notice issues with MythTV under heavy usage.  On Monday nights I often have both HD tuners recording, an analog tuner recording, transcode jobs running, commercials being flagged, and I'm often watching a high def program.  This actually maxes out to a little under 10MB/s, something the Drobo should be able to do with little problem.  However, recordings from that evening would frequently end up missing small bits of video and jumping ahead.  For some shows this was no problem, but it could miss a critical moment in a show like 24.  I quickly identified the problem as the Drobo not being able to keep up with the requests.  During some down time I used <a href="http://www.coker.com.au/bonnie++/">Bonnie++</a> to calculate a synthetic estimate of disk throughput -- the results were downright ugly for the Drobo:</p>
+
+<pre>
+    Version 1.03c       ------Sequential Output------ --Sequential Input- --Random-
+                        -Per Chr- --Block-- -Rewrite- -Per Chr- --Block-- --Seeks--
+    Machine        Size K/sec %CP K/sec %CP K/sec %CP K/sec %CP K/sec %CP  /sec %CP
+    spongebob        4G 10260  40 <b style="color: red;">14116</b>   8  8107   5 16746  57 <b style="color:red;">18169</b>   3  61.5   0
+                        ------Sequential Create------ --------Random Create--------
+                        -Create-- --Read--- -Delete-- -Create-- --Read--- -Delete--
+                  files  /sec %CP  /sec %CP  /sec %CP  /sec %CP  /sec %CP  /sec %CP
+                     16 10085  40 +++++ +++ +++++ +++ 26325  98 +++++ +++ +++++ +++
+</pre>
+
+
+<p>For comparison, here is the output of Bonnie++ on a 320GB internal hard disk:</p>
+
+<pre>
+    Version 1.03c       ------Sequential Output------ --Sequential Input- --Random-
+                        -Per Chr- --Block-- -Rewrite- -Per Chr- --Block-- --Seeks--
+    Machine        Size K/sec %CP K/sec %CP K/sec %CP K/sec %CP K/sec %CP  /sec %CP
+    spongebob        4G 42271  94 <b style="color:red;">55788</b>  31 28871  14 50686  96 <b style="color:red;">71219</b>  16 128.7   1
+                        ------Sequential Create------ --------Random Create--------
+                        -Create-- --Read--- -Delete-- -Create-- --Read--- -Delete--
+                  files  /sec %CP  /sec %CP  /sec %CP  /sec %CP  /sec %CP  /sec %CP
+                     16 22504  96 +++++ +++ +++++ +++ +++++ +++ +++++ +++ +++++ +++
+</pre>
+
+
+<p>I've put the most relevant stats in red bold.  In the case of the Drobo, creating files at the block level, which should be the fastest results in a throughput of about 14MB/s, while the 320GB internal hard disk whizzes by at 55MB/s.  Likewise, the read rates are dramatically different, Drobo maxes out at 18MB/s, while the single internal hard drive reads at 71MB/s.  For comparison, my 4 drive software RAID 5 array used to read at 106MB/s.</p>
+
+<p>Under most circumstances, switching to a disk array results in an increase in performance.  Both writes and reads are spread out across multiple disks, reducing issues with seek time and allowing parallel reads and writes.  However, that is clearly not the case with the Drobo.  Much of the bottleneck is probably a result of the USB2 interface to the Drobo, however, that cannot be the entire reason for the slow throughput.  Many other people have noted the slow performance of the Drobo (see <a href="http://www.maximumpc.com/article/data_robotics_drobo">MaximumPC</a>, <a href="http://mac360.com/index.php/mac360/comments/drobo_the_best_mac_home_backup_system_ever/">Mac360</a>, and <a href="http://reviews.cnet.com/external-hard-drives/drobo/4864-3190_7-32470303.html?messageID=2576911">CNet</a> reviews).  On occasion a reviewer will get slightly confused because the device automatically slows down as it gets closer to being full -- this is ensure you have enough time to get another hard disk and replace a smaller one.  But what's really strange is how sometimes the Drobo just stops writing for a period of seconds at a time.  Here's some output from <a href="http://dag.wieers.com/home-made/dstat/">dstat</a> when copying a large file from an internal hard drive to the Drobo:</p>
+
+<pre>
+    ----total-cpu-usage---- --dsk/sdc1- -net/total- ---paging-- ---system--
+    usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw 
+      1  14   0  83   0   1|   0    <b style="color:red;">21M</b>| 236B 1064B|   0     0 |1675  3260 
+      3  14   0  81   0   2|   0    <b style="color:red;">24M</b>| 590B  448B|   0     0 |1745  3456 
+      3  17   0  79   0   2|4096B   <b style="color:red;">21M</b>| 236B  448B|   0     0 |1728  3416 
+     12  13   0  71   0   3|   0    <b style="color:red;">26M</b>|  29k   29k|   0     0 |1784  3654 
+      6  33   0  59   0   3|   0    <b style="color:red;">23M</b>| 907B 1139B|   0  8192B|2020  3285 
+      2  10   0  86   0   2|   0    <b style="color:red;">18M</b>| 596B 3586B|   0     0 |1708  3487 
+      3  17   0  77   0   2|   0    <b style="color:red;">20M</b>|6262B 3530B|   0     0 |1830  3684 
+      4  16   0  77   0   4|   0    <b style="color:red;">24M</b>| 354B  448B|   0     0 |1952  4022 
+      9  12   0  77   1   2|4096B   <b style="color:red;">21M</b>|5203B 8709B|   0     0 |1843  3875 
+     14   9   0  76   0   3|   0    <b style="color:red;">22M</b>|4848B 5200B|   0     0 |1938  4340 
+      5  29   0  65   1   2|   0    <b style="color:red;">16M</b>| 224B  586B|   0     0 |1686  3143 
+      4  12   0  82   0   1|   0  <b style="color:red;">7684k</b>| 354B  464B|   0     0 |1370  2609 
+      2   5   0  92   0   1|   0  <b style="color:red;">6580k</b>| 416B  536B|   0     0 |1118  2147 
+      2   9   0  89   1   1|   0  <b style="color:red;">8856k</b>| 210B  510B|   0     0 |1290  2449 
+      1   6   0  92   0   1|   0  <b style="color:red;">7860k</b>| 462B  600B|   0     0 |1177  2131 
+      2   3   0  94   0   1|   0  <b style="color:red;">7156k</b>| 328B  560B|   0     0 |1094  1970 
+      3   4   0  94   0   1|   0  <b style="color:red;">8192k</b>| 578B  798B|   0     0 |1090  2017 
+      2   3   0  95   0   1|   0  <b style="color:red;">3616k</b>| 573B  743B|   0     0 | 966  1605 
+      2   5   0  92   0   0|   0   <b style="color:red;">920k</b>| 354B  464B|   0     0 | 939  1610 
+      5  12   0  82   0   1|4096B <b style="color:red;">5656k</b>|3555B 3787B|   0     0 |1239  2240 
+     25  21   0  53   0   1|   0  <b style="color:red;">2416k</b>|  38k   39k|   0     0 |1105  2323 
+      7   6   0  86   0   0|   0  <b style="color:red;">3120k</b>| 524B  894B|   0     0 |1032  1833 
+      7   7   0  85   0   0|   0  <b style="color:red;">6152k</b>| 925B 1673B|   0     0 |1153  2040 
+      4   4   0  93   0   1|   0   <b style="color:red;">960k</b>| 708B  680B|   0     0 | 947  1683 
+      8  15  27  50   0   0|   0  <b style="color:red;">2176k</b>|3086B 3121B|   0     0 | 973  1587 
+      6  30  48  16   0   1|   0  <b style="color:red;">1080k</b>|5286B 5664B|   0     0 | 936  1397 
+      6   5  49  39   0   1|   0   <b style="color:red;">960k</b>|8552B 8820B|   0     0 | 954  1606 
+      9  18  49  24   0   0|   0     <b style="color:red;">0</b> |6230B 6486B|   0     0 | 919  1454 
+      7  28  49  16   0   0|   0     <b style="color:red;">0</b> |  10k   11k|   0     0 | 897  1313 
+      4   4  49  43   0   1|   0     <b style="color:red;">0</b> | 811B 1123B|   0     0 | 945  1690 
+      3   3  48  46   0   0|   0     <b style="color:red;">0</b> | 236B  464B|   0     0 | 910  1553 
+      4   3  50  44   0   0|   0     <b style="color:red;">0</b> | 250B  584B|   0     0 | 965  1760 
+      2   2   0  96   1   0|   0   <b style="color:red;">584k</b>| 354B  432B|   0     0 | 927  1589 
+      4   4   0  92   0   1|   0   <b style="color:red;">120k</b>| 236B  432B|   0     0 | 866  1437 
+      5   5   0  89   0   0|   0     <b style="color:red;">0</b> | 118B  432B|   0     0 | 864  1520 
+      4   4   0  92   0   0|   0   <b style="color:red;">600k</b>| 236B  432B|   0     0 | 910  1631 
+      5   5   0  90   0   0|   0   <b style="color:red;">960k</b>| 354B  432B|   0     0 | 880  1588 
+      5   5   0  89   0   1|   0  <b style="color:red;">1680k</b>| 236B  448B|   0     0 | 923  1495 
+     13  29   0  57   1   0|   0    <b style="color:red;">11M</b>|  14k   14k|   0     0 |1341  2112 
+      8   5   0  87   1   0|   0 <b style="color:red;"> 6704k</b>|1693B 2067B|   0     0 |1094  1948 
+</pre>
+
+
+<p>I've highlighted the amount of data being written to the Drobo in red, where you can see that for extended periods of the file copy the Drobo decides it would rather not write anything.  What's interesting is that this occurred right after the Drobo went into what seemed like a "Turbo Mode", writing at rates of over 20MB/s.  Clearly, this is a problem, and such blocking of writes mean that Drobo cannot be used as a primary storage device for MythTV.  It works wonderful for playing back of recorded programs, storing music files, a drive for my photographs, but anything where streaming directly to disk is required is not a good idead for the Drobo.</p>
+
+<p>However, I have an alternative solution.</p>
+
+<p>MythTV has the concept of Storage Groups.  Originally they were designed to force MythTV to load balance recordings across multiple drives.  When a recording is selected it appears that MythTV scans all storage groups for the recording.  The solution I have adopted is to put the default recording group on an internal harddrive and create another storage group, called "Long Term", which features the Drobo.  Periodically I then copy the files from the internal hard drive to the Drobo, thus ensuring that I always have enough space to record more.  Since I've done this I haven't noticed any issues with disk load causing corruptions of recorded files.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Pieces of MythTV (December 2008 Hardware Edition)]]></title>
+    <link href="http://patrick.wagstrom.net/weblog/2008/12/13/pieces-of-mythtv-december-2008-hardware-edition/"/>
+    <updated>2008-12-13T13:52:45-05:00</updated>
+    <id>http://patrick.wagstrom.net/weblog/2008/12/13/pieces-of-mythtv-december-2008-hardware-edition</id>
+    <content type="html"><![CDATA[<p>I'm five and half years into my journey with MythTV, and in that time I've managed to upgrade my system several times.  Back in 2006 I wrote a tutorial on <a href="http://patrick.wagstrom.net/tutorials/mythTV64/">installing MythTV under Ubuntu with a pcHDTV card and a firewire tuner</a>.  While some pieces of the machine remain the same, most of the pieces of hardware have changed pretty radically since then.</p>
+
+<h3>The Case</h3>
+
+<p>I use an <a href="http://www.antec.com/usa/productDetails.php?lan=us&amp;id=15730">Antec Overture 2</a> desktop ATX case.  It's a fairly large case, but it fits nicely in my entertainment center.  Unfortunately, it vents out the sides and is a tight fit, so I had to do some modifications to give it better airflow.   I removed the back of my entertainment center where the box is (a virtual necessity given the number of cables hanging from it), and also cut a hole in the side leading from one compartment to another so the vent from the power supply would go somewhere.</p>
+
+<p><div class='bogus-wrapper'><notextile>	<figure class='center'>
+		<img src="/media/2008/12/overtureii.jpg">
+		<figcaption>Antec Overture II Case </figcaption>
+	</figure></notextile></div></p>
+
+<h3>The Processor</h3>
+
+<p>Athlon 64x2 4400+ on an MSI K8N-Neo4 Platinum motherboard - the processor is overclock slightly, so it runs at about the speed of a 5000+.  You can't get either of these anymore because it's a socket 939 setup.  It goes to show you don't need a beast of a Core i7 processor to run MythTV.  It has 2GB of Dual Channel DDR ram.  Certainly not anything overly spectacular, but pleanty for running a combination Front End/Backend MythTV setup.  While viewing 1080i HD the processor maxes out at about 60% utilization of a single core.</p>
+
+<h3>Capture Devices</h3>
+
+<p>Analog cable is captured using a WinTV PVR-250 PCI card.  The card is getting pretty old, being the first part of MythTV I bought, but it still works like a champ.  I capture HD Cable using an <a href="http://www.silicondust.com/products/hdhomerun">HD HomeRun</a>.  I only have the most basic of cable, just enough for broadcast and a few other channels, so the HD HomeRun can capture everything.</p>
+
+<p><div class='bogus-wrapper'><notextile>	<figure class='center'>
+		<img src="/media/2008/12/hdhomerun.jpg">
+		<figcaption>Silicon Dust HD HomeRun Networked HDTV Tuner </figcaption>
+	</figure></notextile></div></p>
+
+<p>I can't stress how great the HD HomeRun is for capturing OTA or QAM unencrypted cable.  It's a small box, about the size of a few DVDs stacked, with two coax inputs, and an ethernet output.  These boxes have virtually zero configuration, and because it just speaks a simple network protocol, you don't need to worry about kernel changes or drivers.  The HD HomeRun just works.  Additionally, because it takes up no slots in the computer, you can go with a much smaller form factor system.  This works nicely for my eventual goal of putting everything on a Mac Mini or comparable tiny system.</p>
+
+<h3>Storage</h3>
+
+<p>Inside of the Overture 2 I have two 320GB hard drives running as a mirrored pair.  This is where my database, photos, and music live.  For recordings I have a 1st generation <a href="http://www.drobo.com/">Drobo</a> with 2x1GB and 2x320GB drives in it, providing about 1.6TB of protected space.  The Drobo is another great device that if you're serious about MythTV you should strongly consider getting.  Some folks will complain about the noise, but I've never noticed the Drobo make any notice.  Although, as a disclaimre, I have two fairly large fish tanks in my living room that produce significant noise.  HD actually doesn't need that much bandwidth and the Drobo can easily supply enough over USB for all of my needs.  As the limiting factor in the system is the USB bandwidth, you're safe going for slightly slower, quieter, and cooler drives like the <a href="http://www.wdc.com/en/products/products.asp?driveid=336">Western Digital GreenPower</a> drives.</p>
+
+<p><div class='bogus-wrapper'><notextile>	<figure class='center'>
+		<img src="/media/2008/12/drobo.jpg">
+		<figcaption>The DROBO USB Storage Robot </figcaption>
+	</figure></notextile></div></p>
+
+<h3>Display</h3>
+
+<p>Inside the Overture 2 is an nVidia GeForce 6600LE.  It's fanless and really underpowered, I won't want to play games on it or anything like that, but at the time, it was a decent card to have, unfortunately, it doesn't support VDPAU, so at some point it will probably have to go.  This is connected via a DVI->HDMI cable to a Sharp Aquos 32" 720p display.  I realize the videophiles are laughing at me because it's a small TV, but the picture is quite good, blacks are black, no overscan, etc.  The display is driven at near-native resolution of 1366x768.  This means I lose a 1 pixel strip on each side.  I've never actually noticed that.</p>
+
+<h3>Remote Control</h3>
+
+<p>Currently I use the remote control that came with the WinTV PVR-250 and the attached IR dongle.  It's been supported just as long as the WinTV card has and it works well enough.  There are some strange quirks where sometimes it seems to fall asleep and needs to be "woken up".  In addition, it only accepts IR codes from Hauppauge remotes.  The HD Homerun also has an IR receiver that is more generic and should work with most remotes.  I haven't gotten a chance to play with that yet, however.</p>
+
+<h3>Future Upgrades</h3>
+
+<p>For my current cable signal, it seems as though this works quite nicely.  If I were to add components to my MythTV box in the future it would most likely be a <a href="http://www.hauppauge.com/site/products/data_hdpvr.html">Hauppauge HD-PVR</a> once I get a better selection of cable channels.  At that point, there is a good chance I'll reture the PVR-250 card and switch to a much smaller case with everything external.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Why MythTV 0.22 Will Rock You]]></title>
+    <link href="http://patrick.wagstrom.net/weblog/2008/12/11/why-mythtv-022-will-rock-you/"/>
+    <updated>2008-12-11T18:01:31-05:00</updated>
+    <id>http://patrick.wagstrom.net/weblog/2008/12/11/why-mythtv-022-will-rock-you</id>
+    <content type="html"><![CDATA[<p>Way back in May of 2003, when the internet was ugly and Web 2.0 didn't exist yet, CompUSA had an online deal that caught my eye - a <a href="http://www.hauppauge.com/html/wintvpvr250_datasheet.htm">WinTV PVR-250 Hardware MPEG Encoder card</a> for $99 after rebate.  I had been debating the whole media center setup for a while and decided this was good time to make the leap.  The state of media center software at the time was pretty shoddy -- convergence was talked about, but rarely happened.  Windows Media Center wasn't generally available and <a href="http://www.xbmc.org/">XBox Media Center </a>was still in its infancy.  In either case, recording and playback of liveTV wasn't possible.  On the Linux front a war was being waged between <a href="http://www.mythtv.org/">MythTV</a> and <a href="http://freevo.sourceforge.net/">Freevo</a>.  Freevo had a slick interface and supported almost any capture card, but because it shelled out to other programs for recording and viewing content, it just felt weird.  Furthermore, this lack of integration meant you couldn't use it like a TiVo to watch and record live TV because one program recorded TV while another played it back, and a notification was made only after it was done recording.  MythTV was still fairly new at the time, and sure enough, just before I got the card, support was added for hardware MPEG encoders that used the <a href="http://www.ivtvdriver.org/">IVTV driver</a> -- such as the WinTV PVR 250.  I've been a reliable MythTV user and occasional hacker since then.</p>
+
+<p>MythTV has developed very slowly since then.  Each new release brings support for a few more capture cards, and maybe some small new features, but it's slow development, especially in the user interface category leaves me feeling like I'm stuck in 2003 still.  With some luck, the upcoming release of MythTV 0.22 will change that.  In fact, MythTV 0.22 could really rock your world, and here is why:</p>
+
+<h3>Hauppauge HD-PVR Support</h3>
+
+<p>MythTV remains one of the best choices if you want to capture high definition video.  The excellent support for pcHDTV cards, and the even better support for the incredible <a href="http://www.silicondust.com/products/hdhomerun">HD HomeRun</a>, make it trivial to capture over the air or unencrypted cable high definition signals.  However, once spot where MythTV cannot compete with Windows Media center is for premium cable channels.  MythTV will never be able to support cable card tuners  because of the closed environment that these external tuners live in and the current requirement that the tuners be locked to the PC they're purchased with.  So while it's perfectly easy to watch NBC and CBS in high definition, your hopes of being able to watch HBO or ESPN in high definition are slim at best.  Luckily, Hauppauge has developed an excellent solution that fits the needs of the MythTV user perfectly.</p>
+
+<p><div class='bogus-wrapper'><notextile>	<figure class='center'>
+		<img src="/media/2008/12/hd_pvr_small.jpg">
+		<figcaption>The Hauppauge HD-PVR model 1212 </figcaption>
+	</figure></notextile></div></p>
+
+<p>The <a href="http://www.hauppauge.com/site/products/data_hdpvr.html">Hauppauge HD-PVR</a> is a USB component video capture box that transcodes signals up to 1080i to H.264 video in real time.  On a technical level this means that you take the analog component (YPbPr) output of your cable TV box and it feed to the HD-PVR which will then re-digitize the video.  Quality snobs will note that this results in an extra stage of decompression and recompression which leads to artifacts, and they'd be right, but luckily the quality of the box is pretty good, so only the most discerning eye will notice a different in video quality.  HD-PVR support will be included in the next release of MythTV.</p>
+
+<h3>QT4 and New Theming</h3>
+
+<p>MythTV is probably one of the last programs on the planet that still uses QT3 as it's widget set. It's a reliable widget set, with moderate theme capabilities, but it was clearly designed for desktop applications.  You can change the color and appearance of widgets, like scroll bars, buttons, and drop down menus, but it doesn't have the ability to provide nice transitions between screens or widgets.  Basically, you're working with a static widget set.  Sometime, probably a couple of years ago, MythTV introduced support for OpenGL screen transitions.  Now when I go from the main menu to my recordings screen, a nice transition happens, but on the screen I'm still using the same static screen with no transitions or interactivity.  Several times on the mailing list people have brought up how subtle transitions and audible feedback would really add to the experience -- after all, TiVo didn't succeed because it was the most feature filled, it succeeded because it had the best user interface.  Currently the closest thing that MythTV can do is run an external program that plays a sound when a key is received by the application.  I've tried it, and it's just not quite right.</p>
+
+<p>QT4 should fix many of these issues.  Nokia didn't purchase QT to sell the widget toolkit as another system for creating desktop applications, they intended to use it in embedded applications where things don't always look the same.  The new features of QT4, which was released way back in 2005, really make it a top notch widget set.  In particular, the entire toolkit has been abstracted to work nicely with OpenGL, allowing for better transition effects, theming and mapping of graphics.</p>
+
+<div style="text-align: center"><iframe width="420" height="315" src="http://www.youtube.com/embed/MXS3xKV-UM0" frameborder="0" allowfullscreen></iframe></div>
+
+
+<p>Watch out for the <a href="http://www.boingboing.net/2008/05/27/mashed-frontier-airl.html">Trippy Pink Floyd Shit</a> around 1:40</p>
+
+<p>When combined with the <a href="http://svn.mythtv.org/trac/ticket/12">longstanding ticket to create and have all widgets use libmythui</a>, this means that effects will be getting a much needed overhaul.  Including smooth transitions on sliders and small amounts of sound effects.</p>
+
+<h3>VDPAU Support</h3>
+
+<p>Although PCs have gotten much faster since MythTV first arrived on the scene, MythTV can still tax your computer, especially when watching HD content and doing other things in the background.  It's fairly normal for me to watch an HD program as it is recording, record another HD program, flag previous recordings for commercials, and transcode content all at the same time.  You can play with nice settings and realtime threads to ensure the playback never skips a beat, but that's difficult, also you're ignoring the fact that most modern video cards have video decoding acceleration built in -- effectively allowing you use your CPU only to push data across the bus, while the video card decodes and displays the video.</p>
+
+<p>This support is nothing new, it's been around for a while in the form of XvMC.  Unfortunately, unless you're using a Via or Intel chipset, which are not common in standalone MythTV boxes, you're probably going to be out of luck here.  nVidia cards do have some support for XvMC, but you sacrifice color in your on screen display and it rarely works properly.  Furthermore, XvMC has some architectural issues that cause problems when decoding HD size content frames.  In November, however, nVidia announced the creation of <a href="ftp://download.nvidia.com/XFree86/vdpau/doxygen/html/index.html">VDPAU</a> - the Video Decoding and Presentation API for Unix.  In a nutshell, VDPAU is a moderately generic API, like <a href="http://en.wikipedia.org/wiki/DirectX_Video_Acceleration">Microsoft's DxVA</a>, that utilizes nVidia's PureVideo technology to display video with less CPU.  Taking less CPU means that you can do more in the background and not worry about stuttering -- or, if you're concerned about power, heat, and noise, like most MythTV users, you can use a more efficient less power hungry processor.  Just how much better is it?  The guys at <a href="http://www.phoronix.com/">Phoronix</a> did a series of <a href="http://www.phoronix.com/scan.php?page=article&amp;item=nvidia_vdpau&amp;num=1">VDPAU benchmarks</a> that showed CPU usage with VDPAU go from around 40% with <a href="http://en.wikipedia.org/wiki/X_video_extension">X-Video</a> to less than 5% with VDPAU.  More savings for you.</p>
+
+<p>Even though VDPAU has been released for only a month, the MythTV guys are hard at work supporting it.  The first patches for VDPAU support were committed in late November and there has been heavy development ever since.  If you're thinking about getting a new video card an nVidia 9000 series looks like it would be a great choice.</p>
+
+<h3>The Future</h3>
+
+<p>I'll be honest, there are times that I get really frustrated with the slow progress of MythTV and how the development seems to stall out frequently, despite its fairly large user base.  I don't consider myself  a developer of MythTV, but I have contributed patches to the project, such as <a href="http://svn.mythtv.org/trac/ticket/2581">allowing the transcoder to crop letterboxes and pillarboxes from videos</a>, and have worked as an advocate of MythTV locally.  Despite this, the poor usuability of the project continually has me evaluating other options, such as <a href="http://www.boxee.tv">Boxee</a>, which provides integration with Hulu and soon Netflix, but sadly lacks the ability to record and play back television.  I was really excited when Nero announced <a href="http://www.nero.com/enu/liquidtv-introduction.html">LiquidTV</a>, but the <a href="http://www.engadgethd.com/2008/10/15/nero-liquidtv-tivo-pc-review/">poor review and complete inability to record QAM</a> make it useless in hilly Pittsburgh where cable is required if you want to receive more than one or two stations.  So, for the time being, I'm on MythTV -- it has a suitable wife acceptance factor and allows me to record most everything I want.  The changes coming down the pipe for 0.22 will only make that better.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Fixing Letterboxed and Pillarboxed Transcoding in MythTV]]></title>
+    <link href="http://patrick.wagstrom.net/weblog/2007/09/05/aspect-ratio-fix/"/>
+    <updated>2007-09-05T10:08:00-04:00</updated>
+    <id>http://patrick.wagstrom.net/weblog/2007/09/05/aspect-ratio-fix</id>
+    <content type="html"><![CDATA[<p>The recent demise of <a href="http://labs.zap2it.com/">Zap2it labs</a> and the subsuquent creation of <a href="http://www.schedulesdirect.org/">Schedules Direct</a> was a pretty remarkable change in the MythTV community.  The community now has an almost official blessing from a TV Guide service to continue, a pretty big event for most open source projects.</p>
+
+<p>However, due to the infrastructure of MythTV, it's not easy to add a new TV listing service.  Rather, the change from Zap2it to Schedules Direct required all users to upgrade their copies of MythTV to the newest version of the stable branch.  Unfortunately, this version still has issues with transcoding high definition signals.  The major issue is that mythtranscode has no knowledge of the program aspect ratio.  It ends up storing pixels that aren't needed, such as what happens when a 16:9 signal is sent in a 4:3 signal (letterboxed) or when a 4:3 signal is sent in a 16:9 signal (pillarboxed, much more common). In an ideal world, MythTV would know how to cope with these automatically when transcoding and just magically cut off the offending portions.</p>
+
+<p><div class='bogus-wrapper'><notextile>	<figure class='center'>
+		<img src="/media/2007/09/mythPillarBoxed.png">
+		<figcaption>Pillarboxing on an episode of <em>The Simpsons</em> recorded from a high definition source </figcaption>
+	</figure></notextile></div></p>
+
+<p><div class='bogus-wrapper'><notextile>	<figure class='center'>
+		<img src="/media/2007/09/mythLetterBoxed.png">
+		<figcaption>Letterboxing of a Frontline episode recorded with a standard definition source </figcaption>
+	</figure></notextile></div></p>
+
+<p>While the result is still acceptable, it's not perfect and may force you to switch aspect ratios to watch the video. About a year ago, I wrote a patch for MythTV that transcoders to specify a target aspect ratio. This was against MythTV 0.20, and because the newer versions didn't provide that many desirable features, I never updated the patch or my installation of MythTV. Facing the impending loss of guide data just days before that start of the NFL season, and only weeks before the start of the new TV season, I updated the patch for MythTV 0.20.2. You can find the <a href="http://svn.mythtv.org/trac/ticket/2581">transcoding aspect ratio patch in the MythTV Trac system</a>.</p>
+
+<p>The patch still is far from perfect, and you'll need some cron hackery to get it to work right. The main reason is because although MythTV allows you to create non-standard transcoder names in the frontend, it won't let you use them for anything but the default transcoder. To get around this, you'll need to look into your MythTV database and get the transcoder id numbers. For my system, I created a set of transcoders for 1080i, 720p, and 480i content that give me the option
+of whether or not to resize on the transcode and the quality. Run the following command on your database to get a listing of the transcoders:</p>
+
+<pre><code>mysql&gt; select * from recordingprofiles;
++----+-------------------+-------------------------+-------------------------+--------------+
+| id | name              | videocodec              | audiocodec              | profilegroup |
++----+-------------------+-------------------------+-------------------------+--------------+
+                                          :: snip ::
+| 27 | 1080i No Resize   | MPEG-4                  | MP3                     |            6 |
+| 28 | 1080i Resize      | MPEG-4                  | MP3                     |            6 |
+| 29 | 720p No Resize    | MPEG-4                  | MP3                     |            6 |
+| 30 | 480i No Resize    | MPEG-4                  | MP3                     |            6 |
+| 31 | 720p Resize       | MPEG-4                  | MP3                     |            6 |
+| 32 | 720p Resize Med   | MPEG-4                  | MP3                     |            6 |
+| 33 | 1080i Resize Med  | MPEG-4                  | MP3                     |            6 |
+                                          :: snip ::
+| 46 | 1080i SDTV Resize | MPEG-4                  | MP3                     |            6 |
+| 47 | 720p SDTV Resize  | MPEG-4                  | MP3                     |            6 |
++----+-------------------+-------------------------+-------------------------+--------------+
+47 rows in set (0.01 sec)
+</code></pre>
+
+<p>Transcoders 27, 28, 29, 31, 32, and 33 all leave the aspect ratio unchanged.  Transcoder 30 is a transcoder that resizes 480i letterboxed content.  Transcoders 46 and 47 remove pillarboxes from SDTV signals transmitted over HD.  You'll also notice that I have different transcoders for 1080i and 720p.  You don't need to do this, but I have chosen to do this to avoid deinterlacing 720p signals -- saving a bit of time and power.</p>
+
+<p>The final step is to tell MythTV to periodically update the transcoders settings. I use a simple script called from cron about every 15 minutes:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;pre&gt;&lt;code&gt;#!/bin/sh
+</span><span class='line'><span class="nv">MYTHPASSWORD</span><span class="o">=</span><span class="s2">&quot;-pYOURMYTHPASSWORD&quot;</span>
+</span><span class='line'><span class="nb">echo</span> <span class="s2">&quot;update recorded set transcoder=28 where chanid=3215 or chanid=3220 or chanid=3212 or chanid=3211;&quot;</span> | nice -n 10 mysql -u mythtv <span class="nv">$MYTHPASSWORD</span> mythconverg
+</span><span class='line'><span class="nb">echo</span> <span class="s2">&quot;update recorded set transcoder=31 where chanid=3213 or chanid=3210 or chanid=3214;&quot;</span> | nice -n 10 mysql -u mythtv <span class="nv">$MYTHPASSWORD</span> mythconverg
+</span><span class='line'><span class="nb">echo</span> <span class="s2">&quot;update recorded set transcoder=47 where (chanid=3213 or chanid=3210) and (title=&#39;The Simpsons&#39; or title=&#39;Family Guy&#39; or title=&#39;American Dad&#39; or title=&#39;King of the Hill&#39;);&quot;</span> | nice -n 10 mysql -u mythtv <span class="nv">$MYTHPASSWORD</span> mythconverg
+</span><span class='line'><span class="nb">echo</span> <span class="s2">&quot;update recorded set transcoder=47 where (chanid=3214) and (title=&#39;Mad Max&#39; or title=&#39;Bubble Boy&#39; or title=&#39;Hotel Rwanda&#39;);&quot;</span> | nice -n 10 mysql -u mythtv <span class="nv">$MYTHPASSWORD</span> mythconverg
+</span><span class='line'><span class="nb">echo</span> <span class="s2">&quot;update recorded set transcoder=47 where (chanid=3210) and (title=&#39;The Ten Commandments&#39;);&quot;</span> | nice -n 10 mysql -u mythtv <span class="nv">$MYTHPASSWORD</span> mythconverg
+</span><span class='line'>&lt;/code&gt;&lt;/pre&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>This script forces the 1080i channels to use transcoder 28 and the 720p channels to use transcoder 31.  The last three lines are for pillarboxed programs that recorded off 720p that must be unpillarboxed. With this in the background, when transcoding I select the default transcoder and the output will be properly cropped.</p>
+
+<p>As an added bonus, this patch also fixes issues with mythtranscode not understanding that 1080i signals are encoded as 1088 (due to MPEG files needing to be a multiple of 16 lines high) and encoding a nasty gray bar at the bottom of your 1080i transcoded vidoes. It also cuts off the top eight pixels of most recordings because Comcast normally sends junk on those lines that looks like static.</p>
+
+<p><strong>Update:</strong> I didn't mention on my original post that if you schedule a recording via MythWeb, there is an option to set the transcoder.  In this screenshot (click for full size), you can see where I specified the transcoder "720p SDT Resize" for use on "The Simpsons".</p>
+
+<p><div class='bogus-wrapper'><notextile>	<figure class='center'>
+		<img src="/media/2007/09/mythtvTranscoderSet.png">
+		<figcaption>Setting the transcoder in Mythweb </figcaption>
+	</figure></notextile></div></p>
+]]></content>
+  </entry>
+  
+</feed>

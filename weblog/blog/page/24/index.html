@@ -1,0 +1,747 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Delusional Dream</title>
+  <meta name="author" content="Patrick Wagstrom">
+
+  
+  <meta name="description" content="I&#8217;m pleased to say that Mono.ReadLine now has a page on
+SourceForge
+and also has a record on
+FreshMeat.
+I guess this means that my little &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://patrick.wagstrom.net/weblog/blog/page/24">
+  <link href="/weblog/favicon.png" rel="icon">
+  <link href="/weblog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/weblog/javascripts/modernizr-2.0.js"></script>
+  <script src="/weblog/javascripts/ender.js"></script>
+  <script src="/weblog/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/weblog/atom.xml" rel="alternate" title="My Delusional Dream" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/weblog/">My Delusional Dream</a></h1>
+  
+    <h2>Thoughts of a cautious technocrat</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/weblog/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:patrick.wagstrom.net/weblog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/weblog/">Blog</a></li>
+  <li><a href="/weblog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2004/10/04/sourceforgepage/">Mono.ReadLine Now on SourceForge and Freshmeat</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-10-04T09:12:00-04:00" pubdate data-updated="true">Oct 4<span>th</span>, 2004</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;m pleased to say that Mono.ReadLine now has a page on
+<a href="http://mono-readline.sourceforge.net/">SourceForge</a>
+and also has a record on
+<a href="http://freshmeat.net/projects/monoreadline/">FreshMeat</a>.
+I guess this means that my little repackaging is now officially
+submitted to the open source world.  If I get a chance I&#8217;ll make
+a record on <a href="http://www.advogato.org/">Advogato</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2004/09/29/monoreadline/">Mono.Readline</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-09-29T22:28:00-04:00" pubdate data-updated="true">Sep 29<span>th</span>, 2004</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So I&#8217;ve got plans for a larger scale social network analysis tool in my future, however
+for right now, I need to get some of the groundwork laid.  I realize that some of the key
+components of such a tool are going to be <a href="http://www.ironpython.com/">IronPython</a>,
+for handling of scripting various modules, and a good command line interface.  The major
+problem that I see with most tools right now is that either they run exclusively in batch
+mode or require a GUI.  What I want is a prompt where I can run my analysis as though
+I&#8217;m programming.</p>
+
+<p>Anyone who has taken the time to use command prompt programs and programming languages knows
+what a great blessing a good input system can be.  As far as I&#8217;m concerned,
+<a href="http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html">GNU Readline</a> is the tops
+when it comes to this.  However, I was dismayed because there was no obvious binding to provide
+support for <a href="http://www.mono-project.com/">Mono</a>.  That is, until now.</p>
+
+<p>Today I announce the first release of Mono.Readline.  Basically it&#8217;s a little binding that creates
+a stub library to allow Mono to access the GNU Readline library.  It&#8217;s hella cool.  And best of
+all, I didn&#8217;t really write it.  It&#8217;s mainly ripped out of <a href="http://primates.ximian.com/~martin/blog/">Martin
+Baulig</a>&#8217;s code in the mono debugger, but this way it&#8217;s easier to use and get access to.  All
+in a nice autoconf&#8217;ed package for you.  So go ahead, download <a href="http://patrick.wagstrom.net/projects/personal/mono-readline-0.0.1.tar.gz">mono-readline 0.0.1</a> today!  Please, also let me know what you think about it
+as this is the first real package I&#8217;ve put out using the autotools.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2004/09/22/gcclock/">GCC Crashes My Computer</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-09-22T08:50:00-04:00" pubdate data-updated="true">Sep 22<span>nd</span>, 2004</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Anyone know of a reason why <a href="http://gcc.gnu.org/">GCC</a> would
+sometimes crash my computer while compiling?  More specifically, it seems
+related to large projects.  I had the problem several times while compiling
+Gentoo over the weekend (one of the major factors that made me go back to
+using <a href="http://www.ubuntulinux.org/">Ubuntu</a>).  Last night I
+experienced the problem while recompiling
+<a href="http://www.mythtv.org/">MythTV</a> so I could enjoy XRandR and
+<a href="http://www.lirc.org/">LIRC</a> support.</p>
+
+<p>Also, I&#8217;m experiencing some weird problems with JFS related issues.  One
+very strange thing about the file system is that it goes read-only when it
+detects a consistency error.  I had several of these last night, on both
+of my JFS partitions.  Needless to say, it took me a while to figure out what
+was going on.  One of the files caused the JFS tools to segfault and die.
+Which meant that I really couldn&#8217;t fix it.  Sigh&#8230;Did I mention that I
+really hate computers some days?</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2004/09/22/catstevens/">Cat Stevens Is Gonna Kill Us All!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-09-22T08:43:00-04:00" pubdate data-updated="true">Sep 22<span>nd</span>, 2004</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Run for your lives!  Apparently Cat Stevens is such a dangerous terrorist that
+the flight he was on from London to Washington, D.C. <a href="http://www.cnn.com/2004/US/09/22/plane.diverted.stevens/index.html">diverted</a> because he was
+on the terroist watch list.  Here is the kicker, they didn&#8217;t notice he was on
+the watch list until AFTER the plane was in the air.  I&#8217;m sorry, this pretty
+much verifies that the watch list if FUCKING BULLSHIT and doesn&#8217;t make us more
+safe.  Ostensibly the purpose of such a list is to prevent nasty little
+terrorist guys from hijacking our planes.  What good does that do on a
+trans-atlantic flight if they can&#8217;t stop it until Bangor, ME?</p>
+
+<p>This is just another case of <a href="http://www.stupidsecurity.com/">stupid
+security</a> procedures and the Bush administrations attempts to take America
+into a police state.  They&#8217;re playing on the fears of Americans, which is
+crap.  They&#8217;re only way to stay in power is fear.  Dick Cheney spreads it.
+Dennis Hastert spreads it.  <a href="http://www.spreadingsantorum.com/">Rick
+Santorum spreads it</a>.  <a href="http://www.johnkerry.com/">Stand up against this sort of bullshit today</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2004/09/20/ubunturedux/">Ubuntu Redux</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-09-20T14:27:00-04:00" pubdate data-updated="true">Sep 20<span>th</span>, 2004</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I sacrificed the good part of my weekend getting Gentoo going on my computer
+only to boot it.  I realized that I don&#8217;t have the time for such a commitment.
+It&#8217;s like buying a nice house, you need to keep it up.  I&#8217;d rather get one that
+works well enough and neds a little work here and there.  Thus, I switched
+back to <a href="http://ubuntulinux.org/">Ubuntu</a>.  I managed to get the
+driver for <a href="http://ivtv.sourceforge.net">IVTV</a> reinstalled and now
+have MythTV almost working again.  My next step is to get the little remote
+working with <a href="http://www.lirc.org/">LIRC</a> and bind some stuff to
+the <a href="http://www.xfree86.org/current/Xrandr.3.html">XRandR</a> program
+to handle auto-fullscreening.</p>
+
+<p>We&#8217;ll see how long this lasts.  I can say this, I&#8217;m liking
+<a href="http://oss.software.ibm.com/developerworks/opensource/jfs/">JFS</a>
+on my hard disk.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2004/09/18/ubuntuandgentooohmy/">Ubuntu, Gentoo, and MythTV, Oh My!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-09-18T14:04:00-04:00" pubdate data-updated="true">Sep 18<span>th</span>, 2004</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I decided to finally reinstall the Myth box yesterday.  I found out some
+pretty valuable things.  First, a lot of the problems with the box
+can be attributed to the motherboard not liking the large amounts of
+DMA transfers the WinTV PVR 250 does.  I&#8217;ll have to remember to stay
+away from Via chipsets in the future as this chipset also has some
+flunky problems under Windows 2000 too.  Bad Via.  Bad bad Via.</p>
+
+<p>Secondly, I&#8217;ve also got a weird bios, strike 2 for Via.  I burned the
+minimal Gentoo install CD last night, but it wouldn&#8217;t boot.  Finally, I
+gave up and installed <a href="http://www.ubuntulinux.org/">Ubuntu</a>
+instead.  I gotta say, it&#8217;s a nice desktop opearting system, but there
+were some things that made it really annoying.  First is that there was
+no way to get a lot of software for it.  Specifically, MPlayer and
+XCdRoast.  I figured out how to burn images under Nautilus, but that&#8217;s just
+not as much fun.  Apparently this is because of licensing issues.</p>
+
+<p>Also, by default, it installs a VERY stripped down OS.  We&#8217;re talking no C
+compiler.  This was annoying.  It also suffers from <a href="http://www.debian.org/">Debianism</a> when it comes to kernel compiles.
+This made it hard to install <a href="http://ivtv.sourceforge.net/">IvyTV</a>
+to drive <a href="http://www.mythtv.org/">MythTV</a>.  Then later I realized
+that it didn&#8217;t install an SSH daemon either.  Good for desktop users, bad for
+Patrick.  After sleeping on it and dreading needing to reinstall again in a
+few months, I decided that I should have installed
+<a href="http://www.gentoo.org/">Gentoo</a>.  I downloaded the full CD today,
+slapped that on a CD-RW and burnt it.  Right now I&#8217;m installing Gentoo.  We&#8217;ll
+see how that works.  At least with Gentoo, it&#8217;s braindead on how to upgrade
+it.</p>
+
+<p>I wish that Ubuntu would have worked, I&#8217;d really like to support them, but with
+my needs and the state of the distro, it&#8217;s not gonna happen right now.  Maybe
+when the full release comes out, we&#8217;ll be better off.  Anyway, I&#8217;ll see about
+posting more tomorrow once the compile is closer to being done.  Yay for
+compiling in Gentoo!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2004/09/15/foaf/">A FOAFing We Will Go</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-09-15T10:21:00-04:00" pubdate data-updated="true">Sep 15<span>th</span>, 2004</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Once again I got distracted, imagine that.  So you might know that I&#8217;ve
+been interested in a lot of the things that the <a href="http://www.w3.org/2001/sw/">Semantic Web</a> has to offer.  In particular is the use of MetaData,
+such as <a href="http://www.w3.org/RDF/">RDF</a>, to describe documents.  This
+is actually a key part of what I plan on doing in <a href="http://pennave.sourceforge.net/">PennAve</a>.</p>
+
+<p>Along those lines, somehow last night I got distracted by <a href="http://www.foaf-project.org/">FOAF</a>, so I decided to update <a href="/weblog/foaf.rdf">my foaf
+file</a> with the relevant information about me.  I also went a step further
+and figured out how to <a href="http://usefulinc.com/foaf/signingFoafFiles">sign</a> my FOAF file.  If I ever get really interested, I&#8217;ll make some more
+personal information available in a special <a href="http://usefulinc.com/foaf/encryptingFoafFiles">encrypted FOAF file</a>.  But this if fine for now.</p>
+
+<p>I put a little icon on the side of the page advertising how neato FOAF can
+be.  Right now it&#8217;s a GIF, I don&#8217;t really like that.  They had some smaller
+ones that I&#8217;ll look into also.  Also, there was a nifty SVG one that someone
+had, but that will just show up as weird for most people.  But, then again,
+I&#8217;d like to think people interested in the sematic web also have support
+for <a href="http://www.w3.org/TR/SVG/">SVG</a> in their browsers.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2004/09/14/encryption/">Sign My Key Please!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-09-14T15:31:00-04:00" pubdate data-updated="true">Sep 14<span>th</span>, 2004</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;ve recently had the need to start using encryption again.  I&#8217;ve had my
+<a href="http://pgp.mit.edu:11371/pks/lookup?op=get&amp;search=0xF78EF927">current
+encryption key</a> since 2001, but never really had the need for anyone to
+sign it.  So, anyone out there want to sign my key?</p>
+
+<p>Then I can feel like the cool kids.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2004/09/13/myth016upgrade/">MythTV 0.16 Upgrade</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-09-13T09:01:00-04:00" pubdate data-updated="true">Sep 13<span>th</span>, 2004</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I haven&#8217;t done anything to really upgrade my computer in the last three years.
+With one notable exception, I purchased a <a href="http://www.hauppauge.com/pages/products/data_250.html">WinTV-PVR 250</a>
+card from <a href="http://www.hauppauge.com/">Hauppauge</a> last may and
+installed <a href="http://www.mythtv.org/">MythTV</a>, which at the time had
+just gotten suport for the hardware MPEG-2 encoder on the card.</p>
+
+<p>This has been a very nice addition to my computer, especially when I still
+lived in Chicago and could have my computer record the BBC World News at
+6am every day.  It was a nice way to eat breakfast in the morning and catch
+up on the news.</p>
+
+<p>Well, in January I decided that I was watching too much TV.  With two episodes
+of The Simpsons, and then one each of Jeopardy and Conan O&#8217;Brien, that just
+proved to be far too much.  So I started shutting the computer off most of the
+time.  As a consequence, I never bothered to upgrade to 0.15 when it came out.</p>
+
+<p>Saturday, I upgraded to 0.16, and it&#8217;s come a long way.  The program, in general
+feels a lot more stable.  I have yet to see if I&#8217;ll still be subject to a lot of
+those annoying failures to record shows, but we&#8217;ll see.  It&#8217;s gotten a lot more
+complexe, and could really be daunting for the new user also.  But, the UI,
+especially the on screen display, look FAR better and more professional.  It
+seems to flow nicer.</p>
+
+<p>I&#8217;ve realized that there are three main things holding back my performace of
+my MythBox at this point.  1) The Athlon 700 processor.  While I can easily
+watch TV and record at the same time, that&#8217;s about it.  I can&#8217;t run my web
+server or anything else in the background.  If a high priority task comes (or
+really any task) it starts to burp.  So no fetching mail or anything else
+while MythTV is running.  2) The hard disk.  Let&#8217;s face it, a 4 year old, 4500
+RPM, 45GB, ATA66 hard disk is not the best for this sort of thing.  The disk
+just CRAWLS.  3) The file system.  Apparently the consensus on the Myth bboards
+is that JFS is the king for MythTV becuase it can delete huge files in under
+a second.</p>
+
+<p>So I&#8217;m left wondering what to do next.  I need to upgrade the mobo/cpu/harddisk
+pretty badly.  I also could use a DVD-rom in the box too, as I don&#8217;t have one
+of those.  Finally, the <a href="http://www.pchdtv.com/hd_3000.html">pcHDTV
+HD-3000</a> card looks pretty damn cool because it is designed for Linux
+and supports HDTV and NTSC.  Also, it doesn&#8217;t do the broadcast flag.  Which
+makes it even better.  Unfortunately, it says that I need a faster computer for
+it.  Sigh.  We&#8217;ll just have to wait a bit I guess.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2004/09/12/skype/">Trying Out Skype</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-09-12T23:00:00-04:00" pubdate data-updated="true">Sep 12<span>th</span>, 2004</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>After seeing <a href="http://usefulinc.com/edd/blog">Edd Dumbill&#8217;s</a> raving
+reviews of <a href="http://www.skype.com/">Skype</a> I decided to check it out.
+Unfortunately, I don&#8217;t have anyone to call on it.  I can vouch for the fact
+that it does indeed start up on my computer.  I should try installing it on
+Kristina&#8217;s computer and see what it can do.  Either that, or I should just
+use this as an excuse to call <a href="http://nik.kling.org/">Nik</a>, after
+all he&#8217;s the only one I know who lives abroad right now.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/weblog/blog/page/25/">&larr; Older</a>
+    
+    <a href="/weblog/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/weblog/blog/page/23/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/weblog/2012/05/10/static-bloggin/">Static Bloggin</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/28/i-am-not-a-climatologist-and-neither-are-most-of-these-people/">I am not a climatologist, and neither are most of these people</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/10/looking-for-summer-interns-in-the-software-technology-group-at-ibm-tj-watson-research-center/">Looking for Summer Interns in the Software Technology Group at IBM TJ Watson Research Center</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/a-review-of-2011-personal-development-goals/">A Review of 2011 Personal Development Goals</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/open-source-and-technology-predictions-for-2012/">Open Source and Technology Predictions for 2012</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/pridkett">@pridkett</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'pridkett',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/weblog/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("pridkett", 4, false);
+    });
+  </script>
+  <script src="/weblog/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/pridkett" class="twitter-follow-button" data-show-count="false">Follow @pridkett</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/102672530623465237388?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Patrick Wagstrom -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

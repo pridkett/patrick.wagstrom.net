@@ -1,0 +1,382 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>How to Handle a Bug - My Delusional Dream</title>
+  <meta name="author" content="Patrick Wagstrom">
+
+  
+  <meta name="description" content="How to Handle a Bug Sep 8th, 2009 | var idcomments_acct = 'de6c2d3e38f6fdb9bf16fa9f1904f35d';
+var idcomments_post_id;
+var idcomments_post_url; It’s &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://patrick.wagstrom.net/weblog/2009/09/08/how-to-handle-a-bug">
+  <link href="/weblog/favicon.png" rel="icon">
+  <link href="/weblog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/weblog/javascripts/modernizr-2.0.js"></script>
+  <script src="/weblog/javascripts/ender.js"></script>
+  <script src="/weblog/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/weblog/atom.xml" rel="alternate" title="My Delusional Dream" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/weblog/">My Delusional Dream</a></h1>
+  
+    <h2>Thoughts of a cautious technocrat</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/weblog/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:patrick.wagstrom.net/weblog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/weblog/">Blog</a></li>
+  <li><a href="/weblog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">How to Handle a Bug</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-09-08T19:55:23-04:00" pubdate data-updated="true">Sep 8<span>th</span>, 2009</time>
+        
+        
+         | 
+
+<script>
+var idcomments_acct = 'de6c2d3e38f6fdb9bf16fa9f1904f35d';
+var idcomments_post_id;
+var idcomments_post_url;
+</script>
+<script type="text/javascript" src="http://www.intensedebate.com/js/genericLinkWrapperV2.js"></script>
+
+
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>It’s no secret that almost all software has bugs. Even if you are lucky enough to understand how to formally verify a program, odds are that it won’t work for your program. It’s just far too difficult. Rather than eliminate all bugs, which is next to impossible to do, software engineers have sought ways to minimize the number of bugs present in a system and ensure timely responses when bugs are discovered in the field.</p>
+
+<p>For a software engineer this typically means a suite of test cases. Each one is a carefully constructed situation that can be programatically reproduced. When a defect is found in the system, a test case is written that exercises the defect. Before future versions of the software are released the test cases must all pass. In rare cases you’ll find a team using full-on test-driven development where test cases are written before code is written for new functionality, but the basic process is the same.</p>
+
+<p>From the end user perspective, this usually means patches for the software. In Windows these are often delivered via Windows Update or Office Update, although a myriad of programs have other more annoying ways to tell you that they need to be upgraded. In Mac OS X there is the software update feature that checks for major updates. Within Linux there is apt, or another equivalent tool that checks for updates on almost all software on the system. Why Mac OS X and Windows only check for updates on apps provided by the OS manufacturer and not for the whole system, as Linux does, could be the subject of another whole article.</p>
+
+<p>What happens when a bug slips through the cracks? When happens when a bug is known, has been reported, is routinely experienced by hundreds or thousands of individuals, but doesn’t get patched through these methods? The result is an exercise in frustration that will leave many users searching for a new solution.</p>
+
+<p>I’m going to illustrate this problem with a bug that I recently encountered. The time was around 1am on the Monday morning of Labor weekend. Papers were due at 6am for a major international conference, and I was wrapping up final revisions so I could go to bed. We were using Microsoft Word 2007 to create an academic paper that had many equations present. Submissions to the conference were required to be in PDF form, for which I typically use <a href="http://www.primopdf.com/">PrimoPDF</a> in Windows, although I realize that Office 2007 has native PDF support. I clicked through to have PrimoPDF create a PDF and this is what I saw:</p>
+
+  <figure class='center'>
+        <img src="/weblog/media/2009/09/missingequations.png">
+        <figcaption>Those white spaces are where my equations used to be. </figcaption>
+    </figure>
+
+
+<p>That’s interesting, where did all of my equations go? I’m aware that word sometimes has strange settings that change the actual print output by removing things such as graphics, I looked at the print preview and double checked all my settings. Everything looked normal, the equations showed up in the print preview. I proceeded to try about two or three other PDF engines but had no luck in the process. It appeared that my document did not want to retain its equations.</p>
+
+<p>I started to panic with thoughts of having to convert the paper to a different format at this late stage of the game. I googled around and found a variety of forum posts that provided suggestions. The first was simple enough, just use the native PDF support in MS Office 2007. I clicked through and I had a PDF of my document, but the quality was less than stellar, especially when on viewed on a Mac.</p>
+
+  <figure class='center'>
+        <img src="/weblog/media/2009/09/badequations.png">
+        <figcaption>It seems like those curves are made up straight lines, almost as though a kindergarten student cut them out of construction paper </figcaption>
+    </figure>
+
+
+
+
+  <figure class='center'>
+        <img src="/weblog/media/2009/09/fonts.png">
+        <figcaption>Windows is on the left, Mac is on the right.  Here I though that PDF was supposed to look the same everywhere! Silly me </figcaption>
+    </figure>
+
+
+<p>The problem results from the fact that Office 2007 won’t embed all of the fonts into the PDF document, rather it will try to provide alternative options or convert the fonts to a bitmap format if it can’t. Why won’t it embed all the fonts? Concerns about licensing — basically unless Windows can verify it has a license to redistribute the font in the PDF file, it won’t embed the font and you’ll be left with something less than awesome.</p>
+
+<p>The next suggestion was to simply save the doc as an Office 2003 document. The solution said that the equations wouldn’t be editable anymore, but that they’d still show up. That was fine as I was done with paper and just needed a one-off version to submit to the conference. Unfortunately, rather than providing something like Wikipedia, which renders the equations to a high resolution PNG file and then embeds the image in a web page, MS Office converts the equations so they’re already pre-blurred from having drank too much. Once again, this was not going to work for academic work.</p>
+
+  <figure class='center'>
+        <img src="/weblog/media/2009/09/word2003.png">
+        <figcaption>Can you spot the equations?  They look like they were rendered on a Hercules graphics card </figcaption>
+    </figure>
+
+
+<p>Although those two options “worked”, they were what are termed “workarounds”, and not even good workarounds, they were poor workarounds that provided decreased functionality. I work very hard to create high quality academic papers that look good, so I expect my tools to perform the tasks they advertised when I paid for them. I wasn’t going to submit something that looked amateurish.</p>
+
+<p>Digging around some more and getting more creative with my Google query and finally stumped upon the <a href="http://support.microsoft.com/kb/960985">Microsoft Support Page for my bug</a>.  Apparently, this bug only affects systems that run the combination of Microsoft Office 2007 and Windows XP. If I were to use a system with Windows Vista, I should be fine.  Great, my wife has Vista Enterprise on her Tablet PC, so I copy the document over, and attempt to create a PDF of the document.  The equations look just fine, but wait, now it’s not printing half of my images.  Ughh.</p>
+
+  <figure class='center'>
+        <img src="/weblog/media/2009/09/brokenfigure.png">
+        <figcaption>I swear I designed both the left and right sides of this figure </figcaption>
+    </figure>
+
+
+<p>Finally, I attempt the actual fix for Windows XP.  Apparently the problem is somehow tied up between Windows XP, Office 2007, and right-to-left language support (for languages like Thai and Arabic). The knowledge base article provides helpful instructions on how to install support for those languages.  After following the instructions you’ll get the warning:</p>
+
+<blockquote><p>You chose to install the Arabic, Armenian, Georgian, Hebrew, Indic, Thai and Vietnamese language files. This will require 10 MB or more of available disk space. The files will be installed after you click OK or Apply on the Regional and Language Options dialog box.</p></blockquote>
+
+<p>Oh no!  10 MB of disk space?  On my 7mbit DSL line that will take almost 20 seconds to download.  Not to mention it will take up such and small portion of my 500GB drive on my laptop I’m not even going to worry about it.  But then the dreaded message pops up:</p>
+
+  <figure class='center'>
+        <img src="/weblog/media/2009/09/windowscd.png">
+        <figcaption>OMG!  Are you serious‽‽ </figcaption>
+    </figure>
+
+
+<p>Seriously, WTF? There is no option to download the patch from the Internet.  I see no way that such a small component could be considered a marketable piece of IP, as both Mac OS X and Linux have far superior support for multiple languages and there are no other operating systems that would want to steal this feature.  This left me with the realization that to fix my problem I was going to need to run around my still largely packed apartment in Minneapolis to find a CD that I hadn’t used in years. A CD to fix a bug that has been known about for a long time and is the result of strange interaction between two components, both of which have automatic update features. Did I mention it was now 2:30am?  I shudder to think of my frustration if I had been either 1) at my place in New York, knowing that the CD was in Minneapolis or 2) working on a machine without an optical drive and not in possession of an optical drive around to install the upgrade.  Of course, at that point I probably wouldn’t have worried that much, instead I’d probably download a copy of the CD off the seedier side of the intarwebs.</p>
+
+<p>I’m using this as an example of how not to handle a bug in multiple different ways.  Firstly, the bug seems common enough that MS should have had a test case for it.  It should have been caught in the development process and feature check for the equation editor.  Equations and graphics often go together on the same page, and it’s not just Ph.D. researchers who need them, I remember using equations and graphs on the same page when using Word 6.0 for Window 3.1 to type up lab reports for my high school biochemistry class.  It’s great that MS sells a version of Office for Students and Teachers which has this wonderful bug — at least it gets them to set their software expectations low from the beginning.  Now, a test case may not have caught it before it was released, but I know that the bug has been around long enough that a test case could have been created for the numerous service packs for Office and Windows that have been released since the bug was first found.  Most glaring is the fact that the bug wasn’t even fixed with Windows Vista, it just manifests itself in a new and creative way.  Test driven development may not have caught this, but I can’t help but wonder if it’s part of the build process at Microsoft.</p>
+
+<p>Second, reading the support document on Microsoft’s site makes it sound a little like the Office and Windows teams were left pointing fingers at each other.  The end user doesn’t care what component is broken, they just want it fixed.  They don’t care if it requires an extra 10MB of disk space. They just want their program to function as advertised.  While I’m fine with working random command lines and installing random components, most end users don’t like this at all.  This is a process that should have been fixed by a service patch for either Office 2007 or Windows XP.  Unfortunately, neither team decided it was worth their time and the end user is left to pay the price.</p>
+
+<p>Finally, the solution of requiring the CD reminds me a little too much of 2000 (yes, I’m aware that XP is from 2000, but it still is the best OS from MS until Windows 7 is officially released in a few weeks).  Most computers have gone mobile since 2000 and many have lost the CD drive in an effort to reduce size and power consumption.  Automatic update solutions have made users comfortable with pulling updates over the Internet, so why does this still require a CD?  This is a component that has no independent commercial value and an update to Windows XP could have just as easily forced support on everyone — it eliminates a lot of those boxes you see on web pages written in right-to-left languages too — or at the very least made it a download.</p>
+
+<p>The biggest problem that I see here is that the bug was a complicated one.  I shudder to think of the tester who was responsible for finally figuring out that it was the third component, right-to-left language support, that caused the problems. However, the solution was needlessly complicated and filled with half-solutions that caused just as many problems as they fixed. As software engineers we can do better. Integrated update systems are a nice start — within APT it is possible to say that an update to an application requires an additional update to a different application.  For example, an update to Open Office could signify that it requires an updated version of iconv — a library for translating character sets.  When you update Open Office the new version of iconv would come along with it.  See, it’s not that hard, and it’s something that Linux has been doing right since 1995.</p>
+</div>
+
+
+<script>
+var idcomments_acct = 'de6c2d3e38f6fdb9bf16fa9f1904f35d';
+var idcomments_post_id;
+var idcomments_post_url;
+</script>
+<span id="IDCommentsPostTitle" style="display:none"></span>
+<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+
+
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Patrick Wagstrom</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-09-08T19:55:23-04:00" pubdate data-updated="true">Sep 8<span>th</span>, 2009</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/weblog/blog/categories/computer/'>computer</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://patrick.wagstrom.net/weblog/2009/09/08/how-to-handle-a-bug/" data-via="pridkett" data-counturl="http://patrick.wagstrom.net/weblog/2009/09/08/how-to-handle-a-bug/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/weblog/2009/05/08/simple-full-disk-image-backups-with-dd/" title="Previous Post: Simple Full Disk Image Backups With dd">&laquo; Simple Full Disk Image Backups With dd</a>
+      
+      
+        <a class="basic-alignment right" href="/weblog/2009/09/15/antifeatures-in-free-software/" title="Next Post: Antifeatures in Free Software">Antifeatures in Free Software &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/weblog/2012/05/10/static-bloggin/">Static Bloggin</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/28/i-am-not-a-climatologist-and-neither-are-most-of-these-people/">I am not a climatologist, and neither are most of these people</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/10/looking-for-summer-interns-in-the-software-technology-group-at-ibm-tj-watson-research-center/">Looking for Summer Interns in the Software Technology Group at IBM TJ Watson Research Center</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/a-review-of-2011-personal-development-goals/">A Review of 2011 Personal Development Goals</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/open-source-and-technology-predictions-for-2012/">Open Source and Technology Predictions for 2012</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/pridkett">@pridkett</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'pridkett',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/weblog/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("pridkett", 4, false);
+    });
+  </script>
+  <script src="/weblog/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/pridkett" class="twitter-follow-button" data-show-count="false">Follow @pridkett</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/102672530623465237388?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Patrick Wagstrom -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

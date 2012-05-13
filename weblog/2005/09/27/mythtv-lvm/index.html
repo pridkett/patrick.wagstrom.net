@@ -1,0 +1,525 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>LVM with MythTV on Ubuntu - My Delusional Dream</title>
+  <meta name="author" content="Patrick Wagstrom">
+
+  
+  <meta name="description" content="LVM With MythTV on Ubuntu Sep 27th, 2005 | var idcomments_acct = 'de6c2d3e38f6fdb9bf16fa9f1904f35d';
+var idcomments_post_id;
+var idcomments_post_url &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://patrick.wagstrom.net/weblog/2005/09/27/mythtv-lvm">
+  <link href="/weblog/favicon.png" rel="icon">
+  <link href="/weblog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/weblog/javascripts/modernizr-2.0.js"></script>
+  <script src="/weblog/javascripts/ender.js"></script>
+  <script src="/weblog/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/weblog/atom.xml" rel="alternate" title="My Delusional Dream" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/weblog/">My Delusional Dream</a></h1>
+  
+    <h2>Thoughts of a cautious technocrat</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/weblog/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:patrick.wagstrom.net/weblog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/weblog/">Blog</a></li>
+  <li><a href="/weblog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">LVM With MythTV on Ubuntu</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-09-27T10:19:00-04:00" pubdate data-updated="true">Sep 27<span>th</span>, 2005</time>
+        
+        
+         | 
+
+<script>
+var idcomments_acct = 'de6c2d3e38f6fdb9bf16fa9f1904f35d';
+var idcomments_post_id;
+var idcomments_post_url;
+</script>
+<script type="text/javascript" src="http://www.intensedebate.com/js/genericLinkWrapperV2.js"></script>
+
+
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Last night I was pleasantly surprised to find that my new hard disk from <a href="http://www.outpost.com/">Outpost.com/Fry&#8217;s</a> had already arrived, despite ordering it on Friday and only paying for ground shipping.  Note to the other folks from <a href="http://maps.google.com/maps?q=pittsburgh,+pa&amp;spn=0.086881,0.135844&amp;t=h&amp;hl=en">the Burgh</a>, Outpost ships from <a href="http://maps.google.com/maps?q=columbus,+oh&amp;spn=0.087497,0.135844&amp;t=h&amp;hl=en">Columbus</a>, thus you get your stuff fast.  Having received this nice shiny new 200GB hard disk, I needed a way to integrate into my system.  I consider this disk to be a stop-gap solution until I can afford a <a href="http://www.pcguide.com/ref/hdd/perf/raid/levels/singleLevel5-c.html">RAID-5</a> setup.</p>
+
+<p>Anyway, before I began this little adventure, I was running low on storage space.  I keep my <a href="http://www.mythtv.org/">MythTV</a> recordings in <code>/mnt/store</code> and the 200G drive I picked up in February was now loaded down with lots of <a href="http://www.snpp.com/">Simpsons</a>, <a href="http://www.familyguyfiles.com/">Family Guy</a>, and various movies.  The overall disk picture looked something like this:</p>
+
+<pre><code>patrick@dreams:~# df -h
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/hda6              33G   24G  6.9G  78% /
+tmpfs                 380M     0  380M   0% /dev/shm
+/dev/hda1              90M   24M   62M  28% /boot
+/dev/hdc1             190G  185G  1.9G  98% /mnt/store
+/dev/hda5             9.3G  8.7G  601M  94% /home
+/dev                   33G   24G  6.9G  78% /.dev
+none                  5.0M  2.8M  2.3M  56% /dev
+</code></pre>
+
+<p>In addition, I have an NEC DVD dual layer burner on <code>/dev/hdb</code>.  My task at hand was to merge the new 200GB disk with the existing 200GB disk.  I had a variety of possible tools for this, including just a bunch of symlinks to the old files, <a href="http://www.fsl.cs.sunysb.edu/project-unionfs.html">unionfs</a>, and <a href="http://sources.redhat.com/lvm2/">LVM</a>.  Symlinks might work okay, but there is a lot of manual work that needs to be done.  On the bright side, if I lose a disk with that method, I only lose the recordings on that disk.  UnionFS allows me to ignore the symlink problem and stack the two drives.   However, one drive would be read only, so it would never get any more full.  This really wasn&#8217;t desirable either.  Really, I need some sort of RAID setup.  Not so much for the redundancy, but for the consistent disk image across drives.</p>
+
+<p>So normally what I&#8217;d be looking for is called <a href="http://www.pcguide.com/ref/hdd/perf/raid/levels/singleLevel0-c.html">RAID-0</a> or <a href="http://www.pcguide.com/ref/hdd/perf/raid/levels/jbod-c.html">JBOD</a> (Just a bunch of disks).  The difference between the two is that RAID-0 stripes the data between the disks, meaning that different chunks of the data are on different disks.  This gives increased I/O throughput provided that the disks are on different controllers.  JBOD just concatenates the disks together as one big disk and when the first disk fills up, work begins on the second disk.  The problem is that both of these would require me to blow away both drives to get going.  I&#8217;m not about to try and find all those Simpsons expisodes again.  Furthermore, if I ever wanted to add more disks to this setup, I&#8217;d still have to go this pain again.  This was not desirable.</p>
+
+<p>Enter the joy of LVM for Linux.  LVM stands for Logical Volume Management, and it&#8217;s a method that you can be completely agnostic about the underlying disk setup for a mount point.  The current version is LVM 2 and most distros ship with LVM2 support enabled (Ubuntu works just fine with LVM).  The basic concept with LVM is that at the top level you have the concept of a volume group. This is a group of disks that you can create many mount points out of.  For most users, you&#8217;ll be fine with just one volume group, but if you&#8217;re going to be doing a lot of moving of disks, you might want to have different volume groups to make things easier. Within a volume group you have a collection of physical volumes, which are essentially just block devices.  Under Linux this means that you can either dedicate an entire disk or just a partition of a disk.  In my case, I was dedicating two entire disks to LVM. This means that I get an extra 1K of space by not needing the partition table at the front of the disk.  Woohoo.  So, my first step was to initialize the new hard disk, now called <code>/dev/hdb</code> as an LVM physical volume.</p>
+
+<pre><code>root@dreams:~# pvcreate /dev/hdb
+</code></pre>
+
+<p>With an initial physical volume created, it&#8217;s possible to move on and create a volume group.  Like I stated earlier, for most home users, having a single volume group will be just fine.  Especially if you&#8217;re just using it for MythTV. To get things started, I created a volume group called mythtv_store to indicate that I was using it for MythTV and told LVM that I would be using <code>/dev/hdb</code> as the first physical volume in the group.  You&#8217;ll also need to tell LVM that the volume group is accessible.  This is what the second command does.</p>
+
+<pre><code>root@dreams:~# vgcreate mythtv_store /dev/hdb
+rootodreams:~# vgchange -a y mythtv_store
+</code></pre>
+
+<p>The final thing that you&#8217;ll need if you want to access your disk is to create a logical volume on top of the volume group.  It&#8217;s possible to use LVM to set up all sorts of fun stuff like striping between disks, but we&#8217;re not going to be doing that because we&#8217;re starting with just one disk.  We want the setup to take up the entirety of the disk currently allocated to the volume group.  To do that we first figure out how many physical extents we have in the volume group.  A physical extent is a chunk of a physical disk that can be allocated to a logical volume.  When we run the <code>vgdisplay</code> command (more about that later), we&#8217;ll how man physical extents the drive has by looking at the line that says Total PE.  For convenience and confusion sake, we&#8217;ll call our new logical volume mythtv.</p>
+
+<pre><code>root@dreams:~# vgdisplay mythtv_store | grep "Total PE"
+  Total PE              47695
+root@dreams:~# lvcreate -l 47695 mythtv_store -n mythtv
+</code></pre>
+
+<p>If you&#8217;re interested in seeing what&#8217;s going on you can run pvdisplay to show the physical volumes, vgdisplay to show the volume groups you&#8217;ve just created, and <code>lvdisplay</code> to show the logical volumes.  Here&#8217;s the output from my system (somewhat faked as I&#8217;m writing this after creating the LVM setup):</p>
+
+<pre><code>root@dreams:~# pvdisplay
+  --- Physical volume ---
+  PV Name               /dev/hdb
+  VG Name               mythtv_store
+  PV Size               186.31 GB / not usable 0
+  Allocatable           yes (but full)
+  PE Size (KByte)       4096
+  Total PE              47695
+  Free PE               0
+  Allocated PE          47695
+  PV UUID               e5obta-U4u1-gdWB-DwGP-MTBo-Lpw5-1O7rVK
+
+root@dreams:~# vgdisplay
+  --- Volume group ---
+  VG Name               mythtv_store
+  System ID
+  Format                lvm2
+  Metadata Areas        2
+  Metadata Sequence No  5
+  VG Access             read/write
+  VG Status             resizable
+  MAX LV                0
+  Cur LV                1
+  Open LV               1
+  Max PV                0
+  Cur PV                2
+  Act PV                2
+  VG Size               186.27 GB
+  PE Size               4.00 MB
+  Total PE              47695
+  Alloc PE / Size       47695 / 186.27 GB
+  Free  PE / Size       0 / 0
+  VG UUID               2uX3MD-1386-FqXx-LMEJ-ELOW-nB58-UNEoTl
+
+root@dreams:~# lvdisplay
+  --- Logical volume ---
+  LV Name                /dev/mythtv_store/mythtv
+  VG Name                mythtv_store
+  LV UUID                CbjYXs-gWnC-63X6-ED2D-x3BS-PbkC-td0OT4
+  LV Write Access        read/write
+  LV Status              available
+  # open                 1
+  LV Size                186.27 GB
+  Current LE             47695
+  Segments               1
+  Allocation             inherit
+  Read ahead sectors     0
+  Block device           254:0
+</code></pre>
+
+<p>The first line of the lvdisplay output is what we&#8217;re looking for.  This is the device name that you&#8217;ll use to access the logical volume, in my case it is <code>/dev/mythtv_store/mythtv</code>.  In general it goes by the name of <code>/dev/[VOLUME GROUP NAME]/[LOGICAL VOLUME NAME]</code>.  From here we can see that we&#8217;ve got a 186.27 GB logical disk that we&#8217;ve just created.  The next step is to format the thing and port our data over.  I&#8217;ve been using JFS because it has speedy deletes for the large files that MythTV produces, however, you may want to consider using EXT3 or ReiserFS.  The main reason is because you cannot shrink a JFS drive (or XFS for that matter).  If you want a filesystem you can shrink, you must use EXT3 or ResierFS (at least at this time).  Anyway, here&#8217;s how I formatted the drive, mounted it, and copied all my data from the old drive over (the old drive was mounted at <code>/mnt/store</code>).</p>
+
+<pre><code>root@dreams:~# mkfs.jfs /dev/mythtv_store/mythtv
+root@dreams:~# mkdir /mnt/tmp
+root@dreams:~# mount /dev/mythtv_store/mythtv /mnt/tmp
+root@dreams:~# cp -a /mnt/store /mnt/tmp
+</code></pre>
+
+<p>A quick look shows that all my files copied successfully.  If you haven&#8217;t already, now would be a good time to shut down MythBackend, but lets hope you did that a long time ago.  Now comes the part that you&#8217;ll feel queasy about, but it should work.  We&#8217;re going to blow away the old disk, add it to the volume group, and then extend that logical volume and our JFS file system.  The first thing that we need to do is blow away the partition table on /dev/hdc.  This is necessary because LVM doesn&#8217;t like seeing a partition table there if it&#8217;s going to use the whole disk.  Thanks to dd this is pretty straight forward.</p>
+
+<pre><code>root@dreams:~# dd if=/dev/zero of=/dev/hdc bs=1k count=1
+root@dreams:~# pvcreate /dev/hdc
+root@dreams:~# vgextend mythtv_store /dev/hdc
+</code></pre>
+
+<p>These steps have added <code>/dev/hdc</code> to the volume group, but it hasn&#8217;t yet been added to the logical volume.  To do that we&#8217;re going to need to know the total size of volume group.  Once again, grep becomes our friend, and we use the following commands:</p>
+
+<pre><code>root@dreams:~# vgdisplay mythtv_store | grep "Total PE"
+  Total PE              96315
+root@dreams:~# lvextend -l 96315 /dev/mythtv_store/mythtv
+</code></pre>
+
+<p>Now if we run lvdisplay we&#8217;ll see that the disk has been extened.  However, looking at the output of df it&#8217;s clear that the disk space has not been increased.  This is because we haven&#8217;t told JFS to extend the disk yet.</p>
+
+<pre><code>root@dreams:~# lvdisplay
+  --- Logical volume ---
+  LV Name                /dev/mythtv_store/mythtv
+  VG Name                mythtv_store
+  LV UUID                CbjYXs-gWnC-63X6-ED2D-x3BS-PbkC-td0OT4
+  LV Write Access        read/write
+  LV Status              available
+  # open                 1
+  LV Size                376.23 GB
+  Current LE             96315
+  Segments               2
+  Allocation             inherit
+  Read ahead sectors     0
+  Block device           254:0
+
+root@dreams:~# df
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/hda6              33G   24G  6.9G  78% /
+tmpfs                 380M     0  380M   0% /dev/shm
+/dev/hda1              90M   24M   62M  28% /boot
+/dev/mapper/mythtv_store-mythtv
+                      186G  185G  739M  99% /mnt/store
+/dev/hda5             9.3G  8.7G  601M  94% /home
+/dev                   33G   24G  6.9G  78% /.dev
+none                  5.0M  2.8M  2.3M  56% /dev
+</code></pre>
+
+<p>The final step is to tell JFS to resize the mounted filesystem.  In order to do this, JFS needs to execute a remount/resize command.  This means that you need to have the filesystem mounted, then execute the following command:</p>
+
+<pre><code>root@dreams:~# mount -o remount,resize /mnt/store
+</code></pre>
+
+<p>If all goes well, it will take a few seconds to mount the disk, and then you&#8217;ll have a nice big disk to store all of your MythTV recordings on.  Here&#8217;s the final output from the important commands on my system:</p>
+
+<pre><code>root@dreams:~# pvdisplay
+  --- Physical volume ---
+  PV Name               /dev/hdb
+  VG Name               mythtv_store
+  PV Size               186.31 GB / not usable 0
+  Allocatable           yes (but full)
+  PE Size (KByte)       4096
+  Total PE              47695
+  Free PE               0
+  Allocated PE          47695
+  PV UUID               e5obta-U4u1-gdWB-DwGP-MTBo-Lpw5-1O7rVK
+
+  --- Physical volume ---
+  PV Name               /dev/hdc
+  VG Name               mythtv_store
+  PV Size               189.92 GB / not usable 0
+  Allocatable           yes (but full)
+  PE Size (KByte)       4096
+  Total PE              48620
+  Free PE               0
+  Allocated PE          48620
+  PV UUID               0poKpC-804L-kWvX-D97a-23Fc-L4UT-6HWObk
+
+root@dreams:~# vgdisplay
+  --- Volume group ---
+  VG Name               mythtv_store
+  System ID
+  Format                lvm2
+  Metadata Areas        2
+  Metadata Sequence No  5
+  VG Access             read/write
+  VG Status             resizable
+  MAX LV                0
+  Cur LV                1
+  Open LV               1
+  Max PV                0
+  Cur PV                2
+  Act PV                2
+  VG Size               376.23 GB
+  PE Size               4.00 MB
+  Total PE              96315
+  Alloc PE / Size       96315 / 376.23 GB
+  Free  PE / Size       0 / 0
+  VG UUID               2uX3MD-1386-FqXx-LMEJ-ELOW-nB58-UNEoTl
+
+root@dreams:~# lvdisplay
+  --- Logical volume ---
+  LV Name                /dev/mythtv_store/mythtv
+  VG Name                mythtv_store
+  LV UUID                CbjYXs-gWnC-63X6-ED2D-x3BS-PbkC-td0OT4
+  LV Write Access        read/write
+  LV Status              available
+  # open                 1
+  LV Size                376.23 GB
+  Current LE             96315
+  Segments               2
+  Allocation             inherit
+  Read ahead sectors     0
+  Block device           254:0
+
+root@dreams:~# df
+Filesystem           1K-blocks      Used Available Use% Mounted on
+/dev/hda6             33645952  24729060   7207756  78% /
+tmpfs                   388228         0    388228   0% /dev/shm
+/dev/hda1                91599     24143     62569  28% /boot
+/dev/mapper/mythtv_store-mythtv
+                     394461228 179175688 215285540  46% /mnt/store
+/dev/hda5              9732200   9116892    615308  94% /home
+/dev                  33645952  24729060   7207756  78% /.dev
+none                      5120      2856      2264  56% /dev
+</code></pre>
+</div>
+
+
+<script>
+var idcomments_acct = 'de6c2d3e38f6fdb9bf16fa9f1904f35d';
+var idcomments_post_id;
+var idcomments_post_url;
+</script>
+<span id="IDCommentsPostTitle" style="display:none"></span>
+<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+
+
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Patrick Wagstrom</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-09-27T10:19:00-04:00" pubdate data-updated="true">Sep 27<span>th</span>, 2005</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/weblog/blog/categories/mythtv/'>mythtv</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://patrick.wagstrom.net/weblog/2005/09/27/mythtv-lvm/" data-via="pridkett" data-counturl="http://patrick.wagstrom.net/weblog/2005/09/27/mythtv-lvm/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/weblog/2005/09/24/comments/" title="Previous Post: Comments Added">&laquo; Comments Added</a>
+      
+      
+        <a class="basic-alignment right" href="/weblog/2005/09/28/comcast-says-screw-you/" title="Next Post: Comcast Says Screw You!">Comcast Says Screw You! &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/weblog/2012/05/10/static-bloggin/">Static Bloggin</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/28/i-am-not-a-climatologist-and-neither-are-most-of-these-people/">I am not a climatologist, and neither are most of these people</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/10/looking-for-summer-interns-in-the-software-technology-group-at-ibm-tj-watson-research-center/">Looking for Summer Interns in the Software Technology Group at IBM TJ Watson Research Center</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/a-review-of-2011-personal-development-goals/">A Review of 2011 Personal Development Goals</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/open-source-and-technology-predictions-for-2012/">Open Source and Technology Predictions for 2012</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/pridkett">@pridkett</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'pridkett',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/weblog/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("pridkett", 4, false);
+    });
+  </script>
+  <script src="/weblog/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/pridkett" class="twitter-follow-button" data-show-count="false">Follow @pridkett</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/102672530623465237388?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Patrick Wagstrom -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: priblog | My Delusional Dream]]></title>
+  <link href="http://patrick.wagstrom.net/weblog/blog/categories/priblog/atom.xml" rel="self"/>
+  <link href="http://patrick.wagstrom.net/weblog/"/>
+  <updated>2012-05-12T20:51:14-04:00</updated>
+  <id>http://patrick.wagstrom.net/weblog/</id>
+  <author>
+    <name><![CDATA[Patrick Wagstrom]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[SQLObject Fun]]></title>
+    <link href="http://patrick.wagstrom.net/weblog/2005/10/11/sqlobject/"/>
+    <updated>2005-10-11T21:25:00-04:00</updated>
+    <id>http://patrick.wagstrom.net/weblog/2005/10/11/sqlobject</id>
+    <content type="html"><![CDATA[<p>I've made some pretty good progress on Priblog lately, the biggest change
+is that I discovered the magic of <a href="http://sqlobject.org/">SQLObject</a>.
+SQLObject makes it pretty transparent to access database tables without
+writing a single line of SQL.  It's not that I don't like writing SQL, it's
+just that when you start writing custom SQL statements, you inevitibly end up
+breaking cross platform compatability.  For example, <a href="http://www.postgresql.org/">PostgreSQL</a> has sequences that are used to automatically increment
+id counters while <a href="http://www.mysql.com/">MySQL</a> has the auto
+increment row attribute.</p>
+
+<p>With SQLObject, I just define some new style classes in Python and the
+SQLObject layer takes care of everything else for me.  You can even have it
+create the tables for you, which means that there is no work on the
+part of the user other than making sure that a user can access the database.
+What does all this mean for Priblog?  It means that I just added support for
+MySQL, sqlite, and a slew of other databases with zero effort.  Sweet.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Comments Added]]></title>
+    <link href="http://patrick.wagstrom.net/weblog/2005/09/24/comments/"/>
+    <updated>2005-09-24T14:15:00-04:00</updated>
+    <id>http://patrick.wagstrom.net/weblog/2005/09/24/comments</id>
+    <content type="html"><![CDATA[<p>Priblog is fast on its way to Dogfood state.  I've just implemented comments
+into the system.  It's not pretty by any stretch of the imagination, but
+it seems to work just fine.  They're all foaf-enabled, so you can still have
+all your fun by pulling up information for users through the XML interfaces.
+In addition, the comment interface is entity agnostic, meaning that that
+roughly the same comment system will be used for photos and links too once
+I get a chance to add them.  Woot.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Priblog - Round 3]]></title>
+    <link href="http://patrick.wagstrom.net/weblog/2005/09/13/priblog3/"/>
+    <updated>2005-09-13T22:06:00-04:00</updated>
+    <id>http://patrick.wagstrom.net/weblog/2005/09/13/priblog3</id>
+    <content type="html"><![CDATA[<p>Hot damn, it looks like I might actually finish the creation of Priblog that
+I've always been talking about.  While I really like the idea of working
+with flat XML files, the fact of the matter is that performance matters to
+me.  I hate how slow pyBlosxom becomes when it has to walk all of my entries.
+The additional overhead of firing off a python process on every page hit
+isn't that great either.  I'm sure I could find a way to get around that
+using <a href="http://www.modpython.org/">mod_python</a> or something like
+that, but I think that will just raise more problems.</p>
+
+<p>Instead, I've been playing with (cue <a href="http://www.warrantweb.net/">Warrant</a> music here) <a href="http://www.cherrypy.org/">CherryPy</a>.  Basically,
+CherryPy is a persistant python process that serves up web pages.  This means
+that I can maintain one set of database connections, one listing of the entries,
+and all that jazz.  It's terribly easy to create nice web applications with it.
+Add in built-in session management, and you can see why I'm happy.</p>
+
+<p>Basically the new version of Priblog works with a
+<a href="http://www.postgresql.org/">PostgreSQL</a> backend.  It requires
+<a href="http://www.libxml.org/">LibXML</a> to generate the XML pages and
+do some fun stuff with XSLT for browsers that can't handle it, like IE.
+Right now, I'd estimate that I'm at about 50% of the progress that I have
+in my pyBlosxom install.  I still need to add in category browsing and date
+browsing, but those are the last outstanding features.  It looks like this
+time I might actually finish something.  Yay.</p>
+
+<p>I half feel like I'm now in a race with another guy.  Apparently there
+are <a href="http://copia.ogbuji.net/blog/2005-09-11/PyBlosxom_">others who wish to accomplish the same</a>.  I guess mine won't truly be a pyBlosxom,
+because for time being you're going to need a database behind it.  Not sure
+if I'll keep that idea forever or not.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[More Reason To Switch]]></title>
+    <link href="http://patrick.wagstrom.net/weblog/2004/10/14/needtoswitch/"/>
+    <updated>2004-10-14T12:17:00-04:00</updated>
+    <id>http://patrick.wagstrom.net/weblog/2004/10/14/needtoswitch</id>
+    <content type="html"><![CDATA[<p>If I needed more reason to switch and finish coding PriBlog, I found out today
+that the reason why some people can't see the images that I post is because I
+styleize them with XSLT.  This causes an issue becuase the entries are not
+styleized before encoding them in the RSS feed.  The result is that the RSS feed
+which is supposed to contain HTML, contains raw XML.  This is probably a mistake
+on my part, but it's frickin annoying none the less.</p>
+
+<p>To make things worse, PyBlosxom seems to think that everything needs to end
+in .html, which is not the case in my world.  Sigh.  Time to get coding this
+weekend and get something preliminary going.  I'm not looking foward to fumbling
+around with the various Atom standards.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[The return of Priblog]]></title>
+    <link href="http://patrick.wagstrom.net/weblog/2004/10/05/priblog2/"/>
+    <updated>2004-10-05T09:46:00-04:00</updated>
+    <id>http://patrick.wagstrom.net/weblog/2004/10/05/priblog2</id>
+    <content type="html"><![CDATA[<p>I've decided to start working on Priblog again.  Basically I'm getting sick of how utterly slow Pyblosxom becomes under load.  I still like Pyblosxom more than I like solutions such as MovableType or WordPress.  But it's not optimal when you're running your server on a 200MHz K6.</p>
+
+<p>So with Priblog what I'm doing is a compromise.  It still is all based on text files sitting on the hard disk, but each file is an XML file.  I'll eventually write a simple converter or something like that too.  Anyway, the major difference is that Priblog will cache most entries as files.  This means that instead of having entires magically appear after entering them, you'll need to run a little script to regenerate some files.</p>
+
+<p>Hitting most of the pages will still be a CGI type interaction, as it doesn't warrant storing all the possible combinations of files.  However, notably the RSS file will now be cached.  This is a HUGE improvement over the current PyBlosxom setup which needs to crawl the directory tree in order to find the files to make the RSS.  It's one of the major reasons why my RSS feed is so slow.</p>
+
+<p>Another thing I've wanted is the ability to put an entry in multiple categories. It seems like I'll be able to do that with little work.  A change from my original idea is thta Priblog no longer requires <a href="/weblog/code/pridb">pridb</a> as a database.  This should free up resources on low end computers.  We'll see how much hacking I get done on this. Hopefully airport time later this week will prove useful to me.</p>
+]]></content>
+  </entry>
+  
+</feed>

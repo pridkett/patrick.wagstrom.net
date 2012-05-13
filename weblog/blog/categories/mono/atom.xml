@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: mono | My Delusional Dream]]></title>
+  <link href="http://patrick.wagstrom.net/weblog/blog/categories/mono/atom.xml" rel="self"/>
+  <link href="http://patrick.wagstrom.net/weblog/"/>
+  <updated>2012-05-12T20:51:14-04:00</updated>
+  <id>http://patrick.wagstrom.net/weblog/</id>
+  <author>
+    <name><![CDATA[Patrick Wagstrom]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Moving MCatalog Back to GNOME]]></title>
+    <link href="http://patrick.wagstrom.net/weblog/2006/07/07/mcatalog-gnome/"/>
+    <updated>2006-07-07T15:48:00-04:00</updated>
+    <id>http://patrick.wagstrom.net/weblog/2006/07/07/mcatalog-gnome</id>
+    <content type="html"><![CDATA[<p>I finally got off my duff and obtained a <a href="http://www.gnome.org/">GNOME</a> CVS account.  Also, <a href="http://www.mcatalog.net/blog/">Cesar</a> made me the bugzilla maintainer for the project.  Over the next few days, I'll be merging my code back into the <a href="http://cvs.gnome.org/">GNOME CVS repository</a> (or <a href="http://svn.gnome.org/">GNOME Subversion repository</a> when it gets going next week).  For a list of the current bugs on MCatalog visit <a href="http://bugzilla.gnome.org/buglist.cgi?product=mcatalog&amp;bug_status=NEW&amp;bug_status=REOPENED&amp;bug_status=ASSIGNED&amp;bug_status=UNCONFIRMED&amp;component=general">this page on GNOME bugzilla</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[I Guess I'm the MCatalog Maintainer]]></title>
+    <link href="http://patrick.wagstrom.net/weblog/2006/05/09/mcatalog-maintainer/"/>
+    <updated>2006-05-09T18:46:00-04:00</updated>
+    <id>http://patrick.wagstrom.net/weblog/2006/05/09/mcatalog-maintainer</id>
+    <content type="html"><![CDATA[<p><img class="center" src="/media/2006/05/mcatalogWebLogo.png"></p>
+
+<p>Apparently some of my original emails to Cesar, the author of <a href="https://secure.wagstrom.net/projects/mcatalog/">MCatalog</a> got lost in transit, or his replies did, or something.  Anyway, after my requests, Cesar asked if I would like to maintain MCatalog, I agreed to the task.  So that will make my branch of MCatalog more or less the official trunk of MCatalog.</p>
+
+<p>I wish I could say something like "To celebrate the momentus occassion, I present to you MCatalog 0.3," but I can't.  I had a few <a href="https://secure.wagstrom.net/projects/mcatalog/milestone/0.3">issues marked for 0.3</a>, but when they were all resolved it didn't feel  like a new release.  At least, not a jump from 0.2 to 0.3, maybe a 0.2.1 release or something.  So, I went and added more stuff to my todo list of 0.3.  Anyway, look for a release in the next few weeks.  Also, please download it, try it out, and give it some love.  It compiles pretty easily once you've added the mono-dev package in <a href="http://www.ubuntu.com/">Ubuntu</a> Dapper.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[MCatalog Trac Available]]></title>
+    <link href="http://patrick.wagstrom.net/weblog/2006/04/27/mcatalogtrac/"/>
+    <updated>2006-04-27T12:04:00-04:00</updated>
+    <id>http://patrick.wagstrom.net/weblog/2006/04/27/mcatalogtrac</id>
+    <content type="html"><![CDATA[<p>I'm making some good progress on my modifications of MCatalog.  I've already managed to remove the old Mozilla based shelf viewer for a shiny new one that uses <a href="http://www.cairographics.org/">Cairo</a>.  This has some nice performance improvements and provides better scaling.  Of course, layout changes are no longer a simple matter of changing HTML, but at the same time, I don't need to muck around with JavaScript anymore.  I might see about removing it for the presentation widget too, saving memory overall (I'm not sure how much more memory each Mozilla rendering widget takes up if Mozilla is already loaded, but I'd imagine it's a lot).</p>
+
+<p>To celebrate my accomplishments, I put up a <a href="https://secure.wagstrom.net/projects/mcatalog/">MCatalog Trac Server</a>.  It contains my web pages describing the project, but and feature requests that come to mind, and you can browse the source code there.  Also, it contains instructions on how to help me out. So, if you're so inclined, please visit <a href="https://secure.wagstrom.net/projects/mcatalog/">https://secure.wagstrom.net/projects/mcatalog/</a> and start browsing and helping out.</p>
+
+<p>I had really hoped that I wouldn't have to do all this, but I've sent a couple of emails to every email address I could find for the original author and haven't gotten a response.  I may have to try spanish pretty soon here.  I know he's still around, because he periodically <a href="http://www.mcatalog.net/blog/">updates his blog</a>.  That gives me some hope at least.  For right now, I'm almost willing to say it's approaching a fork of the original code.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[I Branched MCatalog]]></title>
+    <link href="http://patrick.wagstrom.net/weblog/2006/04/19/mcatalog/"/>
+    <updated>2006-04-19T23:08:00-04:00</updated>
+    <id>http://patrick.wagstrom.net/weblog/2006/04/19/mcatalog</id>
+    <content type="html"><![CDATA[<p><a href="http://kristina.wagstrom.net/">Kristina</a> and I purchase a fair amount of
+DVDs in the second market (used).  Usually we get pretty good deals on them, for
+example, last weekend we bought 8 DVDs from Hollywood video for about $50.  One
+consequence of our DVD buying habit is that our friends like to borrow DVDs from us.
+Then I usually forget who we've loaned the DVDs to, and next thing you know they
+go missing like my copy of <a href="http://www.imdb.com/title/tt0120660/">Enemy of the State</a>.</p>
+
+<p>If we had a Mac, there's a killer program called <a href="http://www.delicious-monster.com/">Delicious Library</a> that does an amazing job of cataloging materials.  I sought out a similar
+thing for Linux, and found a few nascent projects -- all of which had bugs.  The one
+that seemed the best designed, and fit most with my current computing experience was
+<a href="http://www.mcatalog.net/">MCatalog</a>.  However, it appears that its web
+hosting isn't overly stable because the web page is frequently down, and that it's been
+more or less abandoned for the last nine months.  Thankfully the code was in the
+<a href="http://cvs.gnome.org/">GNOME CVS archive</a>, so I pulled down the latest version
+and started hacking on it.</p>
+
+<p>Like any good OSS programmer, I've tried to contact the original author to see if he is
+accepting patches (bug reports are handled through <a href="http://bugzilla.gnome.org/">GNOME's bugzilla</a>) -- but I have yet to get a response.  It's getting to the point where I need
+revision history on my files in case I do something stupid, and also where I think that
+other people may find my improvments useful.  So, I've put a subversion repository that
+everyone can check out the newest code from.  Just check stuff out from
+<a href="https://secure.wagstrom.net/svn/mcatalog">https://secure.wagstrom.net/svn/mcatalog</a>
+and start playing around with it.  So far I've updated it to stop throwing deprecation errors,
+fixed a bug with it deleting covers for everything, and made it show icons if the media is
+actually checked out at that time.  More fun will ensue I'm sure.</p>
+
+<p>In the mean time, if you use it and have feature requests of bug reports, shoot me an email.
+I'll handle my stuff informally until I get more feedback from the original author.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mono.Readline]]></title>
+    <link href="http://patrick.wagstrom.net/weblog/2004/09/29/monoreadline/"/>
+    <updated>2004-09-29T22:28:00-04:00</updated>
+    <id>http://patrick.wagstrom.net/weblog/2004/09/29/monoreadline</id>
+    <content type="html"><![CDATA[<p>So I've got plans for a larger scale social network analysis tool in my future, however
+for right now, I need to get some of the groundwork laid.  I realize that some of the key
+components of such a tool are going to be <a href="http://www.ironpython.com/">IronPython</a>,
+for handling of scripting various modules, and a good command line interface.  The major
+problem that I see with most tools right now is that either they run exclusively in batch
+mode or require a GUI.  What I want is a prompt where I can run my analysis as though
+I'm programming.</p>
+
+<p>Anyone who has taken the time to use command prompt programs and programming languages knows
+what a great blessing a good input system can be.  As far as I'm concerned,
+<a href="http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html">GNU Readline</a> is the tops
+when it comes to this.  However, I was dismayed because there was no obvious binding to provide
+support for <a href="http://www.mono-project.com/">Mono</a>.  That is, until now.</p>
+
+<p>Today I announce the first release of Mono.Readline.  Basically it's a little binding that creates
+a stub library to allow Mono to access the GNU Readline library.  It's hella cool.  And best of
+all, I didn't really write it.  It's mainly ripped out of <a href="http://primates.ximian.com/~martin/blog/">Martin
+Baulig</a>'s code in the mono debugger, but this way it's easier to use and get access to.  All
+in a nice autoconf'ed package for you.  So go ahead, download <a href="http://patrick.wagstrom.net/projects/personal/mono-readline-0.0.1.tar.gz">mono-readline 0.0.1</a> today!  Please, also let me know what you think about it
+as this is the first real package I've put out using the autotools.</p>
+]]></content>
+  </entry>
+  
+</feed>

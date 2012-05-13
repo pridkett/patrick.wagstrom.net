@@ -1,0 +1,726 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Delusional Dream</title>
+  <meta name="author" content="Patrick Wagstrom">
+
+  
+  <meta name="description" content="http://patrick.wagstrom.net/mythTorrent/mythTorrent.rss You&#8217;re all bright kids, I&#8217;m sure you can figure out where this is going.
+">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://patrick.wagstrom.net/weblog/blog/page/30">
+  <link href="/weblog/favicon.png" rel="icon">
+  <link href="/weblog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/weblog/javascripts/modernizr-2.0.js"></script>
+  <script src="/weblog/javascripts/ender.js"></script>
+  <script src="/weblog/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/weblog/atom.xml" rel="alternate" title="My Delusional Dream" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/weblog/">My Delusional Dream</a></h1>
+  
+    <h2>Thoughts of a cautious technocrat</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/weblog/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:patrick.wagstrom.net/weblog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/weblog/">Blog</a></li>
+  <li><a href="/weblog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/12/23/intro/">Coming Soon&#8230;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-12-23T15:00:00-05:00" pubdate data-updated="true">Dec 23<span>rd</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://patrick.wagstrom.net/mythTorrent/mythTorrent.rss">http://patrick.wagstrom.net/mythTorrent/mythTorrent.rss</a></p>
+
+<p>You&#8217;re all bright kids, I&#8217;m sure you can figure out where this is going.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/12/11/updatingpage/">More Updates to the Page</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-12-11T14:38:00-05:00" pubdate data-updated="true">Dec 11<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So with finals comes another great time of the year.  The time when I look
+at my web page and try to fix things that are broken.  Most recently I&#8217;ve
+been waging a war over 404 pages.  Most of these pages actually exist
+but were not moved into the new layout of the website.  For the time being
+all of this is being fixed via directives in my httpd.conf file and mod_rewrite.  If you stumble
+across any, send me an email and let me know.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/12/09/sourcehighlightpatch/">GNU Source Hightlight Patch</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-12-09T23:17:00-05:00" pubdate data-updated="true">Dec 9<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.gnu.org/software/src-highlite/source-highlight.html">GNU Source Highlight</a> is a nice little piece of software that makes it easy to highlight the code that I might want to include in my blog.  It doesn&#8217;t work for everything, but works well enough and tends to generate prettier output than VIM does.  However, it doesn&#8217;t quote element attributes and therefore does not generate valid HTML. Here is a patch for it that makes it properly quote attributes:</p>
+
+<p>[sourcecode language=&#8221;cpp&#8221;]
+&#8212; src/genhtml/htmldecorator.cc.orig   Tue Dec  9 22:53:27 2003
++++ src/genhtml/htmldecorator.cc    Tue Dec  9 22:53:55 2003
+@@ -55,7 +55,7 @@
+ void
+ TagDecorator::generateAttrVal() const
+ {
+-  (<em>sout) &lt;&lt; &#8221; &#8221; &lt;&lt; attr &lt;&lt; &#8220;=&#8221; &lt;&lt; val ;
++  (</em>sout) &lt;&lt; &#8221; &#8221; &lt;&lt; attr &lt;&lt; &#8220;=&#34;&#8221; &lt;&lt; val &lt;&lt; &#8220;&#34;&#8221;;
+ }</p>
+
+<p> void
+[/sourcecode]</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/12/09/fixfiletime/">Broken File Times With PyBlosxom? No Problem!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-12-09T22:23:00-05:00" pubdate data-updated="true">Dec 9<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Because PyBlosxom builds the dates for the entries off the last modified time for
+an entry and CVS has a tendency to muck these up I decided to build a little tool
+fix these.  This tool will look for a string like:</p>
+
+<pre><code>&lt;!-- Date: 2003-12-09 22:23 --&gt;
+</code></pre>
+
+<p>In a file and if it finds it then it sets the file date to the date contained.  Works
+wonders for rebuilding an archive after a mess with CVS.  Syntax highlighting courtesy of GNU source highlight.  Here is the code:</p>
+
+<pre><code>&lt;tt&gt;&lt;i&gt;&lt;font color="#9A1900"&gt;#!/usr/bin/env python&lt;/font&gt;&lt;/i&gt;
+&lt;i&gt;&lt;font color="#9A1900"&gt;"""&lt;/font&gt;&lt;/i&gt;
+&lt;i&gt;&lt;font color="#9A1900"&gt;This handy little script fixes file dates.  It opens up the file&lt;/font&gt;&lt;/i&gt;
+&lt;i&gt;&lt;font color="#9A1900"&gt;and if there is a line that looks like this:&lt;/font&gt;&lt;/i&gt;
+&lt;i&gt;&lt;font color="#9A1900"&gt;&lt;!-- Date: YYYY-MM-DD HH:MM --&gt;&lt;/font&gt;&lt;/i&gt;
+&lt;i&gt;&lt;font color="#9A1900"&gt;It will set the mtime of the file to the date listed there.  It's&lt;/font&gt;&lt;/i&gt;
+&lt;i&gt;&lt;font color="#9A1900"&gt;very nice for pyblosxom which bases ordering off the mtime of the&lt;/font&gt;&lt;/i&gt;
+&lt;i&gt;&lt;font color="#9A1900"&gt;file.  It's also great for when CVS decides to randomly change&lt;/font&gt;&lt;/i&gt;
+&lt;i&gt;&lt;font color="#9A1900"&gt;your file dates.&lt;/font&gt;&lt;/i&gt;
+&lt;i&gt;&lt;font color="#9A1900"&gt;&lt;/font&gt;&lt;/i&gt;
+&lt;i&gt;&lt;font color="#9A1900"&gt;By Patrick Wagstrom &lt;wagspat at iit dot edu&gt;&lt;/font&gt;&lt;/i&gt;
+&lt;i&gt;&lt;font color="#9A1900"&gt;&lt;/font&gt;&lt;/i&gt;
+&lt;i&gt;&lt;font color="#9A1900"&gt;Released under terms of the GNU General Public License Version 2&lt;/font&gt;&lt;/i&gt;
+&lt;i&gt;&lt;font color="#9A1900"&gt;&lt;/font&gt;&lt;/i&gt;
+&lt;i&gt;&lt;font color="#9A1900"&gt;$Revision: 1.1 $&lt;/font&gt;&lt;/i&gt;
+&lt;i&gt;&lt;font color="#9A1900"&gt;$Id: fixfiletime.txt,v 1.1 2003/12/10 04:21:43 patrick Exp $&lt;/font&gt;&lt;/i&gt;
+&lt;i&gt;&lt;font color="#9A1900"&gt;"""&lt;/font&gt;&lt;/i&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;import&lt;/font&gt;&lt;/b&gt; os&lt;font color="#990000"&gt;,&lt;/font&gt; time&lt;font color="#990000"&gt;,&lt;/font&gt; sys
+
+&lt;b&gt;&lt;font color="#0000FF"&gt;if&lt;/font&gt;&lt;/b&gt; &lt;b&gt;&lt;font color="#000000"&gt;len&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;sys&lt;font color="#990000"&gt;.&lt;/font&gt;argv&lt;font color="#990000"&gt;)&lt;/font&gt; &lt;font color="#990000"&gt;&lt;&lt;/font&gt; &lt;font color="#993399"&gt;1&lt;/font&gt;&lt;font color="#990000"&gt;:&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;print&lt;/font&gt;&lt;/b&gt; &lt;font color="#FF0000"&gt;"Usage: fixfiletime.py filename"&lt;/font&gt;
+    sys&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;exit&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;&lt;font color="#993399"&gt;1&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;
+
+filename &lt;font color="#990000"&gt;=&lt;/font&gt; sys&lt;font color="#990000"&gt;.&lt;/font&gt;argv&lt;font color="#990000"&gt;[&lt;/font&gt;&lt;font color="#993399"&gt;1&lt;/font&gt;&lt;font color="#990000"&gt;]&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;try&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;:&lt;/font&gt;
+    filestats &lt;font color="#990000"&gt;=&lt;/font&gt; os&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;stat&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;filename&lt;font color="#990000"&gt;)&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;except&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;:&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;print&lt;/font&gt;&lt;/b&gt; &lt;font color="#FF0000"&gt;"File not found.  Quitting."&lt;/font&gt;
+    sys&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;exit&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;&lt;font color="#993399"&gt;1&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;print&lt;/font&gt;&lt;/b&gt; &lt;font color="#FF0000"&gt;"Processing File: "&lt;/font&gt;&lt;font color="#990000"&gt;,&lt;/font&gt; filename
+&lt;b&gt;&lt;font color="#0000FF"&gt;try&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;:&lt;/font&gt;
+    filebody &lt;font color="#990000"&gt;=&lt;/font&gt; &lt;b&gt;&lt;font color="#000000"&gt;open&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;filename&lt;font color="#990000"&gt;)&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;except&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;:&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;print&lt;/font&gt;&lt;/b&gt; &lt;font color="#FF0000"&gt;"Cannot open file %s - exiting"&lt;/font&gt; &lt;font color="#990000"&gt;%&lt;/font&gt; &lt;font color="#990000"&gt;(&lt;/font&gt;filename&lt;font color="#990000"&gt;)&lt;/font&gt;
+    sys&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;exit&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;&lt;font color="#993399"&gt;1&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;
+
+body &lt;font color="#990000"&gt;=&lt;/font&gt; &lt;font color="#990000"&gt;[&lt;/font&gt;x&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;strip&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt; &lt;b&gt;&lt;font color="#0000FF"&gt;for&lt;/font&gt;&lt;/b&gt; x &lt;b&gt;&lt;font color="#0000FF"&gt;in&lt;/font&gt;&lt;/b&gt; filebody&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;readlines&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt; &lt;b&gt;&lt;font color="#0000FF"&gt;if&lt;/font&gt;&lt;/b&gt; x&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;lower&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;startswith&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;&lt;font color="#FF0000"&gt;"&lt;!-- date:"&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;&lt;font color="#990000"&gt;]&lt;/font&gt;
+filebody&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;close&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;if&lt;/font&gt;&lt;/b&gt; &lt;b&gt;&lt;font color="#000000"&gt;len&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;body&lt;font color="#990000"&gt;)&lt;/font&gt; &lt;font color="#990000"&gt;&gt;&lt;/font&gt; &lt;font color="#993399"&gt;1&lt;/font&gt;&lt;font color="#990000"&gt;:&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;print&lt;/font&gt;&lt;/b&gt; &lt;font color="#FF0000"&gt;"I'm confused, multiple line matches!"&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;print&lt;/font&gt;&lt;/b&gt; body
+    sys&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;exit&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;&lt;font color="#993399"&gt;1&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;if&lt;/font&gt;&lt;/b&gt; &lt;b&gt;&lt;font color="#000000"&gt;len&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;body&lt;font color="#990000"&gt;)&lt;/font&gt; &lt;font color="#990000"&gt;=&lt;/font&gt;&lt;font color="#990000"&gt;=&lt;/font&gt; &lt;font color="#993399"&gt;0&lt;/font&gt;&lt;font color="#990000"&gt;:&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;print&lt;/font&gt;&lt;/b&gt; &lt;font color="#FF0000"&gt;"No match"&lt;/font&gt;
+    sys&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;exit&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;&lt;font color="#993399"&gt;1&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;
+
+newdate &lt;font color="#990000"&gt;=&lt;/font&gt; body&lt;font color="#990000"&gt;[&lt;/font&gt;&lt;font color="#993399"&gt;0&lt;/font&gt;&lt;font color="#990000"&gt;]&lt;/font&gt;&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;split&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;
+timetuple &lt;font color="#990000"&gt;=&lt;/font&gt; time&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;strptime&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;newdate&lt;font color="#990000"&gt;[&lt;/font&gt;&lt;font color="#993399"&gt;2&lt;/font&gt;&lt;font color="#990000"&gt;]&lt;/font&gt;&lt;font color="#990000"&gt;+&lt;/font&gt;&lt;font color="#FF0000"&gt;" "&lt;/font&gt;&lt;font color="#990000"&gt;+&lt;/font&gt;newdate&lt;font color="#990000"&gt;[&lt;/font&gt;&lt;font color="#993399"&gt;3&lt;/font&gt;&lt;font color="#990000"&gt;]&lt;/font&gt;&lt;font color="#990000"&gt;,&lt;/font&gt;&lt;font color="#FF0000"&gt;"%Y-%m-%d %H:%M"&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;
+newmtime &lt;font color="#990000"&gt;=&lt;/font&gt; time&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;mktime&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;timetuple&lt;font color="#990000"&gt;)&lt;/font&gt;
+
+filestats &lt;font color="#990000"&gt;=&lt;/font&gt; os&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;stat&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;filename&lt;font color="#990000"&gt;)&lt;/font&gt;
+atime&lt;font color="#990000"&gt;,&lt;/font&gt; mtime &lt;font color="#990000"&gt;=&lt;/font&gt; filestats&lt;font color="#990000"&gt;[&lt;/font&gt;&lt;font color="#993399"&gt;7&lt;/font&gt;&lt;font color="#990000"&gt;:&lt;/font&gt;&lt;font color="#993399"&gt;9&lt;/font&gt;&lt;font color="#990000"&gt;]&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;print&lt;/font&gt;&lt;/b&gt; &lt;font color="#FF0000"&gt;"Old mtime: "&lt;/font&gt;&lt;font color="#990000"&gt;,&lt;/font&gt; time&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;asctime&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;time&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;localtime&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;mtime&lt;font color="#990000"&gt;)&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;print&lt;/font&gt;&lt;/b&gt; &lt;font color="#FF0000"&gt;"New mtime: "&lt;/font&gt;&lt;font color="#990000"&gt;,&lt;/font&gt; time&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;asctime&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;time&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;localtime&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;newmtime&lt;font color="#990000"&gt;)&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;try&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;:&lt;/font&gt;
+    os&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;utime&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;filename&lt;font color="#990000"&gt;,&lt;/font&gt; &lt;font color="#990000"&gt;(&lt;/font&gt;atime&lt;font color="#990000"&gt;,&lt;/font&gt; newmtime&lt;font color="#990000"&gt;)&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;except&lt;/font&gt;&lt;/b&gt; Exception&lt;font color="#990000"&gt;,&lt;/font&gt; e&lt;font color="#990000"&gt;:&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;print&lt;/font&gt;&lt;/b&gt; &lt;font color="#FF0000"&gt;"Failed to set the new time."&lt;/font&gt;&lt;font color="#990000"&gt;,&lt;/font&gt; e
+    &lt;b&gt;&lt;font color="#0000FF"&gt;print&lt;/font&gt;&lt;/b&gt; &lt;font color="#FF0000"&gt;"Quitting."&lt;/font&gt;
+    sys&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;exit&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;&lt;font color="#993399"&gt;1&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;
+&lt;/tt&gt;
+</code></pre>
+
+<p>This file is also available on my <a href="/weblog/projects">projects page</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/12/05/pygraphviz/">Python Module for Graphviz Interaction</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-12-05T17:46:00-05:00" pubdate data-updated="true">Dec 5<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;m having to use the <a href="http://www.research.att.com/sw/tools/graphviz/">AT&amp;T Graphviz</a> tools quite a bit for generate graphs for my research.
+As I like programming in Python, I decided to write a simple wrapper that would go and call the actual tools.  This wrapper lets you create and save neatly-formatted
+dot files and also provides and easy interface to render them.  I use it on an interactive web page to generate graphs on the fly.  It can&#8217;t load graphviz files yet, not
+sure if I&#8217;ll ever get around to that.  Anyway, you can find that on my <a href="/weblog/projects/#pygraphviz">projects page</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/12/05/nistvote/">NIST Holding Workship on eVoting</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-12-05T16:37:00-05:00" pubdate data-updated="true">Dec 5<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The <a href="http://www.nist.gov/">National Institute of Standards and
+Technology</a> is holding <a href="http://vote.nist.gov/overview.html">a
+seminar</a> on December 10-11th to talk about voting systems.  One of the
+issues they will address is computer security and openness.  Unfortunately, I
+cannot make it down there because I&#8217;ve got finals that day, anyone else going
+that would care to provide a report on this?</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/12/04/nwsurls/">Not Work Safe URL Plugin</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-12-04T22:51:00-05:00" pubdate data-updated="true">Dec 4<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In the same vein as the lasturls plugin, I created a nws/nsfw plugin.  Now this
+one monitors the stream of urls entered in the channel and records them.  If
+someone types &#8220;nws&#8221; or &#8220;nsfw&#8221; on a single line by itself, the url is added
+to the list of URL that are not safe.  In this way you can return home and
+easily get just the pr0n urls (or stuff that other&#8217;s might find questionable)
+without having to filter everything else.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/12/03/tinyurlandlasturls/">Tinyurl and LastURLs for PimpBot</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-12-03T09:59:00-05:00" pubdate data-updated="true">Dec 3<span>rd</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I wrote a couple of new plugins for PimpBot last night.  The first is a module
+that will take any URL that is posted in the channel over a certain length
+and submit it to <a href="http://tinyurl.com/">TinyURL</a> to get a tiny
+version of the URL.  The result usually comes shortly after a message as
+the bot has got to submit the request to TinyURL.  I should add some timeout
+functionality to it in case TinyURL goes down so the bot doesn&#8217;t miss stuff.</p>
+
+<p>The second collects all the URLs posted in the channel and allows you to query
+them.  Normally this is done by typing !urls, at
+which point the most recent 10 urls will be returned.  You can also specify a
+search string, like !urls sportsbybrooks which will
+return the 10 most recent urls that contain a specific string in them.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/12/02/pimpbotintro/">Introduction to PimpBot</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-12-02T23:10:00-05:00" pubdate data-updated="true">Dec 2<span>nd</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Reject was recently updated and as a result of the upgrade some software
+that was installed on there no longer works, among them the antiquated
+TCL-SQL module that powered the explain module of B|shop (the ircbot of #zoes).
+Being as I don&#8217;t have access to fix it myself, I just decided to write
+my own bot.  So here comes PimpBot.</p>
+
+<p>PimpBot is a simple Python script that works with Twisted to provide a
+plugin based framework for the creation of an IRC bot.  Everything works
+as plugins that are written in Python and loaded at runtime.  Currently
+there is a database access module and an explain module.  I&#8217;m working
+on a userlist module.  After that I&#8217;ll work on some more channel protection
+stuff.  I&#8217;ll post the code as I get further along, right now I&#8217;ve got
+finals and stuff to worry about though.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/12/02/pypgsqlunderfedora/">Fixing pyPgSQL Under Fedora</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-12-02T00:18:00-05:00" pubdate data-updated="true">Dec 2<span>nd</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The latest update of Fedora from the APT streams appears to break pyPgSQL.
+This really sucks for me as my research uses this setup.  Luckily, I patched
+the program to understand that a -RH version is
+okay.  Just run this patch against your source archive and rebuild.  I&#8217;ll
+submit it to the main project when sourceforge comes back up.</p>
+
+<pre><code>&lt;font color="#008000"&gt;--- ./temp2/pypgsql/pgversion.c 2002-12-01 17:10:51.000000000 -0500&lt;/font&gt;
+&lt;font color="#008000"&gt;+++ ./pypgsql/pgversion.c   2003-12-02 00:07:00.000000000 -0500&lt;/font&gt;
+&lt;font color="#804000"&gt;&lt;b&gt;@@ -188,6 +188,9 @@&lt;/b&gt;&lt;/font&gt;
+     if ((*last == 'r') &amp;&amp; (*(last+1) == 'c') &amp;&amp; isdigit(*(last+2)))
+    return (errno != 0);
+
+&lt;font color="#008080"&gt;+    if (pgstricmp(last, "-RH") == 0)&lt;/font&gt;
+&lt;font color="#008080"&gt;+       return (errno != 0);&lt;/font&gt;
+&lt;font color="#008080"&gt;+&lt;/font&gt;
+     return ((errno != 0) || (*last != (char)0));
+ }
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/weblog/blog/page/31/">&larr; Older</a>
+    
+    <a href="/weblog/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/weblog/blog/page/29/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/weblog/2012/05/10/static-bloggin/">Static Bloggin</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/28/i-am-not-a-climatologist-and-neither-are-most-of-these-people/">I am not a climatologist, and neither are most of these people</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/10/looking-for-summer-interns-in-the-software-technology-group-at-ibm-tj-watson-research-center/">Looking for Summer Interns in the Software Technology Group at IBM TJ Watson Research Center</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/a-review-of-2011-personal-development-goals/">A Review of 2011 Personal Development Goals</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/open-source-and-technology-predictions-for-2012/">Open Source and Technology Predictions for 2012</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/pridkett">@pridkett</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'pridkett',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/weblog/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("pridkett", 4, false);
+    });
+  </script>
+  <script src="/weblog/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/pridkett" class="twitter-follow-button" data-show-count="false">Follow @pridkett</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/102672530623465237388?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Patrick Wagstrom -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

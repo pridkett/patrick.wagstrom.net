@@ -1,0 +1,455 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>LPD for fun and MP3 playing - My Delusional Dream</title>
+  <meta name="author" content="Patrick Wagstrom">
+
+  
+  <meta name="description" content="LPD for Fun and MP3 Playing May 23rd, 2003 | var idcomments_acct = 'de6c2d3e38f6fdb9bf16fa9f1904f35d';
+var idcomments_post_id;
+var &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://patrick.wagstrom.net/weblog/2003/05/23/lpdforfunandmp3playing">
+  <link href="/weblog/favicon.png" rel="icon">
+  <link href="/weblog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/weblog/javascripts/modernizr-2.0.js"></script>
+  <script src="/weblog/javascripts/ender.js"></script>
+  <script src="/weblog/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/weblog/atom.xml" rel="alternate" title="My Delusional Dream" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/weblog/">My Delusional Dream</a></h1>
+  
+    <h2>Thoughts of a cautious technocrat</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/weblog/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:patrick.wagstrom.net/weblog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/weblog/">Blog</a></li>
+  <li><a href="/weblog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">LPD for Fun and MP3 Playing</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-05-23T15:30:00-04:00" pubdate data-updated="true">May 23<span>rd</span>, 2003</time>
+        
+        
+         | 
+
+<script>
+var idcomments_acct = 'de6c2d3e38f6fdb9bf16fa9f1904f35d';
+var idcomments_post_id;
+var idcomments_post_url;
+</script>
+<script type="text/javascript" src="http://www.intensedebate.com/js/genericLinkWrapperV2.js"></script>
+
+
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h4>Background</h4>
+
+<p>Most true Unix geeks will recognize just how nice LPD is as a distributed queueing mechanism for managing all jobs sent to the printer.  It has a beautiful simplicity to it, and some mean power to go along with it.  It&#8217;s a difficult beast to tame, but once you understand it, everything will start coming out exactly like you want it.</p>
+
+<p>But, what most people don&#8217;t realize is that LPD can be used for other things too.  In fact, it can be viewed as a general queueing mechanism with a few added bells and whistles for printers.  So let&#8217;s examine a more interesting use of LPD, an engine for distributed spooling of MP3s.</p>
+
+<h4>Motivation</h4>
+
+<p>The main thing that got me started on this quest was seeing these two pictures (<a href="http://www.benzedrine.cx/c2k3/DSC00550-medium.jpg">one</a>, <a href="http://www.benzedrine.cx/c2k3/DSC00567-medium.jpg">two</a>) from the <a href="http://www.benzedrine.cx/c2k3/">c2k3 openBSD hackathon</a> I saw that obviously someone else had figured out how to do it.  I sure as heck could also.</p>
+
+<h4>Initial Assessment</h4>
+
+<p>The first stop on my quest was examine the all-knowing seer of the Internet, <a href="http://www.google.com/">google</a>.  That returned a <a href="http://www.update.uu.se/~peterl/html/sub_hobbies/comp/hacks/mp3skrivare.html">wonderful page in Swedish</a> about how to do this very task.  Unfortunately, my swedish sucks, but thankfully the scripts were written in bash, and the other big thing was just a printcap file.</p>
+
+<h4>Creating a Printcap Entry</h4>
+
+<p>The first thing that you need to do is to create an entry in your printcap file for your shiny new mp3 printer.  On most systems this file is <strong>/etc/printcap</strong> on my <a href="http://www.redhat.com/">redhat</a> 7.3 system (no sound card on the openBSD firewall) it is <strong>/etc/printcap.local</strong>.  You&#8217;ll want to paste the following snipped of code in there:</p>
+
+<pre><code>mp3:\
+        :lp=/dev/null:\
+        :sd=/var/spool/lpd/audio:\
+        :if=/usr/local/bin/audiofilter:\
+        :af=/var/log/audio-acct:\
+        :lf=/var/log/audio-errs:\
+        :sh
+</code></pre>
+
+<p>Now we&#8217;ll walk through the entry line by line.  I&#8217;ll ignore the \ at the end of almost every line, that just tells lpd to keep reading because there is more to come.  The last line doesn&#8217;t need the \ obviously.</p>
+
+<ul>
+<li><p>1: <strong>mp3:</strong> - the name of your mp3 printer.  In this case, just mp3</p></li>
+<li><p>2: <strong>:lp=/dev/null:</strong> - we&#8217;re not hooking this up to a physical device in the normal sense</p></li>
+<li><p>3: <strong>:if=/usr/local/bin/audiofilter:</strong> - this is the input filter.  I&#8217;ll show how to create it later.</p></li>
+<li><p>4: <strong>:af=/var/log/audio-acct:</strong> - this is the accounting file.  You could do some fun stuff with this to monitor who uses the queue the most and what not.</p></li>
+<li><p>5: <strong>:lf=/var/log/audio-errs:</strong> - this is the file that errors will be logged to.  Well, some errors; not all errors will end up here.</p></li>
+<li><p>6: <strong>:sh</strong> - tells it to supress any header information that would normally be sent.  This is important or you may get junk before every file which causes audiofilter to fail.</p></li>
+</ul>
+
+
+<h4>An Audio Input Filter</h4>
+
+<p>The key to the whole system is that all of the processing is done by input filter.  On some platforms this may cause it say that the printing has stalled while a song is playing, but that&#8217;s not a big deal.  There is no output from the input filter, and thus nothing is done after this.  You&#8217;ll want to put the following piece of code on your system as <strong>/usr/local/bin/audiofilter</strong>:</p>
+
+<pre><code>#!/bin/bash
+#
+# This script was originally made by Teddy Hogeborn.
+# Small alterations was made by:
+#   Peter Lundqvist
+#   Patrick Wagstrom
+#
+# This is a "printer filter" for playing audio files
+
+for arg in "$@"; do
+  case "$arg" in
+    -d*) dir="${arg#-d}" ;;
+    -e*) basefile="${arg#-e}" ;;
+    -f*.*) ext="${arg##*.}" ;;
+  esac
+done
+
+mp3player="mpg123 -q -o oss";
+modplayer="mikmod --quiet --playmode 0 --noloops --norc"
+oggplayer="ogg123 --device=oss --quiet"
+file="${dir}/${basefile}"
+type="$(file "${file}"| sed -e 's/^[^:]*: *//')"
+
+case "$type" in
+  MP3*)
+    $mp3player -
+    ;;
+  Ogg*Vorbis*)
+    $oggplayer -
+    ;;
+  RIFF*\ WAVE\ audio*)
+    /usr/bin/play --type=wav --silent /dev/stdin
+    ;;
+  *Extended\ Module\ sound\ data*|*Protracker\ module\ sound\ data*)
+    $modplayer $file
+    ;;
+  data|*audio*)
+    if ogginfo "$file" 2&gt;/dev/null | grep --quiet -e '^header_integrity=pass' &gt;/dev/null; then
+      $oggplayer -
+    elif mp3info -x "$file" 2&gt;/dev/null| grep --quiet -e '^File:' &gt; /dev/null; then
+      $mp3player -
+
+    else
+      play --type=auto --silent "$file" || play --type="$ext" --silent "$file"
+    fi
+    ;;
+  *) echo "$type" &gt;&amp;2 ;;
+esac
+</code></pre>
+
+<p>Here is the basic overview of what the system does.  The beginning of the code parses the arguments that are passed to the print filter from the printer.  It then stores them in a couple of variables.  It then has some declarations for where you can find your mp3, ogg, and mod player.  You should note, this system is also extensible with little difficulty.</p>
+
+<p>After this the format of the file is obtained by running the program <strong>file</strong> on it.  This nifty little tool that most people overlook will examine a file and usually can provide a pretty good guess about what sort of file it is.  It&#8217;s great at identifying files with incorrect extensions where you&#8217;d otherwise never be aware of it.</p>
+
+<p>Finally, the options for the type of the file are parsed in a case statement and then the appropriate player is called.  In all cases, the input stream is fed over standard input.  The applications should be quiet, lpd usually assumes that if there is any output from a filter that something has gone wrong.</p>
+
+<p>You may need to modify this script some.  The main reason is that not all version of the <strong>file</strong> utility return the same strings.  Some return &#8220;MPEG 2 layer 3 audio&#8221; for an MP3 file, while mine returns &#8220;MP3, 128 kBits, 44.1 kHz, Stereo&#8221; or something similar.  Thus, you may need to modify the values for the case statement some to get the system to your liking.</p>
+
+<h4>Accessing the Sound Card</h4>
+
+<p>Up to this point we haven&#8217;t done anything that could be considered a big security risk.  This point is minor, but you need to give the account for your printer access to the sound card so it can play the music.  This is done by giving it right to write the <strong>/dev/audio</strong> and <strong>/dev/dsp</strong>.  If you&#8217;re lazy you could just do a <strong>chmod a+rw /dev/audio /dev/dsp</strong>, but that allows all sorts of people to do things with your sound card.  You&#8217;re better off putting all people with rights to the sound card in a group and then also putting the lp account in the group too.  For instance, creating a group called <strong>snduser</strong> with all the accounts that have access to the card in it, and also the lp account.  The doing <strong>chgrp snduser /dev/audio /dev/dsp</strong> and <strong>chmod g+rw /dev/audio /dev/dsp</strong> should take care of it for you.</p>
+
+<p>While you&#8217;re creating files, you&#8217;ll need to create those two accounting files that I mentioned in the <strong>/etc/printcap</strong> entry.  You can do this by running the following commands:</p>
+
+<pre><code>touch /var/log/audio-acct
+touch /var/log/audio-errs
+chown lp /var/log/audio-acct
+chown lp /var/log/audio-errs
+</code></pre>
+
+<h4>Enjoying The Music</h4>
+
+<p>The final step is to enjoy the music.  Provided that you&#8217;ve done everything right so far you should be able to execute <strong>lpr -Pmp3 [your music file]</strong> and shortly afterwards it should start playing for your speakers.</p>
+
+<p>One of the really nice things about this is that you can use <strong>lpq</strong> to see what songs are on the queue and <strong>lprm</strong> to remove a song from the queue.  Here is an example (yes, I own the albums):</p>
+
+<pre><code>[/u2/mp3]
+[patrick@dreams] &lt;strong&gt;lpr -Pmp3 Wally\ Pleasant\ -\ Alternateen.mp3&lt;/strong&gt;
+[/u2/mp3]
+[patrick@dreams] &lt;strong&gt;lpr -Pmp3 Wally\ Pleasant\ -\ Bigger\ Than\ Elvis\ -\ Wally\ World.mp3&lt;/strong&gt;
+[/u2/mp3]
+[patrick@dreams] &lt;strong&gt;lpr -Pmp3 Wally\ Pleasant\ -\ In\ Love\ with\ a\ Geek.mp3&lt;/strong&gt;
+[/u2/mp3]
+[patrick@dreams] &lt;strong&gt;lpr -Pmp3 Wally\ Pleasant\ -\ It\'s\ a\ Beautiful\ Day.mp3&lt;/strong&gt;
+[/u2/mp3]
+[patrick@dreams] &lt;strong&gt;lpq -Pmp3&lt;/strong&gt;
+Printer: mp3@dreams
+ Queue: 4 printable jobs
+ Server: pid 7043 active
+ Unspooler: pid 7044 active
+ Status: waiting for subserver to exit at 16:22:55.342
+ Rank   Owner/ID                  Class Job Files                 Size Time
+active patrick@dreams+42            A    42 Wally Pleasant - A 2727348 16:22:38
+2      patrick@dreams+50            A    50 Wally Pleasant - B 2679246 16:22:42
+3      patrick@dreams+52            A    52 Wally Pleasant - I 3266864 16:22:49
+4      patrick@dreams+54            A    54 Wally Pleasant - I 3469897 16:22:55
+</code></pre>
+
+<h4>It&#8217;s not working!</h4>
+
+<p>Contrary to what you may be thinking, the first step if this is not working is not to e-mail me about your system configuration.  I probably won&#8217;t be much help.  The first step is to go into the spooling directory, in this case <strong>/var/spool/lpd/audio</strong> and see what&#8217;s lying in there.  The file that you&#8217;ll want to look at is <strong>status.pr</strong>.  This provides the status of your printer.  If there was any output from the script, it will be saved in there.  Look around in there and use that for a debugging point.</p>
+
+<h4>Questions/Follow-up Ideas</h4>
+
+<p>If you&#8217;ve got a question about this article and think it&#8217;s something that should be addressed more, let me know.  Also, if you&#8217;ve got an idea for a followup, I&#8217;d like to hear those also.   I&#8217;m always looking for interesting new hacks to try out and experiment with.</p>
+</div>
+
+
+<script>
+var idcomments_acct = 'de6c2d3e38f6fdb9bf16fa9f1904f35d';
+var idcomments_post_id;
+var idcomments_post_url;
+</script>
+<span id="IDCommentsPostTitle" style="display:none"></span>
+<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+
+
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Patrick Wagstrom</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-05-23T15:30:00-04:00" pubdate data-updated="true">May 23<span>rd</span>, 2003</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/weblog/blog/categories/old/'>old</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://patrick.wagstrom.net/weblog/2003/05/23/lpdforfunandmp3playing/" data-via="pridkett" data-counturl="http://patrick.wagstrom.net/weblog/2003/05/23/lpdforfunandmp3playing/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/weblog/2003/05/22/ipv6applications/" title="Previous Post: IPv6 Applications">&laquo; IPv6 Applications</a>
+      
+      
+        <a class="basic-alignment right" href="/weblog/2003/05/27/slashdoteffectdataanalysistechniques/" title="Next Post: slashdot effect data analysis techniques">slashdot effect data analysis techniques &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/weblog/2012/05/10/static-bloggin/">Static Bloggin</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/28/i-am-not-a-climatologist-and-neither-are-most-of-these-people/">I am not a climatologist, and neither are most of these people</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/10/looking-for-summer-interns-in-the-software-technology-group-at-ibm-tj-watson-research-center/">Looking for Summer Interns in the Software Technology Group at IBM TJ Watson Research Center</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/a-review-of-2011-personal-development-goals/">A Review of 2011 Personal Development Goals</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/open-source-and-technology-predictions-for-2012/">Open Source and Technology Predictions for 2012</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/pridkett">@pridkett</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'pridkett',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/weblog/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("pridkett", 4, false);
+    });
+  </script>
+  <script src="/weblog/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/pridkett" class="twitter-follow-button" data-show-count="false">Follow @pridkett</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/102672530623465237388?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Patrick Wagstrom -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

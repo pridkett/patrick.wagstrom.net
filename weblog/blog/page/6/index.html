@@ -1,0 +1,749 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Delusional Dream</title>
+  <meta name="author" content="Patrick Wagstrom">
+
+  
+  <meta name="description" content="About a week ago I picked an M3 DS Real card for my Nintendo DS for playing homebrew, and more importantly, watching movies on a series of annoyingly &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://patrick.wagstrom.net/weblog/blog/page/6">
+  <link href="/weblog/favicon.png" rel="icon">
+  <link href="/weblog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/weblog/javascripts/modernizr-2.0.js"></script>
+  <script src="/weblog/javascripts/ender.js"></script>
+  <script src="/weblog/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/weblog/atom.xml" rel="alternate" title="My Delusional Dream" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/weblog/">My Delusional Dream</a></h1>
+  
+    <h2>Thoughts of a cautious technocrat</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/weblog/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:patrick.wagstrom.net/weblog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/weblog/">Blog</a></li>
+  <li><a href="/weblog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2008/02/19/ds-ram-fail/">Problems With the M3 DS Rumble Ram Pack</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-02-19T15:04:00-05:00" pubdate data-updated="true">Feb 19<span>th</span>, 2008</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>About a week ago I picked an <a href="http://www.m3adapter.com/SLOT-1_Series_M3DS-R.htm">M3 DS Real</a> card for my Nintendo DS for playing homebrew, and more importantly, watching movies on a series of annoyingly long flights in the coming months.  After a moderate amount of fighting, including finding out that the SD card I bought for the device wasn&#8217;t compatable with it and having to pick a new card up, I&#8217;ve been pretty pleased. It works great as a music player, plays back movies from <a href="http://www.mythtv.org/">MythTV</a> nicely, and I&#8217;ve hooked up some scripts to transcode recorded programs from <a href="http://www.getmiro.org/">Miro</a>, so I can load up on content and then watch it as I sit at the gate waiting for my plane to be delayed again.</p>
+
+<p>A very nice added bonus of the card in addition to the multimedia capabilities is the ability to load Nintendo DS hombrew, including some great games such as <a href="http://ndswtd.wordpress.com/">Warcraft Tower Defense</a> and <a href="http://www.mrdictionary.net/lemmings/">Lemmings DS</a>. But the big one came after I already had the card &#8211; <a href="http://quake.drunkencoders.com/index_q2.html">Quake 2 for the Nintendo DS</a>.  Like Simon Hall&#8217;s original <a href="http://quake.drunkencoders.com/index_q1.html">Quake for the Nintendo DS</a>, this version requires the original data if you want to play the full game.  Luckily, I have a Quake 2 CD from way back in the day.  Unlike the original Quake for the DS, this version requires a RAM expansion, the 4MB on the DS just can&#8217;t handle the game otherwise.  Luckily, the M3 DS Real can be purchased with a rumble ram pack, which supposedly provides 32MiB of RAM and a rumbler for the device.  Sadly, it appears that there is no documentation for how to get the ram to work with homebrew.  Numerous folks with the card are having similar issues with the RAM not being accessible and Quake 2 DS crashing.  I decided to do some investigation of this issue and discovered that most programs detect the ram as a G6 Flash device, which is from the same company.  However, apparently they don&#8217;t work the same, as <a href="http://www.pineight.com/ds/">MemtestARM</a> reports errors on the inversion test at address 0x8400000.  Want more evidence, check out the video below:</p>
+
+<div style="text-align: center"><iframe width="420" height="315" src="http://www.youtube.com/embed/5b7PnrIDHP4" frameborder="0" allowfullscreen></iframe></div>
+
+
+<p>I&#8217;ve done some searching and there doesn&#8217;t appear to be an API out there for accessing the memory on the M3 Rumble RAM, and with everything mis-detecting it as G6 Flash it means that most programs that use extra ram will crash &#8211; such as <a href="http://www.dslinux.org/">DS Linux</a>.  Looking around, it appears that even the folks behind the card treat it very similar to a G6 flash as the patch for the Opera Browser is called G6_OPERA.ips.  However, I don&#8217;t own the browser, so I can&#8217;t even confirm if the patch works properly.</p>
+
+<p>So, does anyone have any idea about how I would access the RAM on this card?  Or should I just spend $20 to get the <a href="http://www.gameyeeeah.com/ezflash-in-expansion-pack-rumble-black-p-217.html">EZ Flash 3-in-1</a> card that most folks have and is well supported for Homebrew?</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2008/02/15/vmware-time-synchronization/">Time Synchronization With VMWare</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-02-15T20:49:00-05:00" pubdate data-updated="true">Feb 15<span>th</span>, 2008</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>One of the major issues with utilizing a virtual machine for a server is that of time synchronization.  VMWare normally has access to a real time clock handler that helps to synchronize time, but even that causes time to skew.  This issue becomes more prominent with modern processors that support CPU frequency scaling.  However, there are many cases where even the VMWare custom kernel module can&#8217;t manage the time skew properly.  Such was the case with my updated VMWare virtual machine &#8211; to put it simply, time had stopped.</p>
+
+<p>Looking around, it appears that some of the problem may be to the new tickless features in the linux kernel.  Basically, this feature allows the system to stop waking up periodically if there is nothing to do. On desktop and laptop machines this saves a lot of power and is a key feature that has helped the <a href="http://www.laptop.org/">OLPC</a> be such a power miser.  However, it also really screws with the clocks in virtual machines, and may be cause of other issues.  I&#8217;ve also read that there are issues with heavy disk I/O and Gutsy in VMWare Server &#8211; which is my virtualization platform of choice.</p>
+
+<p>Previously, with the time issue, I would fix problems by adding in a cron job to periodically synchronize the date with a remote system. It&#8217;s important to note, that ntp won&#8217;t work because it tries to gradually synchronize the time &#8211; so it will never catch up.  However, using a cron job on the virtualized system relies on the virtualized system eventually hitting even minute marks.  Last night in the course of 12 hours, my time advanced 32 seconds; cron is not an option. The solution is to have the host operating system, which can keep time, periodically SSH into the virtualized machine and synchronize the time.  Getting started, you&#8217;ll need to activate the time service in xinetd on the host operating system.  Open up /etc/xinetd.d/time and change the lines that say</p>
+
+<pre><code>disable = yes
+</code></pre>
+
+<p>to say &#8220;no&#8221;.  Restart xinetd by running /etc/init.d/xinetd restart and you&#8217;ll now be able to rdate to your host machine.</p>
+
+<p>The next step is to create the ssh key and setup the cron job to connect to guest operating system.  These commands should do it for you.  Hit enter to leave it without a passphrase.  Then, copy the key to the guest operating system.</p>
+
+<pre><code>root@host:~# ssh-keygen -t dsa -C "automated RDATE ssh key" -f id_dsa.rdate
+Generating public/private dsa key pair.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in id_dsa.rdate.
+Your public key has been saved in id_dsa.rdate.pub.
+The key fingerprint is:
+d4:5f:01:83:ee:df:e0:e4:ea:ff:0a:6e:50:d1:e2:d3 automated RDATE ssh key
+root@host:~# scp id_dsa.rdate.pub USERACCOUNT@GUEST:
+</code></pre>
+
+<p>Now that the key is on the guest, it&#8217;s time to enable a passwordless login.  First, login to the guest machine, and open up a root shell using sudo -s.  Then run the following command to add the new key to your ~/root/.ssh/authorized_keys.</p>
+
+<pre><code>echo 'command="rdate -s HOST"' $(cat id_dsa.rdate.pub) &gt;&gt; ~root/.ssh/authorized_keys
+</code></pre>
+
+<p>The final step is to edit your /etc/crontab on your host system, and make the time synchronization happen every five minutes or so.</p>
+
+<pre><code>*/5 * * * * root ssh -i ~root/.ssh/id_dsa.rdate root@GUEST "rdate -s HOST"
+</code></pre>
+
+<p>Now, you should have a nice infrastructure set up where your VMWare virtual machine will never be more than five minutes away from the actual time.  It&#8217;s important to note that there are a few alternative ways of doing this.  For example, one could bypass the usage of rdate entirely through some clever shell scripting that passes the time on the host system to the time command on the remote system.  In my experience, this works in a homogeneous environment, but not every system can interpret times in the same way, so sticking with rdate seems like a good compromise.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2008/02/15/political-telemarketers-or-scammers/">Political Telemarketers or Scammers?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-02-15T16:48:00-05:00" pubdate data-updated="true">Feb 15<span>th</span>, 2008</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This morning while sitting in my office, I received a telephone call from a presidential campaign seeking a donation.  I found this interesting because I have yet to donate to any presidential candidate this year.  While I was more than happy to donate some money to the campaign, a thought came into my head while dealing with the guy on the phone &#8211; how do I know you&#8217;re really working for campaign X?  It would be trivial for someone to say they were with a campaign, start calling people, and get a few credit cards here and there.</p>
+
+<p>My first inclination was to check the caller ID on the call, then enter the number into Google and see if it came back with anything. Unfortunately, the caller ID was blocked.  I thought about it and realized that someone with a moderate amount of skill and planning, of which it seems most scammers have neither, could get an account at <a href="http://www.spoofcard.com/">SpoofCard</a> and make their call seem as though it was indeed coming from the campaign.  Thus, I could not use this obvious piece of information as verification of the mans identity.</p>
+
+<p>I realized that if they had my name and phone number they must have had other information on me too.  I asked the gentleman on the phone where my information was obtained from, and he informed me that it was from a list of donors to a previous round of presidential campaigns.
+If that was the case, then they should have information such as my address on file also.  Sure enough, they had my old address from 2004  on file.  While this was enough to convince me that the man was most likely affiliated with a real political campaign it wasn&#8217;t enough to convince me to donate money over the phone.  A nefarious individual could still look up information about past addresses and then figure out which one would have been valid at the time.  However, this is a lot of work for a relatively small probability of payoff.</p>
+
+<p>I volunteered to donate money over the internet, and the man was very against the option, replying that is possible to process the transaction over the phone in under a minute &#8211; that&#8217;s funny, on a high speed connection I can find a candidate&#8217;s web page and donate money in under a minute.  Anyway, after some going back and forth I informed the marketer that he had succeeded in reminding me that I had been planning to donate money (it was even in my copy of <a href="http://www.thinkingrock.com.au/">thinking rock</a>), but I couldn&#8217;t do it online because it didn&#8217;t feel secure.</p>
+
+<p>So, for anyone who reads this, what actions can a campaign take to make sure that a recipients of marketing calls know they&#8217;re legitimately calling from the campaign?  Absent of political beliefs, what credentials would a person over the phone have to communicate to you to get you to donate?</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2008/02/07/who-owns-open-source/">Who Owns Open Source?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-02-07T09:05:00-05:00" pubdate data-updated="true">Feb 7<span>th</span>, 2008</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Recently, there were two enormous acquisitions in the world of Open Source Software.  Back in January, <a href="http://www.mysql.com/news-and-events/sun-to-acquire-mysql.html">Sun Microsystems announced it was purchasing MySQL for $1 billion</a>. About two weeks later, <a href="http://trolltech.com/28012008/28012008">Nokia announced it was acquiring Trolltech for $153 million</a>, about a seventh of what was paid for MySQL.  Both purchases have huge implications for Open Source &#8211; MySQL, despite its shortcomings, is the most popular database for web application stacks, and QT, the major product from Trolltech is the foundation for <a href="http://www.kde.org/">KDE</a> and a variety of other cross platform graphical programs.  In both cases, the new parent companies have pledged that little will change with regards to the Open Source offerings.  Nokia has made it clear that they will continue to support <a href="http://www.maemo.org/">Maemo</a>, which is based off <a href="http://www.gtk.org/">GTK+</a> and <a href="http://www.gnome.org/">GNOME</a> on their &#8220;n-series&#8221; of internet tablets, while moving to a QT based user interface for their mobile phones.</p>
+
+<p>Whenever acquisitions like this happen in the Open Source world, it naturally raises some concerns, despite pledges from the companies. It wasn&#8217;t long after Novell purchased SuSE that people realized that something was at odds with their prior purchase of Ximian &#8211; the two desktop environments were diametrically opposed to each other, having standardized on different widget toolkits and development toolsets. Eventually, the influence of the Ximian people won out, and SuSE changed to have more of a GNOME focus, although KDE still seems to be the dominant environment on the platform.  Community members also start to fear a loss of voice within the community and may start to feel alienated from the new corporate project overlords.  But is this really a concern?</p>
+
+<p>For more insight, lets look at the seven largest Open Source acquisitions (<a href="http://royal.pingdom.com/?p=245">original source</a>):</p>
+
+<ul>
+<li>MySQL bought by Sun for $1 billion</li>
+<li>Cygnus bought by Red Hat for $675 million</li>
+<li>XenSource bought by Citrix for $500 million</li>
+<li>Zimbra bought by Yahoo for $350 million</li>
+<li>JBoss bought by Red Hat for $350 million</li>
+<li>SuSE bought by Novell for $210 million</li>
+<li>Trolltech bought by Nokia for $153 million</li>
+</ul>
+
+
+<p>What is the common thread between all of these topics?  They&#8217;re all predominantly commercial type projects to begin with.  Sure, there were always hobbyists who used MySQL, Cygwin, Xen, SuSE and QT, but the majority of development was still done in the cathedral.  Zimbra and JBoss are almost exclusively designed for enterprise class deployments, with miniscule community outside of the main development. The fact, is that despite their appearances and the availability of source source code, most of these projects never were the type of Open Source that most people participate in for fun or skills.</p>
+
+<p>Rather, these projects are a different class, business open source. They&#8217;re fundamentally different from projects such as GNOME, KDE, or even Mozilla.  In most cases, these projects are backed by outside investors who seek to build a business around the project, the community is just a side effect of the process.  While they have community forums, mailing lists, publicly accessible source code repositories, and bug trackers, who really calls the shots when it comes to development?  In most cases, while the decisions are influenced by the community, the primary sponsor of the project makes all the critical decisions.  Leaving little ability for the community to experiment with new implementations or ideas &#8211; for fear their work will be rendered obsolete in the next release.</p>
+
+<p>This has an even more insidious effect &#8211; it robs the community of a skilled development pool.  Rather than providing volunteers the ability to experiment on these ideas, by managing the project in a hierarchical environment, these individuals are given little chance to learn on the code base, possibly stripping the sponsor of a valuable talent pool.  It also reduces the affective attachment to the project of the community, reducing most of the participants to a utilitarian perspective, willing to leave if another project provides enough benefit to overcome the switching costs.</p>
+
+<p>The traditional view of open source has been that the community owns the software, and they make the decisions around it.  However, this clearly is not always the case.  When considering participation beyond the utilitarian level, be sure to ask yourself if your voice will be heard and your contributions will be valued.  Otherwise, you may just be contributing to someone else&#8217;s bottom line.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2008/02/05/disappointed-in-google/">Disappointed in Google</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-02-05T12:38:00-05:00" pubdate data-updated="true">Feb 5<span>th</span>, 2008</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Last Friday, I had the chance to hear <a href="http://www.cmu.edu/">CMU</a> <a href="http://www.cs.cmu.edu/">SCS Ph.D.</a> alum, and president of <a href="http://www.g.cn/">Google China</a>, <a href="http://en.wikipedia.org/wiki/Kai-Fu_Lee">Kai-Fu Lee</a> speak on the building Google China and what it means to do business in China versus the United States.  It reminded me of the fact that what we accept for &#8220;The Internet&#8221; &#8211; Amazon, eBay, Google, Yahoo, Wikipedia, Flickr, etc &#8211; isn&#8217;t universal.  In fact, what we refer to as the &#8220;The Internet&#8221; barely exists in other markets.  Most American web companies that have invested in China have failed spectacularly &#8211; never gaining market share, or buying the dominant Chinese firm and running them into the ground.  Dr. Lee made it clear that Google was planning for the long run and had no intention of being driven into the ground &#8211; largely because they have the resources and are willing to burn lots of cash in the process of understand the market and developing tools to serve the market.</p>
+
+<p>Throughout his presentation, he briefly mentioned a few of the political challenges around building companies in China.  For example, when he was listing how Chinese view western web products, for Wikipedia he listed &#8220;no access to wikipedia&#8221; and for MySpace he listed &#8220;periodic access to MySpace&#8221;.  These garnered a chuckle out of the people in the audience, but they highlight very real issues with the Chinese governments attempts at censoring the net.  Google, for their part, has acquiesced to the Chinese government demands, and censored their search results.</p>
+
+<p>An easy, and obvious example of this is doing a Google search for Tiananmen Square.  On the English language web, the top hits on this topic are related to the 1989 massacre there.  On the Chinese web it&#8217;s all the articles you&#8217;d see about a square area in any large city.  Of course, most Chinese aren&#8217;t going to be searching in English, rather they&#8217;d search for 天安门广场.  Comparing the images on <a href="http://images.google.com/images?hl=en&amp;q=%E5%A4%A9%E5%AE%89%E9%96%80%E5%BB%A3%E5%A0%B4&amp;btnG=Search+Images&amp;gbv=2">the US Google images search</a> and <a href="http://images.google.cn/images?hl=zh-CN&amp;q=%E5%A4%A9%E5%AE%89%E9%96%80%E5%BB%A3%E5%A0%B4&amp;btnG=%E6%90%9C%E7%B4%A2%E5%9B%BE%E7%89%87&amp;gbv=2&amp;aq=f">the Chinese Google images search</a> shows quite the difference.  For the US the first four images are typical info images, but then the subject quickly changes to the protest with the photo of the <a href="http://www.myoops.org/twocw/mit/NR/rdonlyres/40BE95B5-0D8B-4E4F-9F85-F10E3F5E1A16/0/dept17imagetanks.jpg">tank man</a> who defiantly stood in front of a column of Chinese tanks only to later be whisked away to who knows where.</p>
+
+<p>According to Dr. Lee, the real reason for this is that Google tries to provide culturally relevant searches.  This makes some sense &#8211; in the UK someone searching for Biscuits is looking for what we call Cookies here in the US.  They should not be subject to dozens of recipes for biscuits and gravy.  At the same time, most people above the age of 25 know the power of the protests in Tiananmen Square &#8211; I was nine at the time and vividly remember the news and pictures out of China.  It&#8217;s an aspect of Chinese history that has been washed away by the Chinese government &#8211; only they can&#8217;t erase the memory from the rest of the world.  It also sets a very dangerous precedent for companies operating in repressive regimes.  What if the protests from Burma, which were captured on <a href="http://www.flickr.com/photos/racoles/1437376279/in/set-72157602328689757/">Flickr</a> and numerous other sites, happened in China?  Would Google be obligated to censor such information at government decree?  The answer is probably yes, and I&#8217;m sure they would.</p>
+
+<p>When pressured about the issue through a question which was much more weakly worded than what I would have used (I tried to get called on, but was in a bad position), Dr. Lee stated that Google&#8217;s position was that they believed the Chinese people were better with their products than without.  Translation: &#8220;We&#8217;d really like to make money there, even if it does help out a repressive regime&#8221;.  Will all this make me stop using Google products? No.  Does it change my views on Google?  Yes.  I&#8217;m very disappointed that a company that is so loved in the US has taken such a weak stance abroad.  They claim they have patience, if that&#8217;s true, they should have the patience to not contribute to a corrupt totalitarian regimes effort to censor information for the purpose of maintaining a political elite with complete control.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2008/01/30/google-street-view-stops-for-a-bite/">Google Street View Stops for a Bite</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-01-30T11:48:00-05:00" pubdate data-updated="true">Jan 30<span>th</span>, 2008</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I was looking for a store in the South Hills of Pittsburgh a few weeks ago and wanted to make sure that I found the store okay, enter Google Street View.  I popped up the location into Google Maps and started looking around.  Yech, it was pretty far off.  However, I did discover that even the googlers need to eat.  Apparently they favor <a href="http://www.wendys.com/">Wendy&#8217;s</a>.</p>
+
+<div style="text-align: center"><iframe width="425" height="350" frameborder="0" scrolling="no"
+marginheight="0" marginwidth="0"
+src="http://maps.google.com/?ie=UTF8&amp;om=0&amp;source=embed&amp;ll=40.392819,-80.061896&amp;spn=84.313262,161.015625&amp;t=w&amp;z=3&amp;layer=c&amp;panoid=CzIb-R2h3Ftieoe0dKSDMA&amp;cbll=40.392819,-80.061896&amp;cbp=13,-90.27826468625807,,0,7.181511402920179&amp;output=svembed"></iframe><br
+/><small><a
+href="http://maps.google.com/?ie=UTF8&amp;om=0&amp;source=embed&amp;ll=40.392819,-80.061896&amp;spn=84.313262,161.015625&amp;t=w&amp;z=3&amp;layer=c&amp;panoid=CzIb-R2h3Ftieoe0dKSDMA&amp;cbll=40.392819,-80.061896&amp;cbp=13,-90.27826468625807,,0,7.181511402920179"
+style="color:#0000FF;text-align:left">View Larger Map</a></small></div>
+
+
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2008/01/09/about-me/">The Requisite &#8220;About Me&#8221; Page</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-01-09T15:04:00-05:00" pubdate data-updated="true">Jan 9<span>th</span>, 2008</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In August of 2007, Jeff Atwood wrote an article about <a href="http://www.codinghorror.com/blog/archives/000834.html">Thirteen Blog Clichés</a>.  While there is some irony in the sense that one thing that he said he hated was blogging about blogging, and that&#8217;s what that article is, it generally contains some pretty useful information.  I&#8217;ve tried to follow some of those pieces of advice in the design of my new weblog software.  Thus, you won&#8217;t find the calendar widget anywhere &#8211; no one used it and I didn&#8217;t blog enough to have it up there. You&#8217;ll also find that I don&#8217;t blog about my daily life anymore.  Number 3 on the list, however, struck a chord with me.  So here&#8217;s a bit of info about me and contact information for folks looking to find me.</p>
+
+<p>My name is Patrick Wagstrom and I&#8217;m a graduate student in <a href="http://www.epp.cmu.eud/">Engineering and Public Policy</a> and <a href="http://www.cos.cs.cmu.edu/">Computation, Organizations, and Society</a> at <a href="http://www.cmu.edu/">Carnegie Mellon University</a> in Pittsburgh, PA.  I should be finishing my Ph.D. real soon now.  You may be able to find some  ore information about what I do on my <a href="/weblog/academic/">academic</a> page &#8211; but I&#8217;d guess that&#8217;s out of date right now..  The best way to get ahold of me, is, and most likely always be email &#8211; <a href="mailto:patrick@wagstrom.net">patrick@wagstrom.net</a>.  Look, I&#8217;m even brave enough to put my email address in plain text.  You can also reach me on Google Talk at patrick@wagstrom.net.</p>
+
+<p>I don&#8217;t use and have no intentions of using services like Jaiku, Twitter, Facebook, Orkut, or whatever the fancy thing of the week is.  I&#8217;ve got some actual work to do, and in my view most of those are just substitutes to make people think that they&#8217;re doing real work.  Also, the privacy implications of those services are astounding.  Seriously, watch out for your privacy when using those services &#8211; or rather your complete loss of privacy.</p>
+
+<p>I&#8217;m passionate about open source and developing technology that connects multiple disparite pieces of technology and communities.  In particular, I&#8217;m really interested in social software and online communities, which is rather ironic given how I shy away from many communities.  I&#8217;m an active supporter of the <a href="http://www.eff.org/">Electronic Frontier Foundation</a>, periodically contribute to the <a href="http://www.gnome.org/">GNOME Project</a>, and frequently give talks about digital rights management, online communities, and the future of technology.</p>
+
+<p>This weblog runs a piece of software called <a href="https://secure.wagstrom.net/projects/poststreet/">PostStreet</a>. It&#8217;s a fairly simple <a href="http://www.python.org/">python</a> based blogging system that I wrote during a self-imposed <a href="/weblog/weblog/code/24hrBlogChallenge.xml">24 Hour Weblog Challenge</a>.  Most of the logic and design was done over the course of a 24 hour period, or which only about 12 were actually working on the system.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2008/01/05/24hrblogchallenge-update/">24 Hour Blog Challenge Update</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-01-05T15:41:00-05:00" pubdate data-updated="true">Jan 5<span>th</span>, 2008</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>First of all, I cheated a little, it&#8217;s been 24 hours and 51 minutes since I started my little challenge yesterday afternoon.  I started with no code written, no database schema, and no HTML templates.  As of right now, I have a system that has accomplished all of the goals set forth in the original <a href="/weblog/weblog/code/24hrBlogChallenge/">24 Hour Blog Challenge</a> post, but is really ugly.  Along the way, I also did some nifty things that I&#8217;d like to share.</p>
+
+<p>The PyBlosxom blog setup uses lots of XSLT to create the web pages, this works okay, but isn&#8217;t ideal at all.  Also, it makes it really hard to get myself loose of the XSLT.  I was originally going to get rid of it all together, but then I realized that I liked being able to define a few of my own tags and having a translator convert them to HTML.  Within the new software, entries are written in as standard text, and then passed through a series of translators, which can be simple things like cleaning up the HTML with <a href="http://www.crummy.com/software/BeautifulSoup/">Beautiful Soup</a>, running an XSLT processor, or syntax highlighting bits of source code in the document.  These are chained together to get some nice results, but when importing and exporting data, you&#8217;re still working with the original.</p>
+
+<p>The same technology applies to comments.  This way I can allow users to use HTML code in their comments, but use XSLT to filter out code that they shouldn&#8217;t be using.  I can specify some pretty precise terms too, like not allow images bigger than 200 pixels or something silly like that.  Because I run the comments through BeautifulSoup beforehand, it usually  guarantees that we&#8217;ll get a usable output from the comment. In the future, this will allow users to embed code in comments and have it highlighted in the same way as my code is.  The translation is only done at creation time, so it&#8217;s minimal load to the system to have this feature.</p>
+
+<p>Anyway, that&#8217;s the neatest feature.  Once I get some better style sheets, I&#8217;ll see about replacing the current PyBlosxom infrastructure with the new system.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2008/01/03/24hrblogchallenge/">The 24 Hour Blog Challenge</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-01-03T11:16:00-05:00" pubdate data-updated="true">Jan 3<span>rd</span>, 2008</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;ve had a weblog of some sort since my early 1998 &#8211; back before they were called weblogs.  Originally it was a set of PHP 3 scripts that talked to a MySQL database, pretty high-tech stuff for the era.  In 2001 I moved over to Movable Type because it was the blogging hotness at the time.  In 2003 after moving out of Chicago and seeing SixApart squander their opportunity due to asinine licensing terms (and the fact that Movable Type is written in Perl), I started using <a href="http://pyblosxom.sf.net/">PyBlosxom</a>, a dead simple system that relies on a set of files in the directory tree for posts.</p>
+
+<p>Of course, I had to go an hack up PyBlosxom, giving it the ability to push XSLT transformations to the client, or doing them server side for readers with older browsers.  I also removed some of the silly stuff, like the ability to have it redo the content in 99 billion different formats.  The system has worked really well for me, creating a new post is as simple as opening up vi or Emacs and writing a text file.</p>
+
+<p>But, this has it&#8217;s drawbacks.  First, a complete directory crawl is required on every hit to the page.  With only a handful of posts, this isn&#8217;t a big deal.  But I&#8217;ve got a couple of hundred posts and they&#8217;re stored in subversion, so the crawl takes a while.  The posts then need to be sorted, and categorized.  Yeah, it&#8217;s slow.  Second, It&#8217;s all very hackey right now.  The fact that the XSLT transformations even remotely work is interesting, but I hate writing something and then seeing the <a href="http://en.wikipedia.org/wiki/Yellow_Screen_of_Death">Yellow Screen of Death</a> in Firefox because I forgot to close a tag.</p>
+
+<p>Thirdly, the comment system works, but it quite sub-par right now. Everything is stored in flat files, which makes comment management difficult.  Finally, I don&#8217;t have the ability to save drafts, manage tags, or easily tweak a lot of things I&#8217;d love to do.  It&#8217;s become painful.  PyBlosxom, it&#8217;s not you, it&#8217;s me.  I don&#8217;t have time to do this stuff anymore.</p>
+
+<p>What I do have time for is a 24 Hour Blog Challenge.  The goal of this will be to write a complete new piece of Weblog software in 24 hours &#8211; and I&#8217;ll do it while not neglecting any other responsibilities.  I should stress right now, I have no code written for this software, and will not until I return from the airport tomorrow and start writing.</p>
+
+<p>Architecture wise, I have already decided that it will be a Python CGI system using an SQLite backend.  I&#8217;m not going to worry about WSGI or anything like that right now.  The system must be meet the following requirements at the end of 24 hours for it to be a success:</p>
+
+<ul>
+<li>Import all previous stories &#8211; It&#8217;s no good if I lose all of my flat text files that I have laying around.  One of the first tasks will be to create an importer.</li>
+<li>Non-Breakage of previous URLs &#8211; I like the current URL scheme I have my for weblog and I would hate to have to create hundreds of <a href="http://httpd.apache.org/docs/2.0/mod/mod_rewrite.html">mod_rewrite</a> redirects to keep everything working.</li>
+<li>Command line import/export for stories &#8211; I like being able to edit stories from the command line.  This new setup will just mean that I have to dump the story in and out with a script, nothing big and highly related to the first requirement.</li>
+<li>Hierarchical classification of stories &#8211; basically, continue to implement categories with improved category browsing.</li>
+<li>Non-Hierarchical classification of stores &#8211; make the tags on each story do something other than link to Technorati.</li>
+<li>RSS Feeds &#8211; if people can&#8217;t read the weblog through a news reader, it&#8217;s a web page, not a weblog.</li>
+<li>User comments &#8211; Likewise, all weblogs should have some way to easily interact with the author.  Comments must be enabled.</li>
+</ul>
+
+
+<p>In addition to those features, here are requirements that should be completed, but the task won&#8217;t be a failure if they&#8217;re not.</p>
+
+<ul>
+<li>User accounts &#8211; not required for all comments, but could be used by users to customize the appearance of their comments, etc. Also makes management a bit easier.</li>
+<li>Web based editing &#8211; sometimes SSH just isn&#8217;t an option and a web based system would be better.</li>
+<li>Publish/Draft distinction &#8211; Under PyBlosxom, stories are either published and public, or not.  There isn&#8217;t a way to mark something as a draft, see how it will look, and then edit it some more.</li>
+<li>OpenID support &#8211; this is a long-shot, but OpenID seems nifty, I&#8217;d like to support it and set up some OpenID services for Wagstrom.net.</li>
+<li>Integration with <a href="http://pennave.sf.net/">PennAve</a> &#8211; there&#8217;s no reason why it shouldn&#8217;t be easy for me to use photos in my collection in weblog posts.</li>
+<li>WSGI support &#8211; I hear that WSGI is the new hotness for hosting Python applications.  Supporting it should allow faster responses and all that.  This is a bigger thing that will most likely see me move <a href="http://pennave.sf.net/">PennAve</a> to
+a WSGI interface too.</li>
+</ul>
+
+
+<p>I should stress that the purpose of this challenge is NOT to write the next Wordpress, MovableType, or whatever else the kids are using today.  The purpose is to see if I can create the system and to replace an aging and creaky system currently installed.  Anyway, wish me luck, I&#8217;ll try to post as I go along tomorrow.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2008/01/03/goodbye-openbsd/">Goodbye OpenBSD</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-01-03T00:37:00-05:00" pubdate data-updated="true">Jan 3<span>rd</span>, 2008</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>My servers have run <a href="http://www.openbsd.org/">OpenBSD</a> since sometime in 1998.  I still have a few really ancient official CD sets laying around for OpenBSD 2.3 (May 1998), 2.5 (May 1999), and 2.7 (June 2000).  My name can be found on the <a href="http://www.openbsd.org/donations.html">OpenBSD Donations page</a>, and I think that <a href="http://www.openbsd.org/faq/pf/">PF</a> is one of the sweetest pieces of software I&#8217;ve seen.   I&#8217;ve ran OpenBSD on x86, PPC, and Sparc on both physical and virtual hardware.  I&#8217;ve used it as a mail server, spam filter, firewall, web server, database server, and even an X11 terminal.  OpenBSD is just a well engineered piece of software that works well and doesn&#8217;t need much maintenance.</p>
+
+<p>Last year, in an effort to reduce clutter in my house and ease my power bill, I <a href="/weblog/weblog/computer/virtualized-server.txt">changed from a physical to virtual OpenBSD box as my main Internet server computer</a>.  For the most part I had some good luck, it worked pretty well once I changed the virtual NIC from a PCNet to an E1000. Back in October I decided that this holiday season I would upgrade to the 4.2 release of OpenBSD, which contained a lot of features I was looking forward to such as a port for Python 2.5 and the new <a href="http://www.openbsd.org/cgi-bin/man.cgi?query=vic&amp;sektion=4">vic VMWare network driver</a>.  About a week after I made this decision, my Apache server process began to randomly segfault when using gzip compression to serve web pages &#8211; as someone who runs their website off a cable modem, this was a hit that I really didn&#8217;t want to take. I disabled gzip compression and decided to look at it again over the holidays.</p>
+
+<p>The process of bringing up a new virtual machine with <a href="http://www.vmware.com/products/server/">VMWare server</a> is nearly brain dead.  I can create multiple virtual machines in a matter of minutes.  For this upgrade the choice was made to start fresh to avoid some of the botched installs from previous versions of tools in the original virtual machine.  My strategy was to install the basics for the machine, then compile the ports I needed &#8211; apache2, subversion (with apache support), python 2.5, screen, and irrsi &#8211; were at the top of my list.  Wait, you may say, OpenBSD offers compiled packages for these &#8211; no need to compile.  This is true, but the Python setup includes the tkinter libraries, which no ones uses anymore and forces X on my system.  Subversion also links to some packages I&#8217;ll never use again.</p>
+
+<p>After some fighting the build process got running, but I almost immediately hit a snag.  Programs were complaining about <a href="http://expat.sourceforge.net/">expat</a> not being present, and the port kept on telling me it was included as of OpenBSD 4.2.  As I had OpenBSD 4.2 installed, I could tell that it was not included.  My first strategy was to lie and build the package regardless.  While this allowed me to build some software, it quickly caused problems.  I was soon modifying my FLAVOR environment variable with reckless abandon.  In the end, I broke enough things that I needed to start over.  Luckily, VMWare makes that simple.</p>
+
+<p>A little sleuthing discovered that for some reason in OpenBSD, expat is currently a part of the xbase package, and if I wanted the development headers I also needed the xshare package too.  What?  Why I do need X for everything all the sudden.  Whatever, I installed those packages, rebuilt the software, but still needed to fudge around with lots of environment variables to keep it from installing TCL with anything that had optional TCL bindings.  Don&#8217;t even get me started on the headache of keeping Ruby off my system.  After about six hours of actual work at fighting with it, much more if you count compilation, I had the software I thought I needed installed.  A little testing revealed that all of my web services still worked.  Great! Then I turned on gzip and the segmentation faults returned.  I returned to the default configuration, and the segmentation faults continued.  I debugged the program, realized I need to do some nasty patching, and concluded that this wasn&#8217;t going to be the proper choice.</p>
+
+<p>It was time to consider something else.  I really wanted to run a BSD system still, I figured I&#8217;d give <a href="http://www.freebsd.org/">FreeBSD</a> a shot again.  For some reason their automatically discovered mirror for me was ungodly slow, worse than dialup.  Going through <a href="http://tor.eff.org/">tor</a> actually managed to speed things up.  Wow, that&#8217;s strange isn&#8217;t it?  I also noticed they were close to a release &#8211; I don&#8217;t want to run pre-release software and I didn&#8217;t want to have to upgrade, and I&#8217;m really impatient.  Crap.  By this point it was the 27th, and I was supposed to leave for a week in just a few days.</p>
+
+<p>Suck it up, install <a href="http://www.ubuntu.com/server">Ubuntu Server</a>.  I really didn&#8217;t want to run Linux, and Ubuntu Server may have a bit too much stuff on it in the default install.  I was already starting to feel dirty.  A little more digging revealed a nifty project, <a href="http://www.ubuntu.com/products/whatisubuntu/serveredition/jeos">Ubuntu JeOS</a> (Just Enough Operating System), a specialized and stripped down version of Ubuntu that has the core software and an optimized VMWare kernel.  The download was pretty small, at about  50MB or so. Installation was a breeze and incredibly straightforward.  As an added bonus, VMWare tools compiles for Linux, to further improve performance.  A few apt-get commands later and my system was running. What&#8217;s better is that the packaging system didn&#8217;t require me to install X11, TCL, Ruby, PHP, or MySQL for my server setup.  I was able to get just the tools I needed.  Total installation time for everything, 41 minutes.  That includes the time to copy all my web files over, port the httpd.conf file to the  Ubuntu style of multiple configuration files, and update some absolute paths in scripts.</p>
+
+<p>Next up was to see how fast it was.  I always loved how few processes I&#8217;d see running in my OpenBSD machine.  Hammering the machines over and over an testing the speed of response with <a href="http://developer.yahoo.com/yslow/">YSlow</a> showed the Linux box to complete requests in about 40% of the time of the OpenBSD box when requested from the local LAN.  Furthermore, the responses were compressed, which means a great saving of time over the line.  I was hooked &#8211; sorry OpenBSD, you&#8217;ve been replaced.</p>
+
+<p>Of course, there is a potential cost here.  What about the security of my new server?  What about stability?  What about updates?  As far as security goes, I&#8217;m already being fairly smart by running it in as a virtual machine.  The main filesystems are backed up nightly to both local and remote systems, and about once a month, a <a href="http://dev.riseup.net/backupninja/">backupninja</a> script shuts down the machine, creates a snapshot of the full machine, then restarts it.  That gives me about 10 minutes of downtime every month &#8211; I&#8217;m sure the spiders will understand.  I also am not running any unnecessary servers &#8211; just apache2, an instance of <a href="http://www.cherrypy.org/">CherryPy</a> for <a href="http://pennave.sf.net/">PennAve</a>, and very restricted <a href="http://www.openssh.com/">OpenSSH</a> for remote access &#8211; that&#8217;s it.  I&#8217;m hoping I&#8217;m in good shape with that, but security is something you can never guarantee unless the machine is off, has no drives, and lacks any sort of persistent memory (of course, I&#8217;m sure that even then there may be a way to find some sort of electromagnetic residue in the RAM).  Stability wise, I&#8217;m not entirely certain.  Ubuntu Dapper on my MythTV machine has been excellent, while Gutsy on my laptop is sometimes flaky &#8211; but that may also be because of a long upgrade chain going back up to March of 2005 on this machine.  Finally, I&#8217;m pretty sure that using APT makes upgrades, especially security related upgrades, even easier.  I don&#8217;t need to worry about seeing that a patch was released and installing it by hand.  It just happens &#8211; yes I&#8217;m placing trust in a remote entity, but I can handle that.  I just want my machine to work.</p>
+
+<p>So, after two days of mucking around with OpenBSD, I finally got Ubuntu JeOS to just work, and I&#8217;m very happy with it.  I&#8217;m sorry to see OpenBSD go, but it was just too difficult to work with.  In particular, here&#8217;s some issues that really need to be addressed to make it competitive with what JeOS offers:</p>
+
+<ul>
+<li>If you say you include expat, really include it, don&#8217;t place it in two different packages for X.  I don&#8217;t need X on my server.</li>
+<li>Finer grain package control.  Some packages are getting pretty good at creating subpackages for optional components &#8211; subversion is a good example of this.  Other packages, such as Python, could really use some help here.</li>
+<li>Inheritance of the FLAVOR environment variable.  If I compile subversion as NO_TCL or NO_RUBY, that should cascade down to swig.  I had to literally watch every dependency as it was compiled to make sure that it was going to decide I needed TCL, TK, and Ruby.</li>
+<li>Automated checking for security patches.  I&#8217;m not sure if OpenBSD has this, but it wasn&#8217;t obvious how to do it.  But, then again, it&#8217;s not immediately obvious how to use apt either.</li>
+</ul>
+
+
+<p>For the time being, OpenBSD and I have parted ways.  In a few years when it comes time to upgrade my server again, we may again join forces.  Of course, with the continual increase of software as a service, in a few years, there may be no need for me to run my own server anymore</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/weblog/blog/page/7/">&larr; Older</a>
+    
+    <a href="/weblog/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/weblog/blog/page/5/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/weblog/2012/05/10/static-bloggin/">Static Bloggin</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/28/i-am-not-a-climatologist-and-neither-are-most-of-these-people/">I am not a climatologist, and neither are most of these people</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/10/looking-for-summer-interns-in-the-software-technology-group-at-ibm-tj-watson-research-center/">Looking for Summer Interns in the Software Technology Group at IBM TJ Watson Research Center</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/a-review-of-2011-personal-development-goals/">A Review of 2011 Personal Development Goals</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/open-source-and-technology-predictions-for-2012/">Open Source and Technology Predictions for 2012</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/pridkett">@pridkett</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'pridkett',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/weblog/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("pridkett", 4, false);
+    });
+  </script>
+  <script src="/weblog/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/pridkett" class="twitter-follow-button" data-show-count="false">Follow @pridkett</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/102672530623465237388?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Patrick Wagstrom -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

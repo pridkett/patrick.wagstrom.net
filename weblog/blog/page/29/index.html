@@ -1,0 +1,748 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Delusional Dream</title>
+  <meta name="author" content="Patrick Wagstrom">
+
+  
+  <meta name="description" content="I noticed that my original implementation of
+linkripper was put in Mark Pilgrim&#8217;s blinks archive for January. This inspired me
+to go and update &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://patrick.wagstrom.net/weblog/blog/page/29">
+  <link href="/weblog/favicon.png" rel="icon">
+  <link href="/weblog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/weblog/javascripts/modernizr-2.0.js"></script>
+  <script src="/weblog/javascripts/ender.js"></script>
+  <script src="/weblog/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/weblog/atom.xml" rel="alternate" title="My Delusional Dream" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/weblog/">My Delusional Dream</a></h1>
+  
+    <h2>Thoughts of a cautious technocrat</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/weblog/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:patrick.wagstrom.net/weblog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/weblog/">Blog</a></li>
+  <li><a href="/weblog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2004/01/31/linkripper2/">An Updated Version of Link Ripper</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-01-31T13:03:00-05:00" pubdate data-updated="true">Jan 31<span>st</span>, 2004</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I noticed that my original implementation of
+<a href="/weblog/weblog/code/linkripper.xml">linkripper</a> was put in <a href="http://www.diveintomark.org/">Mark Pilgrim&#8217;s</a> <a href="http://www.diveintomark.org/archives/blinks/2004/01/">blinks archive for January</a>.  This inspired me
+to go and update linkripper to automagically open up zip files, so you don&#8217;t
+need to do that on your own.  Behold, the new version of Linkripper:</p>
+
+<pre><code>&lt;i&gt;&lt;font color="#9A1900"&gt;# linkripper.py&lt;/font&gt;&lt;/i&gt;
+&lt;i&gt;&lt;font color="#9A1900"&gt;# by Patrick Wagstrom&lt;/font&gt;&lt;/i&gt;
+&lt;i&gt;&lt;font color="#9A1900"&gt;# this work is dedicated to the public domain&lt;/font&gt;&lt;/i&gt;
+&lt;i&gt;&lt;font color="#9A1900"&gt;# see: http://creativecommons.org/licenses/publicdomain/&lt;/font&gt;&lt;/i&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;import&lt;/font&gt;&lt;/b&gt; libxml2
+&lt;b&gt;&lt;font color="#0000FF"&gt;import&lt;/font&gt;&lt;/b&gt; sys
+&lt;b&gt;&lt;font color="#0000FF"&gt;import&lt;/font&gt;&lt;/b&gt; zipfile
+
+&lt;b&gt;&lt;font color="#0000FF"&gt;def&lt;/font&gt;&lt;/b&gt; &lt;b&gt;&lt;font color="#000000"&gt;readfile&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;filename&lt;font color="#990000"&gt;)&lt;/font&gt;&lt;font color="#990000"&gt;:&lt;/font&gt;
+    data &lt;font color="#990000"&gt;=&lt;/font&gt; None
+    &lt;b&gt;&lt;font color="#0000FF"&gt;try&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;:&lt;/font&gt;
+        zip &lt;font color="#990000"&gt;=&lt;/font&gt; zipfile&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;ZipFile&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;filename&lt;font color="#990000"&gt;,&lt;/font&gt; &lt;font color="#FF0000"&gt;'r'&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;
+        data &lt;font color="#990000"&gt;=&lt;/font&gt; zip&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;read&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;&lt;font color="#FF0000"&gt;"content.xml"&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;except&lt;/font&gt;&lt;/b&gt; zipfile&lt;font color="#990000"&gt;.&lt;/font&gt;BadZipfile&lt;font color="#990000"&gt;:&lt;/font&gt;
+        data &lt;font color="#990000"&gt;=&lt;/font&gt; &lt;b&gt;&lt;font color="#000000"&gt;file&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;filename&lt;font color="#990000"&gt;,&lt;/font&gt;&lt;font color="#FF0000"&gt;'r'&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;read&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;except&lt;/font&gt;&lt;/b&gt; KeyError&lt;font color="#990000"&gt;:&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;print&lt;/font&gt;&lt;/b&gt; &lt;font color="#FF0000"&gt;"%s is a zip file, but does not have content.xml in the archive"&lt;/font&gt; &lt;font color="#990000"&gt;\&lt;/font&gt;
+&lt;font color="#990000"&gt;%&lt;/font&gt; &lt;font color="#990000"&gt;(&lt;/font&gt;filename&lt;font color="#990000"&gt;)&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;return&lt;/font&gt;&lt;/b&gt; data
+
+
+&lt;b&gt;&lt;font color="#0000FF"&gt;def&lt;/font&gt;&lt;/b&gt; &lt;b&gt;&lt;font color="#000000"&gt;riplinks&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;filename&lt;font color="#990000"&gt;)&lt;/font&gt;&lt;font color="#990000"&gt;:&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;try&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;:&lt;/font&gt;
+        doc &lt;font color="#990000"&gt;=&lt;/font&gt; libxml2&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;parseDoc&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;readfile&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;filename&lt;font color="#990000"&gt;)&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;
+        ctxt &lt;font color="#990000"&gt;=&lt;/font&gt; doc&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;xpathNewContext&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;
+        ctxt&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;xpathRegisterNs&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;&lt;font color="#FF0000"&gt;"xlink"&lt;/font&gt;&lt;font color="#990000"&gt;,&lt;/font&gt;&lt;font color="#FF0000"&gt;"http://www.w3.org/1999/xlink"&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;
+        res &lt;font color="#990000"&gt;=&lt;/font&gt; &lt;font color="#990000"&gt;[&lt;/font&gt;&lt;font color="#990000"&gt;]&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;for&lt;/font&gt;&lt;/b&gt; mem &lt;b&gt;&lt;font color="#0000FF"&gt;in&lt;/font&gt;&lt;/b&gt; ctxt&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;xpathEval&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;&lt;font color="#FF0000"&gt;"//*[@xlink:href]"&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;&lt;font color="#990000"&gt;:&lt;/font&gt;
+            res&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;append&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;mem&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;prop&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;&lt;font color="#FF0000"&gt;"href"&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;return&lt;/font&gt;&lt;/b&gt; res
+    &lt;b&gt;&lt;font color="#0000FF"&gt;except&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;:&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;print&lt;/font&gt;&lt;/b&gt; &lt;font color="#FF0000"&gt;"%s is unable to be parsed"&lt;/font&gt; &lt;font color="#990000"&gt;%&lt;/font&gt; &lt;font color="#990000"&gt;(&lt;/font&gt;filename&lt;font color="#990000"&gt;)&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;return&lt;/font&gt;&lt;/b&gt; &lt;font color="#990000"&gt;[&lt;/font&gt;&lt;font color="#990000"&gt;]&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;if&lt;/font&gt;&lt;/b&gt; __name__ &lt;font color="#990000"&gt;=&lt;/font&gt;&lt;font color="#990000"&gt;=&lt;/font&gt; &lt;font color="#FF0000"&gt;"__main__"&lt;/font&gt;&lt;font color="#990000"&gt;:&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;if&lt;/font&gt;&lt;/b&gt; &lt;b&gt;&lt;font color="#000000"&gt;len&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;sys&lt;font color="#990000"&gt;.&lt;/font&gt;argv&lt;font color="#990000"&gt;)&lt;/font&gt; &lt;font color="#990000"&gt;&lt;&lt;/font&gt; &lt;font color="#993399"&gt;2&lt;/font&gt;&lt;font color="#990000"&gt;:&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;print&lt;/font&gt;&lt;/b&gt; &lt;font color="#FF0000"&gt;"Usage: %s FILENAME"&lt;/font&gt; &lt;font color="#990000"&gt;%&lt;/font&gt; &lt;font color="#990000"&gt;(&lt;/font&gt;sys&lt;font color="#990000"&gt;.&lt;/font&gt;argv&lt;font color="#990000"&gt;[&lt;/font&gt;&lt;font color="#993399"&gt;0&lt;/font&gt;&lt;font color="#990000"&gt;]&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;
+        sys&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;exit&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;&lt;font color="#993399"&gt;0&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;for&lt;/font&gt;&lt;/b&gt; fn &lt;b&gt;&lt;font color="#0000FF"&gt;in&lt;/font&gt;&lt;/b&gt; sys&lt;font color="#990000"&gt;.&lt;/font&gt;argv&lt;font color="#990000"&gt;[&lt;/font&gt;&lt;font color="#993399"&gt;1&lt;/font&gt;&lt;font color="#990000"&gt;:&lt;/font&gt;&lt;font color="#990000"&gt;]&lt;/font&gt;&lt;font color="#990000"&gt;:&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;for&lt;/font&gt;&lt;/b&gt; mem &lt;b&gt;&lt;font color="#0000FF"&gt;in&lt;/font&gt;&lt;/b&gt; &lt;b&gt;&lt;font color="#000000"&gt;riplinks&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;fn&lt;font color="#990000"&gt;)&lt;/font&gt;&lt;font color="#990000"&gt;:&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;print&lt;/font&gt;&lt;/b&gt; mem
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2004/01/29/published/">My Book Chapter Finally Was Published!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-01-29T14:39:00-05:00" pubdate data-updated="true">Jan 29<span>th</span>, 2004</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>That&#8217;s right!  Just when I thought it would never get published a book shows
+up for me today in the office.  Right there in chapter 5 is what I wrote.
+It&#8217;s a little strange because it has three different affiliations listed for
+me, Argonne National Lab, Illinois Institute of Technology, and Carnegie
+Mellon Univeristy.  Anyway, go <a href="http://www.wiley.com/WileyCDA/WileyTitle/productCd-0471332887.html">buy a copy</a> or just ask to borrow mine.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2004/01/13/linkripper/">Ripping Links Out of OpenOffice Documents</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-01-13T22:22:00-05:00" pubdate data-updated="true">Jan 13<span>th</span>, 2004</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Today I received one a syllabus for one of my classes as a word document with
+a buch of hyper links in it.  The hyperlinks are important as they link to the
+readings for the course.  Clicking them all by hand would have taken a little
+while, so undaunted I sought about another way.</p>
+
+<p><a href="http://www.openoffice.org/">OpenOffice.org</a> makes this quite easy.
+Just save the file then unzip it and you&#8217;ve got some XML files with all your
+document guts in it.  And as you should know, XML is yummy.  So here is the program
+that I wrote to rip the links.  The program code is released to the public domain
+because it&#8217;s only a few lines long.</p>
+
+<pre><code>&lt;tt&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;import&lt;/font&gt;&lt;/b&gt; libxml2
+&lt;b&gt;&lt;font color="#0000FF"&gt;import&lt;/font&gt;&lt;/b&gt; sys
+
+&lt;b&gt;&lt;font color="#0000FF"&gt;def&lt;/font&gt;&lt;/b&gt; &lt;b&gt;&lt;font color="#000000"&gt;riplinks&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;filename&lt;font color="#990000"&gt;)&lt;/font&gt;&lt;font color="#990000"&gt;:&lt;/font&gt;
+    doc &lt;font color="#990000"&gt;=&lt;/font&gt; libxml2&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;parseFile&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;filename&lt;font color="#990000"&gt;)&lt;/font&gt;
+    ctxt &lt;font color="#990000"&gt;=&lt;/font&gt; doc&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;xpathNewContext&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;
+    ctxt&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;xpathRegisterNs&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;&lt;font color="#FF0000"&gt;"xlink"&lt;/font&gt;&lt;font color="#990000"&gt;,&lt;/font&gt;&lt;font color="#FF0000"&gt;"http://www.w3.org/1999/xlink"&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;
+    res &lt;font color="#990000"&gt;=&lt;/font&gt; &lt;font color="#990000"&gt;[&lt;/font&gt;&lt;font color="#990000"&gt;]&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;for&lt;/font&gt;&lt;/b&gt; mem &lt;b&gt;&lt;font color="#0000FF"&gt;in&lt;/font&gt;&lt;/b&gt; ctxt&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;xpathEval&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;&lt;font color="#FF0000"&gt;"//*[@xlink:href]"&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;&lt;font color="#990000"&gt;:&lt;/font&gt;
+        res&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;append&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;mem&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;prop&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;&lt;font color="#FF0000"&gt;"href"&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;return&lt;/font&gt;&lt;/b&gt; res
+
+&lt;b&gt;&lt;font color="#0000FF"&gt;if&lt;/font&gt;&lt;/b&gt; __name__ &lt;font color="#990000"&gt;=&lt;/font&gt;&lt;font color="#990000"&gt;=&lt;/font&gt; &lt;font color="#FF0000"&gt;"__main__"&lt;/font&gt;&lt;font color="#990000"&gt;:&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;if&lt;/font&gt;&lt;/b&gt; &lt;b&gt;&lt;font color="#000000"&gt;len&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;sys&lt;font color="#990000"&gt;.&lt;/font&gt;argv&lt;font color="#990000"&gt;)&lt;/font&gt; &lt;font color="#990000"&gt;&lt;&lt;/font&gt; &lt;font color="#993399"&gt;2&lt;/font&gt;&lt;font color="#990000"&gt;:&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;print&lt;/font&gt;&lt;/b&gt; &lt;font color="#FF0000"&gt;"Usage: %s FILENAME"&lt;/font&gt; &lt;font color="#990000"&gt;%&lt;/font&gt; &lt;font color="#990000"&gt;(&lt;/font&gt;sys&lt;font color="#990000"&gt;.&lt;/font&gt;argv&lt;font color="#990000"&gt;[&lt;/font&gt;&lt;font color="#993399"&gt;0&lt;/font&gt;&lt;font color="#990000"&gt;]&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;
+        sys&lt;font color="#990000"&gt;.&lt;/font&gt;&lt;b&gt;&lt;font color="#000000"&gt;exit&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;&lt;font color="#993399"&gt;0&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;for&lt;/font&gt;&lt;/b&gt; mem &lt;b&gt;&lt;font color="#0000FF"&gt;in&lt;/font&gt;&lt;/b&gt; &lt;b&gt;&lt;font color="#000000"&gt;riplinks&lt;/font&gt;&lt;/b&gt;&lt;font color="#990000"&gt;(&lt;/font&gt;sys&lt;font color="#990000"&gt;.&lt;/font&gt;argv&lt;font color="#990000"&gt;[&lt;/font&gt;&lt;font color="#993399"&gt;1&lt;/font&gt;&lt;font color="#990000"&gt;]&lt;/font&gt;&lt;font color="#990000"&gt;)&lt;/font&gt;&lt;font color="#990000"&gt;:&lt;/font&gt;
+&lt;b&gt;&lt;font color="#0000FF"&gt;print&lt;/font&gt;&lt;/b&gt; mem
+&lt;/tt&gt;
+</code></pre>
+
+<p>Using, so for my case all of the links had the word &#8220;classpapers&#8221; in them, so I used the
+following command line to download them all:</p>
+
+<pre><code>python linkripper.py content.xml | grep classpapers | xargs wget
+</code></pre>
+
+<p>In an ideal world someone would hook this up with the zip module for python and have
+it automagically look at the content.xml file if it&#8217;s a
+zip, but this isn&#8217;t ideal right now.  I&#8217;ve got other stuff to do.</p>
+
+<p><strong>Update:</strong> I made linkripper so it uses zipfile to automagically read Open
+Office documents.  Read about it <a href="/weblog/weblog/code/linkripper2">here</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2004/01/11/editor/">BibTeXML Editor</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-01-11T22:42:00-05:00" pubdate data-updated="true">Jan 11<span>th</span>, 2004</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This weekend I&#8217;ve been learning how to do GUI programming in Python with PyGTK.
+I&#8217;ve been working on an editor for BibTeXML so you don&#8217;t always need to type all
+the fields by hand.  This is what I&#8217;ve got going so far:</p>
+
+<p><img src="/weblog/resources/images/blog/bibteXMLeditor-20040111.png" alt="" /></p>
+
+<p>It&#8217;s only the people editing that works right now, and even that isn&#8217;t 100% yet, still
+a few tweaks required like auto updating the list of people to the right and being
+able to add people to the file.  But the nifty thing is that XML is generated as
+you go, which is pretty cool.  I just wish that someone (read: NOT ME) cranked out
+a custom widget for GTK that was an XML viewing widget, preferably linked with libxml2
+or something like that.  I&#8217;m sure I could do it in python, but I don&#8217;t want to take
+the time now.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2004/01/08/foundamac/">I Found a Mac Classic Last Night</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-01-08T13:25:00-05:00" pubdate data-updated="true">Jan 8<span>th</span>, 2004</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>That&#8217;s right, I literally found a Mac Classic last night when I was walking
+home from the <a href="http://dean2004.meetup.com/">Dean Meetup</a>.  It was
+sitting by a trash can so I picked it up and took it home.  It was cold walk
+home with it, about a mile or so was left in my walk and it was about 15 degrees
+outside.  Luckily it was pretty light and I could carry it with one hand.</p>
+
+<p>When I got it home, I first decided to see if it would power up.  Taking a power
+cable and plugging it in I was greeted with the familiar Macintosh chime but
+not screen came up.  After about 30 seconds it started to smell a lot like a
+model train set, I knew this couldn&#8217;t be good so I turned it off.</p>
+
+<p>I began to think about what I could do, and only one thing came to mind,
+<a href="http://www.applefritter.com/hacks/macquarium/">make a MacQuarium</a>.
+So that&#8217;s what I&#8217;ve begun to do.  Unfortunately, I don&#8217;t have a nifty digital
+camera, so there won&#8217;t be a lot of pictures, but I&#8217;ll probably do a few as
+I progress.  More updates to come.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2004/01/07/one/">bibTeXML</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-01-07T01:37:00-05:00" pubdate data-updated="true">Jan 7<span>th</span>, 2004</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>As if I really needed another project that I will only half finish, today I started to muck around with bibTeXML because I wanted something more powerful than the standard bibTeX setup.  Well, I&#8217;ve done some nifty hacking with my mad XSLT skills and got it so it can do cross references on names of authors for when authors show up multiple times.  Right now it just renders to an HTML document, .bib format is next.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2004/01/06/wrt54gcustomfirmwares/">Custom Firmware for the WRT54G</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-01-06T21:50:00-05:00" pubdate data-updated="true">Jan 6<span>th</span>, 2004</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I just noticed that James Ewing has a some <a href="http://www.sveasoft.com/forum6.html">custom firmware for the WRT54G</a> on his website.  I think I&#8217;ll mess
+around with some of these this weekend.  They&#8217;ve got all the features of the newest LinkSys firmware and have some additional stuff so it&#8217;s SSHable and what not.  Pretty smooth.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2004/01/01/xindiceandxupdate/">Nifty Programs</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-01-01T21:58:00-05:00" pubdate data-updated="true">Jan 1<span>st</span>, 2004</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Over the last few days I&#8217;ve been writing my own XML database in Python, today
+I discovered <a href="http://xml.apache.org/xindice/">Apache Xindice</a> (it&#8217;s
+pronounced zeen-dee-chay).  It seems like it could be a lot like what I&#8217;m
+trying to do.  Only it&#8217;s written in Java and I hate Java.  So I&#8217;ll continue
+on doing my Python stuff for Pridb.</p>
+
+<p>One other interesting thing that I found was
+<a href="http://www.xmldb.org/xupdate/">XUpdate</a> which is a query language
+for XML database.  I&#8217;ll play around with that some more too.  It uses XPATH
+to select elements also, so that&#8217;s a bit of a plus as Pridb already uses
+XPATH for selections.  I&#8217;ll consider implementing that later, but I happen to
+be a bit of a fan of the SQL like syntax I&#8217;ve got going right now.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/12/28/dec28status/">PriDB Status Update</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-12-28T23:21:00-05:00" pubdate data-updated="true">Dec 28<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Amazingly enough PriDB seems to be working pretty well.  I&#8217;m also working on a test project to work in tandem with it called
+PriBlog.  Basically, it will use some of the features of PriDB to do interesting things with my blog.  Anyway, I&#8217;v managed to
+implement the LIMIT keyword.  I also fixed the regex parser that handles the XPathQL on the server
+side.</p>
+
+<p>I&#8217;ve also been thinking about moving away from using XMLRPC for the interface method.  The problem is that using XMLRPC is
+so easy in Python, however, it doesn&#8217;t allow stateful connections, so logins have to be done using the same backwards
+mechanisms that one would use to allow authentication in HTTP.  Sigh.   Anyway, right now my main goal is to get PriBlog
+working with a PriDB backend.  Then I&#8217;ll extend PriDB to do other cool stuff.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/12/27/querylanguage/">PriDB Query Language Intro</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-12-27T14:09:00-05:00" pubdate data-updated="true">Dec 27<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This is a brief introduction to what I&#8217;m thinking for PriDB&#8217;s query langauage.  It&#8217;s a weird mixture of SQL and XPATH right now, so
+you kinda need to know both.  The most simple request will look something like this:</p>
+
+<pre><code>SELECT "//*" FROM documentName
+</code></pre>
+
+<p>Such a query is equal to the more conventional:</p>
+
+<pre><code>SELECT * FROM tableName
+</code></pre>
+
+<p>Except that it will select each node in the document instead of each row in the table.  Now you can also apply your usual modifiers
+to a query like you can in SQL.  For instance you can execute a query like this:</p>
+
+<pre><code>SELECT DISTINCT "//*" FROM documentName LIMIT 3
+</code></pre>
+
+<p>This will return the first three distinct elements in the return set to the user.  On the down side, I don&#8217;t know a nice way in XPATH
+to say only return the first three.  For instance, if you only want the first element in an XPATH query you&#8217;d use something like //<em>[1],
+but you can&#8217;t change that to //</em>[1-5].  All the references that I&#8217;ve found to limiting ask you use to XSLT
+to limit.  Which is fine and dandy, but not the way I want to do it right now.</p>
+
+<p>Another interesting note is that where clauses don&#8217;t exist in this modified version of SQL, at least not right now, I may add them later.
+Right now the entire where clause must be specified in the XPATH identifier.  For instance to get all nodes unique nodes that have an
+attribute called name with a value of simpleName you would run the following
+query:</p>
+
+<pre><code>SELECT DISTINCT "//*[@name='simpleName']" FROM testDocument
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/weblog/blog/page/30/">&larr; Older</a>
+    
+    <a href="/weblog/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/weblog/blog/page/28/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/weblog/2012/05/10/static-bloggin/">Static Bloggin</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/28/i-am-not-a-climatologist-and-neither-are-most-of-these-people/">I am not a climatologist, and neither are most of these people</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/10/looking-for-summer-interns-in-the-software-technology-group-at-ibm-tj-watson-research-center/">Looking for Summer Interns in the Software Technology Group at IBM TJ Watson Research Center</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/a-review-of-2011-personal-development-goals/">A Review of 2011 Personal Development Goals</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/open-source-and-technology-predictions-for-2012/">Open Source and Technology Predictions for 2012</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/pridkett">@pridkett</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'pridkett',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/weblog/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("pridkett", 4, false);
+    });
+  </script>
+  <script src="/weblog/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/pridkett" class="twitter-follow-button" data-show-count="false">Follow @pridkett</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/102672530623465237388?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Patrick Wagstrom -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

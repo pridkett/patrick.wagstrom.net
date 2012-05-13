@@ -1,0 +1,776 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Delusional Dream</title>
+  <meta name="author" content="Patrick Wagstrom">
+
+  
+  <meta name="description" content="For the last year or so I&#8217;ve been quite happy with the results that Spam Assassin was able to give me when filtering my email. Lately I&#8217; &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://patrick.wagstrom.net/weblog/blog/page/32">
+  <link href="/weblog/favicon.png" rel="icon">
+  <link href="/weblog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/weblog/javascripts/modernizr-2.0.js"></script>
+  <script src="/weblog/javascripts/ender.js"></script>
+  <script src="/weblog/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/weblog/atom.xml" rel="alternate" title="My Delusional Dream" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/weblog/">My Delusional Dream</a></h1>
+  
+    <h2>Thoughts of a cautious technocrat</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/weblog/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:patrick.wagstrom.net/weblog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/weblog/">Blog</a></li>
+  <li><a href="/weblog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/11/09/crm114/">Spam-B-Gone With CRM114</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-11-09T18:38:00-05:00" pubdate data-updated="true">Nov 9<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>For the last year or so I&#8217;ve been quite happy with the results that <a href="http://www.spamassassin.org/">Spam Assassin</a> was able to give me when filtering my email.  Lately I&#8217;ve been getting a little disappointed with it&#8217;s performance, I could upgrade to a new version, or I could switch to a new filter.  I had previously shied away from Bayesian filters because I didn&#8217;t fully understand the math that was going on behind them.  Now, fortunately, I&#8217;ve learned how the math works and they&#8217;re really damn cool.</p>
+
+<p>So my choices were to stick with SpamAssassin and it&#8217;s Bayesian filters, but it&#8217;s written in Perl and I hate Perl.  I&#8217;ve become quite the Perl bigot.  It&#8217;s really an ugly language and I&#8217;ll be glad when the language dies.  Time was a few years ago when almost everyone used perl, no almost no one does.  Python and PHP have largely replaced it.  Even though, I must admit there are cases when Perl is faster.  But, I digress.  I could have also used <a href="http://bogofilter.sourceforge.net">BogoFilter</a> but decided not to.  Instead, I selected the relatively small market <a href="http://crm114.sourceforge.net/">CRM114 Discriminator</a>.  Partially because it has a cool name, and partially because Paul Graham had to bow to it&#8217;s goodness at the 2002 Spam Conference.</p>
+
+<p>Installation was relatively straight forward thanks to the <a href="http://crm114.sourceforge.net/CRM114_Mailfilter_HOWTO.txt">howto</a>. With that running now I&#8217;m in the process of training it.  At first it missed everything.  Then I told it all that was spam and it started to mark everything as spam.  Then I got a few more real emails and now it seems like is about 80% accurate after about 20 emails of training.  We&#8217;ll see how this evolves over the next few days.  If it works well I&#8217;ll move my other accounts over to using it.  If not, I guess I might try bogofilter or some other program.  Who knows.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/11/08/vpn/">Connecting to CMU&#8217;s VPN in Linux</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-11-08T17:26:00-05:00" pubdate data-updated="true">Nov 8<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Odd&#8217;s are this article will be applicable to approximately 0 readers of my blog, but hopefully Google will catch it and someone else may find it helpful in the future.  Here is the situation, <a href="http://www.cmu.edu/">CMU</a> has access to a wide variety of online information sources through the library, unfortunately these require you to be on campus, or using a CMU IP address in order to utilize them.  For windows users there is the VPN solution, but what about linux users?  Hopefully this will document how I got it to work.  No guarantees for anyone else.</p>
+
+<p>The first step is to go an install all the <a href="http://pptpclient.sf.net/">PPTP Client</a> stuff for Linux.  I&#8217;m assuming that you&#8217;re bright and that you know how to do that.  There are reasonably good documents for it on their site.  I didn&#8217;t have much trouble getting it to work under <a href="http://fedora.redhat.com/">Fedora core 1</a>.  Now, after you&#8217;ve installed everything you&#8217;ll want to create the connection setup.  The easiest way to do this is using the GUI, so I&#8217;ll walk you through how to do that.  First start up pptpconfig.  You&#8217;ll want to create a new connection with the settings shown in the following screenshots.  (The tabs not shown should remain all blank)</p>
+
+<p><img src="/weblog/resources/images/blog/vpn1.png" alt="" />
+<img src="/weblog/resources/images/blog/vpn2.png" alt="" />
+<img src="/weblog/resources/images/blog/vpn3.png" alt="" /></p>
+
+<p>Now make sure you save your connection.  Then press the start button and a window should pop up with all sorts of fun information.  Here is what mine looks like right after I start my connection.</p>
+
+<p><img src="/weblog/resources/images/blog/vpn4.png" alt="" /></p>
+
+<p>Try clicking the ping button and making sure that you can ping the other end of your connection.  If you&#8217;ve gotten this far, then you&#8217;re in great shape.  But you can&#8217;t really do much yet.  Stop the connection and exit the program.  Now, you probably don&#8217;t want to have to start up that ugly GUI all the time.  Also, you want to be able to access some resources right?  Luckily I wrote a script that does just that.  Grab a copy of <a href="/weblog/projects/personal/misc/cmuvpn.sh">cmuvpn.sh</a> and save it to your disk.  Then the top line contains a list of sites that you&#8217;ll want to connect to.  Add them in seperated by spaces.  This will add in the entire subnet of the site into your the routing.  Only these sites will be routed over the VPN. Now comes the time for the moment of truth.   As root run cmuvpn.sh start and it should wait a few seconds and then return without any message.  Try going to <a href="http://ieeexplore.ieee.org/">http://ieeexplore.ieee.org/</a> and seeing if you can do searches.  If you can, you&#8217;re in business.  If you can&#8217;t well, keep searching.  When you&#8217;re done run cmuvpn.sh stop</p>
+
+<p>I decided to be even lazier because I don&#8217;t like having to type sudo all the time and bringing up and down the interfaces to the network isn&#8217;t anything that big as I don&#8217;t have any other user accounts on my laptop.  So I added some lines to my .bashrc that alias a few commands: alias ifdown=&#8221;sudo /sbin/ifdown&#8221; alias ifup=&#8221;sudo /sbin/ifup&#8221; alias vpn=&#8221;sudo /home/patrick/scripts/cmuvpn.sh&#8221;  switch() { sudo redhat-config-network-cmd &#8211;profile $1 &#8211;activate }</p>
+
+<p>I then entered a few more lines into my /etc/sudoers to allow me to do this stuff without a password.</p>
+
+<pre><code># Cmnd alias specification
+Cmnd_Alias IFCMDS = /usr/bin/redhat-config-network, \
+                    /usr/bin/redhat-config-network-cmd, \
+                    /sbin/ifup, /sbin/ifdown, \
+                    /home/patrick/scripts/cmuvpn.sh
+
+[...SNIP...]
+
+# User privilege specification
+root    ALL=(ALL) ALL
+patrick ALL=(ALL) NOPASSWD: IFCMDS
+</code></pre>
+
+<p>This probably isn&#8217;t the safest thing to do, but it does allow me to type vpn start and vpn stop to start up and show down the VPN.  It also makes it easy to work with the other interfaces too.  I&#8217;ve got the different networking profiles setup through the redhat network config tool, because my home 802.11 network uses encryption and the CMU network does not.  Now I can type switch home or switch cmu when I get to the new location and I&#8217;m ready to go.  Handy for a laptop.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/11/08/fedoraimpressions/">First Fedora Impressions</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-11-08T00:25:00-05:00" pubdate data-updated="true">Nov 8<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I just installed <a href="http://fedora.redhat.com/">fedora</a> on my laptop and it wasn&#8217;t as painless as advertised.
+Initially I had thought that I could just do a simple upgrade from my old RedHat 9 installation, but I ran into some
+serious snags.  The install procedure progressed just fine and took about 45 minutes or so.  Then I tried to log in, but
+GDM crashed, well it didn&#8217;t crash in the proper way.  Ordinarily when GDM crashes it will try different choosers until one works.  This time
+it was complaining about some icon problems with the blue curve theme and would just freeze.</p>
+
+<p>&#8220;No problem,&#8221; I thought to myself.  I can just run init 3 to take the system down to runlevel three and a do a startx.  Unfortunately, this was a no go as apparently my gnome-session was all messed up now.  This is probably because I used an <a href="http://people.ecsc.co.uk/~matt/repository.html">external repository</a> to give my system <a href="http://www.gnome.org/">GNOME 2.4</a> shortly after it came out.
+I tried to finagle with stuff to get it work, but nothing was happening.  In the end I decided to back up my files (which was interesting given the number of ripped CD&#8217;s on here) and reinstall completely.</p>
+
+<p>First impressions of Fedora are pretty nice.  The modifications to the blue
+curve artwork are welcome.  The graphical bootup screen is also kinda nifty.
+Makes it have a bit more eye candy to show to other newbies.  The default
+desktop is almost identical to the RedHat 9 desktop.  It was quick to reimport
+most of my settings.  Overall things seem zippier, probably as a result of the
+distribution being optimized for Pentium Pro class machines.  Now I have to
+weigh whether or not I want to try finding an <a href="http://www.freshrpms.net/">APT repository</a> to stay up to date
+or if I just want to try it manually.  Sigh&#8230;I love apt.</p>
+
+<p>Some interesting packaging versions to note.  It does ship with <a href="http://www.samba.org/">Samba 3.0</a>, so
+I&#8217;ll probably take some time to learn that and see what&#8217;s new there.
+However, it doesn&#8217;t ship with <a href="http://www.python.org/">Python 2.3</a>.
+I think some of this might be because all the redhat config tools are setup to
+run with python 2.2 only.  I didn&#8217;t think that 2.3 broke code compatability,
+but I suppose that it could have.</p>
+
+<p>One very nice thing, and a large part of the reason why I upgraded is because
+of the support for cpufreq.  This is something that
+I previously had problems with on my laptop.  For a thinkpad A31, run
+modprobe speedstep-ich, then as root you can type
+echo -n &#8220;0%0%100%powersave&#8221; > /proc/cpufreq to tell
+the system to go into powersave mode or echo -n
+&#8220;0%0%100%performance&#8221; > /proc/cpufreq to tell the system to go
+into full performance mode.  I haven&#8217;t figured out a way to have the computer
+do this automagically when the power is unplugged yet, but I hope to hack
+something together soon.  This will be helpful for when I&#8217;m at the <a href="http://www.rfidprivacy.org/">rfid privacy conference</a> next week.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/11/05/bittorrentthrottling/">Bittorrent on a Slow DSL Line</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-11-05T23:10:00-05:00" pubdate data-updated="true">Nov 5<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Today the new release of <a href="http://fedora.redhat.com/">fedora</a> came
+out.  Like any good sensible people, rather than getting slashdotted, they put
+up some bittorrent releases for people to download.  Anyway, so while I was at
+school today I was getting 400k/s on both the upstream and downstream channels.
+When I went home I was only getting 8k/s download and about 16k/s upload.
+Needless to say I was not pleased.  It also was quite difficult for me to go
+look at other stuff on the net.  The problem is that my upstream communications
+were saturating the line and drowning out the necessary packets (including ACKs
+for downstream data).  When I went and I throttled the uplink to 10k/s
+magically the downstream connection jumped to 80k/s.  So the lesson, if you&#8217;re
+on a DSL, throttle the upstream to slightly below your maximum throughput.</p>
+
+<p>The alternative solution is to set up a firewall to <a href="http://www.benzedrine.cx/ackpri.html">prioritize outgoing acks</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/11/01/xsltrendererwithlibxslt/">XSLTRenderer Now Uses Libxslt</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-11-01T21:16:00-05:00" pubdate data-updated="true">Nov 1<span>st</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;ve hacked together code so the XSLTRenderer plugin can now use
+libxslt to do the transformations on the server
+side.  This should be more efficient than shelling out to
+xsltproc all the time.  If I hack away on <a href="http://www.modpython.org/">modpython</a> stuff tomorrow then I might see about getting it
+to cache the already read stylesheet in memory.  This would reduce another disk read and make server side rendering even faster.  Yay.</p>
+
+<p>Also, I haven&#8217;t heard of anyone else who is using it.  I had a few people download copies of it, but no emails
+about it yet.  I&#8217;ll submit it to the pyblosxom plugins page after I do a bit more testing of it.  In the mean
+time feel free to email me about it.  You can download the new version from my <a href="/weblog/projects/">projects</a> page.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/10/31/fullmonthnames/">Full Month Names in pyBlosxom</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-10-31T23:44:00-05:00" pubdate data-updated="true">Oct 31<span>st</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This is a little patch that will give you the ability to get the full month name of an entry in pyBlosxom.  This is especially useful if you don&#8217;t
+like abbreviations (like myself).  This creates two new variables you can use
+in your templates, $month which is the full month
+name and $daord which is the ordinal thingey after the number (like &#8220;nd&#8221;, &#8220;th&#8221;, &#8220;rd&#8221;, &#8220;st&#8221;).  Sorry if it doesn&#8217;t work for
+non-English speakers.  Anyone got a better way?</p>
+
+<pre><code>--- /home/patrick/src/pyblosxom-0.8.1/Pyblosxom/entries/base.py Fri Jun  6 08:10:06 2003
++++ /home/patrick/Documents/www/pyblosxom/Pyblosxom/entries/base.py     Fri Oct 31 23:39:36 2003
+@@ -175,14 +175,20 @@
+             is the same thing as the mtime/atime portions of an os.stat.
+         @type  timeTuple: tuple of ints
+         """
++        nthday = ["", "1st", "2nd", "3rd", "4th", "5th", "6th" "7th", "8th", "9th", "10th",
++                  "11th", "12th", "13th", "14th", "15th", "16th", "17th", "18th", "19th", "20th",
++                  "21st", "22nd", "23rd", "24th", "25th", "26th", "27th", "28th", "29th", "30th",
++                  "31st"]
+         self['timetuple'] = timeTuple
+         self._mtime = time.mktime(timeTuple)
+         gmTimeTuple = time.gmtime(self._mtime)
+         self['mtime'] = self._mtime
+         self['ti'] = time.strftime('%H:%M', timeTuple)
+         self['mo'] = time.strftime('%b', timeTuple)
++        self['month'] = time.strftime('%B', timeTuple)
+         self['mo_num'] = time.strftime('%m', timeTuple)
+         self['da'] = time.strftime('%d', timeTuple)
++        self['daord'] = nthday[int(self['da']) - 1][-2:]
+         self['dw'] = time.strftime('%A', timeTuple)
+         self['yr'] = time.strftime('%Y', timeTuple)
+         self['fulltime'] = time.strftime('%Y%m%d%H%M%S', timeTuple)
+</code></pre>
+
+<p>In general, there seems to be a lot of calls to
+strftime in this function, I&#8217;m wondering if one call
+would be quicker and then to split up the output?  Anyone who is smarter than
+me wanna take a guess at it?</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/10/31/xmlcategoriesintro/">XMLCategories pyBlosxom Plugin</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-10-31T20:22:00-05:00" pubdate data-updated="true">Oct 31<span>st</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In the spirit of making every damn thing on this site XML, I went through and translated
+the category plugin into XML spitting out fun.  It&#8217;s not quite perfect yet as it doesn&#8217;t
+nest XML elements, but it works well enough to generate a simple list.  You can see it
+in action (post XSLT processing of course) on the side of this weblog.  Feel free to
+download it from my <a href="/weblog/projects">projects page</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/10/31/hidingpyblosxomwithmodrewrite/">Hiding Pyblosxom With Mod_rewrite</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-10-31T09:16:00-05:00" pubdate data-updated="true">Oct 31<span>st</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>One of the more interesting things about pyblosxom is that it&#8217;s all based off a single URL and data is passed to it in the form of a path rather than all on the hook.  Anyway, this means that unless you want a nasty looking path like http://patrick.wagstrom.net/pyblosxom/pyblosxom.cgi/2003/oct then you need to do something to hide it.  There are a few hints that talk about hiding stuff.  But I think that I&#8217;d rather do it a more robust way than just renaming the CGI as something like blog.</p>
+
+<p>So the better way to do it is with mod_rewrite.  This not only allows you to hide the weblog under a better URL, but also allows you to completely deny access to items underneath your pyblosxom file tree.  Here&#8217;s the snippet I used on my website:</p>
+
+<pre><code>&lt;IfModule mod_rewrite.c&gt;
+    RewriteEngine on
+    RewriteRule ^/weblog/?$ /pyblosxom/pyblosxom.cgi [L]
+    RewriteRule ^/weblog/(.+) /pyblosxom/pyblosxom.cgi/$1 [L]
+    RewriteRule ^/pyblosxom/(.+) /weblog/$1 [R,L]
+&lt;/IfModule&gt;
+</code></pre>
+
+<p>Simply put, this redirects any request for the url /weblog or /weblog/ to the file /pyblosxom/pyblosxom.cgi.  It also redirects any request for a subdirectory of weblog to the CGI and appends the rest of the URL to it.  Finally, if there is ever a direct request to the URL for the CGI then it will use a HTTP redirect to point the user to the weblog link.  This means that the only way to get access files that actually live under /pyblosxom is through the CGI.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/10/31/drionthinkpad/">Enabling DRI on a Thinkpad A31</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-10-31T00:23:00-05:00" pubdate data-updated="true">Oct 31<span>st</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>As part of my <a href="http://www.casos.ece.cmu.edu/">program here</a> I&#8217;ve
+got an IBM Thinkpad A31.  In general it&#8217;s a pretty nice little system, it&#8217;s
+got a few issues that I&#8217;ll try to document here and how I&#8217;ve managed to get
+around them in hopes that this information can help someone else out.</p>
+
+<p>One of the most annoying things is what happened when I upgraded the kernel.
+I currently run <a href="http://www.redhat.com/">RedHat 9</a> and it works
+quite well.  Then I tried to upgrade the kernel from 2.4.20 to 2.4.22 because
+of the improvement in the wireless drivers associated with the system.
+However, this ended up killing my DRI (3d acceleration).  The reason is
+because my DRI was no longer the right version (1.3 vs 1.1).  The solution,
+recompile the DRI drivers and reinstall them over the ones that shipped with
+the kernel.</p>
+
+<p>The first step is to go and download the driver source from <a href="http://www.xfree86.org/~alanh/">Alan H&#8217;s</a> website.  Then unpack and
+compile them using the command make -f
+Makefile.linux.  The final step is to
+copy radeon.o to
+/lib/modules/2.4.22/kernel/drivers/char/drm/radeon.o.
+Then either reboot or log out of X completely and reload the kernel module.
+Now when you run &#8220;glxgears&#8221; you should get a good framerate (~ 1000fps).</p>
+
+<p>If this still doesn&#8217;t work, for instance glxgears
+reports back LibGL: init failed then you should
+make sure to set LIBGL_DEBUG=verbose and try running
+the command again.  This can provide more information to help you debug the
+problem.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/10/31/initialthoughts/">Initial Thoughts on a New Apache Module</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-10-31T00:09:00-05:00" pubdate data-updated="true">Oct 31<span>st</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So now that I&#8217;ve got my blog automagically rendering XML into HTML through XSLT
+for browsers that can&#8217;t hack it, I&#8217;d like to extend that to my entire web
+server.  This will take a little bit more work.  First I&#8217;ll describe the
+general concept:</p>
+
+<ol>
+<li><p>User makes a request for a given page such as index.xml or foo.php</p></li>
+<li><p>Post construction of the page (so this will work with PHP and what not) the module checks the header on the page, if it is text/xml then we proceed to the next step, otherwise return data unprocessed</p></li>
+<li><p>Check to see if browser is one that can handle getting an XML stream returned to it, such as <a href="http://www.mozilla.org/products/firebird/">Firebird</a>.  If it is, then return the stream unprocessed</p></li>
+<li><p>We should only reach this point if the content is text/xml and the browser does not have and XSLT engine.  If this is the case, dig into the XML file and see if it supposed to have an associated stylesheet to go along with it.</p></li>
+<li><p>If there is no associated XSLT sheet, return the data as straight XML.  This way it still is possible to send back things like RSS feeds.</p></li>
+<li><p>Finally, run the XML file and XSLT sheet through an XSLT engine and return the output to the client.</p></li>
+</ol>
+
+
+<p>There are a few other packages out there that claim to do some XSLT
+transformations for Apache, among them are <a href="http://modxslt.sourceforge.net/">modxslt</a> and <a href="http://murka.sourceforge.net/">murka</a>.  It appears that modxslt has
+been dead since 2001, which make me wonder how well it will work with newer
+version of Apache.  Murka seems to be fairly up to date, but I don&#8217;t like how
+it doesn&#8217;t allow the client the pleasure of doing the XSLT transformation.  I
+say pleasure because allowing the client to do the rendering opens up some neat
+opportunities for new ways of accessing the site.  I&#8217;m also not a fan of how it
+creates so many virtual URLs that tend to make stuff confusing for
+administration.  I would just like the request to always be for
+foo.xml rather than all the other extensions.</p>
+
+<p>As far as actually implementing this, I don&#8217;t know jack about how to write a
+module for Apache 2 (I&#8217;ve got a book on Apache 1).  Also, it&#8217;s been a very long
+time since I&#8217;ve written anything in C.  I was thinking that it might be neat to
+work with <a href="http://www.modpython.org/">modpython</a>, but then I&#8217;d need
+to install modpython, which I&#8217;m too lazy to do.  Well, that and I&#8217;m also not
+sure if it links as deep into Apache as modperl does.  So with all that being
+said, I think that I&#8217;m going to make a shot doing it in C.  It will be a good
+exercise.  I&#8217;ll keep updating this section of the blog as I go.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/weblog/blog/page/33/">&larr; Older</a>
+    
+    <a href="/weblog/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/weblog/blog/page/31/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/weblog/2012/05/10/static-bloggin/">Static Bloggin</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/28/i-am-not-a-climatologist-and-neither-are-most-of-these-people/">I am not a climatologist, and neither are most of these people</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/10/looking-for-summer-interns-in-the-software-technology-group-at-ibm-tj-watson-research-center/">Looking for Summer Interns in the Software Technology Group at IBM TJ Watson Research Center</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/a-review-of-2011-personal-development-goals/">A Review of 2011 Personal Development Goals</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/open-source-and-technology-predictions-for-2012/">Open Source and Technology Predictions for 2012</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/pridkett">@pridkett</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'pridkett',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/weblog/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("pridkett", 4, false);
+    });
+  </script>
+  <script src="/weblog/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/pridkett" class="twitter-follow-button" data-show-count="false">Follow @pridkett</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/102672530623465237388?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Patrick Wagstrom -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

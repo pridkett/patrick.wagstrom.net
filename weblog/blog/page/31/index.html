@@ -1,0 +1,767 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Delusional Dream</title>
+  <meta name="author" content="Patrick Wagstrom">
+
+  
+  <meta name="description" content="One of the wonderful things about the Internet is how you can easily link to
+other documents that are relevant to whatever topic you&#8217;re &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://patrick.wagstrom.net/weblog/blog/page/31">
+  <link href="/weblog/favicon.png" rel="icon">
+  <link href="/weblog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/weblog/javascripts/modernizr-2.0.js"></script>
+  <script src="/weblog/javascripts/ender.js"></script>
+  <script src="/weblog/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/weblog/atom.xml" rel="alternate" title="My Delusional Dream" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/weblog/">My Delusional Dream</a></h1>
+  
+    <h2>Thoughts of a cautious technocrat</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/weblog/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:patrick.wagstrom.net/weblog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/weblog/">Blog</a></li>
+  <li><a href="/weblog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/11/28/blockinghotlinking/">Blocking Hot Linking With Mod_rewrite</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-11-28T09:48:00-05:00" pubdate data-updated="true">Nov 28<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>One of the wonderful things about the Internet is how you can easily link to
+other documents that are relevant to whatever topic you&#8217;re preaching about.
+However, one of the most reprehensible things is the process of hot linking to
+images served off other people&#8217;s sites.  Such was the case with <a href="http://www.gnxp.com/">Gene Expression</a> while it seems to be a
+moderately interesting weblog, and I&#8217;m kinda happy he linked to me, it was
+done completely the wrong way.</p>
+
+<p>Apparently many people find this whole <a href="/weblog/weblog/random/averageJoe.xml">Tareq Kabir</a> thing from &#8220;Average
+Joe&#8221; a lot more interesting than I do.  So the person at GNXP.com linked
+to my article, which is fine, but also linked to a picture that I had snarfed
+from <a href="http://www.mythtv.org/">MythTV</a>.  The problem comes from the
+fact that his <img> tag had the complete ref
+to the image on my site.  Thus every hit on his page was generating traffic on
+my page.  This is a very incosiderate thing to do as it forces other people to
+pay for your bandwidth.  So off to mod_rewrite land to figure out how to block
+it and here&#8217;s what you do:</p>
+
+<pre><code>RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^http://dreams.wagstrom.net:8080/.*$ [NC]
+RewriteRule ^/resources/images/.*\.(gif|png|jpg)$ - [F]
+</code></pre>
+
+<p>Here&#8217;s what&#8217;s going on here.  The first line says that if the
+HTTP_REFERER is empty then we should ignore the
+upcoming rule.  The second line says that if the
+HTTP_REFERER is a URL from my site, then we&#8217;ll
+ignore the upcoming rule.  The third line says that for any file that ends
+with gif, jpg, or
+png in my images directory, an HTTP forbidden
+result will be returned.  Pretty simple and straight forward and no more
+hotlinking from other sites.  If an image is ref&#8217;d from my site, it&#8217;ll pass,
+if it&#8217;s entered without a referrer string (for instance from a bookmark or
+something) it will pass also.</p>
+
+<p>Another, more obnoxious alternative is to create a &#8220;No Linking&#8221; or
+&#8220;Bandwidth Thief&#8221; graphic.  This is a little bit meaner and still
+wastes some of your bandwidth, but can be more fun.  To do that, just change
+the final rule to something like:</p>
+
+<pre><code>RewriteRule ^/resources/images/.*\.(gif|png|jpg)$ /resources/images/bandwidthThief.png [L]
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/11/23/evotingoverview/">A Primer on Why eVoting eSucks</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-11-23T18:56:00-05:00" pubdate data-updated="true">Nov 23<span>rd</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The Sacramento Bee has a good <a href="http://www.sacbee.com/content/opinion/story/7837475p-8778055c.html">opinon
+article</a> written by a county clerk/recorder and UC-Davis Law School faculty
+member that explain some of the big programs behind the Help America Vote Act
+and why all these touch screen devices are bad news.  It catalogs the big three
+e-voting companies and how none of them deserve your trust.  I highly recommend
+it.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/11/22/transformiixrant/">A Rant on Transformiix</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-11-22T20:00:00-05:00" pubdate data-updated="true">Nov 22<span>nd</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;ve been having a good time taking advantage of the Transformiix XSLT processing engine that is part of the newer
+versions of <a href="http://www.mozilla.org/">Mozilla</a>.  However, I think I finally ran into something that it breaks
+on.  Here&#8217;s what&#8217;s going on.  I&#8217;m dynamically generating some graphics and need to output an imagemap with them.  The
+initial plan was to plunk the imagemap that I generate from <a href="http://www.graphviz.org/">neato or dot</a> as a chunk
+of CDATA.  The problem is that transformiix ALWAYS escapes the output.  It
+seems to completely ignore the <a href="http://www.zvon.org/xxl/XSLTreference/Output/xslt_text_disable-output-escaping.html">disable-output-escaping</a>
+attribute.  So needless to say, this annoys me as it works fine with xsltproc.</p>
+
+<p>My options were either have the server do the XSLT transformation or hack a way around it.  I chose the latter.  The first problem was
+that the imagemaps spit out by dot and neato aren&#8217;t valid as they look like this:</p>
+
+<pre><code>&lt;area shape="rect" href="vendor.py?id=317" title="OpenSSH" alt="OpenSSH" coords="441,436,569,495"&gt;
+</code></pre>
+
+<p>Now to fix that I need to add the &#8220;/&#8221; to the end of it.  So it was back to hacking the code on Graphviz (which I already had
+to do for it to compile on <a href="http://fedora.redhat.com/">Fedora</a>).  Then I fixed that.  Now the problem was
+I needed to make new nodes out of all these area tags.  The solution was to create another XML document in memory and transfer
+the node over.  This is probably not the most efficient, but it seems to work:</p>
+
+<pre><code>    cmap = graphviz.renderGraph(buildGraph(vendorInfo,vulns), format="cmap", engine="neato")
+    cmap = """&lt;?xml version="1.0"?&gt;\n&lt;imagemap&gt;\n%s&lt;/imagemap&gt;""" % cmap
+    imageMapDoc = libxml2.parseDoc(cmap)
+    mapNode = imageMapDoc.children
+    mapNode.setNs(myNS)
+    imageNode.addChild(mapNode)
+</code></pre>
+
+<p>Probably not the most useful out of context but I&#8217;ll sum it briefly.  So the first line makes the call that returns all of
+the area tags as a string.  The next line creates a dummy XML document while the third line parses
+it.  The fourth selects the <imagemap> node.  The fifth sets the right namespace and finally the
+sixth dumps it back it.  Then I can process all the nodes individually using the XSLT.  It&#8217;s sweet.  If only I could have
+done it the easy way with a chunk of Cdata though.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/11/22/gtkjava/">Java With GTK Look and Feel</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-11-22T14:53:00-05:00" pubdate data-updated="true">Nov 22<span>nd</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I remember seeing swing when it came out six years ago and thinking about how
+very cool it looked.  But after six years with almost no UI update it was
+starting to get a little stale.  Then I was reading the <a href="http://freedesktop.org/~jg/roadmap.html">Open Source Desktop Technology Roadmap</a>
+and noted what was just a little footnote at the bottom.  Apparently Java 1.4.2 supports a GTK look and feel for swing.  This is nice for me as
+I already know how to do Swing and don&#8217;t want to have to learn SWT.</p>
+
+<p>It&#8217;s especially nice when I consider that there currently isn&#8217;t a good SVG browser plugin for Firebird under Linux, so I&#8217;m probably going to need to
+whip up an applet using Batik to do what I really want to do.  Should make it look a little less alien.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/11/21/editcss/">EditCSS for Firebird</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-11-21T20:31:00-05:00" pubdate data-updated="true">Nov 21<span>st</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I just stubled across a neat enhancement for <a href="http://www.mozilla.org/products/firebird/">Firebird</a>.  <a href="http://editcss.mozdev.org/index.html">Edit CSS</a> allows you to edit the
+CSS of a web page on the fly.  It&#8217;s great for when you want to see either how a
+web page did something or you want to change something in your web page.  If I
+still did full time web development this would be my new best friend.  You can
+find more information at <a href="http://editcss.mozdev.org/">http://editcss.mozdev.org/</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/11/19/session1/">RFID Privacy Workshop - Session 1 (Prelim)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-11-19T22:41:00-05:00" pubdate data-updated="true">Nov 19<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>First up in session was Ravi Pappu from <a href="http://www.thingmagic.com/">ThingMagic</a> talking about security and
+privacy in the EPC network.  The first that needs to be made is that the EPC
+network is going to be some SCARY SHIT.  I don&#8217;t mean to swear, but if
+Christian fundamentalists thought the UPC was the mark of the beast then EPC is
+the antichrist.  Essentially everything is linked through this global network
+to track down EXACTLY what product a particular EPC code relates to.  A very
+good point is that the benefits of this system have yet to be clearly
+articulated.  There isn&#8217;t a reason of yet of why consumers should like this
+stuff.  After that he went into various threats to privacy resulting from RFID.
+The most interesting of which were the constellation effect where all your RFID
+tags create a shadow around you making you easy to track.  Also is the
+possibility that transactions amongst individuals would be trackable.  I&#8217;d
+imagine this would be the RIAA/MPAA&#8217;s dream as they could track the second hand
+market and shut it down.</p>
+
+<p>Then came what was the coolest piece of technology at the show, the blocker tag
+from <a href="http://www.ari-juels.com/">Ari Juels</a> of <a href="http://www.rsasecurity.com/">RSA Security</a>.  Due to the way that RFID
+is structured there can obviously be contention amongst devices when a reader
+is present.  Basically what the blocker does is stop playing nice and always
+say yes.  In this respect it says it is both a rutabega, a 12 pack of gilette
+razors and a roll of toilet paper at the same.  This makes it impossible to use
+readers when you&#8217;re around one of these.  However, this isn&#8217;t playing nice and
+we need to respect some standards (otherwise I&#8217;d already own a cell phone
+blocker and turn it on during meetings).   Thus there is the proposal to create
+a privacy space in RFID.  So when you purchase a device a bit is flipped to
+move the device from the normal space to the privacy space where the blocker
+will block requesting it.  However, the blocker is still theoretical and has
+not yet been built, leading to two problems.  First, it might not work in which
+case there is need to find a new solution.  The second is that it might work in
+which case it would be outlawed by the government.  Fortunately for us there is
+a solution, line a bag with tinfoil and that should keep those nasty signals
+out and away from the stuff in the bag.  Now the RFID chip embedded inyour
+sandal is another story.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/11/19/morning/">RFID Privacy Workshop - Morning (Prelim)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-11-19T22:13:00-05:00" pubdate data-updated="true">Nov 19<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This blog entry is a work in progress.  Please give me feedback.</p>
+
+<p>November 15th, 2003 marked the first <a href="http://www.rfidprivacy.org/">RFID
+Privacy workshop</a>.  It was held at the <a href="http://www.mit.edu/">MIT
+Media Lab</a> and organized by Simson Garfinkel (Ph.D. student and author of
+Database Nation).  Initial impressions were that it was larger than we
+expected, and it appears larger than the organizers expected too.  The room for
+the very important events of breakfast and lunch could hardly contain the
+people.  This was the first indication that it is a hotter topic than most
+people, including the organizers, thought.</p>
+
+<p>There were two morning keynotes, from two opposite ends of the spectrum.  Mario
+Rivas, executive vice president of Philips Semiconductors, gave the first talk
+about some of the business aspect of RFID.  Most of this information wasn&#8217;t new
+to anyone who has followed RFID.  Namely the facts that RFID can greatly
+improve the efficiency of supply chains and would be a boon to any retail store
+that has to occasionally do inventory.  What was a little disturbing is how he
+glossed over security quite a bit.  The comment was made that they have the
+best cryptologists working for them and are able to stay two steps ahead of the
+bad guys, but for many in the audience with a knowledge of cryptology, this did
+not calm our nerves.  I&#8217;d much rather know how the data is encrypted between
+the reader and tag than to just know it is encrypted.  A final good point that
+was made was the deployment of RFID devices.  Many organizations have RFID
+cards that are used for entry, MIT does and so did <a href="http://www.iit.edu/">IIT</a> when I went there (both under the brand name
+of &#8220;Prox&#8221; cards).  Also, many transportation agencies are deploying RFID
+passes, such as the London Transport and the Chicago Transit Authority.  These
+are nice for the consumer because the cards don&#8217;t expire and value can be
+replaced if lost.  They&#8217;re nice for the provider because they can track
+wherever you get on a train or bus.</p>
+
+<p>Next up was Katherine Albrecht from <a href="http://www.spychips.com/">CASPIAN</a>, a consumer rights organization
+that seeks more assurances about the safety and privacy of RFID devices.  A
+great amount of points were discussed about how manufacturers are relying on
+the complete apathy of consumers to push this technology through.  Some of the
+largest threats are problems arising from hidden tags and the possibility of
+data aggregation.  She also spent some time showing off some of the tags and
+showing how various companies like <a href="http://www.walmart.com/">Wal-Mart</a> have been using them in tests
+without telling people (this is yet another reason why you should boycott
+Wal-Mart, that and they only sell crap).</p>
+
+<p>Matt Reynolds from <a href="http://www.thingmagic.com/">ThingMagic</a> was the
+next person up to talk, this was probably one of the most helpful talks and
+made me happy that I spent time getting my electrical engineering degree even
+though I&#8217;ll probably never use it.  For complete details, please check out his
+<a href="http://www.rfidprivacy.org/papers/physicsofrfid.pdf">slides</a>.
+Basically the issue is this, with a 1W transmitter you will not be able to
+read any RFID chip from more than 20 meters away, the laws of physics just don&#8217;t
+allow it as you&#8217;ll get too much noise over such a distance.  This is because
+for 915MHz tags (the most common) the power decreases with square of distance.
+For 13.56MHz it decreases with the distance to the sixth power.  Furthermore,
+because we&#8217;re still sending radio waves they should be fairly easy to block by
+things like metal or big bags of water salt water (humans).  Thus ramming an
+RFID tag in your armpit will effectively kill it.  I&#8217;ll stress again, read the
+slides, they&#8217;ll make you feel better about how RFID is not this solution
+to/cause of all the worlds woes that one might think it is.</p>
+
+<p>The initial session concluded with a panel discussion by the first three
+presenters.  There wasn&#8217;t anything really new that was brought up at this
+point, just some clarifications and a nice slide form Katherine that showed
+the distances that various manufacturers claimed their tags could be read
+from.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/11/19/rfidprivacyreturn/">Back From Boston</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-11-19T21:38:00-05:00" pubdate data-updated="true">Nov 19<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I got back from Boston around 6pm tonight.  Took a nap and then caught up on what <a href="http://www.mythtv.org/">MythTV</a> got in my absence.  For some reason the encoder doesn&#8217;t seem to be encoding at the proper bit rate anymore.  It means I loose half the space, which is a lot when you&#8217;ve got a small hard disk.</p>
+
+<p>Anyway, the conference was great.  I learned a lot of interesting stuff and met some cool people.  I&#8217;ve got lots of notes that I&#8217;m going to be going through this week once I get caught up in my classes again.  I&#8217;ll post em to my blog in incremental sections.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/11/14/rfidprivacy/">RFID Privacy Conference</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-11-14T22:00:00-05:00" pubdate data-updated="true">Nov 14<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;m in Boston for the next few days at the <a href="http://rfidprivacy.org/">RFID Privacy Conference</a>.  I&#8217;ve never been to
+Boston before, this should be a bit of an adventure.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/11/11/dosbox/">Curse You Dosbox!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-11-11T23:04:00-05:00" pubdate data-updated="true">Nov 11<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>As never seems to fail, I broke down and started to play video games again.
+This time I was feeling a little retro, so out came <a href="http://dosbox.sourceforge.net/">dosbox</a> and some old school games that
+I actually own:</p>
+
+<p><img src="/weblog/resources/images/blog/wasteland.png" alt="Wasteland" /></p>
+
+<p><img src="/weblog/resources/images/blog/masterOfMagic.png" alt="Master of Magic" /></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/weblog/blog/page/32/">&larr; Older</a>
+    
+    <a href="/weblog/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/weblog/blog/page/30/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/weblog/2012/05/10/static-bloggin/">Static Bloggin</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/28/i-am-not-a-climatologist-and-neither-are-most-of-these-people/">I am not a climatologist, and neither are most of these people</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/10/looking-for-summer-interns-in-the-software-technology-group-at-ibm-tj-watson-research-center/">Looking for Summer Interns in the Software Technology Group at IBM TJ Watson Research Center</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/a-review-of-2011-personal-development-goals/">A Review of 2011 Personal Development Goals</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/open-source-and-technology-predictions-for-2012/">Open Source and Technology Predictions for 2012</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/pridkett">@pridkett</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'pridkett',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/weblog/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("pridkett", 4, false);
+    });
+  </script>
+  <script src="/weblog/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/pridkett" class="twitter-follow-button" data-show-count="false">Follow @pridkett</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/102672530623465237388?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Patrick Wagstrom -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

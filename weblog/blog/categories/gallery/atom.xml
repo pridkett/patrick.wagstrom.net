@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: gallery | My Delusional Dream]]></title>
+  <link href="http://patrick.wagstrom.net/weblog/blog/categories/gallery/atom.xml" rel="self"/>
+  <link href="http://patrick.wagstrom.net/weblog/"/>
+  <updated>2012-05-12T20:51:14-04:00</updated>
+  <id>http://patrick.wagstrom.net/weblog/</id>
+  <author>
+    <name><![CDATA[Patrick Wagstrom]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[PennAve 0.4 Released Today]]></title>
+    <link href="http://patrick.wagstrom.net/weblog/2007/05/23/pennave-04/"/>
+    <updated>2007-05-23T09:02:00-04:00</updated>
+    <id>http://patrick.wagstrom.net/weblog/2007/05/23/pennave-04</id>
+    <content type="html"><![CDATA[<p><a href="http://pennave.sf.net/">PennAve</a>, the web gallery application that works in conjunction with <a href="http://www.f-spot.org/">F-Spot</a> released version 0.4 today.  This newest release brings a slew of new   features including:</p>
+
+<ul>
+<li>New user interface</li>
+<li>Better support for internationalization</li>
+<li>Improvements to splash intro page</li>
+<li>Use of the much improved <a href="http://www.cherrypy.org/">CherryPy 3.0</a></li>
+<li>Option for server side rendering of HTML</li>
+<li>Canvas tag support for intro pages</li>
+<li>A slew of little bug fixes</li>
+</ul>
+
+
+<p>I haven't gotten my <a href="http://patrick.wagstrom.net/gallery/">personal gallery</a> running this newest version yet, but I hope to do so in the next few days.  In the mean time, if you use PennAve, I highly recommend checking out this package for sharing your photos online.  With it, publishing a nice web gallery is as simple as running rsync.  PennAve natively utilizes copies of your F-Spot data files, leaving very little additional work or tools for you. Just create a tag called "Public" and start tagging photos that you want share. All while retaining complete control over the presentation of your photos.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Calling Artists: PennAve Logo Request]]></title>
+    <link href="http://patrick.wagstrom.net/weblog/2007/02/04/logo-request/"/>
+    <updated>2007-02-04T23:42:00-05:00</updated>
+    <id>http://patrick.wagstrom.net/weblog/2007/02/04/logo-request</id>
+    <content type="html"><![CDATA[<p>As part of the preparation for PennAve 0.4, I'd like to give the application a little bit of branding magic.  So, if anyone out there has some graphics talent and would like to give me a hand, I could use a logo for PennAve.  My original thought was to take a photo of the street sign at the corner of Penn Ave and Main St here in Pittsburgh and then trace that to make a vector graphic for the logo.  But obviously, if you're an artist and have a better idea, I certainly am open to it.  So, artists of the world, immortalize yourself in free software.  Submit a logo today!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[PennAve 0.4 Is Coming Soon]]></title>
+    <link href="http://patrick.wagstrom.net/weblog/2007/02/03/pennave-04-is-coming/"/>
+    <updated>2007-02-03T18:12:00-05:00</updated>
+    <id>http://patrick.wagstrom.net/weblog/2007/02/03/pennave-04-is-coming</id>
+    <content type="html"><![CDATA[<p>I'm almost to the point where I'm ready to do a push out of the new 0.4 release of PennAve.  This release sees lots of new features and bug fixes that make the software even better.  Most of all, it's got a UI that's 83.6% sexier than the previous version, all at the same great free cost. It seems like most everything is working now, there are a few large known bugs that I'm not sure if they'll get fixed before the release.  They currently are:</p>
+
+<ul>
+<li><a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1651523&amp;group_id=110753&amp;atid=657348">slideshow does not work in IE 7</a></li>
+<li><a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1651525&amp;group_id=110753&amp;atid=657348">possible to leak information about tags</a></li>
+<li><a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1651528&amp;group_id=110753&amp;atid=657348">images should have alt tags</a></li>
+</ul>
+
+
+<p>The astute observer will notice that there are a few other bugs also listed on the <a href="http://sourceforge.net/tracker/?atid=657348&amp;group_id=110753&amp;func=browse">bug tracker page for PennAve</a>. These are fairly minor UI bugs that I'm not going to worry about fixing right now. If I get the chance, I'll see about tackling them, but they're not real high priority.  Also, I'm sucky at design.</p>
+
+<p>So, if you're feeling adventurous, hop on over to <a href="http://patrick.wagstrom.net/gallery/">my web photo gallery</a> and tell me if you see anything wrong.  Bugs can be submitted on SourceForge.net, or through an email to me.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[PennAve 0.3 Is Out]]></title>
+    <link href="http://patrick.wagstrom.net/weblog/2006/08/11/pennave-03/"/>
+    <updated>2006-08-11T16:34:00-04:00</updated>
+    <id>http://patrick.wagstrom.net/weblog/2006/08/11/pennave-03</id>
+    <content type="html"><![CDATA[<p>I released <a href="http://pennave.sf.net/">PennAve</a> 0.3 today.  This new release brings a slew of nifty new features that you can find on my <a href="http://patrick.wagstrom.net/gallery/">gallery</a>. Among them are:</p>
+
+<ul>
+<li>Slide show</li>
+<li>Nifty new graphics</li>
+<li>RSS feeds</li>
+<li>Customizable landing page</li>
+<li>Improved performance thanks to caching</li>
+</ul>
+
+
+<p>Anyway, if you're running <a href="http://www.gnome.org/">GNOME</a>, go grab <a href="http://www.f-spot.org/">F-Spot</a> and start sorting your photos.  Then put them online with <a href="http://pennave.sf.net/">PennAve</a>!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[PennAve is Up!]]></title>
+    <link href="http://patrick.wagstrom.net/weblog/2006/07/13/pennave-is-up/"/>
+    <updated>2006-07-13T15:08:00-04:00</updated>
+    <id>http://patrick.wagstrom.net/weblog/2006/07/13/pennave-is-up</id>
+    <content type="html"><![CDATA[<p>Today, more than <a href="http://patrick.wagstrom.net/weblog/code/gallery/start.xml">two years after I started work on a gallery program</a>, I finally have something that is workable and presentable.  No, I did not spend the last two years working on this software.  In fact, it's been almost entirely written since I got back from Honduras and realized that I had 900 or so photos that I would like to share.</p>
+
+<p>The original <a href="http://pennave.sf.net/">PennAve</a> was python based and used <a href="http://www.pythonware.com/products/pil/">the Python Imaging Library</a> for resizing the elements.  It also had some cool features like showing just a subsection of a picture, dynamic resizing to any size, and that sort of stuff.  Eventually it was supposed to go all multiuser and what not.  Then <a href="http://www.flickr.com/">Flickr</a> exploded and it didn't seem like such a novel idea anymore.</p>
+
+<p>So I had to think about a new way to do stuff.  I started using <a href="http://www.f-spot.org/">f-spot</a> to manage my photos.  I like the fact it allows me to create multiple versions of a photo with ease and the great integration of tagging into it.  It makes a nice slide show too.  From F-Spot I can export the data to a whole bunch of different systems, none of which I was a real fan of.  I wanted something that would let me use the F-Spot data without needing to use some other hokey system.  I figured this would bring us one step closer to world dominance.  Then I revisited <a href="http://tirania.org/blog/archive/2005/Nov-27-1.html">Miguel de Icaza's writing about the Web Desktop</a> and figured this would be a cool starting point.</p>
+
+<p>Unfortunately, or perhaps fortunately, it's not quite what Miguel envisioned. He talked about going all out and making it as an integrated part of the desktop.  Of course, he envisioned using <a href="http://www.mono-project.com/">Mono libraries</a>.  While I don't have a problem with C#, I realize that my server runs <a href="http://www.openbsd.org/">OpenBSD</a> and I'm not eager to get Mono on there.  Also, there is no desktop on my server, so integrating it into F-spot was also a no go. The solution?  Whip up a little fun with <a href="http://www.cherrypy.org/">CherryPy</a>, <a href="http://www.sqlobject.org/">SQLObject</a>, and <a href="http://www.pythonware.com/products/pil/">PIL</a>.  A bit more fun with <a href="http://www.libxml.org/">libXML</a> and things seemed quite nice.  So now, I present for folks to take a gander at, <a href="http://patrick.wagstrom.net/gallery/">my PennAve demo site</a>.  If this seems to continue working well, then I'll put the source up for a nice release sometime soon.  In the mean time, leave me some feedback on it.  If you'd like to just browse two major topics, look at <a href="http://patrick.wagstrom.net/gallery/tags/15">Bellefield's Honduras mission photos</a> and photos from <a href="http://patrick.wagstrom.net/gallery/tags/667">our Niagara Falls anniversary trip</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

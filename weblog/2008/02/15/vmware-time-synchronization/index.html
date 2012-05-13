@@ -1,0 +1,342 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Time Synchronization with VMWare - My Delusional Dream</title>
+  <meta name="author" content="Patrick Wagstrom">
+
+  
+  <meta name="description" content="Time Synchronization With VMWare Feb 15th, 2008 | var idcomments_acct = 'de6c2d3e38f6fdb9bf16fa9f1904f35d';
+var idcomments_post_id;
+var &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://patrick.wagstrom.net/weblog/2008/02/15/vmware-time-synchronization">
+  <link href="/weblog/favicon.png" rel="icon">
+  <link href="/weblog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/weblog/javascripts/modernizr-2.0.js"></script>
+  <script src="/weblog/javascripts/ender.js"></script>
+  <script src="/weblog/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/weblog/atom.xml" rel="alternate" title="My Delusional Dream" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/weblog/">My Delusional Dream</a></h1>
+  
+    <h2>Thoughts of a cautious technocrat</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/weblog/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:patrick.wagstrom.net/weblog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/weblog/">Blog</a></li>
+  <li><a href="/weblog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Time Synchronization With VMWare</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-02-15T20:49:00-05:00" pubdate data-updated="true">Feb 15<span>th</span>, 2008</time>
+        
+        
+         | 
+
+<script>
+var idcomments_acct = 'de6c2d3e38f6fdb9bf16fa9f1904f35d';
+var idcomments_post_id;
+var idcomments_post_url;
+</script>
+<script type="text/javascript" src="http://www.intensedebate.com/js/genericLinkWrapperV2.js"></script>
+
+
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>One of the major issues with utilizing a virtual machine for a server is that of time synchronization.  VMWare normally has access to a real time clock handler that helps to synchronize time, but even that causes time to skew.  This issue becomes more prominent with modern processors that support CPU frequency scaling.  However, there are many cases where even the VMWare custom kernel module can&#8217;t manage the time skew properly.  Such was the case with my updated VMWare virtual machine &#8211; to put it simply, time had stopped.</p>
+
+<p>Looking around, it appears that some of the problem may be to the new tickless features in the linux kernel.  Basically, this feature allows the system to stop waking up periodically if there is nothing to do. On desktop and laptop machines this saves a lot of power and is a key feature that has helped the <a href="http://www.laptop.org/">OLPC</a> be such a power miser.  However, it also really screws with the clocks in virtual machines, and may be cause of other issues.  I&#8217;ve also read that there are issues with heavy disk I/O and Gutsy in VMWare Server &#8211; which is my virtualization platform of choice.</p>
+
+<p>Previously, with the time issue, I would fix problems by adding in a cron job to periodically synchronize the date with a remote system. It&#8217;s important to note, that ntp won&#8217;t work because it tries to gradually synchronize the time &#8211; so it will never catch up.  However, using a cron job on the virtualized system relies on the virtualized system eventually hitting even minute marks.  Last night in the course of 12 hours, my time advanced 32 seconds; cron is not an option. The solution is to have the host operating system, which can keep time, periodically SSH into the virtualized machine and synchronize the time.  Getting started, you&#8217;ll need to activate the time service in xinetd on the host operating system.  Open up /etc/xinetd.d/time and change the lines that say</p>
+
+<pre><code>disable = yes
+</code></pre>
+
+<p>to say &#8220;no&#8221;.  Restart xinetd by running /etc/init.d/xinetd restart and you&#8217;ll now be able to rdate to your host machine.</p>
+
+<p>The next step is to create the ssh key and setup the cron job to connect to guest operating system.  These commands should do it for you.  Hit enter to leave it without a passphrase.  Then, copy the key to the guest operating system.</p>
+
+<pre><code>root@host:~# ssh-keygen -t dsa -C "automated RDATE ssh key" -f id_dsa.rdate
+Generating public/private dsa key pair.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in id_dsa.rdate.
+Your public key has been saved in id_dsa.rdate.pub.
+The key fingerprint is:
+d4:5f:01:83:ee:df:e0:e4:ea:ff:0a:6e:50:d1:e2:d3 automated RDATE ssh key
+root@host:~# scp id_dsa.rdate.pub USERACCOUNT@GUEST:
+</code></pre>
+
+<p>Now that the key is on the guest, it&#8217;s time to enable a passwordless login.  First, login to the guest machine, and open up a root shell using sudo -s.  Then run the following command to add the new key to your ~/root/.ssh/authorized_keys.</p>
+
+<pre><code>echo 'command="rdate -s HOST"' $(cat id_dsa.rdate.pub) &gt;&gt; ~root/.ssh/authorized_keys
+</code></pre>
+
+<p>The final step is to edit your /etc/crontab on your host system, and make the time synchronization happen every five minutes or so.</p>
+
+<pre><code>*/5 * * * * root ssh -i ~root/.ssh/id_dsa.rdate root@GUEST "rdate -s HOST"
+</code></pre>
+
+<p>Now, you should have a nice infrastructure set up where your VMWare virtual machine will never be more than five minutes away from the actual time.  It&#8217;s important to note that there are a few alternative ways of doing this.  For example, one could bypass the usage of rdate entirely through some clever shell scripting that passes the time on the host system to the time command on the remote system.  In my experience, this works in a homogeneous environment, but not every system can interpret times in the same way, so sticking with rdate seems like a good compromise.</p>
+</div>
+
+
+<script>
+var idcomments_acct = 'de6c2d3e38f6fdb9bf16fa9f1904f35d';
+var idcomments_post_id;
+var idcomments_post_url;
+</script>
+<span id="IDCommentsPostTitle" style="display:none"></span>
+<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+
+
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Patrick Wagstrom</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-02-15T20:49:00-05:00" pubdate data-updated="true">Feb 15<span>th</span>, 2008</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/weblog/blog/categories/computer/'>computer</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://patrick.wagstrom.net/weblog/2008/02/15/vmware-time-synchronization/" data-via="pridkett" data-counturl="http://patrick.wagstrom.net/weblog/2008/02/15/vmware-time-synchronization/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/weblog/2008/02/15/political-telemarketers-or-scammers/" title="Previous Post: Political Telemarketers or Scammers?">&laquo; Political Telemarketers or Scammers?</a>
+      
+      
+        <a class="basic-alignment right" href="/weblog/2008/02/19/ds-ram-fail/" title="Next Post: Problems with the M3 DS Rumble Ram Pack">Problems with the M3 DS Rumble Ram Pack &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/weblog/2012/05/10/static-bloggin/">Static Bloggin</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/28/i-am-not-a-climatologist-and-neither-are-most-of-these-people/">I am not a climatologist, and neither are most of these people</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/10/looking-for-summer-interns-in-the-software-technology-group-at-ibm-tj-watson-research-center/">Looking for Summer Interns in the Software Technology Group at IBM TJ Watson Research Center</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/a-review-of-2011-personal-development-goals/">A Review of 2011 Personal Development Goals</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/open-source-and-technology-predictions-for-2012/">Open Source and Technology Predictions for 2012</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/pridkett">@pridkett</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'pridkett',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/weblog/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("pridkett", 4, false);
+    });
+  </script>
+  <script src="/weblog/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/pridkett" class="twitter-follow-button" data-show-count="false">Follow @pridkett</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/102672530623465237388?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Patrick Wagstrom -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

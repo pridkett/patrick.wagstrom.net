@@ -1,0 +1,594 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Delusional Dream</title>
+  <meta name="author" content="Patrick Wagstrom">
+
+  
+  <meta name="description" content="Do you want to get married in the middle of the Sahara Desert but you can&#8217;t because there isn&#8217;t a church? Not a problem anymore, simply &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://patrick.wagstrom.net/weblog/blog/page/36">
+  <link href="/weblog/favicon.png" rel="icon">
+  <link href="/weblog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/weblog/javascripts/modernizr-2.0.js"></script>
+  <script src="/weblog/javascripts/ender.js"></script>
+  <script src="/weblog/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/weblog/atom.xml" rel="alternate" title="My Delusional Dream" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/weblog/">My Delusional Dream</a></h1>
+  
+    <h2>Thoughts of a cautious technocrat</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/weblog/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:patrick.wagstrom.net/weblog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/weblog/">Blog</a></li>
+  <li><a href="/weblog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/02/19/nochurchnoproblem/">No Church? No Problem!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-02-19T18:43:00-05:00" pubdate data-updated="true">Feb 19<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Do you want to get married in the middle of the Sahara Desert but you can&#8217;t because there isn&#8217;t a church?  Not a problem anymore, simply get the <a href="http://www.inflatablechurch.com/">Inflatable Church</a> and be on your merry way.  You still have the whole problem of pumping the massive 47ft x 25ft x 47 ft structure full of air.  But you&#8217;ve got a church, and in mere minutes, compared to the hundreds of years for some of the more grandiose European cathedrals.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/02/13/securityfun/">Security Fun</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-02-13T05:07:00-05:00" pubdate data-updated="true">Feb 13<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So I went all freaky about the fact that I thought my box at school was compromised today because school was filtering packets for a couple of well known viruses.  I&#8217;m quite relieved that I don&#8217;t have to reinstall the whole mess again.  But I did learn a few things in the mean time.  Most notable, I put some tools on my local computer here to help protect myself.   You might find them interesting too.</p>
+
+<p>First off is <a href="http://www.chkrootkit.org/">chkrootkit</a>.  This nifty little tool examines a bunch of the files on your system to see if they might have been corrupted.  Basically if <a href="http://www.chkrootkit.org/">chkrootkit</a> find anything strange you&#8217;re screwed because you&#8217;ve already been rooted.</p>
+
+<p>I also installed <a href="http://www.psionic.com/products/portsentry.html">portsentry</a>.  This nifty little tool sits and listens to connections coming to my computer.  When it detects that someone is trying to connect to my computer on bad ports (anything other than 22, 25, and 80) it immediately drops the packets from them and causes TCP wrappers to deny their connections.  Overall I must say that it&#8217;s quite sweet.  It wouldn&#8217;t be great for a server at school, but for my local system it rules.</p>
+
+<p>Because I hate reading logs, I installed <a href="http://www.psionic.com/products/logsentry.html">LogSentry</a>.  This basically emails me on the hour if something weird is happening on my system.  That should be pretty nice.</p>
+
+<p>Finally, I&#8217;ve got <a href="http://www.psionic.com/products/hostsentry.html">HostSentry</a> running.  It&#8217;s not that big of a deal because I&#8217;ve got so few users that can connect to my computer, but it monitors and looks for strange things, like connecting from IP addresses that are out of the ordinary and what not.</p>
+
+<p>Oh yeah, I also updated all of my iptables firewall scripts too.  I&#8217;ll post those at some point in the future.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/02/12/moreonthefreenet/">More on the FreeNet</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-02-12T19:36:00-05:00" pubdate data-updated="true">Feb 12<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I managed to insert Chipless using a key.  This means that some other person can&#8217;t just easily overwrite it with some random crap they want to put up there.  You can find it at freenet:SSK@WlOHUM05CM1SanXCO8qu1vGZGCQPAgM/fiction/chipless.  Have fun.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/02/12/freenet/">Freenet</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-02-12T17:08:00-05:00" pubdate data-updated="true">Feb 12<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;ve been playing around with the <a href="http://www.freenetproject.org/">FreeNet Project</a> over the past night as part of an assignment examining peer to peer systems.  I&#8217;m pretty impressed with it so far.  It does take some time for your system to build up it&#8217;s routing tables, but overall it&#8217;s pretty cool.  I managed insert my first piece of work into the freenet today.  You can find it using freenet:KSK@fiction/chipless as your URL.  Otherwise you can just go to <a href="http://localhost:8888/KSK@fiction/chipless">http://localhost:8888/KSK@fiction/chipless</a> to get it (you need to have fproxy running though).  I need to do some work because it requests images from other sources and has non-freenet links.  Maybe for another time.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/02/11/somethingfishyishappeninghere/">Something Fishy Is Happening Here</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-02-11T17:12:00-05:00" pubdate data-updated="true">Feb 11<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Now both my desktop at school and my desktop at home have KDE-3.1 (at home it was thanks to apt for redhat).  I was going to set up some NFS stuff to share my files at home with my computer at school, but that is sorta a pain.  I&#8217;ve discovered that KDE 3.1 has a very cool ioslave called fish.  With fish you can type fish://patrick@my.server.com/home/patrick/Documents/myfile.txt and get access to the file.  It even allows for browsing of the file and everything.  Overall it is very cool.</p>
+
+<p>(yes, I know that emacs has had something similar with tramp mode for a very long time&#8230;I&#8217;ve used tramp mode, and it works pretty slick to, but that&#8217;s just emacs; whereas a KDE ioslave can be used in any kde app)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/02/10/2for2/">2 for 2</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-02-10T21:34:00-05:00" pubdate data-updated="true">Feb 10<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Just a little update.  As of right now, I&#8217;ve heard back from two different Ph.D. programs and I&#8217;ve been accepted into both of them.  I guess that means that I&#8217;m 2 for 2.  Which is far better than I fared last year.  I should count my blessings.  Albeit, this whole thing would be much easier if I were only accepted into one program, that way I wouldn&#8217;t have to make any decisions.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/02/05/kde31onsparc64gentoo/">KDE 3.1 on Sparc64 Gentoo</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-02-05T03:59:00-05:00" pubdate data-updated="true">Feb 5<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;m currently typing this from my <a href="http://www.kde.org/">KDE 3.1</a> desktop on a sunblade at <a href="http://www.iit.edu/">school</a>.  I&#8217;ve got to say, it&#8217;s a very nice setup to have.  The antialiased fonts really help out a lot.  The desktop also seems fairly zippy (well, relative for a 500MHz machine of course).  I&#8217;m not sure how much of this actually has to deal with me running <a href="http://www.gentoo.org/">Gentoo</a> or not.  Of course, I&#8217;d like to think that Gentoo is entirely responsible, as it makes me want to install it more on my computer, but I realize it&#8217;s probably a combination of a lot of things.</p>
+
+<p>Anyway, go &#8220;emerge kde&#8221; now.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/02/04/setihomefun/">Seti@Home Fun</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-02-04T18:35:00-05:00" pubdate data-updated="true">Feb 4<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I went a redid my little <a href="http://setiathome.ssl.berkeley.edu/">seti@home</a> script to take data off the XML version of the pages.  Also, it dumps the data into the <a href="http://www.mysql.com/">MySQL</a> database now too.  You can see more information about how I&#8217;m doing in SETI, along with my brothers, at <a href="http://patrick.wagstrom.net/misc/seti.php">http://patrick.wagstrom.net/misc/seti.php</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/02/03/miscellaneousupdates/">Miscellaneous Updates</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-02-03T23:35:00-05:00" pubdate data-updated="true">Feb 3<span>rd</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I think my broadband connection might finally be working, but I can&#8217;t be wholly sure.  I haven&#8217;t any problems for the last 20 minutes while I&#8217;ve been using an SSH session.  Ping times from campus to my home computer are back down to their usual 40ms.  I forgot how nice that was.</p>
+
+<p>I&#8217;ve put up a webpage for <a href="/weblog/project175/">Project 175</a> where you can track my fat ass as I try to lose about 45-50lbs of lard.  I&#8217;ve become a tubby bitch over the past few months, so I&#8217;m hoping that this will help provide me with some motivation to unlardassify myself.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/01/31/snowonthattharradiotranceiver/">Snow on That Thar Radio Tranceiver</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-01-31T06:03:00-05:00" pubdate data-updated="true">Jan 31<span>st</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So my broadband connectivity has really sucked the last few days.   I think it&#8217;s because I have snow on the transceiver.  It seems to be working just fine now, so the site should be better.  Either that or SprintBroadband has got issues.  I also managed to get everything working for the Zaurii in lab with the Gentoo Sparc box serving as masquerading box and dhcp server.  When I moved the WAP11 off the main campus network, it seemed as though the performance improved quite a bit too.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/weblog/blog/page/37/">&larr; Older</a>
+    
+    <a href="/weblog/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/weblog/blog/page/35/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/weblog/2012/05/10/static-bloggin/">Static Bloggin</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/28/i-am-not-a-climatologist-and-neither-are-most-of-these-people/">I am not a climatologist, and neither are most of these people</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/10/looking-for-summer-interns-in-the-software-technology-group-at-ibm-tj-watson-research-center/">Looking for Summer Interns in the Software Technology Group at IBM TJ Watson Research Center</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/a-review-of-2011-personal-development-goals/">A Review of 2011 Personal Development Goals</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/open-source-and-technology-predictions-for-2012/">Open Source and Technology Predictions for 2012</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/pridkett">@pridkett</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'pridkett',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/weblog/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("pridkett", 4, false);
+    });
+  </script>
+  <script src="/weblog/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/pridkett" class="twitter-follow-button" data-show-count="false">Follow @pridkett</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/102672530623465237388?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Patrick Wagstrom -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,418 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Widescreen MythTV Hotness - My Delusional Dream</title>
+  <meta name="author" content="Patrick Wagstrom">
+
+  
+  <meta name="description" content="Widescreen MythTV Hotness Apr 28th, 2005 | var idcomments_acct = 'de6c2d3e38f6fdb9bf16fa9f1904f35d';
+var idcomments_post_id;
+var idcomments_post_url &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://patrick.wagstrom.net/weblog/2005/04/28/widescreenhotness">
+  <link href="/weblog/favicon.png" rel="icon">
+  <link href="/weblog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/weblog/javascripts/modernizr-2.0.js"></script>
+  <script src="/weblog/javascripts/ender.js"></script>
+  <script src="/weblog/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/weblog/atom.xml" rel="alternate" title="My Delusional Dream" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/weblog/">My Delusional Dream</a></h1>
+  
+    <h2>Thoughts of a cautious technocrat</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/weblog/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:patrick.wagstrom.net/weblog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/weblog/">Blog</a></li>
+  <li><a href="/weblog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Widescreen MythTV Hotness</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-04-28T08:02:00-04:00" pubdate data-updated="true">Apr 28<span>th</span>, 2005</time>
+        
+        
+         | 
+
+<script>
+var idcomments_acct = 'de6c2d3e38f6fdb9bf16fa9f1904f35d';
+var idcomments_post_id;
+var idcomments_post_url;
+</script>
+<script type="text/javascript" src="http://www.intensedebate.com/js/genericLinkWrapperV2.js"></script>
+
+
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>In addition to all of the <a href="/weblog/weblog/2005/04/25/wplugpchdtv4">pcHDTV cards</a> I bought last week, I also picked up a shiny new <a href="http://accessories.us.dell.com/sna/ProductDetail.aspx?TabPage=overview&amp;sku=320-4111&amp;category_id=4009&amp;c=us&amp;l=en&amp;cs=19">Dell 2005 FPW</a>. It&#8217;s a beautiful 1600x1050 20.1&#8221;
+widescreen LCD.   It&#8217;s also successfully replaced both the monitor and TV that
+we had sitting on our entertainment center in the living room.   It took a
+little bit of Googling to figure out to get my video card to like the monitor,
+but it turns out my trusty MGA G400 works like a charm.
+The main thing to remember is that the monitor only handles a 60Hz refresh.
+Unlike a regular CRT where this would be unbearable, it&#8217;s not really noticeable
+on an LCD.</p>
+
+<p>In short, here&#8217;s the lines you need to dump into your <code>/etc/X11/XF86Config-4</code> or <code>/etc/X11/Xorg.conf</code>.  I
+don&#8217;t claim to have discovered these, but they do seem to work for me.</p>
+
+<pre><code>Section "Modes"
+     Identifier "16:10"
+     ModeLine "1680x1050" 146.2 1680 1960 2136 2240 1050 1080 1086 1089
+     -hsync +vsync
+EndSection
+
+Section "Monitor"
+     Identifier "dell"
+     ModelName "2005FP Widescreen"
+     UseModes "16:10"
+     HorizSync 30-83
+     VertRefresh 56-75
+     Option "DPMS"
+EndSection
+
+Section "Screen"
+     Identifier "Screen 1"
+     Device "Matrox Graphics, Inc. MGA G400 AGP"
+     Monitor "dell"
+     DefaultDepth 24
+
+     Subsection "Display"
+         Depth 24
+         Modes "1680x1050" "1280x1024" "1024x768" "800x600"
+         ViewPort 0 0
+      EndSubsection
+EndSection
+
+Section "ServerLayout"
+        Identifier      "Default Layout"
+        Screen          "Screen 1"
+        InputDevice     "Generic Keyboard"
+        InputDevice     "Configured Mouse"
+        InputDevice     "Generic Mouse"
+EndSection
+</code></pre>
+
+<p>This monitor is quite nice because in addition to taking VGA and DVI input, it
+also takes SVIDEO and composite input.  Thus, in addition to having the Myth
+box plugged in, I&#8217;ve also got my DVD player plugged into the SVIDEO and and
+the VCR plugged into the composite input.  I was able to once again get it
+hooked up to DPMS so my remote turns the monitor off, but I don&#8217;t know of way
+to force it to change inputs without getting off my butt.  It&#8217;s got a USB hub
+on it, would it have been so hard to make it controllable over the USB port?
+And yes, I&#8217;ve already looked into this, the monitor shows up strictly as a
+USB hub, not as anything else.</p>
+
+<p>So, without further ado, some pictures of my new MythTV hotness.</p>
+
+  <figure class='center'>
+        <img src="/weblog/media/2005/04/mythTVSetup.jpg">
+        <figcaption>The fullll entertainment center, now with extra empty space </figcaption>
+    </figure>
+
+
+
+
+  <figure class='center'>
+        <img src="/weblog/media/2005/04/dell2005fpw.jpg">
+        <figcaption>Closer shot of the Dell 2005FPW monitor </figcaption>
+    </figure>
+
+
+
+
+  <figure class='center'>
+        <img src="/weblog/media/2005/04/mythTVBox.jpg">
+        <figcaption>The actual MythTV box, a six year old Athlon 700 </figcaption>
+    </figure>
+
+
+<p>The first picture shows the complete entertainment center setup.  It still is a bet
+messy, I really should hide some of the remotes and keyboard and mouse.  I so
+rarely use them anyway.  One of these days we&#8217;re going to get a better set of
+speakers too, but I think I&#8217;ll upgrade the box first.</p>
+
+<p>The next pic shows the monitor playing the full frame version of <a href="http://www.imdb.com/title/tt0126029/">Shrek</a>.  My DVD player doesn&#8217;t know when it&#8217;s
+outputting widescreen, so that makes things a little weird.  It&#8217;s a first
+generation DVD player from about 1998 or so.  But it does support component
+video and digital audio.  Not like our cruddy little stereo could support it
+right now anyway.  Fortunately, MythTV automagically detects the 16:10 aspect
+ratio of the monitor and scales the output properly.  It also provides a
+variety of zoom modes which is very useful for watching HD letterboxed programs
+captured over NTSC.  Even for standard full-frame using a 4:3 zoom mode seems to
+work nicely and capture most of the screen (only tested on Family Guy and The
+Simpsons so far).</p>
+
+<p>The final shot shows the actual computer that runs my MythTV box.  It&#8217;s my
+computer from undergrad, complete with stickers from the dot-com bust on it.  A 700MHz Athlon with 768MB of ram and 245G of
+hard disk loaded with <a href="http://www.ubuntulinux.com/">Ubuntu</a> 4.10 (Warty Warthog).  It runs well enough, but lately has been hiccuping a lot.  I&#8217;m not
+sure why.  Video capture is done via a <a href="http://www.hauppauge.com/pages/products/data_250.html">Hauppauge WinTV PVR-250</a> and now a <a href="http://www.pchdtv.com/hd_3000.html">pcHDTV HD 3000</a>.  I can&#8217;t actually play back the
+HDTV on this system yet, so if I want to watch it, I need to transcode, which
+is really slow.  I&#8217;ve been looking at getting a faster system, Intel machines
+seem to do better at the task, but the <a href="http://www.techreport.com/onearticle.x/7417">power consumption is insane</a> not to mention the energy lost as
+heat off the chip.  This means I&#8217;ll probably wait a bit longer (end of summer
+or so) and then pick up a nice Athlon 64 with the Winchester or Venice core
+to save on some power consumption.  Also, atop the box you can see my second
+LinkSys WRT54G.  This is loaded with <a href="http://dd-wrt.com/">DD-WRT firmware</a> to provide wireless bridging and range extension to my cable modem in
+the study upstairs.</p>
+</div>
+
+
+<script>
+var idcomments_acct = 'de6c2d3e38f6fdb9bf16fa9f1904f35d';
+var idcomments_post_id;
+var idcomments_post_url;
+</script>
+<span id="IDCommentsPostTitle" style="display:none"></span>
+<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+
+
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Patrick Wagstrom</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-04-28T08:02:00-04:00" pubdate data-updated="true">Apr 28<span>th</span>, 2005</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/weblog/blog/categories/mythtv/'>mythtv</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://patrick.wagstrom.net/weblog/2005/04/28/widescreenhotness/" data-via="pridkett" data-counturl="http://patrick.wagstrom.net/weblog/2005/04/28/widescreenhotness/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/weblog/2005/04/25/wplugpchdtv4/" title="Previous Post: 20 pcHDTV Cards on The Shelf...">&laquo; 20 pcHDTV Cards on The Shelf...</a>
+      
+      
+        <a class="basic-alignment right" href="/weblog/2005/05/02/mysouthparkcharacter/" title="Next Post: Me in South Park">Me in South Park &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/weblog/2012/05/10/static-bloggin/">Static Bloggin</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/28/i-am-not-a-climatologist-and-neither-are-most-of-these-people/">I am not a climatologist, and neither are most of these people</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/10/looking-for-summer-interns-in-the-software-technology-group-at-ibm-tj-watson-research-center/">Looking for Summer Interns in the Software Technology Group at IBM TJ Watson Research Center</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/a-review-of-2011-personal-development-goals/">A Review of 2011 Personal Development Goals</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/open-source-and-technology-predictions-for-2012/">Open Source and Technology Predictions for 2012</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/pridkett">@pridkett</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'pridkett',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/weblog/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("pridkett", 4, false);
+    });
+  </script>
+  <script src="/weblog/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/pridkett" class="twitter-follow-button" data-show-count="false">Follow @pridkett</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/102672530623465237388?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Patrick Wagstrom -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

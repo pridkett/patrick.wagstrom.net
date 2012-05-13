@@ -1,0 +1,344 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>The 24 Hour Blog Challenge - My Delusional Dream</title>
+  <meta name="author" content="Patrick Wagstrom">
+
+  
+  <meta name="description" content="The 24 Hour Blog Challenge Jan 3rd, 2008 | var idcomments_acct = 'de6c2d3e38f6fdb9bf16fa9f1904f35d';
+var idcomments_post_id;
+var idcomments_post_url &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://patrick.wagstrom.net/weblog/2008/01/03/24hrblogchallenge">
+  <link href="/weblog/favicon.png" rel="icon">
+  <link href="/weblog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/weblog/javascripts/modernizr-2.0.js"></script>
+  <script src="/weblog/javascripts/ender.js"></script>
+  <script src="/weblog/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/weblog/atom.xml" rel="alternate" title="My Delusional Dream" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/weblog/">My Delusional Dream</a></h1>
+  
+    <h2>Thoughts of a cautious technocrat</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/weblog/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:patrick.wagstrom.net/weblog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/weblog/">Blog</a></li>
+  <li><a href="/weblog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">The 24 Hour Blog Challenge</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-01-03T11:16:00-05:00" pubdate data-updated="true">Jan 3<span>rd</span>, 2008</time>
+        
+        
+         | 
+
+<script>
+var idcomments_acct = 'de6c2d3e38f6fdb9bf16fa9f1904f35d';
+var idcomments_post_id;
+var idcomments_post_url;
+</script>
+<script type="text/javascript" src="http://www.intensedebate.com/js/genericLinkWrapperV2.js"></script>
+
+
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I&#8217;ve had a weblog of some sort since my early 1998 &#8211; back before they were called weblogs.  Originally it was a set of PHP 3 scripts that talked to a MySQL database, pretty high-tech stuff for the era.  In 2001 I moved over to Movable Type because it was the blogging hotness at the time.  In 2003 after moving out of Chicago and seeing SixApart squander their opportunity due to asinine licensing terms (and the fact that Movable Type is written in Perl), I started using <a href="http://pyblosxom.sf.net/">PyBlosxom</a>, a dead simple system that relies on a set of files in the directory tree for posts.</p>
+
+<p>Of course, I had to go an hack up PyBlosxom, giving it the ability to push XSLT transformations to the client, or doing them server side for readers with older browsers.  I also removed some of the silly stuff, like the ability to have it redo the content in 99 billion different formats.  The system has worked really well for me, creating a new post is as simple as opening up vi or Emacs and writing a text file.</p>
+
+<p>But, this has it&#8217;s drawbacks.  First, a complete directory crawl is required on every hit to the page.  With only a handful of posts, this isn&#8217;t a big deal.  But I&#8217;ve got a couple of hundred posts and they&#8217;re stored in subversion, so the crawl takes a while.  The posts then need to be sorted, and categorized.  Yeah, it&#8217;s slow.  Second, It&#8217;s all very hackey right now.  The fact that the XSLT transformations even remotely work is interesting, but I hate writing something and then seeing the <a href="http://en.wikipedia.org/wiki/Yellow_Screen_of_Death">Yellow Screen of Death</a> in Firefox because I forgot to close a tag.</p>
+
+<p>Thirdly, the comment system works, but it quite sub-par right now. Everything is stored in flat files, which makes comment management difficult.  Finally, I don&#8217;t have the ability to save drafts, manage tags, or easily tweak a lot of things I&#8217;d love to do.  It&#8217;s become painful.  PyBlosxom, it&#8217;s not you, it&#8217;s me.  I don&#8217;t have time to do this stuff anymore.</p>
+
+<p>What I do have time for is a 24 Hour Blog Challenge.  The goal of this will be to write a complete new piece of Weblog software in 24 hours &#8211; and I&#8217;ll do it while not neglecting any other responsibilities.  I should stress right now, I have no code written for this software, and will not until I return from the airport tomorrow and start writing.</p>
+
+<p>Architecture wise, I have already decided that it will be a Python CGI system using an SQLite backend.  I&#8217;m not going to worry about WSGI or anything like that right now.  The system must be meet the following requirements at the end of 24 hours for it to be a success:</p>
+
+<ul>
+<li>Import all previous stories &#8211; It&#8217;s no good if I lose all of my flat text files that I have laying around.  One of the first tasks will be to create an importer.</li>
+<li>Non-Breakage of previous URLs &#8211; I like the current URL scheme I have my for weblog and I would hate to have to create hundreds of <a href="http://httpd.apache.org/docs/2.0/mod/mod_rewrite.html">mod_rewrite</a> redirects to keep everything working.</li>
+<li>Command line import/export for stories &#8211; I like being able to edit stories from the command line.  This new setup will just mean that I have to dump the story in and out with a script, nothing big and highly related to the first requirement.</li>
+<li>Hierarchical classification of stories &#8211; basically, continue to implement categories with improved category browsing.</li>
+<li>Non-Hierarchical classification of stores &#8211; make the tags on each story do something other than link to Technorati.</li>
+<li>RSS Feeds &#8211; if people can&#8217;t read the weblog through a news reader, it&#8217;s a web page, not a weblog.</li>
+<li>User comments &#8211; Likewise, all weblogs should have some way to easily interact with the author.  Comments must be enabled.</li>
+</ul>
+
+
+<p>In addition to those features, here are requirements that should be completed, but the task won&#8217;t be a failure if they&#8217;re not.</p>
+
+<ul>
+<li>User accounts &#8211; not required for all comments, but could be used by users to customize the appearance of their comments, etc. Also makes management a bit easier.</li>
+<li>Web based editing &#8211; sometimes SSH just isn&#8217;t an option and a web based system would be better.</li>
+<li>Publish/Draft distinction &#8211; Under PyBlosxom, stories are either published and public, or not.  There isn&#8217;t a way to mark something as a draft, see how it will look, and then edit it some more.</li>
+<li>OpenID support &#8211; this is a long-shot, but OpenID seems nifty, I&#8217;d like to support it and set up some OpenID services for Wagstrom.net.</li>
+<li>Integration with <a href="http://pennave.sf.net/">PennAve</a> &#8211; there&#8217;s no reason why it shouldn&#8217;t be easy for me to use photos in my collection in weblog posts.</li>
+<li>WSGI support &#8211; I hear that WSGI is the new hotness for hosting Python applications.  Supporting it should allow faster responses and all that.  This is a bigger thing that will most likely see me move <a href="http://pennave.sf.net/">PennAve</a> to
+a WSGI interface too.</li>
+</ul>
+
+
+<p>I should stress that the purpose of this challenge is NOT to write the next Wordpress, MovableType, or whatever else the kids are using today.  The purpose is to see if I can create the system and to replace an aging and creaky system currently installed.  Anyway, wish me luck, I&#8217;ll try to post as I go along tomorrow.</p>
+</div>
+
+
+<script>
+var idcomments_acct = 'de6c2d3e38f6fdb9bf16fa9f1904f35d';
+var idcomments_post_id;
+var idcomments_post_url;
+</script>
+<span id="IDCommentsPostTitle" style="display:none"></span>
+<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+
+
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Patrick Wagstrom</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-01-03T11:16:00-05:00" pubdate data-updated="true">Jan 3<span>rd</span>, 2008</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/weblog/blog/categories/code/'>code</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://patrick.wagstrom.net/weblog/2008/01/03/24hrblogchallenge/" data-via="pridkett" data-counturl="http://patrick.wagstrom.net/weblog/2008/01/03/24hrblogchallenge/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/weblog/2008/01/03/goodbye-openbsd/" title="Previous Post: Goodbye OpenBSD">&laquo; Goodbye OpenBSD</a>
+      
+      
+        <a class="basic-alignment right" href="/weblog/2008/01/05/24hrblogchallenge-update/" title="Next Post: 24 Hour Blog Challenge Update">24 Hour Blog Challenge Update &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/weblog/2012/05/10/static-bloggin/">Static Bloggin</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/28/i-am-not-a-climatologist-and-neither-are-most-of-these-people/">I am not a climatologist, and neither are most of these people</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/10/looking-for-summer-interns-in-the-software-technology-group-at-ibm-tj-watson-research-center/">Looking for Summer Interns in the Software Technology Group at IBM TJ Watson Research Center</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/a-review-of-2011-personal-development-goals/">A Review of 2011 Personal Development Goals</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/open-source-and-technology-predictions-for-2012/">Open Source and Technology Predictions for 2012</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/pridkett">@pridkett</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'pridkett',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/weblog/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("pridkett", 4, false);
+    });
+  </script>
+  <script src="/weblog/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/pridkett" class="twitter-follow-button" data-show-count="false">Follow @pridkett</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/102672530623465237388?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Patrick Wagstrom -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

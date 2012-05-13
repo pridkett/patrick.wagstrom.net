@@ -1,0 +1,832 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Delusional Dream</title>
+  <meta name="author" content="Patrick Wagstrom">
+
+  
+  <meta name="description" content="I&#8217;ve created a first rough go at an XSLT renderer for pyblosxom. It&#8217;s not perfect, but it&#8217;s not horrible either. I need to figure &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://patrick.wagstrom.net/weblog/blog/page/33">
+  <link href="/weblog/favicon.png" rel="icon">
+  <link href="/weblog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/weblog/javascripts/modernizr-2.0.js"></script>
+  <script src="/weblog/javascripts/ender.js"></script>
+  <script src="/weblog/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/weblog/atom.xml" rel="alternate" title="My Delusional Dream" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/weblog/">My Delusional Dream</a></h1>
+  
+    <h2>Thoughts of a cautious technocrat</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/weblog/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:patrick.wagstrom.net/weblog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/weblog/">Blog</a></li>
+  <li><a href="/weblog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/10/29/xsltrendererintro/">XSLTRenderer Plugin</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-10-29T23:02:00-05:00" pubdate data-updated="true">Oct 29<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;ve created a first rough go at an XSLT renderer for pyblosxom.  It&#8217;s not perfect, but it&#8217;s not horrible either.  I need to figure out how to get the flavor of the of
+the request before entering the renderer.  I don&#8217;t want the XSLT renderer to be used except on certaint flavor requests, which causes problems becaues right now it is
+being used on all flavor requests.  If you&#8217;re using an XSLT browser this makes no difference, but if you&#8217;re using a non-xslt browser I&#8217;d imagine that it would break
+a lot of the files.  Oh well, not a major concern right now.  You can find the link to the plugin on my <a href="/weblog/projects/">projects page</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/10/28/xmlcalendarupdate/">XMLCalendar Plugin Update</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-10-28T19:19:00-05:00" pubdate data-updated="true">Oct 28<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I realized that my first incarnation might have been a bit unrefined in some
+respects.  This new version is much easier to run an XSLT parser over and
+eliminates a lot of the redunancies.  Feel free to <a href="/weblog/projects/pyblosxom/plugins/xmlcalendar.py">fetch the new version</a>
+from the same spot.  I also got an email from <a href="http://roughingit.subtlehints.net/pyblosxom/">Wari Wahab</a> (the author
+of pyBlosxom) today suggesting that I make some of my other changes with the
+browser specific flavors as a renderer.  I&#8217;m going to look into that this
+weekend.  If that works then I&#8217;ll probably just have some special code for
+the HTML version of the page where it generates the XSLT then sends it through xsltproc serverside before
+sending off to the older clients.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/10/27/xmlcalendarintro/">XMLCalendar pyBlosxom Plugin</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-10-27T23:52:00-05:00" pubdate data-updated="true">Oct 27<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Today I officially created my first plugin for pyblosxom.  I wasn&#8217;t happy with the calendar plugin that shipped with
+it, so I hacked it to ouptput straight XML.  Then the XML can be parsed in XSLT like the rest of the system.  This leads to
+a greater amount of flexibility (althought at the moment, it&#8217;s just outputing the same old calendar).  Eventually I&#8217;m going to have to
+hack it together so the XMLNS it uses is user configurable, but that shouldn&#8217;t be that hard.</p>
+
+<p>You can find it at <a href="/weblog/projects/pyblosxom/plugins/xmlcalendar.py">/projects/pyblosxom/plugins/xmlcalendar.py</a>. To use it, just include the variable $xmlcalendar in your templates.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/10/26/browserflavour/">Flavours Based on Browser Version</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-10-26T22:41:00-05:00" pubdate data-updated="true">Oct 26<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Okay, so I&#8217;ve got an XML/XSLT version of my weblog that I&#8217;ve been working on.
+I would like for the XML/XSLT version to be the default for browsers like
+Mozilla and Firebird while retaining the HTML version for the rest of my
+website.  However, Pyblosxom doesn&#8217;t allow this.  Until now!  There were a few
+steps to this project that needed to be completed.  The first was stopping
+Pyblosxom from escaping out > and &lt; when sending out content type of
+&#8220;text/xml&#8221;.  That&#8217;s what this patch is for:</p>
+
+<pre><code>--- /home/patrick/src/pyblosxom-0.8.1/Pyblosxom/renderers/blosxom.py    Fri Sep 26 00:57:31 2003
++++ blosxom.py  Sun Oct 26 19:00:39 2003
+@@ -117,12 +117,13 @@
+
+         output = []
+
+-        if re.search(r'\Wxml', data['content-type']):
+-            quotes = {"'":"'", '"':"""}
+-            entry['title'] = escape(entry['title'],quotes)
+-            entry.setData(escape(entry.getData(),quotes))
++        # if re.search(r'\Wxml', data['content-type']):
++            # quotes = {"'":"&amp;apos;", '"':"&amp;quot;"}
++            # entry['title'] = escape(entry['title'],quotes)
++            # entry.setData(escape(entry.getData(),quotes))
+
+-        elif data['content-type'] == 'text/plain':
++        # elif data['content-type'] == 'text/plain':
++        if data['content-type'] == 'text/plain':
+             s = tools.Stripper()
+             s.feed(entry.getData())
+             s.close()
+</code></pre>
+
+<p>As you can see, this just comments out the old functionality, so it&#8217;s easy
+enough to replace if you need it at a later time.  The other step was to allow
+a lookup of the appropriate default flavor.  Here&#8217;s the patch that allows that:</p>
+
+<pre><code>--- /home/patrick/src/pyblosxom-0.8.1/Pyblosxom/pyblosxom.py    Wed Aug  6 18:40:25 2003
++++ ../Pyblosxom/pyblosxom.py   Sun Oct 26 21:32:40 2003
+@@ -144,11 +144,29 @@
+
+         return valid_list
+
++    def browserSpecificFlavour(self,args):
++        """
++        Allow for specific default flavors based on the version of the browser.
++
++        @param args: dict containing the incoming Request object
++        @type args: L{Pyblosxom.Request.Request}
++        """
++        request = args['request']
++        config = request.getConfiguration()
++        pyhttp = request.getHttp()
++        flavourREs = config.get('browserFlavour', [])
++        userAgent = pyhttp['HTTP_USER_AGENT']
++        for x in flavourREs:
++            matchobj = re.search(x[0],userAgent)
++            if matchobj:
++                return x[1]
++        return None
++
+     def processPathInfo(self, args):
+         """
+         Process HTTP PATH_INFO for URI according to path specifications, fill in
+         data dict accordingly
+-
++
+         The paths specification looks like this:
+             - C{/cat} - category
+             - C{/2002} - year
+@@ -167,14 +185,15 @@
+
+         form = self._request.getHttp()["form"]
+         data['flavour'] = (form.has_key('flav') and
+-                form['flav'].value or
++                form['flav'].value or
++                self.browserSpecificFlavour(args) or
+                 config.get('defaultFlavour', 'html'))
+
+         path_info = []
+         data['pi_yr'] = ''
+         data['pi_mo'] = ''
+         data['pi_da'] = ''
+-
++
+         if pyhttp.get('PATH_INFO', ''):
+             path_info = pyhttp['PATH_INFO'].split('/')
+         path_info = [x for x in path_info if x != '']
+</code></pre>
+
+<p>There are a few spots there where the patch could be tightened because I got
+rid of some spaces, but oh well, too late now.  Now the final step is to add
+the lines to your config.py file to support all of this.  Here is the lines
+that I have to make the defaultFlavour &#8220;html&#8221; and have newer version of Mozilla
+use &#8220;xml&#8221;.  Basically, this looks at the user agent of the browser, and if
+&#8220;rv:1.4&#8221; or greater is found, the it returns the default as XML.</p>
+
+<pre><code>py['defaultFlavour'] = 'html'
+py['browserFlavour'] = [ ['rv:1.[4-9]','xml'] ]
+</code></pre>
+
+<p>Unfortunately, right now this only works on the main page for the browser.  I&#8217;m
+working on a way to have it change links and always spit out XML/XSLT.  When
+that happens I&#8217;ll post it to this category too.  Happy Hacking!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/10/26/firstentry/">First Pyblosxom Entry</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-10-26T00:05:00-04:00" pubdate data-updated="true">Oct 26<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This is the first entry that I&#8217;m doing with the new blogging system,
+pyblosxom.  I&#8217;ve looked at a lot of systems, and for the past year I used <a href="http://www.movabletype.org/">Movable Type</a> but it was probably a bit
+more than I actually needed.  To make things worse it is written in Perl and I
+HATE perl with a passion.</p>
+
+<p>So when the time came to install a new server setup, I decided that <a href="http://roughingit.subtlehints.net/pyblosxom">pyblosxom</a> would make a
+nice choice.  It&#8217;s simple, extensible, and it&#8217;s written in <a href="http://www.python.org/">python</a>.</p>
+
+<p>I&#8217;m still ironing some various things with this.  Among them are the
+mod_rewrite voodoo that I&#8217;m using to automagically redirect stuff around
+without allowing my web directory to become too horribly messy again.  I&#8217;d
+rather have my config file be messy than my web directory.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/06/25/stopemailingmeaboutyahoo/">Stop Emailing Me About Yahoo</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-06-25T18:48:00-04:00" pubdate data-updated="true">Jun 25<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So I posted <a href="http://patrick.wagstrom.net/weblog/archives/000056.html">weblog about being banned from yahoo</a> and it was dormant for months.  Now I seem to get a comment about every two weeks from people who think I can magically get their yahoo accounts back.  Yup, I&#8217;ve got magic powers on a site I don&#8217;t care about.  Do you think that I&#8217;d be someone who can fix your stupid yahoo account?  Did I even sound like I was sad I got banned?  You people are probably the same type of people who fall for those fake PayPal emails asking you to enter your credit card numbers in an email.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/06/17/smartmobs/">Smart Mobs</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-06-17T12:06:00-04:00" pubdate data-updated="true">Jun 17<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This has to be one of the most intereseting social engineering efforts that I&#8217;ve ever seen.  Apparently some people in New York are organizing themselves to all show up at a particular store for 10 minutes, the miracuously disperse.  There is more information over at <a href="http://www.cheesebikini.com/blog/archives/000261.html">cheesebikini</a>.</p>
+
+<p>I think this is an interesting concept, but the person organizing seems to be rather put off that someone called the cops last time.  I&#8217;d be pissed off too.  It&#8217;s a perfectly safe gathering of people.  It&#8217;s probably going to be good business for the businesses involved because they see lots of people coming in and out.  And best of all, it&#8217;s meant to be safe.  Don&#8217;t cops have better things to do, like busting child molestors or thieves?  Oh well, welcome to Ashcroft&#8217;s America.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/06/12/goodbyepridkettpridkettdreamswagstromorg/">Goodbye Pridkett [pridkett@dreams.wagstrom.org]</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-06-12T21:01:00-04:00" pubdate data-updated="true">Jun 12<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;m a little sad.  <a href="http://www.he.net/">Hurricane Electric</a> had to filter IRC traffic over their <a href="http://www.tunnelbroker.net/">TunnelBroker</a> IPv6 service.  Apparently some people were doing dos attacks with it.  That makes me sad, I enjoyed it because I could set my own reverse DNS. I still can for IPv6, but I just can&#8217;t use IRC through IPv6 anymore.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/06/04/brucesterlinginterview/">Bruce Sterling Interview</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-06-04T12:08:00-04:00" pubdate data-updated="true">Jun 4<span>th</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>There is a pretty good <a href="http://news.com.com/2008-1082_3-1010864.html?tag=fd_nc_1">interview with Bruce Sterling</a> at news.com.com.  It varies from topic to topic, but spends some time talking about the dangers of data mining, mentions TIA, and other assorted stuff.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2003/06/03/wintvpvr250underlinux/">WinTV PVR 250 Under Linux</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-06-03T13:42:00-04:00" pubdate data-updated="true">Jun 3<span>rd</span>, 2003</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>On Memorial Day, CompUSA had a really good sale on WinTV PVR 250 hardware MPEG encoder cards.  I had been thinking about getting one for a while now, but they were too much on eBay.  Well, after using a few tricks, the final price will be $75 after rebate.  The card showed up on Thursday morning.  What follows is how I got it working.</p>
+
+<h4>Major References</h4>
+
+<p>This guide will tell you how to get the card running with MythTV and LIRC.  Here are some of the sites that will be very helpful to you on your quest.</p>
+
+<ul>
+<li><p><a href="http://ivtv.sf.net/">ivtv.sf.net</a> - this is where the driver for the WinTV PVR 250 lives</p></li>
+<li><p><a href="http://www.mythtv.org/">www.mythtv.org</a> - the permier PVR app for linux</p></li>
+<li><p><a href="http://www.lirc.org/">www.lirc.org</a> - linux infrared remote control project</p></li>
+</ul>
+
+
+<h4>Kernel Recompiling</h4>
+
+<p>If you&#8217;re afraid of recompiling the kernel, abandon all hope and turn back now.  I&#8217;ve heard that if you have RedHat 9, that you&#8217;re in good shape as it already has Video4Linux2 installed.  If you&#8217;re using something else, like RedHat 7.3 (or gentoo, or debian&#8230;.), then you&#8217;re going to need to do this.</p>
+
+<p>The first step is to go download the kernel sources from <a href="http://www.kernel.org/">kernel.org</a>.  You&#8217;ll need at least 2.4.20 for this to work.  The next thing you&#8217;ll need is the kernel patches for the new video for linux drivers.  You can find these at <a href="http://bytesex.org/patches">http://bytesex.org/patches</a>.  I recommend getting the all in one patch because you don&#8217;t need to worry about order then.  Now it&#8217;s time for some patching fun.  Apply the patch the the kernel.  This can be done by copying the patch to your <strong>/usr/src/linux</strong> after unpacking the new kernel.  Then you can patch your kernel using the following procedure (the output is for kernel 2.4.20 with <a href="http://bytesex.org/patches/2.4.20/patch-2.4.20-kraxel.gz">this patch</a>):</p>
+
+<pre><code># &lt;b&gt;gzip -dc [patchfile.gz] | patch -p1&lt;/b&gt;
+patching file arch/x86_64/config.in
+patching file drivers/media/video/videodev.c
+patching file Documentation/Configure.help
+patching file Documentation/scsi-changer.txt
+patching file arch/sparc64/config.in
+patching file arch/sparc64/kernel/ioctl32.c
+patching file drivers/scsi/Config.in
+patching file drivers/scsi/Makefile
+patching file drivers/scsi/ch.c
+patching file include/linux/chio.h
+patching file include/linux/major.h
+patching file include/scsi/scsi.h
+patching file drivers/media/video/Makefile
+patching file drivers/media/video/v4l1-compat.c
+patching file drivers/media/video/v4l2-common.c
+patching file include/linux/videodev.h
+patching file include/linux/videodev2.h
+patching file drivers/media/video/bt832.c
+patching file drivers/media/video/bt832.h
+patching file drivers/media/video/bt848.h
+patching file drivers/media/video/bttv-cards.c
+patching file drivers/media/video/bttv-driver.c
+patching file drivers/media/video/bttv-if.c
+patching file drivers/media/video/bttv.h
+patching file drivers/media/video/bttvp.h
+patching file Documentation/video4linux/bttv/CARDLIST
+patching file Documentation/video4linux/bttv/Cards
+patching file Documentation/video4linux/bttv/Sound-FAQ
+patching file drivers/media/video/audiochip.h
+patching file drivers/media/video/msp3400.c
+patching file drivers/media/video/tda7432.c
+patching file drivers/media/video/tda9875.c
+patching file drivers/media/video/tda9887.c
+patching file drivers/media/video/tvaudio.c
+patching file drivers/media/video/tvaudio.h
+patching file drivers/media/video/tvmixer.c
+patching file drivers/media/video/tuner.c
+patching file drivers/media/video/tuner.h
+</code></pre>
+
+<p>Now comes the part of kernel compilation that everyone loves.  Wading through pages and pages of options for devices that no one has used for 10 years to get to the stuff that you need.  You&#8217;ll need to make sure that <strong>CONFIG_I2C</strong>, <strong>CONFIG_I2C_ALGOBIT</strong>, <strong>CONFIG_VIDEO_DEV</strong> and <strong>CONFIG_VIDEO_PROC_FS</strong> are all set.  If you can do it as a module, that would probably be helpful.  I might have forgotten a few things here.  So don&#8217;t kill me.  I hate kernel compiling.</p>
+
+<p>Wash, rinse, repeat until your shiny new kernel works.  There is plenty of stuff out there on how to install a kernel, so don&#8217;t ask me.  Go read <a href="http://www.tldp.org/">the docs</a>.</p>
+
+<h4>Driver Compiling</h4>
+
+<p>After you&#8217;ve managed to recompile your kernel you need to go and compile the drivers.  You can fetch the CVS drivers off <a href="http://ivtv.sf.net/">ivtv.sf.net</a>.  Follow the instructions posted in the FAQ about how to get it to work.  It is very important that you not miss the section about ripping the firmware from the CDROM.  Without the firmware the drivers will not work.</p>
+
+<p>After you&#8217;ve made the drivers you need to add some lines to your <strong>/etc/modules.conf</strong> file to automatically load the appropriate modules.</p>
+
+<pre><code># WinTV PVR 250
+alias char-major-81 videodev
+alias char-major-81-0 ivtv
+options ivtv debug=1 mpg_buffers=32
+options tuner type=2
+options msp3400 once=1 simple=1
+add below ivtv msp3400 saa7115 tuner
+</code></pre>
+
+<p>If you have another tuner card in your system that is /dev/video0, you will probably need to change the <strong>alias char-major-81-0 ivtv</strong> to the approriate reference to /dev/videoX (where X is the id of your ivtv card).  You can find this by running <strong>ivtv/utils/ivtvfwextract.pl &#8211;use-encoder-image=2</strong>.  You may need to change that value for encoder image, but that&#8217;s what worked for me.</p>
+
+<h4>XMLTV Fun</h4>
+
+<p>One of the major components that is needed for MythTV to function properly is XMLTV.  This is a perl module that you can pick up from <a href="http://membled.com/work/apps/xmltv/">http://membled.com/work/apps/xmltv/</a>.  There are nice pacakges for Redhat 9 on there, but we&#8217;re not using RedHat 9, so we need to compile it from source.  There is a good chance that this will require some extra packages, this is where <strong>perl -MCPAN -e shell</strong> quickly becomes your friend.  As it complains about packages not being installed, install them.  You should be in good shape after this.</p>
+
+<p>Lucky for you, this is going to lead up to how to install MythTV.  MythTV doesn&#8217;t require you do any complex setup for XMLTV, so don&#8217;t worry about setup for now.</p>
+
+<h4>LIRC</h4>
+
+<p>Now you&#8217;ll probably want to get that cool remote control of yours working.  This can be accomplished via the <strong>lirc_i2c</strong> module of lirc.  Just compile the module using the standard methods.  If for some reason the <strong>lirc_i2c</strong> module doesn&#8217;t work correctly, you should try running the command: <strong>./configure &#8211;with-driver=hauppauge</strong> to ensure it gets compiled.  Then you&#8217;ll want to install the drivers and make sure that everything is good in your <strong>/etc/modules.conf</strong>.  Make sure to add these lines:</p>
+
+<pre><code># lirc stuff
+alias char-major-61 lirc_i2c
+</code></pre>
+
+<p>The next step is to copy the configuration file to the <strong>/etc/lircd.conf</strong>.  You shouldn&#8217;t have to worry about training your remote and making your own configuration file because the ivtv driver comes with a remote file for the remote.  In my case I have the gray remote, so I copied <strong>ivtv/utils/lircd-g.conf</strong> to <strong>/etc/lircd.conf</strong> and everything seemed to work fine.</p>
+
+<p>The final step is probably the most annoying.  You still need to configure your remote control by creating your own <strong>~/.lircrc</strong> file.  I&#8217;m not going to list the entire contents of my file here.  But, you can download it <a href="/weblog/misc/dotlircrc">my .lircrc</a> file.  It is preconfigured for mplayer and irxevent, which is what MythTV uses.</p>
+
+<h4>MythTV</h4>
+
+<p>The last thing that you&#8217;ll want to do is install <a href="http://www.mythtv.org/">MythTV</a>.  Installing this will make your friends wish they were as cool as you and feel shame because they still run windows.  It really has the potential to be a &#8220;killer application&#8221; for Linux.</p>
+
+<p>I&#8217;m not going into the details on how to get mythtv running.  There is lots of documentation on the mythtv website that I would suggest you read.  It&#8217;s not an easy program to install as it requires MySQL in addition to the stuff above, but you should really enjoy it.</p>
+
+<h4>Random Helpful Tips</h4>
+
+<p>If you just want to watch some live TV without installing MythTV, you can use the ghetto mplayer trick.  Using a command line like <strong>mplayer -vo xv /dev/video -cache 65536</strong> will provide live TV with a short buffer for pausing the screen.  In reality you need more than a 64 meg cache to really make it productive.</p>
+
+<p>One thing that I&#8217;ve found really helpful is to have some aliases set up so I can do some easier manipulation of the card via the command line.  I&#8217;ve pased them here (for Bash), in hopes that they might help you:</p>
+
+<pre><code>                alias test_ioctl='~patrick/ivtv/ivtv/utils/test_ioctl'
+                alias tvsmall='test_ioctl -f width=400,height=300'
+                alias tvmed='test_ioctl -f width=512,height=384'
+                alias tvlarge='test_ioctl -f width=720,height=480'
+                alias tvqmed='test_ioctl -c bitrate=4000000,bitrate_peak=10000000'
+                alias tvqhigh='test_ioctl -c bitrate=8000000,bitrate_peak=16000000'
+                alias tvqlow='test_ioctl -c bitrate=2500000,bitrate_peak=5000000'
+                alias ptune='/home/patrick/ivtv/ivtv/utils/ptune.pl --channel'
+                alias noghost='test_ioctl --set-codec-params=dnr_mode=0,dnr_temporal=0'
+</code></pre>
+
+<p>The first three (<strong>tvsmall</strong>, <strong>tvmed</strong>, <strong>tvlarge</strong>) set the resolution that the card captures video at.  The next three (<strong>tvqhigh</strong>, <strong>tvqmed</strong>, <strong>tvqlow</strong>) set the quality taht the bit stream is recorded at.  <strong>ptune</strong> is a simple alias so you can change the channel.  Finally, <strong>noghost</strong> can be used if your card is getting weird ghosts that wouldn&#8217;t be there on a normal TV.</p>
+
+<p>As a side note, when I first started, I almost used <a href="http://freevo.sf.net/">freevo</a> instead of MythTV because I could get it to work better and faster.  I gave MythTV one last shot before I was to kill it, and was able to make it sing.  There are a few tricks you should know.  First of all, running the UI for MythTV at a resolution other than 800x600 will incur a performance penalty as everything has to be scaled.  There are options in the program to force it to run at a certain resolution, use them.  Secondly, if you have a slower computer, turn off deinterlacing.  This is covered in the FAQ for mythtv, but reading the mailing list indicates that a lot of people miss this entirely.  Lastly, if it is really slow on playback, lower the video quality to a lower resolution.  The default is full frame maximum quality, which while fine for an Athlon XP 3200+, doesn&#8217;t cut it on my Athlon 700.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/weblog/blog/page/34/">&larr; Older</a>
+    
+    <a href="/weblog/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/weblog/blog/page/32/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/weblog/2012/05/10/static-bloggin/">Static Bloggin</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/28/i-am-not-a-climatologist-and-neither-are-most-of-these-people/">I am not a climatologist, and neither are most of these people</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/10/looking-for-summer-interns-in-the-software-technology-group-at-ibm-tj-watson-research-center/">Looking for Summer Interns in the Software Technology Group at IBM TJ Watson Research Center</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/a-review-of-2011-personal-development-goals/">A Review of 2011 Personal Development Goals</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/open-source-and-technology-predictions-for-2012/">Open Source and Technology Predictions for 2012</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/pridkett">@pridkett</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'pridkett',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/weblog/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("pridkett", 4, false);
+    });
+  </script>
+  <script src="/weblog/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/pridkett" class="twitter-follow-button" data-show-count="false">Follow @pridkett</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/102672530623465237388?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Patrick Wagstrom -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

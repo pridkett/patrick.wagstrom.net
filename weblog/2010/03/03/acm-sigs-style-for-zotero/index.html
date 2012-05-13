@@ -1,0 +1,510 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>ACM SIGS Style for Zotero - My Delusional Dream</title>
+  <meta name="author" content="Patrick Wagstrom">
+
+  
+  <meta name="description" content="ACM SIGS Style for Zotero Mar 3rd, 2010 | var idcomments_acct = 'de6c2d3e38f6fdb9bf16fa9f1904f35d';
+var idcomments_post_id;
+var idcomments_post_url &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://patrick.wagstrom.net/weblog/2010/03/03/acm-sigs-style-for-zotero">
+  <link href="/weblog/favicon.png" rel="icon">
+  <link href="/weblog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/weblog/javascripts/modernizr-2.0.js"></script>
+  <script src="/weblog/javascripts/ender.js"></script>
+  <script src="/weblog/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/weblog/atom.xml" rel="alternate" title="My Delusional Dream" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/weblog/">My Delusional Dream</a></h1>
+  
+    <h2>Thoughts of a cautious technocrat</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/weblog/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:patrick.wagstrom.net/weblog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/weblog/">Blog</a></li>
+  <li><a href="/weblog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">ACM SIGS Style for Zotero</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-03T14:33:53-05:00" pubdate data-updated="true">Mar 3<span>rd</span>, 2010</time>
+        
+        
+         | 
+
+<script>
+var idcomments_acct = 'de6c2d3e38f6fdb9bf16fa9f1904f35d';
+var idcomments_post_id;
+var idcomments_post_url;
+</script>
+<script type="text/javascript" src="http://www.intensedebate.com/js/genericLinkWrapperV2.js"></script>
+
+
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Academics live and die based on references. A variety of tools exist to manage references, from the sadly ubiquitous <a href="http://www.endnote.com/">EndNote</a>, to manually curated <a href="http://www.bibtex.org/">BibTeX</a> files, to some people who just type their entries by hand with each paper. A variety of web aware citation management tools are also available, for example <a href="http://www.mendeley.com/">Mendeley</a> and <a href="http://www.zotero.org/">Zotero</a>.</p>
+
+<p>For the past few years I&#8217;ve been using Zotero and have found it to be wonderful (with a few slight exceptions). It lives inside of Firefox and provides one click functionality to add a reference to my database and synchronize the change across computers automagically. It has good plugins for Microsoft Word and OpenOffice to provide citation management on a level that is similar to what one gets on EndNote. It also supports BibTeX export (with some slight key naming issues).</p>
+
+<p>Unfortunately, almost every journal and conference wants slightly different formatting for their references. Zotero can handle this through the use of style files crafted in the <a href="http://xbiblio.sourceforge.net/csl/">Citation Style Language (CSL)</a>. I had noticed that my submission to <a href="http://www.sbs.co.za/ICSE2010/">ICSE 2010</a> was dinged because I had the citations in the wrong format &#8211; apparently I was mistaken and thought they used SIGCHI reference formatting, when in fact they use ACM SIGS reference formatting. Sadly, Zotero doesn&#8217;t have a style for formatting ACM SIGS references, until now. While finishing up <a href="https://sites.google.com/a/wagstrom.net/academic/publications/Williams_2010_SupportingEnterpriseStakeholdersInSoftwareProjects.pdf?attredirects=0&amp;d=1">my paper on supporting stakeholders in enterprise software projects</a> for the <a href="http://www.itu.dk/people/ydi/CHASE2010.html">CHASE 2010</a> workshop I decided it would be easier to bite the bullet and just write my own style that fits the specification.  I don&#8217;t claim that the style is complete, but it seems to work well enough.  You can find the style <a href="http://gist.github.com/320873">hosted as a GitHub gist</a>, an I&#8217;ve also embedded the file below. If you&#8217;re using Zotero you&#8217;ll need to download the raw file then drag it into Zotero where the style will be installed and you&#8217;ll now see ACM SIGS as an option for reference formatting.  Feel free to fork it and improve the formatting. In case the embed does not show up, please visit <a href="http://gist.github.com/320873">http://gist.github.com/320873</a> instead.</p>
+
+<div><script src='https://gist.github.com/320873.js?file='></script>
+<noscript><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;?oxygen RNGSchema=&quot;http://xbiblio.svn.sourceforge.net/viewvc/*checkout*/xbiblio/csl/schema/trunk/csl.rnc&quot; type=&quot;compact&quot;?&gt;
+&lt;style xmlns=&quot;http://purl.org/net/xbiblio/csl&quot; class=&quot;in-text&quot; xml:lang=&quot;en&quot;&gt;
+  &lt;info&gt;
+    &lt;title&gt;ACM SIGS&lt;/title&gt;
+    &lt;id&gt;http://www.zotero.org/styles/acm-sigs&lt;/id&gt;
+    &lt;link href=&quot;http://gist.github.com/gists/320873&quot;/&gt;
+    &lt;author&gt;
+      &lt;name&gt;Michael Berkowitz&lt;/name&gt;
+      &lt;email&gt;mberkowi@gmu.edu&lt;/email&gt;
+    &lt;/author&gt;
+    &lt;contributor&gt;
+      &lt;name&gt;Julian Onions&lt;/name&gt;
+      &lt;email&gt;julian.onions@gmail.com&lt;/email&gt;
+    &lt;/contributor&gt;
+    &lt;contributor&gt;
+      &lt;name&gt;Rintze Zelle&lt;/name&gt;
+      &lt;uri&gt;http://forums.zotero.org/account/831/&lt;/uri&gt;
+    &lt;/contributor&gt;
+    &lt;contributor&gt;
+      &lt;name&gt;Patrick Wagstrom&lt;/name&gt;
+      &lt;email&gt;patrick@wagstrom.net&lt;/email&gt;
+      &lt;uri&gt;http://academic.patrick.wagstrom.net/&lt;/uri&gt;
+    &lt;/contributor&gt;
+    &lt;category term=&quot;engineering&quot;/&gt;
+    &lt;category term=&quot;generic-base&quot;/&gt;
+    &lt;category term=&quot;numeric&quot;/&gt;
+    &lt;updated&gt;2010-03-02T16:00:00+00:00&lt;/updated&gt;
+    &lt;link href=&quot;http://www.acm.org/sigs/publications/proceedings-templates&quot; rel=&quot;documentation&quot;/&gt;
+  &lt;/info&gt;
+  &lt;macro name=&quot;author&quot;&gt;
+    &lt;names variable=&quot;author&quot;&gt;
+      &lt;name initialize-with=&quot;.&quot; delimiter=&quot;, &quot; and=&quot;text&quot; name-as-sort-order=&quot;all&quot;/&gt;
+      &lt;label form=&quot;short&quot; prefix=&quot;, &quot; text-case=&quot;lowercase&quot; suffix=&quot;.&quot;/&gt;
+      &lt;substitute&gt;
+        &lt;names variable=&quot;editor&quot;/&gt;
+        &lt;names variable=&quot;translator&quot;/&gt;
+      &lt;/substitute&gt;
+    &lt;/names&gt;
+  &lt;/macro&gt;
+  &lt;macro name=&quot;editor&quot;&gt;
+    &lt;names variable=&quot;editor&quot;&gt;
+      &lt;name initialize-with=&quot;.&quot; delimiter=&quot;, &quot; and=&quot;text&quot; name-as-sort-order=&quot;all&quot;/&gt;
+      &lt;label form=&quot;short&quot; prefix=&quot;, &quot; text-case=&quot;lowercase&quot; suffix=&quot;.&quot;/&gt;
+    &lt;/names&gt;
+  &lt;/macro&gt;
+  &lt;macro name=&quot;title&quot;&gt;
+    &lt;choose&gt;
+      &lt;if type=&quot;book&quot;&gt;
+        &lt;text variable=&quot;title&quot; font-style=&quot;italic&quot; text-case=&quot;title&quot;/&gt;
+      &lt;/if&gt;
+      &lt;!-- ACM SIGS does not quote paper names --&gt;
+      &lt;else&gt;
+        &lt;text variable=&quot;title&quot; text-case=&quot;sentence&quot;/&gt;
+      &lt;/else&gt;
+    &lt;/choose&gt;
+  &lt;/macro&gt;
+  &lt;!-- changes made to publisher formatting, publisher then place --&gt;
+  &lt;macro name=&quot;publisher&quot;&gt;
+    &lt;text variable=&quot;publisher&quot; suffix=&quot;, &quot;/&gt;
+    &lt;text variable=&quot;publisher-place&quot; suffix=&quot;, &quot;/&gt;
+    &lt;date variable=&quot;issued&quot;&gt;
+      &lt;date-part name=&quot;year&quot;/&gt;
+    &lt;/date&gt;
+  &lt;/macro&gt;
+  &lt;macro name=&quot;access&quot;&gt;
+    &lt;text variable=&quot;URL&quot;/&gt;
+  &lt;/macro&gt;
+  &lt;macro name=&quot;page&quot;&gt;
+    &lt;group&gt; 
+      &lt;label variable=&quot;page&quot; form=&quot;short&quot; suffix=&quot;. &quot;/&gt;
+      &lt;text variable=&quot;page&quot;/&gt;
+    &lt;/group&gt;
+  &lt;/macro&gt;
+  &lt;citation&gt;
+    &lt;option name=&quot;et-al-min&quot; value=&quot;3&quot;/&gt;
+    &lt;option name=&quot;et-al-use-first&quot; value=&quot;1&quot;/&gt;
+    &lt;option name=&quot;collapse&quot; value=&quot;citation-number&quot;/&gt;
+    &lt;sort&gt;
+      &lt;key variable=&quot;citation-number&quot;/&gt;
+    &lt;/sort&gt;
+    &lt;layout prefix=&quot;[&quot; suffix=&quot;]&quot; delimiter=&quot;,&quot;&gt;
+      &lt;text variable=&quot;citation-number&quot;/&gt;
+    &lt;/layout&gt;
+  &lt;/citation&gt;
+  &lt;bibliography&gt;
+    &lt;option name=&quot;entry-spacing&quot; value=&quot;0&quot;/&gt;
+    &lt;option name=&quot;second-field-align&quot; value=&quot;true&quot;/&gt;
+    &lt;!-- for the most part, ACM SIGS follows IEEE with the exception of the
+         sorting of the bibliography --&gt;
+    &lt;sort&gt;
+      &lt;key macro=&quot;author&quot;/&gt;
+      &lt;key variable=&quot;issued&quot;/&gt;
+    &lt;/sort&gt;
+    &lt;layout suffix=&quot;.&quot;&gt;
+      &lt;text variable=&quot;citation-number&quot; prefix=&quot;[&quot; suffix=&quot;]&quot;/&gt;
+      &lt;text variable=&quot;type&quot;/&gt;
+      &lt;text macro=&quot;author&quot; prefix=&quot; &quot; suffix=&quot;. &quot;/&gt;
+      &lt;choose&gt;
+        &lt;!-- SIGS Book Formatting --&gt;
+        &lt;!-- 95% certain this is correct --&gt;
+        &lt;if type=&quot;book&quot;&gt;
+          &lt;text macro=&quot;title&quot; suffix=&quot;. &quot;/&gt;
+          &lt;group delimiter=&quot;, &quot;&gt;
+            &lt;text macro=&quot;publisher&quot;/&gt;
+          &lt;/group&gt;
+        &lt;/if&gt;
+        &lt;!-- SIGS Conference Paper Formatting --&gt;
+        &lt;!-- 95% certain this is correct --&gt;
+        &lt;else-if type=&quot;paper-conference&quot;&gt;
+          &lt;text macro=&quot;title&quot; suffix=&quot;. &quot;/&gt;
+          &lt;group delimiter=&quot;, &quot; suffix=&quot;. &quot;&gt;
+            &lt;text variable=&quot;container-title&quot; font-style=&quot;italic&quot; prefix=&quot;In &quot;/&gt;
+            &lt;text variable=&quot;page&quot; prefix=&quot;pages &quot;/&gt;
+          &lt;/group&gt;
+          &lt;text variable=&quot;publisher&quot; suffix=&quot;, &quot;/&gt;
+          &lt;date variable=&quot;issued&quot; suffix=&quot;.&quot;&gt;
+            &lt;date-part name=&quot;month&quot; suffix=&quot; &quot;/&gt;
+            &lt;date-part name=&quot;year&quot;/&gt;
+          &lt;/date&gt;          
+        &lt;/else-if&gt;
+        &lt;!-- SIGS Book Chapter Formatting --&gt;
+        &lt;!-- 50% certain this is correct --&gt;
+        &lt;else-if type=&quot;chapter&quot;&gt;
+          &lt;text macro=&quot;title&quot; suffix=&quot;. &quot;/&gt;
+          &lt;group delimiter=&quot;, &quot; suffix=&quot;. &quot;&gt; 
+            &lt;text variable=&quot;container-title&quot; font-style=&quot;italic&quot; prefix=&quot;In &quot;/&gt;
+            &lt;text variable=&quot;page&quot; prefix=&quot;pages &quot;/&gt;
+          &lt;/group&gt;
+          &lt;!-- &lt;text macro=&quot;editor&quot;/&gt; --&gt;
+          &lt;text macro=&quot;publisher&quot;/&gt;
+        &lt;/else-if&gt;
+        &lt;else-if type=&quot;patent&quot;&gt;
+          &lt;text macro=&quot;title&quot; suffix=&quot;, &quot;/&gt;
+          &lt;text variable=&quot;number&quot; prefix=&quot;U.S. Patent &quot;/&gt;
+          &lt;date variable=&quot;issued&quot; prefix=&quot;, &quot;&gt;
+            &lt;date-part name=&quot;month&quot; suffix=&quot; &quot;/&gt;
+            &lt;date-part name=&quot;day&quot; suffix=&quot;, &quot;/&gt;
+            &lt;date-part name=&quot;year&quot;/&gt;
+          &lt;/date&gt;
+        &lt;/else-if&gt;
+        &lt;else-if type=&quot;thesis&quot;&gt;
+          &lt;group delimiter=&quot;, &quot;&gt;
+            &lt;text macro=&quot;title&quot;/&gt;
+            &lt;text variable=&quot;genre&quot;/&gt;
+            &lt;text variable=&quot;publisher&quot;/&gt;
+            &lt;date variable=&quot;issued&quot;&gt;
+              &lt;date-part name=&quot;year&quot;/&gt;
+            &lt;/date&gt;
+          &lt;/group&gt;   
+        &lt;/else-if&gt;
+        &lt;!-- SIGS Journal Formatting --&gt;
+        &lt;!-- 95% certain this is correct --&gt;
+        &lt;else-if type=&quot;article-journal&quot;&gt;
+          &lt;text macro=&quot;title&quot; suffix=&quot;. &quot;/&gt;
+          &lt;text variable=&quot;container-title&quot; form=&quot;short&quot; font-style=&quot;italic&quot; suffix=&quot;, &quot;/&gt;
+          &lt;text variable=&quot;volume&quot;/&gt;
+          &lt;text variable=&quot;issue&quot; prefix=&quot;(&quot; suffix=&quot;)&quot;/&gt;
+          &lt;text variable=&quot;page&quot; prefix=&quot;:&quot; suffix=&quot;, &quot;/&gt;
+          &lt;date variable=&quot;issued&quot; suffix=&quot;.&quot;&gt;
+            &lt;date-part name=&quot;month&quot; suffix=&quot; &quot;/&gt;
+            &lt;date-part name=&quot;year&quot;/&gt;
+          &lt;/date&gt;          
+        &lt;/else-if&gt;
+        &lt;!-- SIGS Webpage Formatting --&gt;
+        &lt;!-- 90% certain this is correct --&gt;
+        &lt;else-if type=&quot;webpage&quot;&gt;
+          &lt;text macro=&quot;title&quot; suffix=&quot;. &quot;/&gt;
+          &lt;text variable=&quot;URL&quot; suffix=&quot; &quot;/&gt;
+          &lt;date variable=&quot;issued&quot; suffix=&quot;.&quot;&gt;
+            &lt;date-part name=&quot;month&quot; suffix=&quot; &quot;/&gt;
+            &lt;date-part name=&quot;year&quot;/&gt;
+          &lt;/date&gt;          
+        &lt;/else-if&gt;
+    &lt;!-- Default Categorization --&gt;
+    &lt;!-- Anything that makes it here should be validated as it's probably incorrectly formatted --&gt;
+        &lt;else&gt;
+          &lt;!-- &lt;text value=&quot;[[DEFAULT]]&quot;/&gt; --&gt;
+          &lt;text macro=&quot;title&quot; suffix=&quot;. &quot;/&gt;
+          &lt;group delimiter=&quot;, &quot;&gt; 
+            &lt;text variable=&quot;container-title&quot; font-style=&quot;italic&quot;/&gt;
+            &lt;text variable=&quot;volume&quot; prefix=&quot; vol. &quot;/&gt;
+            &lt;date variable=&quot;issued&quot;&gt;
+              &lt;date-part name=&quot;month&quot; form=&quot;short&quot; suffix=&quot;. &quot;/&gt;
+              &lt;date-part name=&quot;year&quot;/&gt;
+            &lt;/date&gt;
+            &lt;text macro=&quot;page&quot;/&gt;
+          &lt;/group&gt;
+        &lt;/else&gt;
+      &lt;/choose&gt;
+    &lt;/layout&gt;
+  &lt;/bibliography&gt;
+&lt;/style&gt;</code></pre></noscript></div>
+
+
+
+</div>
+
+
+<script>
+var idcomments_acct = 'de6c2d3e38f6fdb9bf16fa9f1904f35d';
+var idcomments_post_id;
+var idcomments_post_url;
+</script>
+<span id="IDCommentsPostTitle" style="display:none"></span>
+<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+
+
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Patrick Wagstrom</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-03T14:33:53-05:00" pubdate data-updated="true">Mar 3<span>rd</span>, 2010</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/weblog/blog/categories/academic/'>academic</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://patrick.wagstrom.net/weblog/2010/03/03/acm-sigs-style-for-zotero/" data-via="pridkett" data-counturl="http://patrick.wagstrom.net/weblog/2010/03/03/acm-sigs-style-for-zotero/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/weblog/2010/02/17/dell-inspiron-zino-hd-and-failure/" title="Previous Post: Dell Inspiron Zino HD and Failure">&laquo; Dell Inspiron Zino HD and Failure</a>
+      
+      
+        <a class="basic-alignment right" href="/weblog/2010/11/24/do-the-tsa-new-ait-body-scanners-hurt-more-than-they-help/" title="Next Post: Do the new TSA AIT body scanners hurt more than they help?">Do the new TSA AIT body scanners hurt more than they help? &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/weblog/2012/05/10/static-bloggin/">Static Bloggin</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/28/i-am-not-a-climatologist-and-neither-are-most-of-these-people/">I am not a climatologist, and neither are most of these people</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/10/looking-for-summer-interns-in-the-software-technology-group-at-ibm-tj-watson-research-center/">Looking for Summer Interns in the Software Technology Group at IBM TJ Watson Research Center</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/a-review-of-2011-personal-development-goals/">A Review of 2011 Personal Development Goals</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/open-source-and-technology-predictions-for-2012/">Open Source and Technology Predictions for 2012</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/pridkett">@pridkett</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'pridkett',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/weblog/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("pridkett", 4, false);
+    });
+  </script>
+  <script src="/weblog/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/pridkett" class="twitter-follow-button" data-show-count="false">Follow @pridkett</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/102672530623465237388?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Patrick Wagstrom -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

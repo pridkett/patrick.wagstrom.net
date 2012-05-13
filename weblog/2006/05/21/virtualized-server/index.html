@@ -1,0 +1,322 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>I'm now virtualized - My Delusional Dream</title>
+  <meta name="author" content="Patrick Wagstrom">
+
+  
+  <meta name="description" content="I'm Now Virtualized May 21st, 2006 | var idcomments_acct = 'de6c2d3e38f6fdb9bf16fa9f1904f35d';
+var idcomments_post_id;
+var idcomments_post_url; To &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://patrick.wagstrom.net/weblog/2006/05/21/virtualized-server">
+  <link href="/weblog/favicon.png" rel="icon">
+  <link href="/weblog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/weblog/javascripts/modernizr-2.0.js"></script>
+  <script src="/weblog/javascripts/ender.js"></script>
+  <script src="/weblog/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/weblog/atom.xml" rel="alternate" title="My Delusional Dream" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/weblog/">My Delusional Dream</a></h1>
+  
+    <h2>Thoughts of a cautious technocrat</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/weblog/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:patrick.wagstrom.net/weblog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/weblog/">Blog</a></li>
+  <li><a href="/weblog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">I'm Now Virtualized</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-05-21T15:48:00-04:00" pubdate data-updated="true">May 21<span>st</span>, 2006</time>
+        
+        
+         | 
+
+<script>
+var idcomments_acct = 'de6c2d3e38f6fdb9bf16fa9f1904f35d';
+var idcomments_post_id;
+var idcomments_post_url;
+</script>
+<script type="text/javascript" src="http://www.intensedebate.com/js/genericLinkWrapperV2.js"></script>
+
+
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>To my loyal reader (or perhaps readers, who knows) &#8211; you probably noticed some issued with the accessibility of this site over the past few days.  It seems like two different things were conspiring to take down my site.  The first is that my uplink connection has been a little flunky &#8211; I&#8217;ve got a WRT54Gv1 that I use for my net access and that&#8217;s been acting really strange.  The second is that my server, <a href="http://scissors.wagstrom.net/">scissors</a> has been acting a bit flunky.  Before I go too far, a little description of the box is necessary.</p>
+
+<p>The machine is a circa 1997 AMD K6-200 with 96MB of RAM and Quantum Fireball 4.3GB hard disk &#8211; this was pretty hot stuff when I went to college in 1997.  Yes, that&#8217;s right, it&#8217;s my first computer from undergraduate.  The machine first started to have problems in the fall of 1999.  At the time I thought it was disk issues, so I bought a new disk.  That didn&#8217;t fix the problems, in fact, I think I threw out at perfectly good 8GB disk at the time because of the issues.  Really, it was just problem with the IDE cables in the machine, but I digress. That year I was working more or less full time and going to school, so I had money to burn. I plunked down some cash for an Athlon 700 machine, and that machine became my backup server machine (replacting a Pentium 60).  This is also where the machine got the name scissors, for scissors.dtd.iit.edu.  I used some of the original parts in my newer machines, this left scissors with a black and with text only video card, and a couple of ISA ethernet cards (at least they&#8217;re 3com).  Yup, 10mbps is the max ethernet rate on the machine.</p>
+
+<p>This point was also the first time that I installed OpenBSD on it.  I believe it was OpenBSD version 2.5 or thereabouts - I actually paid for the CDs and have them laying around.  Since then, the machine has been upgraded to newer operating systems twice, first to OpenBSD 2.9, then again to OpenBSD 3.3.  It&#8217;s served as a mail server, online game server, and most importantly my personal web server for the last few years.  At some point, probably in early 2003 the fan on the CPU died, but it didn&#8217;t seem to affect performance, so I didn&#8217;t care.  At some point later the fan on the power supply died &#8211; once again it didn&#8217;t seem to affect performance so I didn&#8217;t care.  I now had a basically entirely silent machine.  Cool.  As an added bonus, according to my Kill-a-watt device, it sips power at a consumption of 33 watts.  This makes it nice and affordable to run.</p>
+
+<p>However, the machine is now approaching it&#8217;s ninth birthday.  It&#8217;s had a good run &#8211; but all good things must come to an end.  I&#8217;ve been getting rid of my old stuff and well scissors, it&#8217;s time for you to go.  You&#8217;ve been replaced by the forward marching tide of technology. However, it&#8217;s a real pain to reinstall web servers all the time.  My solution?  Virtualization.</p>
+
+<p>Thanks to <a href="http://www.vmware.com/products/server/">VMWare Server</a> and my copy of <a href="http://www.vmware.com/products/ws/">VMWare Workstation</a>, I&#8217;ve created a very nice little <a href="http://www.openbsd.org/">OpenBSD</a> virtual machine.  Best of all, I&#8217;ve got all the services that previously were running between a couple of different servers consolidated onto this single box.  That means this virtual machine now acts as my trac, subversion, dav, and person web server.</p>
+
+<p>Virtualization has quite a few benefits.  One of the biggest ones is that I can just copy the virtual machine from one physical computer to another.  This makes upgrades a breeze.  (As an aside, it also makes me wonder why I don&#8217;t just install VMWare Server on my <a href="http://www.mythtv.org/">MythTV</a> box in the living room and drop down to a single computer that is on 24/7.  Probably has something to do with the printer we never use I guess.)  Also, being virtualized, it let&#8217;s me test other configuration changes easier.  I can take a snapshot of the server in workstation and try an upgrade or change in software with no risk to the live machine.  The VMWare Server console lets me manage everything from my laptop too.  Wow.</p>
+
+<p>I know that someone out there will believe that I&#8217;m a sellout because VMWare is closed source.  Which is probably partially true.  However, I&#8217;ve been using VMWare since it first came out.  Back at <a href="http://www.lecltd.com/">LEC Ltd</a>, we used VMWare on the developer workstations to see how the web pages would look on different platforms.  Of course, we never thought about using it for server use &#8211; but now it seems that&#8217;s what the cool kids are doing.  An astute reader might wonder why I didn&#8217;t choose <a href="http://www.cl.cam.ac.uk/Research/SRG/netos/xen/">Xen</a> or <a href="http://fabrice.bellard.free.fr/qemu/">QEMU</a>.  With regards to Xen, I&#8217;ve heard that Theo considers Xen to be more of a toy, however he might be coming around to it (this was a year or more ago now).  I did notice that there is a <a href="http://archives.neohapsis.com/archives/openbsd/2006-05/0260.html">Summer of Code request to make OpenBSD a native Guest OS</a>.  That might be really interesting, but it&#8217;s not here yet.  For QEMU, the big issue is that if you want native performance you need to the unfree accelerator program.  That, and it&#8217;s not as feature rich as VMWare.  Given that I have extensive VMWare experience too, it seemed like this was the fastest way to get running again.</p>
+
+<p>So what is all this saying?  Basically, if you&#8217;re reading this weblog entry you&#8217;re connected to my VMWare server instance, now called &#8221;<a href="http://donkey.wagstrom.net/">donkey</a>&#8221; running OpenBSD 3.9.  Well, if this post is recent that&#8217;s what happening.  In the future I should be able to upgrade pretty easy.  For now, the host machine for Donkey is a Pentium 3/900 with 640MB of RAM.  So far, so good.  I took extensive notes about the whole process and will be putting together a nice writeup soon.  If you&#8217;ve got questions about the process, feel free to email me in the mean time.</p>
+</div>
+
+
+<script>
+var idcomments_acct = 'de6c2d3e38f6fdb9bf16fa9f1904f35d';
+var idcomments_post_id;
+var idcomments_post_url;
+</script>
+<span id="IDCommentsPostTitle" style="display:none"></span>
+<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+
+
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Patrick Wagstrom</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-05-21T15:48:00-04:00" pubdate data-updated="true">May 21<span>st</span>, 2006</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/weblog/blog/categories/computer/'>computer</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://patrick.wagstrom.net/weblog/2006/05/21/virtualized-server/" data-via="pridkett" data-counturl="http://patrick.wagstrom.net/weblog/2006/05/21/virtualized-server/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/weblog/2006/05/18/election-judge/" title="Previous Post: Doing Time in Allegheny County">&laquo; Doing Time in Allegheny County</a>
+      
+      
+        <a class="basic-alignment right" href="/weblog/2006/06/13/election-letter/" title="Next Post: Comments about the Election">Comments about the Election &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/weblog/2012/05/10/static-bloggin/">Static Bloggin</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/28/i-am-not-a-climatologist-and-neither-are-most-of-these-people/">I am not a climatologist, and neither are most of these people</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/10/looking-for-summer-interns-in-the-software-technology-group-at-ibm-tj-watson-research-center/">Looking for Summer Interns in the Software Technology Group at IBM TJ Watson Research Center</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/a-review-of-2011-personal-development-goals/">A Review of 2011 Personal Development Goals</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/open-source-and-technology-predictions-for-2012/">Open Source and Technology Predictions for 2012</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/pridkett">@pridkett</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'pridkett',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/weblog/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("pridkett", 4, false);
+    });
+  </script>
+  <script src="/weblog/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/pridkett" class="twitter-follow-button" data-show-count="false">Follow @pridkett</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/102672530623465237388?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Patrick Wagstrom -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

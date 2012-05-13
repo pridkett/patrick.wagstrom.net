@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Open Source Screencasting part 2 - My Delusional Dream</title>
+  <meta name="author" content="Patrick Wagstrom">
+
+  
+  <meta name="description" content="Open Source Screencasting Part 2 Dec 10th, 2007 | var idcomments_acct = 'de6c2d3e38f6fdb9bf16fa9f1904f35d';
+var idcomments_post_id;
+var &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://patrick.wagstrom.net/weblog/2007/12/10/open-source-screencasting-part-2">
+  <link href="/weblog/favicon.png" rel="icon">
+  <link href="/weblog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/weblog/javascripts/modernizr-2.0.js"></script>
+  <script src="/weblog/javascripts/ender.js"></script>
+  <script src="/weblog/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/weblog/atom.xml" rel="alternate" title="My Delusional Dream" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/weblog/">My Delusional Dream</a></h1>
+  
+    <h2>Thoughts of a cautious technocrat</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/weblog/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:patrick.wagstrom.net/weblog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/weblog/">Blog</a></li>
+  <li><a href="/weblog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Open Source Screencasting Part 2</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-10T00:21:00-05:00" pubdate data-updated="true">Dec 10<span>th</span>, 2007</time>
+        
+        
+         | 
+
+<script>
+var idcomments_acct = 'de6c2d3e38f6fdb9bf16fa9f1904f35d';
+var idcomments_post_id;
+var idcomments_post_url;
+</script>
+<script type="text/javascript" src="http://www.intensedebate.com/js/genericLinkWrapperV2.js"></script>
+
+
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>This is a followup to my original article on <a href="/weblog/weblog/linux/open-source-screencasting.xml">Open Source Screencasting with VNC in GNOME</a> from a few days ago.  Since then, I&#8217;ve been on a bit of an adventure learning about Flex, ActionScript, and finding out ways that I can manage to hack on this nifty little program with minimal pain.</p>
+
+<p>The most important thing, is that I&#8217;ve found the <a href="http://www.adobe.com/products/flex/downloads/">free Flex2 SDK</a>.  The compiler and tools appear to be written in Java, so they&#8217;ll work just fine under Linux.  Of course, there are those that will be quick to note that these tools are only free as in beer, and not Free as in speech.  This means that if you&#8217;re not a student and you can&#8217;t get your hands on FlexBuilder for free, you can still hack
+on the code.</p>
+
+<p>Thanks to these tools, I&#8217;ve been able to start modifying the original code to <a href="http://www.osflash.org/fvnc/">FVNC</a> to suit my needs as screencasting application.  Thus far, I&#8217;ve added a set of extra parameters that can be passed in the flashVars attribute of the embed tag.</p>
+
+<ul>
+<li><strong>server</strong> - a servername to populate connection list with</li>
+<li><strong>port</strong> - port number to connect to</li>
+<li><strong>connect</strong> - set to &#8220;true&#8221; if you&#8217;d like to autoconnect based on values from server and port variables.</li>
+<li><strong>hide</strong> - set to &#8220;true&#8221; if you&#8217;d like the connection dialog to automatically disappear when connect is called.</li>
+<li><strong>fit</strong> - set to &#8220;true&#8221; if fitToScreen should be automatically checked</li>
+<li><strong>title</strong> - set to a value for a new title in the app</li>
+<li><strong>disableServer</strong> - set to &#8220;true&#8221; to disable changing server</li>
+<li><strong> disablePort</strong> - set to &#8220;true&#8221; to disable changing port</li>
+</ul>
+
+
+<p>Thus, through some interesting use of the <strong>server</strong>, <strong>port</strong>, <strong>connect</strong>, and <strong>hide</strong> flashVars, I can make it so opening the page automatically connects to the VNC instance and allows the user to start viewing the presentation right away (or be prompted for a password first).  This really has taken the resources necessary for a remote presentation down quite a bit.</p>
+
+<p>For my talks, I&#8217;ll probably combine this with the free conference service from <a href="http://www.gizmoproject.com/">Gizmo</a>, that allows folks to dial in with regular phones and then listen to the talk and slides at the same time.  It&#8217;s a pretty slick solution.  If only there was a nice way to include a component in the modified FVNC that also channeled my voice and some video, then it would be really great.  I&#8217;d imagine there is a way to do that using some of the nifty stuff in Flex2, but I&#8217;m by no means an expert in the technology.</p>
+
+<p>In the mean time, if folks would like my modifications, including a precompiled binary of the modified FVNC.swf program, you can get it by using git and cloning <a href="http://patrick.wagstrom.net/git/fvnc.git">http://patrick.wagstrom.net/git/fvnc.git</a>.</p>
+</div>
+
+
+<script>
+var idcomments_acct = 'de6c2d3e38f6fdb9bf16fa9f1904f35d';
+var idcomments_post_id;
+var idcomments_post_url;
+</script>
+<span id="IDCommentsPostTitle" style="display:none"></span>
+<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+
+
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Patrick Wagstrom</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-10T00:21:00-05:00" pubdate data-updated="true">Dec 10<span>th</span>, 2007</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/weblog/blog/categories/linux/'>linux</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://patrick.wagstrom.net/weblog/2007/12/10/open-source-screencasting-part-2/" data-via="pridkett" data-counturl="http://patrick.wagstrom.net/weblog/2007/12/10/open-source-screencasting-part-2/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/weblog/2007/12/06/open-source-screencasting/" title="Previous Post: Open Source Screencasting with VNC in GNOME">&laquo; Open Source Screencasting with VNC in GNOME</a>
+      
+      
+        <a class="basic-alignment right" href="/weblog/2008/01/03/goodbye-openbsd/" title="Next Post: Goodbye OpenBSD">Goodbye OpenBSD &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/weblog/2012/05/10/static-bloggin/">Static Bloggin</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/28/i-am-not-a-climatologist-and-neither-are-most-of-these-people/">I am not a climatologist, and neither are most of these people</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/10/looking-for-summer-interns-in-the-software-technology-group-at-ibm-tj-watson-research-center/">Looking for Summer Interns in the Software Technology Group at IBM TJ Watson Research Center</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/a-review-of-2011-personal-development-goals/">A Review of 2011 Personal Development Goals</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/open-source-and-technology-predictions-for-2012/">Open Source and Technology Predictions for 2012</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/pridkett">@pridkett</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'pridkett',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/weblog/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("pridkett", 4, false);
+    });
+  </script>
+  <script src="/weblog/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/pridkett" class="twitter-follow-button" data-show-count="false">Follow @pridkett</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/102672530623465237388?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Patrick Wagstrom -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

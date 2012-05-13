@@ -1,0 +1,478 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Really Banning Link Spammers - My Delusional Dream</title>
+  <meta name="author" content="Patrick Wagstrom">
+
+  
+  <meta name="description" content="Really Banning Link Spammers Dec 10th, 2004 | var idcomments_acct = 'de6c2d3e38f6fdb9bf16fa9f1904f35d';
+var idcomments_post_id;
+var &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://patrick.wagstrom.net/weblog/2004/12/10/banninglinkspammers2">
+  <link href="/weblog/favicon.png" rel="icon">
+  <link href="/weblog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/weblog/javascripts/modernizr-2.0.js"></script>
+  <script src="/weblog/javascripts/ender.js"></script>
+  <script src="/weblog/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/weblog/atom.xml" rel="alternate" title="My Delusional Dream" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/weblog/">My Delusional Dream</a></h1>
+  
+    <h2>Thoughts of a cautious technocrat</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/weblog/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:patrick.wagstrom.net/weblog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/weblog/">Blog</a></li>
+  <li><a href="/weblog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Really Banning Link Spammers</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-12-10T11:35:00-05:00" pubdate data-updated="true">Dec 10<span>th</span>, 2004</time>
+        
+        
+         | 
+
+<script>
+var idcomments_acct = 'de6c2d3e38f6fdb9bf16fa9f1904f35d';
+var idcomments_post_id;
+var idcomments_post_url;
+</script>
+<script type="text/javascript" src="http://www.intensedebate.com/js/genericLinkWrapperV2.js"></script>
+
+
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Realizing that I shouldn&#8217;t be content with just sending out
+<a href="/weblog/weblog/meta/banningLinkSpammers.txt">403 codes to link spammers</a>, I
+decided to get a little more devious.  I&#8217;ve now hooked up a CGI to
+handle the 403 errors.  What&#8217;s even better, it hooks into pfctl on
+<a href="http://www.openbsd.org/">OpenBSD</a> to dynamically ban the people as
+they hit the site.  You can&#8217;t ask for much better than that.  Well, we
+could be talking about integrating some layer 7 stuff here, but I
+digress.</p>
+
+<p>So, first there is some work that needs to be done in the httpd.conf
+file that configures the server.  This is shown below:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='apache'><span class='line'>    <span class="nb">ErrorDocument</span> <span class="m">403</span> <span class="sx">/cgi-bin/403.cgi</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c"># provide a method to test the blocker</span>
+</span><span class='line'>    <span class="nb">RewriteCond</span> %{QUERY_STRING} ^deny=true$
+</span><span class='line'>    <span class="nb">RewriteRule</span> !^/cgi-bin/403.cgi$ - [F]
+</span><span class='line'>
+</span><span class='line'>    <span class="c"># all the referrers we don&#39;t like</span>
+</span><span class='line'>    <span class="nb">RewriteCond</span> %{HTTP_REFERER} ^http://(www\.)?.*(-.*)+\.info/.*$ [NC,OR]
+</span><span class='line'>    <span class="nb">RewriteCond</span> %{HTTP_REFERER} ^http://(www\.)?adminshop.com/.*$ [NC,OR]
+</span><span class='line'>    <span class="nb">RewriteCond</span> %{HTTP_REFERER} ^http://(www\.)?webdevboard.com/.*$ [NC,OR]
+</span><span class='line'>    <span class="nb">RewriteCond</span> %{HTTP_REFERER} ^http://(www\.)?devaddict.com/.*$ [NC,OR]
+</span><span class='line'>    <span class="nb">RewriteCond</span> %{HTTP_REFERER} ^http://(www\.)?whiteguysgroup.com/.*$ [NC,OR]
+</span><span class='line'>    <span class="nb">RewriteCond</span> %{HTTP_REFERER} ^http://(www\.)?guestbookz.com/.*$ [NC,OR]
+</span><span class='line'>    <span class="nb">RewriteCond</span> %{HTTP_REFERER} ^http://(www\.)?xopy.com/.*$ [NC]
+</span><span class='line'>    <span class="nb">RewriteRule</span> !^/cgi-bin/.*$ - [F]
+</span><span class='line'>
+</span><span class='line'>    <span class="c"># Ban comment spammers</span>
+</span><span class='line'>    <span class="c"># This stops people who try to write scripts to comment spam me</span>
+</span><span class='line'>    <span class="nb">RewriteCond</span> %{HTTP_REFERER} ^-?$
+</span><span class='line'>    <span class="nb">RewriteRule</span> ^/mt/mt-comments.cgi$ - [F,L]
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In a nutshell, I&#8217;ve done a cople of things.  First, I&#8217;ve sent all 403
+error statements through the CGI.  Next, I&#8217;ve modified it so I can
+test the system by allowing me to append &#8220;?deny=yes&#8221; to any URL and
+get the 403 error page (and thus blocked).  After that, we&#8217;ve got a
+section blocking all the referrers that I don&#8217;t like.  Finally, I&#8217;ve
+decided to stop people who are still trying to hit my MovableType
+system that&#8217;s been dead for well over a year now.</p>
+
+<p>The next step is to modify your <code>/etc/pf.conf</code> file to allow for the
+blocking.  The new rules are shown below:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>table &lt;http_always_allowed> { 192.168.1.0/24 }
+</span><span class='line'>    table &lt;http_banned> persist
+</span><span class='line'>    web_ports = "{ 80 }"
+</span><span class='line'>    
+</span><span class='line'>    pass in quick proto tcp from &lt;http_always_allowed> to any port $web_ports keep state
+</span><span class='line'>    block in quick proto tcp from &lt;http_banned> to any port $web_ports</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This creates two tables.  One contains a list of all hosts that are
+allowed no matter what to hit the web server.  Put your testing host
+in here or you&#8217;ll get blocked.  The second tells the system to create
+a table called http_banned that contains banned ip addresses.  Next,
+we set up web_ports as a listing of ports the web server runs on.
+Finally, we create a rule to allow the people in the
+http_always_allowed table to always connect and the final rule blocks
+all connects from http_banned hosts.</p>
+
+<p>If you&#8217;ve gotten this far, you&#8217;re doing well.  Now we need to create
+the CGI to make sure it can ban people.  Here is my version of
+<code>/cgi-bin/403.cgi</code> that I use on my site:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">#!/usr/local/bin/python</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">os</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">datetime</span>
+</span><span class='line'><span class="k">try</span><span class="p">:</span>
+</span><span class='line'>  <span class="n">f</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">popen</span><span class="p">(</span><span class="s">&quot;sudo pfctl -t http_banned -T add </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s">&quot;REMOTE_ADDR&quot;</span><span class="p">))</span>
+</span><span class='line'>  <span class="n">body</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span><span class='line'>  <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span><span class='line'><span class="k">except</span><span class="p">:</span>
+</span><span class='line'>  <span class="n">body</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+</span><span class='line'><span class="k">print</span> <span class="s">&quot;&quot;&quot;Content-Type: text/html</span>
+</span><span class='line'>
+</span><span class='line'><span class="s">&lt;body&gt;&lt;body&gt;&lt;h1&gt;403 Forbidden&lt;/h1&gt;&lt;p&gt;You suck&lt;/p&gt;&lt;pre&gt;</span><span class="si">%s</span><span class="s">&lt;/pre&gt;&lt;/body&gt;&lt;/html&gt;&quot;&quot;&quot;</span> <span class="o">%</span> <span class="n">body</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">try</span><span class="p">:</span>
+</span><span class='line'>  <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;/tmp/ipaddr&quot;</span><span class="p">,</span><span class="s">&quot;a&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;Host=[</span><span class="si">%s</span><span class="s">] URI=[</span><span class="si">%s</span><span class="s">] Agent=[</span><span class="si">%s</span><span class="s">] Time=[</span><span class="si">%s</span><span class="s">]</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s">&quot;REMOTE_ADDR&quot;</span><span class="p">),</span>
+</span><span class='line'>                                                         <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s">&quot;REDIRECT_URL&quot;</span><span class="p">),</span>
+</span><span class='line'>                                                         <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s">&quot;HTTP_USER_AGENT&quot;</span><span class="p">),</span>
+</span><span class='line'>                                                         <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()))</span>
+</span><span class='line'>  <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span><span class='line'><span class="k">except</span><span class="p">:</span>
+</span><span class='line'>    <span class="k">pass</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You&#8217;ll notice one little problem, this guy calls sudo in order to
+block the port.  That means we need to allow the web user to call
+pfctl.  This is probably not a good idea for a multi user system.  A
+better idea is to write a wrapper program which ONLY adds entries to
+the list of banned clients.  If you&#8217;ve gotten this far, you can
+probably figure out how to do that on your own.</p>
+
+<p>The very last step is to allow the web server to call sudo for pfctl.
+Here are the lines that I have in my <code>/etc/sudoers</code> to allow this to
+happen.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Cmnd_Alias WEB = /sbin/pfctl
+</span><span class='line'>    www     ALL=(ALL) NOPASSWD: WEB</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Putting all of these things together should get your system up and
+going.  Now you can come back in a little while and look and see who
+has been banned from your server.  It&#8217;s oh so delicious!  Have fun and
+enjoy banning bastards.  This method could be easily extended to ban
+bots that hit unauthorized pages or whatever you want.  Just remember,
+autobanning like this is a sure fire way to lock yourself out of your
+system.  Don&#8217;t blame me for your problems.</p>
+
+<pre>
+    [patrick@scissors] <b>sudo pfctl -t http_banned -T show</b>
+       80.58.11.107
+       196.20.31.121
+</pre>
+
+</div>
+
+
+<script>
+var idcomments_acct = 'de6c2d3e38f6fdb9bf16fa9f1904f35d';
+var idcomments_post_id;
+var idcomments_post_url;
+</script>
+<span id="IDCommentsPostTitle" style="display:none"></span>
+<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+
+
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Patrick Wagstrom</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-12-10T11:35:00-05:00" pubdate data-updated="true">Dec 10<span>th</span>, 2004</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/weblog/blog/categories/meta/'>meta</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://patrick.wagstrom.net/weblog/2004/12/10/banninglinkspammers2/" data-via="pridkett" data-counturl="http://patrick.wagstrom.net/weblog/2004/12/10/banninglinkspammers2/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/weblog/2004/12/08/morelinkspammerfun/" title="Previous Post: More on Banning Link Spammers">&laquo; More on Banning Link Spammers</a>
+      
+      
+        <a class="basic-alignment right" href="/weblog/2004/12/13/bandwidththief/" title="Next Post: Stopping Bandwidth Thieves">Stopping Bandwidth Thieves &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/weblog/2012/05/10/static-bloggin/">Static Bloggin</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/28/i-am-not-a-climatologist-and-neither-are-most-of-these-people/">I am not a climatologist, and neither are most of these people</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/10/looking-for-summer-interns-in-the-software-technology-group-at-ibm-tj-watson-research-center/">Looking for Summer Interns in the Software Technology Group at IBM TJ Watson Research Center</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/a-review-of-2011-personal-development-goals/">A Review of 2011 Personal Development Goals</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/open-source-and-technology-predictions-for-2012/">Open Source and Technology Predictions for 2012</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/pridkett">@pridkett</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'pridkett',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/weblog/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("pridkett", 4, false);
+    });
+  </script>
+  <script src="/weblog/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/pridkett" class="twitter-follow-button" data-show-count="false">Follow @pridkett</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/102672530623465237388?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Patrick Wagstrom -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

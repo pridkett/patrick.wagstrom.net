@@ -1,0 +1,749 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Delusional Dream</title>
+  <meta name="author" content="Patrick Wagstrom">
+
+  
+  <meta name="description" content="It&#8217;s occassionally useful to have the ability to apply the Rot13 algorithm to
+a block of text on a web page. Well, luckily because you can use &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://patrick.wagstrom.net/weblog/blog/page/28">
+  <link href="/weblog/favicon.png" rel="icon">
+  <link href="/weblog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/weblog/javascripts/modernizr-2.0.js"></script>
+  <script src="/weblog/javascripts/ender.js"></script>
+  <script src="/weblog/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/weblog/atom.xml" rel="alternate" title="My Delusional Dream" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/weblog/">My Delusional Dream</a></h1>
+  
+    <h2>Thoughts of a cautious technocrat</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/weblog/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:patrick.wagstrom.net/weblog" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/weblog/">Blog</a></li>
+  <li><a href="/weblog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2004/05/04/rot13link/">Rot13 Bookmark for Mozilla/Firefox</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-05-04T10:20:00-04:00" pubdate data-updated="true">May 4<span>th</span>, 2004</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>It&#8217;s occassionally useful to have the ability to apply the Rot13 algorithm to
+a block of text on a web page.  Well, luckily because you can use javascript
+bookmarks in <a href="http://www.mozilla.org/">Mozilla</a> you can.  There
+are two simple ways to get this functionality either drag and drop <a href="javascript:%20var%20t%20=%20window.getSelection(">this link</a>.toString();%20window.getSelection().getRangeAt(0).deleteContents();%20for%20(var%20s%20=%20&#8221;,i=0;i&lt;t.length;i++)%20%7B%20c%20=%20t.charCodeAt(i);%20if%20((c%20>=%2097%20&amp;&amp;%20c%20&lt;=%20109)%20%7C%7C%20(c%20>=%2065%20&amp;&amp;%20c%20&lt;=%2077))%20s%20+=%20String.fromCharCode(c+13);%20else%20if%20((c%20>=%20110%20&amp;&amp;%20c%20&lt;=%20122)%20%7C%7C%20(c%20>=%2078%20&amp;&amp;%20c%20&lt;=%2090))%20s%20+=%20String.fromCharCode(c-13);%20else%20s%20+=%20String.fromCharCode(c);%20%7D%20window.getSelection().getRangeAt(0).insertNode(document.createTextNode(s));) onto your browser
+toolbar or paste the following hunk of javascript code into a bookmark:</p>
+
+<pre><code>javascript: var t = window.getSelection().toString();
+            window.getSelection().getRangeAt(0).deleteContents();
+            for (var s = '',i=0;i&lt;t.length;i++) {
+                c = t.charCodeAt(i);
+                if ((c &gt;= 97 &amp;&amp; c &lt;= 109) || (c &gt;= 65 &amp;&amp; c &lt;= 77))
+                    s += String.fromCharCode(c+13);
+                else if ((c &gt;= 110 &amp;&amp; c &lt;= 122) || (c &gt;= 78 &amp;&amp; c &lt;= 90))
+                    s += String.fromCharCode(c-13);
+                else s += String.fromCharCode(c);
+            }
+            window.getSelection().getRangeAt(0).insertNode(document.createTextNode(s));
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2004/05/03/banalcopyrightterms/">Silly TOS on Webpages</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-05-03T18:33:00-04:00" pubdate data-updated="true">May 3<span>rd</span>, 2004</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Today <a href="http://www.slashdot.org/">slashdot</a> had a link to
+<a href="http://www.chuckjones.com/">Chuck Jones&#8217;</a> web page.  I visited the page and
+found the following copyright notice at the bottom:</p>
+
+<blockquote><p>The information on this site is Copyright 1996-2004 Linda Jones Enterprises, Inc. This site is solely for your personal use. You may link to these pages or print them out for your own personal use, but no parts of these pages can be reproduced, sold, or transmitted in any form without explicit written permission. By copying or paraphrasing the intellectual property on this page, you&#8217;re automatically signing a binding contract and agreeing to be billed $10,000 payable immediately</p></blockquote>
+
+<p>This seed a little like boilerplate text that might appear on other web sites.  A
+little googling reveled that
+<a href="http://www.eireporter.com/professorjam/">Professor Jam</a> has almost the same
+exact text:</p>
+
+<blockquote><p>Professor Jam the individual, the
+Space Jam System, Blue CD are registered trademarks of
+Mr. Rader.  1996- 2002 Professor Jam/Space Jam System
+P.O. Box 188
+Elfers, Florida USA 34680-0188
+  ALL images that are viewed on this site
+are creative creations and licensed to Professor Jam. they may
+not be duplicated in any way without prior written permission.
+You may link to these pages or print them out for your own personal
+use, but no parts of these pages can be reproduced, sold, or
+transmitted in any form without our explicit written  permission.
+By copying or paraphrasing the intellectual property on this page,
+you&#8217;re automatically entering into a binding contract and agreeing
+to be billed $7,000 payable immediately.</p></blockquote>
+
+<p>I remember seeing a lot more TOSs like these back in the early days of the Internet,
+back before people understood what fair use was.  Basically, you can&#8217;t just say someone
+agrees to something.  They need to sign away anything beyond just fair use.  For
+example, at a baseball game, I don&#8217;t have the normal fair use rights, but that&#8217;s
+because I agree to those terms when I enter the stadium (read the back of a ticket).
+Albeit, even that really hasn&#8217;t been challenged.  In any case, they can&#8217;t take away
+the right to paraphrase or to discuss in a public forum.  Silly non-Internet-literate
+people.</p>
+
+<p><strong>Updated 2004-05-30:</strong> Removed some of the copyright and all rights
+reserved symbols because they were UTF-8 (or something like that) and causing
+the XSLT processor to die for people who use crappy browsers.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2004/04/24/damncsharp/">Idiocy With C#</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-04-24T21:47:00-04:00" pubdate data-updated="true">Apr 24<span>th</span>, 2004</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I just wasted three hours of my life debugging some C# code because what should
+have been public class RandomString was only marked
+as class RandomString.  This meant it worked fine
+when it was linked into the main program, but didn&#8217;t like being in a seperate
+assembly.  So remember kids, the public statement is
+important.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2004/04/17/whyirunpyblosxom/">Why I Run PyBlosxom</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-04-17T23:45:00-04:00" pubdate data-updated="true">Apr 17<span>th</span>, 2004</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Dive Into Mark has a good article that describes accurately one of
+the main reasons why <a href="http://diveintomark.org/archives/2004/05/14/freedom-0">I run PyBlosxom</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2004/03/03/driveseekerror/">Fixing Some Longstanding Problems</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-03-03T21:51:00-05:00" pubdate data-updated="true">Mar 3<span>rd</span>, 2004</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I finally got around to fixing some long standing problems with my computer today.  First among them was the problem that I had been having with the following
+errors for the last four or five years:</p>
+
+<pre><code>Mar 03 08:21:35 dreams kernel: hdc: dma_intr: status=0x51 { DriveReady SeekComplete Error }
+Mar 03 08:21:35 dreams kernel: hdc: dma_intr: error=0x84 { DriveStatusError BadCRC }
+</code></pre>
+
+<p>I had this problem since my K6-200.  It eventually caused me to buy a new hard disk for that computer and set up some funky raid stuff because I thought I
+was loosing data.  Turns out I probably wasn&#8217;t.  Anyway, this problem is the
+result of a bad IDE cable.  So it&#8217;s a hardware problem.  I probably just
+moved the IDE cable when I switched from one computer to another.  I found
+out that I had a spare 80 pin IDE (as opposed to that 40 pin IDE cable) so
+I plopped it in and it works like a charm.  Also of interest is the nice
+speedup that I got from it.</p>
+
+<p>Also managed to go through and make it so my computer boots better.  It had been a little flunk since upgrading the bios this past weekend.  All that was
+in an attempt to get my computer to sleep better.  Which won&#8217;t work because I don&#8217;t have a wake on lan cable.  So, if you&#8217;ve got one that you want to give
+to me or sell for cheap, let me know.  I&#8217;d be thankful as it would cut down
+my power bill if I could shutdown the PC when I wasn&#8217;t using it.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2004/02/19/two/">Starting Over</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-02-19T22:46:00-05:00" pubdate data-updated="true">Feb 19<span>th</span>, 2004</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I came to the realization that the current user interface will not be suitable
+for what I want it to do.  Also, the entire project had become spaghetti
+code becuase of using GLADE for everything.  So with that being said, I started
+over on writing my BibTeXML editor today.  It uses glade for some stuff right
+now, but that will probably be completely removed in the near future.  PyGTK
+makes it easy enough that you really don&#8217;t need glade.  Anyway, so instead
+of the notebooks for each of the views, I&#8217;m going to have a notebook for each
+file that is open.  Within each file that is open you&#8217;ll be able to search for
+authors, entries etc and also edit them.  Odds are the thing will end up looking
+a lot like EndNote by the time I&#8217;m done.  I guess that&#8217;s not a bad thing,
+but hopefully it won&#8217;t look like an alien on my desktop.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2004/02/18/broken/">I Accidentally Broke Stuff</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-02-18T23:00:00-05:00" pubdate data-updated="true">Feb 18<span>th</span>, 2004</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So last night I got distracted and started playing with rendezvous, but the
+library I was using didn&#8217;t work under OpenBSD, so I started to hack at it to
+get it to work, and I got almost there, but was having problems with a
+dead interface card on the server.  So I removed the configuration, but this
+caused the server to hang, so I changed the settings, but when the box
+came back it&#8217;s gateway was all messed.  So long story short, for about 12
+hours today the box was routing packets back to the outside world.  It got
+better around 1pm today or so.  Thanks in large part to being able to
+reconfigure and OpenBSD kernel on the fly.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2004/02/13/fedorawinefix/">Fixing Wine Under Fedora</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-02-13T16:23:00-05:00" pubdate data-updated="true">Feb 13<span>th</span>, 2004</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Fedora ships with a lot of nice security patches which make the system more secure,
+at least in theory.  But the problem is that when running apps under Wine, a lot
+of them will die because they have a hard coded location to start their data
+segment at.  Luckily, <a href="http://www.winehq.org/hypermail/wine-devel/2004/01/0971.html">there is a fix</a>.  First edit your /etc/sysconfig/prelink to have the following line:</p>
+
+<pre><code>PRELINK_OPTS="-m --no-exec-shield"
+</code></pre>
+
+<p>Then run the following two commands (they&#8217;ll take a while):</p>
+
+<pre><code>prelink -au
+prelink -a
+</code></pre>
+
+<p>You won&#8217;t have exec shield support, but if you need access to some windows programs
+through Wine this looks like the easiest way to get it.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2004/02/08/godspam/">Jesus Spams!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-02-08T18:25:00-05:00" pubdate data-updated="true">Feb 8<span>th</span>, 2004</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I don&#8217;t really need to write much to explain this piece of spam.  It&#8217;s just
+sorta strange.  Maybe someone will see it as a message from God.  For me it&#8217;s
+just something that CRM gave a score of -20 to, so it&#8217;s spam.</p>
+
+<pre><code>&lt;font color="#008000"&gt;From %&lt;/font&gt;&lt;font color="#008080"&gt;&lt;b&gt;rnd_word@erols.com&lt;/b&gt;&lt;/font&gt;&lt;font color="#008000"&gt;  Fri Feb  6 00:06:38 2004&lt;/font&gt;
+&lt;font color="#804000"&gt;&lt;b&gt;Return-Path: &lt;%rnd_word@erols.com&gt;&lt;/b&gt;&lt;/font&gt;
+&lt;font color="#804000"&gt;&lt;b&gt;Message-ID: &lt;SPYQLCYCVGUNBUSCCQGYIPQT@msn.com&gt;&lt;/b&gt;&lt;/font&gt;
+&lt;font color="#008000"&gt;From: "Steven Smith" &lt;/font&gt;&lt;font color="#008080"&gt;&lt;b&gt;&lt;%rnd_word@erols.com&gt;&lt;/b&gt;&lt;/font&gt;
+&lt;font color="#008000"&gt;Reply-To: "Steven Smith" &lt;/font&gt;&lt;font color="#008080"&gt;&lt;b&gt;&lt;%rnd_word@erols.com&gt;&lt;/b&gt;&lt;/font&gt;
+&lt;font color="#c00000"&gt;&lt;b&gt;Subject: God is real so is saten&lt;/b&gt;&lt;/font&gt;
+&lt;font color="#008000"&gt;Date&lt;/font&gt;&lt;font color="#804000"&gt;&lt;b&gt;: Wed, 04 Feb 2004 18:41:36 +0300&lt;/b&gt;&lt;/font&gt;
+
+Tomorrow is promised to nobody.
+
+Get God in your life today do not put this off.
+
+Call a prayer line or contact a local church today,
+
+You will be glad you did when you are in heaven,
+
+you will certainly regret it if you end up in hell.
+
+
+
+ghghbayesian
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/weblog/2004/02/02/shfsmountpatch/">Quick Patch for SHFS</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-02-02T12:17:00-05:00" pubdate data-updated="true">Feb 2<span>nd</span>, 2004</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://shfs.sourceforge.net/">SHFS</a> is a nifty littly LUFS system that lets me do filesystems over ssh.  When combined with automount I can do cool like just go to the directory /mnt/net/ssh/patrick@dreams.wagstrom.net and automatically have access to my files.  It&#8217;s quite cool.  The problem arises from the lack of ability to specify a port to shfsmount from the mount command.  This means if you have an SSH server listening on a port other than the default 22, you can&#8217;t use automount to get access to it.  Luckily, this patch allows you to specify a port as an option to mount in the form port=XXXX.  Thus, I can set up a new directory and access it via /mnt/net/ssh8022/patrick@dreams.wagstrom.net to get access to the SSH server on port 8022.  Very nice if you&#8217;ve got multiple systems behind a firewall.  In face, that&#8217;s what I&#8217;m using to do this port right now.  Damn cool!</p>
+
+<p>[sourcecode language=&#8221;c&#8221;]
+&#8212; ./shfs-0.32.old/shfsmount/shfsmount.c       2003-11-04 06:35:59.000000000 -0500
++++ ./shfs-0.32/shfsmount/shfsmount.c   2004-02-02 11:47:26.000000000 -0500
+@@ -287,6 +287,13 @@</p>
+
+<pre><code>                                    s = r;
+                            }
+</code></pre>
+
+<ul>
+<li><pre><code>                        /* extra code to allow passing of a port as */
+</code></pre></li>
+<li><pre><code>                        /* and option of "port=XXXX" */
+</code></pre></li>
+<li><pre><code>                        if (!strncmp(s, "port=", 5)) {
+</code></pre></li>
+<li><pre><code>                                execv[j++] = "-p";
+</code></pre></li>
+<li><pre><code>                                execv[j++] = (char *)&amp;amp;s[5];
+</code></pre></li>
+<li><pre><code>                        }
+</code></pre>
+
++
+
+<pre><code>                        if (strlen(opt)+1+strlen(s)+1 &amp;lt; sizeof(opt)) {
+                                strcat(opt, ",");
+                                strcat(opt, s);
+</code></pre>
+
+<p>[/sourcecode]</p></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/weblog/blog/page/29/">&larr; Older</a>
+    
+    <a href="/weblog/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/weblog/blog/page/27/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/weblog/2012/05/10/static-bloggin/">Static Bloggin</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/28/i-am-not-a-climatologist-and-neither-are-most-of-these-people/">I am not a climatologist, and neither are most of these people</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/10/looking-for-summer-interns-in-the-software-technology-group-at-ibm-tj-watson-research-center/">Looking for Summer Interns in the Software Technology Group at IBM TJ Watson Research Center</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/a-review-of-2011-personal-development-goals/">A Review of 2011 Personal Development Goals</a>
+      </li>
+    
+      <li class="post">
+        <a href="/weblog/2012/01/03/open-source-and-technology-predictions-for-2012/">Open Source and Technology Predictions for 2012</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/pridkett">@pridkett</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'pridkett',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/weblog/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("pridkett", 4, false);
+    });
+  </script>
+  <script src="/weblog/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/pridkett" class="twitter-follow-button" data-show-count="false">Follow @pridkett</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/102672530623465237388?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Patrick Wagstrom -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

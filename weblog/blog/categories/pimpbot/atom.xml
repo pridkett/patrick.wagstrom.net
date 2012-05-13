@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: pimpbot | My Delusional Dream]]></title>
+  <link href="http://patrick.wagstrom.net/weblog/blog/categories/pimpbot/atom.xml" rel="self"/>
+  <link href="http://patrick.wagstrom.net/weblog/"/>
+  <updated>2012-05-12T20:51:14-04:00</updated>
+  <id>http://patrick.wagstrom.net/weblog/</id>
+  <author>
+    <name><![CDATA[Patrick Wagstrom]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Not Work Safe URL Plugin]]></title>
+    <link href="http://patrick.wagstrom.net/weblog/2003/12/04/nwsurls/"/>
+    <updated>2003-12-04T22:51:00-05:00</updated>
+    <id>http://patrick.wagstrom.net/weblog/2003/12/04/nwsurls</id>
+    <content type="html"><![CDATA[<p>In the same vein as the lasturls plugin, I created a nws/nsfw plugin.  Now this
+one monitors the stream of urls entered in the channel and records them.  If
+someone types "nws" or "nsfw" on a single line by itself, the url is added
+to the list of URL that are not safe.  In this way you can return home and
+easily get just the pr0n urls (or stuff that other's might find questionable)
+without having to filter everything else.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Tinyurl and LastURLs for PimpBot]]></title>
+    <link href="http://patrick.wagstrom.net/weblog/2003/12/03/tinyurlandlasturls/"/>
+    <updated>2003-12-03T09:59:00-05:00</updated>
+    <id>http://patrick.wagstrom.net/weblog/2003/12/03/tinyurlandlasturls</id>
+    <content type="html"><![CDATA[<p>I wrote a couple of new plugins for PimpBot last night.  The first is a module
+that will take any URL that is posted in the channel over a certain length
+and submit it to <a href="http://tinyurl.com/">TinyURL</a> to get a tiny
+version of the URL.  The result usually comes shortly after a message as
+the bot has got to submit the request to TinyURL.  I should add some timeout
+functionality to it in case TinyURL goes down so the bot doesn't miss stuff.</p>
+
+<p>The second collects all the URLs posted in the channel and allows you to query
+them.  Normally this is done by typing !urls, at
+which point the most recent 10 urls will be returned.  You can also specify a
+search string, like !urls sportsbybrooks which will
+return the 10 most recent urls that contain a specific string in them.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Introduction to PimpBot]]></title>
+    <link href="http://patrick.wagstrom.net/weblog/2003/12/02/pimpbotintro/"/>
+    <updated>2003-12-02T23:10:00-05:00</updated>
+    <id>http://patrick.wagstrom.net/weblog/2003/12/02/pimpbotintro</id>
+    <content type="html"><![CDATA[<p>Reject was recently updated and as a result of the upgrade some software
+that was installed on there no longer works, among them the antiquated
+TCL-SQL module that powered the explain module of B|shop (the ircbot of #zoes).
+Being as I don't have access to fix it myself, I just decided to write
+my own bot.  So here comes PimpBot.</p>
+
+<p>PimpBot is a simple Python script that works with Twisted to provide a
+plugin based framework for the creation of an IRC bot.  Everything works
+as plugins that are written in Python and loaded at runtime.  Currently
+there is a database access module and an explain module.  I'm working
+on a userlist module.  After that I'll work on some more channel protection
+stuff.  I'll post the code as I get further along, right now I've got
+finals and stuff to worry about though.</p>
+]]></content>
+  </entry>
+  
+</feed>

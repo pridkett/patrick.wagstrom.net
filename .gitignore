@@ -7,3 +7,5 @@ node_modules
 Thumbs.db
 contents/libs
 bower_components
+_cache
+logs

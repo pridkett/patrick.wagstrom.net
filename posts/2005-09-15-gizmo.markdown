@@ -1,0 +1,59 @@
+title: Gizmo - It's like Skype, but without the suck
+timestamp: 09:25 PM Thursday, September 15, 2005 EDT
+status: published
+slug: gizmo
+tags:
+- computer
+- gizmo
+- skype
+- mythPhone
+- VOIP
+- eBay
+url: /weblog/2005/09/15/gizmo/
+
+layout: post
+oldcategories:
+- computer
+oldtags:
+- eBay
+- gizmo
+- mythPhone
+- skype
+- VOIP
+wordpress_id: '117'
+
+---
+
+When all the cool kids were raving about
+[Skype](http://www.skype.com/), I went and signed up for an
+account.  I haven't used it much.  I think I got maybe two calls on it, and
+both times I didn't have a microphone handy to actually take the call.
+Something about Skype always made me a little uneasy.  Maybe it was the
+fact that they didn't reveal just how it worked.  What encryption was in
+use?  Could they drop in on your calls?  Well, now that [eBay](http://www.ebay.com/) bought Skype, I don't think I'll use them much anymore.
+eBay is known for not being a very privacy friendly company, and let's face
+it, their customer support sucks.
+
+So what's a guy like me to do?  Well, luckily Michael Robertson (the same
+guy behind MP3.com and [Linspire](http://www.linspire.com/)), has
+started a cool toy called [Gizmo](http://www.gizmoproject.com/),
+which is based on standard SIP technology. That's nice.  They also have clients
+available for Windows, Mac, and Linux (linspire based debs, but whatever, it
+works fine on [Ubuntu](http://www.ubuntulinux.com/)).
+
+What makes this really nice is that first, you get a free quarter to make
+phone calls.  At 1.8 cents a minute to the US this won't go really far, but
+it should be enough for me to make a phone call or two.  Second, because it's
+SIP based, you can dial into your client from any regular phone.  There's a
+[list of access numbers](http://www.gizmoproject.com/access-numbers.html) for a large number of cities.  Just pick an access number, press 1, and then
+type the SIP Phone number you'd like to dial (my SIP number is 1-747-617-4120).  With free long distance dialing
+on cell phones, this means that it's no problem to call my computer from
+your cell phone.  That's cool.
+
+They've also got a slew of other nifty features, mainly made possible by using
+a real standard.  For example, if I get a voice mail, it gets emailed to my
+GMail account as a wav file.  Then I can download the file and listen to the
+message at my leisure.  I would also think that in theory that it should be
+compatable with [MythPhone](http://www.zen13655.zen.co.uk/mythphone.html), so you can easily integrate a phone into your MythTV box.  I'm just
+in a state of wow right now.  Maybe one of these days I'll need to find a way
+to hook up [Asterisk](http://www.asterisk.org/) too.

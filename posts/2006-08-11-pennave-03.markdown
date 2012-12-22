@@ -1,0 +1,31 @@
+title: PennAve 0.3 Is Out
+timestamp: 05:34 PM Friday, August 11, 2006 EDT
+status: published
+slug: pennave-03
+tags:
+- release
+- oss
+- gallery
+- pennave
+url: /weblog/2006/08/11/pennave-03/
+
+layout: post
+oldcategories:
+- gallery
+oldtags:
+- oss
+- pennave
+- release
+wordpress_id: '275'
+
+---
+
+I released [PennAve](http://pennave.sf.net/) 0.3 today.  This new release brings a slew of nifty new features that you can find on my [gallery](http://patrick.wagstrom.net/gallery/). Among them are:
+
+  * Slide show
+  * Nifty new graphics
+  * RSS feeds
+  * Customizable landing page
+  * Improved performance thanks to caching
+
+Anyway, if you're running [GNOME](http://www.gnome.org/), go grab [F-Spot](http://www.f-spot.org/) and start sorting your photos.  Then put them online with [PennAve](http://pennave.sf.net/)!

@@ -1,0 +1,32 @@
+title: Fellowship 9/11
+timestamp: 09:15 PM Tuesday, October 12, 2004 EDT
+status: published
+slug: fellowship911
+tags:
+- mlp
+url: /weblog/2004/10/12/fellowship911/
+
+layout: post
+oldcategories:
+- mlp
+wordpress_id: '9'
+
+---
+
+I discovered [Fellowship 9/11](http://www.fellowship911.com/) today.
+It's humorous, especially if you tend to think that Michael Moore may be full
+of poo.  Also, whats really cool that [mplayerplug-in](http://mplayerplug-in.sourceforge.net/) lets it play just fine in Linux.  Yay for video
+and stuff.  Also, and upgraded version of a [Real Player for Linux](http://www.real.com/linux/) seems to handle it fine.  I suggest going for the
+QuickTime stream as Mplayerplug-in lets you save it for later.  Like bubble
+gum on the bedpost overnight.
+
+
+
+
+
+
+Also, this post further highlights my problems with needed a better blogging
+system than Pyblosxom.  I'm sure there have been other MLP like posts in my
+blog, but I don't remember where I put them and couldn't decided where to
+put this, so I just made a new category.
+

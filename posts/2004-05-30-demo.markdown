@@ -1,0 +1,23 @@
+title: Live Demo
+timestamp: 01:32 AM Sunday, May 30, 2004 EDT
+status: published
+slug: demo
+tags:
+- gallery
+url: /weblog/2004/05/30/demo/
+
+layout: post
+oldcategories:
+- gallery
+wordpress_id: '269'
+
+---
+
+I've got a bit of a live demo of the gallery software running at [http://patrick.wagstrom.net/gallery/](http://patrick.wagstrom.net/gallery/).
+Right now it mainly goes to show one thing, my web server is VERY VERY slow.
+If you hit a page that hasn't been hit before, it will be very slow as there
+is the need to have the script resize the image.  Considering this server is
+the computer that I had when I first went to college back in 1997, that can
+take a while for large photos, like the digital camera shots.  Luckily, it
+caches the photos for faster access later.
+

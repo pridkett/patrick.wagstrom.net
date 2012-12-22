@@ -1,22 +1,27 @@
-SITE_TITLE: Engineer Site
-HOME_URL: '/'
-SITE_URL: http://localhost:8080
+SITE_TITLE: My Delusional Dream
+HOME_URL: '/weblog/'
+SITE_URL: 'http://patrick.wagstrom.net/weblog/'
 
 POST_DIR:
   - posts
-  - archives
+#  - archives
 
 POST_TIMEZONE: 'America/New_York'
 
 PUBLISH_DRAFTS: no
 
 THEME_SETTINGS:
-  typekit_id: lvr3vky
-  twitter_id: tylerbutler
+  # typekit_id: lvr3vky
+  twitter_id: pridkett
   tweet_count: 4
   #typekit_id: vty2qol
+  comments: intensedebate
+  comments_account: de6c2d3e38f6fdb9bf16fa9f1904f35d
 
 PREPROCESS_LESS: no
 DEBUG: no
 
-THEME: oleb
+THEME: pwagstro
+
+ROLLUP_PAGE_SIZE: 10
+

@@ -1,0 +1,16 @@
+title: bibTeXML
+timestamp: 01:37 AM Wednesday, January 07, 2004 EST
+status: published
+slug: one
+tags:
+- bibtexml
+url: /weblog/2004/01/07/one/
+
+layout: post
+oldcategories:
+- bibtexml
+wordpress_id: '261'
+
+---
+
+As if I really needed another project that I will only half finish, today I started to muck around with bibTeXML because I wanted something more powerful than the standard bibTeX setup.  Well, I've done some nifty hacking with my mad XSLT skills and got it so it can do cross references on names of authors for when authors show up multiple times.  Right now it just renders to an HTML document, .bib format is next.

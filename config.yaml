@@ -1,6 +1,6 @@
 SITE_TITLE: My Delusional Dream
 HOME_URL: '/weblog/'
-SITE_URL: 'http://patrick.wagstrom.net/weblog/'
+SITE_URL: 'http://patrick.wagstrom.net'
 
 POST_DIR:
   - posts

@@ -1,0 +1,55 @@
+title: I Branched MCatalog
+timestamp: 12:08 AM Thursday, April 20, 2006 EDT
+status: published
+slug: mcatalog
+tags:
+- subversion
+- code
+- mcatalog
+- linux
+- mono
+- oss
+url: /weblog/2006/04/20/mcatalog/
+
+layout: post
+oldcategories:
+- mono
+oldtags:
+- code
+- linux
+- mcatalog
+- mono
+- oss
+- subversion
+wordpress_id: '312'
+
+---
+
+[Kristina](http://kristina.wagstrom.net/) and I purchase a fair amount of
+DVDs in the second market (used).  Usually we get pretty good deals on them, for
+example, last weekend we bought 8 DVDs from Hollywood video for about $50.  One
+consequence of our DVD buying habit is that our friends like to borrow DVDs from us.
+Then I usually forget who we've loaned the DVDs to, and next thing you know they
+go missing like my copy of [Enemy of the State](http://www.imdb.com/title/tt0120660/).
+
+If we had a Mac, there's a killer program called [Delicious Library](http://www.delicious-monster.com/) that does an amazing job of cataloging materials.  I sought out a similar
+thing for Linux, and found a few nascent projects -- all of which had bugs.  The one
+that seemed the best designed, and fit most with my current computing experience was
+[MCatalog](http://www.mcatalog.net/).  However, it appears that its web
+hosting isn't overly stable because the web page is frequently down, and that it's been
+more or less abandoned for the last nine months.  Thankfully the code was in the
+[GNOME CVS archive](http://cvs.gnome.org/), so I pulled down the latest version
+and started hacking on it.
+
+Like any good OSS programmer, I've tried to contact the original author to see if he is
+accepting patches (bug reports are handled through [GNOME's bugzilla](http://bugzilla.gnome.org/)) -- but I have yet to get a response.  It's getting to the point where I need
+revision history on my files in case I do something stupid, and also where I think that
+other people may find my improvments useful.  So, I've put a subversion repository that
+everyone can check out the newest code from.  Just check stuff out from
+[https://secure.wagstrom.net/svn/mcatalog](https://secure.wagstrom.net/svn/mcatalog)
+and start playing around with it.  So far I've updated it to stop throwing deprecation errors,
+fixed a bug with it deleting covers for everything, and made it show icons if the media is
+actually checked out at that time.  More fun will ensue I'm sure.
+
+In the mean time, if you use it and have feature requests of bug reports, shoot me an email.
+I'll handle my stuff informally until I get more feedback from the original author.

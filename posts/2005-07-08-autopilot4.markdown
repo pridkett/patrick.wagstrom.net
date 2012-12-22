@@ -1,0 +1,25 @@
+title: AutoPilot Again
+timestamp: 09:18 PM Friday, July 08, 2005 EDT
+status: published
+slug: autopilot4
+tags:
+- meta
+url: /weblog/2005/07/08/autopilot4/
+
+layout: post
+oldcategories:
+- meta
+wordpress_id: '143'
+
+---
+
+Yeah, so knowing my luck no one will get a chance to read this.  I'm going out of town for
+a week or so.  With any luck I won't have internet access while I'm gone.  This means that
+scissors will be on autopilot.  This also means that it will probably crash 10 minutes after
+I leave for the airport.
+
+If you're interested in where I'm going, I'm presenting some of my research at
+[OSS 2005](http://oss2005.case.unibz.it/) in Genoa, Italy.  [Kristina](http://kristina.wagstrom.net/)
+is staying behind, so it's not like I've got a romantic first anniversary on the
+Italian Riviera planned.  Oh well, I'll make it up to her when I get back on the 16th.
+

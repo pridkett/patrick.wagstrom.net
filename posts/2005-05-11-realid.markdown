@@ -1,0 +1,33 @@
+title: 100-0
+timestamp: 01:17 AM Wednesday, May 11, 2005 EDT
+status: published
+slug: realid
+tags:
+- stupidity
+- congress
+- freedom
+- terrorism
+- realID
+url: /weblog/2005/05/11/realid/
+
+layout: post
+oldcategories:
+- freedom
+oldtags:
+- congress
+- freedom
+- realID
+- stupidity
+- terrorism
+wordpress_id: '235'
+
+---
+
+I knew I shouldn't have gotten too excited about us winning the broadcast flag fight.  Today we lost a much more important fight.  The senate voted 100-0 to approve the supplemental funding for Iraq which had a nice rider of the [Real ID act](http://www.unrealid.com/) which will do nothing to make America a safer place.  It just means that now if you're a suspected terrorist not only will you not be able to fly, but you won't be able to get a job, enter a federal building, open a bank account, or really do anything. I'm very sad about our eroding rights as American citizens.
+
+Thanks to all my friends who listened to another one of my crazy calls for action and wrote or faxed senators in Illinois, Pennsylvania, Ohio, Texas, California, and Washington.  I appreciate that all of you were able to see that it was wrong for such an invasive act to be tacked onto a supplementary spending bill for the troops.  I am frankly ashamed that no one even thought to try and remove this part of the bill.  I'm saddened that so many senators who I though were intelligent voted for this bill without piping up.
+
+This is sorta a cheap plug, but for those of you reading this, you may want to check out [GovTrack](http://www.govtrack.us/) for more information (info on this bill is [here](http://www.govtrack.us/congress/bill.xpd?bill=h109-1268)). It's a wonderful site with MASSIVE amounts of information about our government
+and also provides lots of different feeds for that information to be sent directly to you.  I use it to track my congress critters and also to track the technology related bills.  Use it.  Keep your congress critters responsible the more people who follow them, the more responsive they'll be.
+
+Now I'm going to go cry myself to sleep.

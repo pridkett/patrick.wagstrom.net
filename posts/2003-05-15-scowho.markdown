@@ -1,0 +1,69 @@
+title: SCO who?
+timestamp: 03:28 PM Thursday, May 15, 2003 EDT
+status: published
+slug: scowho
+tags:
+- old
+url: /weblog/2003/05/15/scowho/
+
+layout: post
+oldcategories:
+- old
+wordpress_id: '64'
+
+---
+
+Today's award Mohammed Saeed Al-Sahaf award for public misinformation goes to [SCO](http://www.sco.com/).  They've been involved in this whole [Linux](http://www.linux.org/) lawsuit for (use Dr. Evil voice here) $1 billion dollars (end Dr. Evil voice) against [IBM](http://www.ibm.com/).  Anyway, SCO has a [page with quotes from Linux leaders](http://www.sco.com/scosource/quotes_from_leaders.html) on their web page.  Here are some of the gems of the quotes:
+
+
+
+> 
+"Linux is a copy of UNIX. There is very little new stuff in Linux."
+
+
+
+
+They attribute that to RMS, but the problem is that RMS didn't say it!  [Larry McVoy said it!](http://www.ussg.iu.edu/hypermail/linux/kernel/0301.0/0972.html).  So lets ignore that and chalk one up as SCO being wrong...again.
+
+
+
+> 
+"I consider the law prohibiting the sharing of copies with your friend the moral equivalent of Jim Crow. It does not deserve respect."
+
+
+
+
+This one is from RMS.  But I guess that's where it becomes a good thing that RMS doesn't write code for the kernel now isn't it?
+
+
+
+> 
+"The whole GNU project is really one big hack. It's one big act of subversive playful cleverness..."
+
+
+
+
+Another good one from RMS.  However, what SCO misses is that the Linux kernel, while licensed under the GPL is NOT part of the GNU project.  There are not pages for it at GNU.org.  In fact, the true GNU kernel is [HURD](http://www.gnu.org/software/hurd/).  So we can ignore that one.  Now let's move on to quotes from Bruce Perens.
+
+
+
+> 
+"This is becoming a tradition. I go there and break the law every year in the name of free speech."
+
+
+
+
+I don't see how showing off [DeCSS](http://www.kuro5hin.org/user/pridkett/info) is anything even vaguely related this issue.  Yes, I suppose they could use it to show a pattern of misuse within the Linux community, but that's not what he was talking about in that reference.  The DMCA is the issue here, not software copyrights.
+
+
+
+> 
+"We have to remember that Linux is a follow-on to UNIX. It's not just a UNIX clone. It's actually a UNIX successor."
+
+
+
+
+That's entirely true.  However, implying that something is a successor doesn't mean that it's got stuff stolen from the original.  A Unix clone would be something that looks and acts like Unix, which linux and all the BSDs do on one level or another.  But something can be a clone and not be illegal, like [Phoenix](http://www.phoenix.com/) Technologies original clean room PC clone bios.
+
+So that sums it up.  Once again, SCO loses.  Show me some stuff that is factually accurate and I might believe their lawsuit has a snowball's chance with Beelzebub.
+

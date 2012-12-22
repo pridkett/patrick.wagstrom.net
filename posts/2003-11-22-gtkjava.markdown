@@ -1,0 +1,29 @@
+title: Java with GTK Look and Feel
+timestamp: 02:53 PM Saturday, November 22, 2003 EST
+status: published
+slug: gtkjava
+tags:
+- code
+url: /weblog/2003/11/22/gtkjava/
+
+layout: post
+oldcategories:
+- code
+wordpress_id: '292'
+
+---
+
+I remember seeing swing when it came out six years ago and thinking about how
+very cool it looked.  But after six years with almost no UI update it was
+starting to get a little stale.  Then I was reading the [Open Source Desktop Technology Roadmap](http://freedesktop.org/~jg/roadmap.html)
+and noted what was just a little footnote at the bottom.  Apparently Java 1.4.2 supports a GTK look and feel for swing.  This is nice for me as
+I already know how to do Swing and don't want to have to learn SWT.
+
+
+
+
+
+
+It's especially nice when I consider that there currently isn't a good SVG browser plugin for Firebird under Linux, so I'm probably going to need to
+whip up an applet using Batik to do what I really want to do.  Should make it look a little less alien.
+

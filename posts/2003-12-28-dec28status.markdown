@@ -1,0 +1,30 @@
+title: PriDB Status Update
+timestamp: 11:21 PM Sunday, December 28, 2003 EST
+status: published
+slug: dec28status
+tags:
+- pridb
+url: /weblog/2003/12/28/dec28status/
+
+layout: post
+oldcategories:
+- pridb
+wordpress_id: '276'
+
+---
+
+Amazingly enough PriDB seems to be working pretty well.  I'm also working on a test project to work in tandem with it called
+PriBlog.  Basically, it will use some of the features of PriDB to do interesting things with my blog.  Anyway, I'v managed to
+implement the LIMIT keyword.  I also fixed the regex parser that handles the XPathQL on the server
+side.
+
+
+
+
+
+
+I've also been thinking about moving away from using XMLRPC for the interface method.  The problem is that using XMLRPC is
+so easy in Python, however, it doesn't allow stateful connections, so logins have to be done using the same backwards
+mechanisms that one would use to allow authentication in HTTP.  Sigh.   Anyway, right now my main goal is to get PriBlog
+working with a PriDB backend.  Then I'll extend PriDB to do other cool stuff.
+

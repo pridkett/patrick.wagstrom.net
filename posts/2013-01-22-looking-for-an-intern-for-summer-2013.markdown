@@ -18,6 +18,7 @@ Once again I'm looking for an amazingly bright Ph.D. student to work with me ove
 The primary task will be applying machine learning techniques (lexical analysis, network extraction, predictive analytics) to the usage data from a large piece of commercial software. With a little bit of luck the software will be instrumented by this point in time so you'll just need to slice and dice the data and find awesome stuff. The goal, of course, is to publish an amazing paper that provides great insight into how users actually use this type of software and provide guidance to architects and developers of such a system.
 
 A loose list of skills that are desirable are:
+
 * Java: Most of our tools are written in Java. It took me a while to get used to this, but Java has some nice advantages for developing code to run in an enterprise. Here at IBM we really love it and most of our software, including the tool we're looking at, is built in Java.
 * Software Engineering Processes: Domain expertise in understanding the relationships between the different levels of stakeholders in a software project is immensely helpful and will make it a lot easier to tease great bits of nuggets out of the data.
 * Machine Learning: We use various types of machine learning, both Java libraries and some R to understand the data. On the Java side knowledge of text analysis packages such as OpenNLP is helpful.

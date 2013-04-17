@@ -219,8 +219,17 @@ header#secondary {
     padding: 10px 10px 5px 10px;
 
     p {
-        font-size: 1rem;
+        font-size: @font-size-small;
+        text-align: justify;
         margin-bottom: 0;
+        a {
+            color: @blue;
+            &:hover {
+                background: @blue;
+                color: @white;
+                text-decoration: none;
+            }
+        }
     }
 }
 

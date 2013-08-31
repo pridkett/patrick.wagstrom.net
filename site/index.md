@@ -1,5 +1,14 @@
 <#header Patrick Wagstrom's Academic Home Page>
 
+<div class="jumbotron" style="background: url('images/jumbotron.jpg') center center no-repeat; background-size: 100% auto; padding-left: 10px;">
+    <div class="container" style="color: white; text-shadow: -1px -1px 5px #000, -1px 1px 5px #000, 1px -1px 5px #000, 1px 1px 5px #000;">
+        <h2>Patrick Wagstrom</h2>
+        <p>Research Staff Member<br>
+           Software Technologies<br>
+           IBM TJ Watson Research Center</p>
+    </div>
+</div>
+
 Patrick Wagstrom's Academic Home Page
 =====================================
 

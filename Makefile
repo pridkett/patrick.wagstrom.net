@@ -7,7 +7,7 @@ PUBLISH_DIR=publish
 TIDYP_CONFIG=$(MACRO_DIR)/tidyp.config
 GPP_OPTIONS=-H -I $(MACRO_DIR) --include macros.gpp -DRELBASE=$(pdpath)
 PANDOC_OPTIONS=-f markdown -t html5
-TIDYP_OPTIONS=-config $(TIDYP_CONFIG)
+TIDYP_OPTIONS=-m -config $(TIDYP_CONFIG)
 RSYNC_OPTIONS=-rva --exclude="*.md"
 
 MD_FILES := $(shell find $(SITE_DIR) -type f -name '*.md')
@@ -30,7 +30,10 @@ publish/%.html: pdpath = "$(shell python -c "import os.path; print os.path.relpa
 
 publish/%.html: site/%.md
 	mkdir -p "$(@D)"
-	gpp $(GPP_OPTIONS) $< | pandoc $(PANDOC_OPTIONS) | tidy $(TIDYP_OPTIONS) -o $@
+	echo $<
+	echo $@
+	gpp $(GPP_OPTIONS) $< | pandoc $(PANDOC_OPTIONS) -o $@
+	-tidy $(TIDYP_OPTIONS) $@
 
 dummy:
 	#pdpath := $(shell dirname $< | sed -e 's/[\^\/]//g')

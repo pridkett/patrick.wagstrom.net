@@ -1,0 +1,3 @@
+<#define filename|`#1`>
+<#define header|<#defeval PAGETITLE|#1><#include "header.html">>
+<#define footer|<#include "footer.html">>

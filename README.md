@@ -91,7 +91,13 @@ everywhere.
     [nytimes]: http://www.nytimes.com/
     [github]: http://www.github.com/
 
+ToDo
+----
+
+* Make a command line option to use local or remote CDNs for thinks like Bootstrap, jQuery, and FontAwesome
+
 [pandoc]: http://johnmacfarlane.net/pandoc/
 [gpp]: http://en.nothingisreal.com/wiki/GPP
 [tidyhtml5]: http://w3c.github.io/tidy-html5/
 [m4]: http://www.gnu.org/software/m4/
+

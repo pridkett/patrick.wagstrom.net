@@ -9,11 +9,24 @@ GPP_OPTIONS=-H -I $(MACRO_DIR) --include macros.gpp -DRELBASE=$(pdpath)
 PANDOC_OPTIONS=-f markdown -t html5
 TIDYP_OPTIONS=-m -config $(TIDYP_CONFIG)
 RSYNC_OPTIONS=-rva --exclude="*.md"
+SED_OPTIONS=-i'' -r
 
 MD_FILES := $(shell find $(SITE_DIR) -type f -name '*.md')
 HTML_FILES := $(patsubst $(SITE_DIR)/%.md, $(PUBLISH_DIR)/%.html,$(MD_FILES))
 
 .PHONE: all
+
+# Modify the sed options based on operating system
+# I probably should also check $(OS) to see if it is WINDOWS_NT first,
+# as explained in this answer:
+# http://stackoverflow.com/questions/714100/os-detecting-makefile
+UNAME := $(shell uname -s)
+ifeq ($(UNAME), Linux)
+	SED_OPTIONS += -e
+endif
+ifeq ($(UNAME), Darwin)
+	SED_OPTIONS += -E
+endif
 
 all: $(MACRO_DIR) $(HTML_FILES)
 	rsync $(RSYNC_OPTIONS) site/ publish
@@ -23,21 +36,19 @@ all: $(MACRO_DIR) $(HTML_FILES)
 $(MACRO_DIR):
 	mkdir -p $(MACRO_DIR)
 	cp -r $(MACRO_SRC)/* $(MACRO_DIR)
-	find $(MACRO_DIR) -name "*.html" -exec sed -i'' -r -E "s/^[[:space:]]+//" '{}' \;
+	find $(MACRO_DIR) -name "*.html" -exec sed $(SED_OPTIONS) "s/^[[:space:]]+//" '{}' \;
 
-# publish/%.html: pdpath = "$(shell dirname $< | sed -e 's|[^/]||g' | sed -e 's|/|../|g')"
+# pdpath is an environment variable that is set for each file before it is
+# processed by gpp. I forget what it originally stood for, but it is now used
+# to set the value of the RELBASE macro used by gpp.
 publish/%.html: pdpath = "$(shell python -c "import os.path; print os.path.relpath('$(ROOT_DIR)/$(PUBLISH_DIR)', '$(@D)')")"
 
 publish/%.html: site/%.md
 	mkdir -p "$(@D)"
-	echo $<
-	echo $@
 	gpp $(GPP_OPTIONS) $< | pandoc $(PANDOC_OPTIONS) -o $@
+	# tidy exits with error code 1 for warnings - not certain if we can have
+	# make ignore just error code 0 and 1, so ignore them all
 	-tidy $(TIDYP_OPTIONS) $@
-
-dummy:
-	#pdpath := $(shell dirname $< | sed -e 's/[\^\/]//g')
-	# pdpath := $(shell dirname $< | sed -e 's/[^\/]//g' | sed -e 's/\//..\//g' | sed -e 's/^$/\//')
 
 clean:
 	rm -rf publish $(MACRO_DIR)

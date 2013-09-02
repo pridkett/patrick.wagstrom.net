@@ -51,4 +51,7 @@ publish/%.html: site/%.md
 	-tidy $(TIDYP_OPTIONS) $@
 
 clean:
-	rm -rf publish $(MACRO_DIR)
+	rm -rf $(HTML_FILES) $(MACRO_DIR)
+
+allclean: clean
+	rm -rf $(PUBLISH_DIR)

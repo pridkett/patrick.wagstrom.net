@@ -1,3 +1,8 @@
+.mugshot {
+    text-align: center;
+    margin-top: 5px;
+}
+
 ul.info-links {
     list-style-type: none;
     text-align: right;

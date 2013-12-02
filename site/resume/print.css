@@ -16,6 +16,7 @@ a[href]:after {
 }
 
 h3.heading {
+    margin-top: 0.5ex;
     margin-bottom: 0px;
 }
 

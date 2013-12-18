@@ -4,6 +4,10 @@
     display: none !important;
 }
 
+body {
+    font-size: 1.1499rem;
+}
+
 /* undo boostrap's habit of dumping the URL after a link in print */
 a[href]:after {
     content: none;
@@ -16,11 +20,13 @@ a[href]:after {
 }
 
 h3.heading {
-    margin-top: 0.5ex;
+    margin-top: 0.25ex;
     margin-bottom: 0px;
+    border-top: 1px solid black;
+    font-size: 1.8rem;
 }
 
-/* re-style the info links */
+/* re-style the info links on the sidebar */
 ul.info-links {
     text-align: left;
     padding-left: 0px;

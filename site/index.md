@@ -165,8 +165,9 @@ and served as a student volunteer at CSCW 2006.
 Contact Information
 -------------------
 The best way to contact me is via my personal email account,
-patrick@wagstrom.net.
+[patrick@wagstrom.net][email].
 
 <#footer>
 
 [pubs]: cv/index.html#pubs
+[email]: mailto:patrick@wagstrom.net

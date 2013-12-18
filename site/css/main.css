@@ -26,3 +26,11 @@ body {
     display: inline;
 }
 
+#footer-content li a {
+    min-width: 150px;
+    margin-bottom: 1ex;
+}
+
+.pw-footer-social {
+    text-align: center;
+}

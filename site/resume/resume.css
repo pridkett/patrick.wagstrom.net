@@ -1,3 +1,9 @@
+/* hide various elements for the resume */
+.no-resume, .no-resume *
+{
+    display: none !important;
+}
+
 .mugshot {
     text-align: center;
     margin-top: 5px;

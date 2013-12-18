@@ -43,13 +43,18 @@ $(MACRO_DIR):
 # to set the value of the RELBASE macro used by gpp.
 publish/%.html: pdpath = "$(shell python -c "import os.path; print os.path.relpath('$(ROOT_DIR)/$(PUBLISH_DIR)', '$(@D)')")"
 
+# tidy exits with error code 1 for warnings - not certain if we can have
+# make ignore just error code 0 and 1, so ignore them all. If we could get make
+# to ignore these error codes then we could do it all as a single pipe
 publish/%.html: site/%.md
 	mkdir -p "$(@D)"
 	gpp $(GPP_OPTIONS) $< | pandoc $(PANDOC_OPTIONS) -o $@
-	# tidy exits with error code 1 for warnings - not certain if we can have
-	# make ignore just error code 0 and 1, so ignore them all
 	-tidy $(TIDYP_OPTIONS) $@
 
+# the regular clean just removes the parsed macros and the HTML files
+# if you want to remove everything then use allclean
+#
+# this clean should be used whenever the base template is updated
 clean:
 	rm -rf $(HTML_FILES) $(MACRO_DIR)
 

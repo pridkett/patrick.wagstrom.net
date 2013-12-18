@@ -1,9 +1,10 @@
 <#header Publications>
 Journal Papers
 --------------
-G. von Laszewski, K. Amin, S. Nijsure, B. Ruscic, S. Krishnan, and P. Wagstrom, “[A Framework for Building a Scientific Knowledge Grid Applied to Thermochemical Tables][vonLaszewski_2003_ijhpc],” International Journal of High Performance Computing Applications, vol. 17, no. 4, pp. 431–448, 2003.
-
-P. Wagstrom and J. Herbsleb, “[Dependency forecasting in the distributed agile organization][wagstrom_2006_cacm],” Communications of the ACM, vol. 49, no. 10, pp. 55–56, Oct. 2006.
+<ul>
+<li>G. von Laszewski, K. Amin, S. Nijsure, B. Ruscic, S. Krishnan, and P. Wagstrom, “[A Framework for Building a Scientific Knowledge Grid Applied to Thermochemical Tables][vonLaszewski_2003_ijhpc],” International Journal of High Performance Computing Applications, vol. 17, no. 4, pp. 431–448, 2003.</li>
+<li>P. Wagstrom and J. Herbsleb, “[Dependency forecasting in the distributed agile organization][wagstrom_2006_cacm],” Communications of the ACM, vol. 49, no. 10, pp. 55–56, Oct. 2006.</ul>
+</ul>
 
 Conference Papers
 -----------------

@@ -1,26 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="description" content="Patrick Wagstrom's Resume">
-    <meta name="author" content="Patrick Wagstrom <patrick@wagstrom.net>">
-
-    <title>Patrick Wagstrom's Resume</title>
-
-    <!-- fixme - make relative when publishing -->
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-    <link rel="stylesheet" type="text/css" href="resume.css">
-    <link rel="stylesheet" type="text/css" href="print.css" media="print">
-</head>
-<body>
-    <div class="container">
+---
+title: Patrick Wagstrom's Resume
+localcss:
+  - 
+    href: resume.css
+  -
+    href: print.css
+    media: print
+---
         <div class="row">
             <!-- sidebar -->
             <div class="col-md-3 sidebar">
                 <div class="row no-print">
                     <div class="col-md-12 mugshot">
-                        <img src="mugshot.small.jpg" height="200" width="164" alt="A Very Dated Photo of Patrick Wagstrom">
+                        <img src="<%= current_page.url %>mugshot.small.jpg" height="200" width="164" alt="A Very Dated Photo of Patrick Wagstrom">
                     </div>
                 </div>
                 <div class="row name-header">
@@ -296,6 +288,3 @@
                 <!-- /education -->
             </div>
         </div>
-    </div>
-</body>
-</html>

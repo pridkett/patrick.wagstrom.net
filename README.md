@@ -19,6 +19,7 @@ written in Markdown that looked great? Yeah, that was six months ago.
 Requirements
 ------------
 
+* [middleman][middleman]: An all-purpose static website generator.
 * [gpp][gpp]: The general purpose processor - a configurable macro language
   that works with just about everything. It's really helpful for C/LaTeX/HTML,
   and who knows what else. Plus, it's not nearly as arcane as [m4][m4].
@@ -100,4 +101,4 @@ ToDo
 [gpp]: http://en.nothingisreal.com/wiki/GPP
 [tidyhtml5]: http://w3c.github.io/tidy-html5/
 [m4]: http://www.gnu.org/software/m4/
-
+[middleman]: http://middlemanapp.com/

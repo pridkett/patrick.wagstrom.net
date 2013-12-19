@@ -4,8 +4,13 @@
     display: none !important;
 }
 
+footer {
+    display: none !important;
+}
+
 body {
-    font-size: 1.1499rem;
+    font-size: 1.15rem;
+    margin: 0px;
 }
 
 /* undo boostrap's habit of dumping the URL after a link in print */

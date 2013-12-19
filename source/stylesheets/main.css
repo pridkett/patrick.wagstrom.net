@@ -1,7 +1,16 @@
+@charset "utf-8";
+
 body {
+    padding-top: 70px;
+    padding-bottom: 40px;
+
     font-family: verdana;
-    background-image: url('../images/page-bg.gif');
+    background-image: url('/images/page-bg.png');
     background-color: rgba(0,0,0,0.2);
+}
+
+.sidebar-nav {
+    padding: 9px 0;
 }
 
 .white-rounded {

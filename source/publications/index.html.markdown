@@ -1,5 +1,6 @@
 ---
 title: Publications
+pageId: publications
 ---
 
 Journal Papers

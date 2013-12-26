@@ -39,11 +39,23 @@
 # activate :livereload
 
 # Methods defined in the helpers block are available in templates
-# helpers do
-#   def some_helper
-#     "Helping"
-#   end
-# end
+helpers do
+  # Helper method for displaying active navbar llinks
+  #
+  # == Parameters:
+  # active:: The name of the current navbar element
+  # arg:: The name of the current page, defaults to `currnet_page.data.pageId`
+  # cssclass:: The class to append, defaults to `"active"`
+  #
+  # == Returns:
+  # A string such as class="active" if active==arg
+  #
+  def is_active(active, arg=current_page.data.pageId, cssclass="active")
+    if arg == active
+        " class=\"" + cssclass + "\""
+    end
+  end
+end
 
 set :css_dir, 'stylesheets'
 

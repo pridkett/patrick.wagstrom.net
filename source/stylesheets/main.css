@@ -36,10 +36,43 @@ body {
 }
 
 #footer-content li a {
-    min-width: 150px;
+    min-width: 100px;
     margin-bottom: 1ex;
+    font-size: 80%;
+}
+
+#footer-content p {
+    text-align: center;
 }
 
 .pw-footer-social {
     text-align: center;
+}
+
+/* affiliation stuff */
+div.previous-affiliations {
+    text-align: center;
+}
+
+.affiliation-square {
+    text-align: center;
+    background: #f7f7f7;
+    border: 1px solid #a0a0a0;
+    height: 172px;
+    width: 172px;
+    margin-bottom: 8px;
+    margin-right: 4px;
+    margin-left: 0px;
+    margin-top: 0px;
+    display: inline-block;
+    border-radius: 10px;
+}
+
+ul.previous-affiliations {
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+li.previous-affiliation {
+    display: inline;
 }

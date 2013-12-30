@@ -76,3 +76,7 @@ ul.previous-affiliations {
 li.previous-affiliation {
     display: inline;
 }
+
+h3#past-affiliations {
+    text-align: center;
+}

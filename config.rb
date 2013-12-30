@@ -1,6 +1,7 @@
 ###
 # Compass
 ###
+require "bibtex"
 
 # Change Compass configuration
 # compass_config do |config|
@@ -62,6 +63,97 @@ helpers do
   
   SQUARE_HEIGHT = 170
 
+  def bibtex_list(infile, keyword, ctrprefix="P")
+    warn(File.join(source_dir, infile))
+    b = BibTeX.open(File.join(source_dir, infile))
+    entries = b[keywords=/#{keyword}/].sort_by{|x| x.date}.reverse
+    counter = entries.length
+    htmlentries = "";
+    entries.each{|entry|
+      warn(entry)
+      fmtcounter = "%02d" % (counter)
+      hlstart = ""
+      hlstop = ""
+  
+      (entry[:file] || "").split(";").each{|file|
+        short, long, mime = file.split(":")
+        if mime == "application/pdf"
+          hlstart = "<a href=\"#{short}\">"
+          hlstop = "</a>"
+        end
+      }
+
+      thisentry = "<li class=\"bibliography-entry\"><span class=\"counter\">[#{ctrprefix}#{fmtcounter}]</span><span class=\"authors\">#{entry.author.to_s}</span><span class=\"title\">#{hlstart}#{entry.title.delete "{" "}"}#{hlstop}</span>"
+      
+      if entry.type?("article")
+        thisentry = thisentry + "<span class=\"journal\">#{entry.journal.delete "{" "}"}</span>"
+      elsif entry.type?("incollection")
+        thisentry = thisentry + "in <span class=\"booktitle\">#{entry.booktitle.delete "{" "}"}</span>"
+      elsif entry.type?("techreport")
+        thisentry = thisentry + "Technical Report &mdash;"
+      else
+        thisentry = thisentry + "in <span class=\"booktitle\">#{entry.booktitle.delete "{" "}"}</span>"
+      end
+
+      if entry.has_field?("editor")
+        edstring = "Ed"
+        if entry.editor.to_s.include?(" and ")
+          edstring = "Eds"
+        end
+        thisentry = thisentry + "<span class=\"editors\">#{entry.editor} #{edstring}</span>"
+      end
+
+      if entry.has_field?("address")
+        thisentry = thisentry + "<span class=\"address\">#{entry.address.delete "{" "}"}</span>"
+      end
+
+      if entry.has_field?("publisher")
+        thisentry = thisentry + "<span class=\"publisher\">#{entry.publisher.delete "{" "}"}</span>"
+      end
+
+
+      if entry.has_field?("volume")
+        thisentry = thisentry + "<span class=\"volume\">vol. #{entry.volume}</span>"
+      end
+
+      if entry.has_field?("number")
+        thisentry = thisentry + "<span class=\"number\">no. #{entry.number.delete "{" "}"}</span>"
+      end
+
+      if entry.has_field?("pages")
+        thisentry = thisentry + "<span class=\"pages\">pp #{entry.pages.sub("--", "&mdash;")}</span>"
+      end
+
+      if entry.has_field?("year") || entry.has_field?("month")
+        thisentry = thisentry + "<span class=\"date\">"
+        if entry.has_field?("month")
+          thisentry = thisentry + "<span class=\"month\">#{entry.month.capitalize}</span>"
+        end
+        if entry.has_field?("year")
+          thisentry = thisentry + "<span class=\"year\">#{entry.year}</span>"
+        end
+        thisentry = thisentry +"</span>"
+      end
+
+      if entry.has_field?("doi")
+        thisentry = thisentry + "<span class=\"doi\"><a href=\"http://dx.doi.org/#{entry.doi}\">#{entry.doi}</a></span>"
+      end
+
+      thisentry = thisentry + "</li>\n"
+      htmlentries = htmlentries + thisentry
+      counter = counter - 1
+    }
+    htmlentries
+  end
+
+  # Helper method for displaying affiliation squares
+  #
+  # == Parameters:
+  # img:
+  # url:
+  #
+  # == Returns:
+  #
   def affiliation_square(img, url=nil)
     if !img.has_key?(:width) && !img.has_key?(:height) && !img[:url].include?("://")
         real_path = img[:url]

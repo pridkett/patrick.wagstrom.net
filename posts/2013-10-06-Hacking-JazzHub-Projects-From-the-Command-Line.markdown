@@ -16,7 +16,7 @@ slub: hacking-jazzhub-projects
 
 ---
 
-[JazzHub](http://hub.jazz.net/) is a new project from IBM that provides the power of Rational Team Concert (RTC) in a cloud environment. If you're working on a public project it's entirely free. In fact, it's also free until at least the end of 2014 for private projects too.
+[JazzHub](http://hub.jazz.net/) is a new project from IBM that provides the power of Rational Team Concert (RTC) in a cloud environment. If you're working on a public project it's entirely free. In fact, it's also free until at least the end of 2013 for private projects too.
 
 The obvious question that most people are going to ask is "Why should I use JazzHub if I know how to use GitHub?" This is a perfectly fine question and I don't fault anyone for asking it. In fact, for most projects you're going to be just fine using GitHub. It has a lot of great features for collaborative software development that have truly revolutionized the way that software is developed. JazzHub is designed for projects that want and need more robust mechanisms for project planning and management. A project on JazzHub can utilize the full power of Rational Team Concert's excellent support for agile processes to really plan out their software development processes. If it isn't software development without words like "scrum", "iteration", and "sprint", then you'll feel right at home using JazzHub.
 
@@ -42,7 +42,7 @@ After a minute or two JazzHub will return with your brand new shiny project page
 	
 Setting up lscm
 ---------------
-By this point you should have project on JazzHub and also downloaded a copy of the RTC client for your machine. You'll need to unpack the archive somewhere, in my case I just unpacked it to `/Applications/RTC-4.0.4`. You'll find a file hierarchy that looks a little like this:
+By this point you should have project on JazzHub and also downloaded a copy of the RTC client for your machine. You'll need to unpack the archive somewhere, in my case I unpacked it to `/Applications/RTC-4.0.4`. You'll find a file hierarchy that looks a little like this:
 
 ```
 :::text
@@ -58,10 +58,10 @@ By this point you should have project on JazzHub and also downloaded a copy of t
         `-- eclipse
 ```
 
-The `lscm` program resides in `jazz/scmtools`. There are a variety of ways that you can make it so it's easy to execute. In my case I just symlinked to `/usr/local/bin/lscm` using the following command:
+The `lscm` program resides in `jazz/scmtools`. There are a variety of ways that you can make it so it's easy to execute. I symlinked it to `/usr/local/bin/lscm` using the following command:
 
 ```
-~> ln -s /Applications/RTC-4.0.4/jazz/scmtools/eclipse/lscm
+~> ln -s /Applications/RTC-4.0.4/jazz/scmtools/eclipse/lscm /usr/local/bin/lscm
 ```
 
 If you're using a newer version of RTC, specifically 4.0.3 or newer, you're going to have a much better time because there's a new native code version of `lscm` rather than the old version that fired up a Java virtual machine every time. This results in a much better and faster experience.

@@ -1,0 +1,217 @@
+---
+title: GNOME Archive Data
+pageId: gnomearchivedata
+---
+
+GNOME Archive Data
+==================
+
+<div style="float: right; border: 2px solid black; background: #fff;
+text-align: center">
+<a href="GNOMEFirmNetworks.png"><img src="GNOMEFirmNetworks.small.png"
+width="363" height="400"><br/>
+Network of Firms (Red) and Projects (Blue) in GNOME</a>
+</div>
+
+The primary data set I used for my [Ph.D. thesis][thesis] work was on the [GNOME
+Open Source ecosystem][gnome]. Through a somewhat painstaking process and with
+the help of numerous other graduate students and members of the GNOME
+community I assembled a data set that linked together the following
+distinct streams of information:
+
+* CVS Respository
+* Project Mailing Lists
+* Bugzilla
+* Blogs
+
+The data aren't perfect, but they do provide insight into how a large
+Open Source ecosystem manages to produce high quality software.
+Downloading The Data
+
+The data are distributed as a PostgreSQL database dump in four
+different files that must be combined to create the final compressed
+file that can be loaded into a newly created PostgreSQL database. The
+files are stored on Google, so you'll get a warning that you need to
+click through before downloading the database files. Just click
+through the warning about being unable to scan the files for viruses.
+
+* [cvsminer_20100604.gz.part1][cvsminer-part1] (2097152000 bytes)
+* [cvsminer_20100604.gz.part2][cvsminer-part2] (2097152000 bytes)
+* [cvsminer_20100604.gz.part3][cvsminer-part3] (2097152000 bytes)
+* [cvsminer_20100604.gz.part4][cvsminer-part4] (1286317266 bytes)
+* [cvsminer_20100604.md5][cvsminer-md5] (244 bytes)
+* [cvsminer_20100604.sha1][cvsminer-sha1] (276 bytes)
+* [cvsminer_schema.pdf][cvsminer-schema] (43446 bytes - use file->save as to get raw PDF)
+
+The last two files, `cvsminer_20100604.md5` and `cvsminer_20100604.sha1`
+are optional, but can be used to validate that the other files are
+intact by running md5sum or sha1sum on the downloaded parts.
+
+Once the files are downloaded they must be reassembled and
+uncompressed. The following command will reassemble all of the
+different files into a single uncompressed PostgreSQL archive (lines
+beginning with $ indicate commands that should be typed in your
+shell):
+
+    $ cat cvsminer_20100604.gz.part[1234] | gzip -dc > cvsminer_20100604
+
+Loading the Data
+----------------
+
+Now that you've got a clean archive of the data on your machine it is
+time to load the data onto a local instance of a PostgreSQL
+database. However, there are some pre-requisites before you get too
+terribly far. This data is basically a dump of my research database
+from when I left Carnegie Mellon, so you'll have to bear with a few
+headaches. You'll need to enable the PL/PYTHON programming language
+and also create a couple of different accounts on your machine. This
+is because there are a few triggers in the database that rely on
+PL/PYTHON and there are permissions on tables for multiple different
+accounts.
+
+The first step is to create the database. I'll assume that you've
+already installed PostgreSQL and are able to log into the
+administrator account. The following command will create the cvsminer
+database:
+
+    $ createdb -E UTF8 cvsminer
+
+There is a chance that running this command my throw the following
+error:
+
+    createdb: database creation failed: ERROR:  new encoding (UTF8) is
+    incompatible with the encoding of the template database (SQL_ASCII)
+    HINT:  Use the same encoding as in the template database, or use
+    template0 as template.
+
+This error is raised when the default character encoding for your
+PostgreSQL instance is not UTF8 and happens quite frequently because
+for some reason most installs of PostgreSQL default to the ASCII
+character set, which makes them unsuitable for international
+characters. Although this is a headache right now, it was much more
+painful in 2003 before most libraries could even handle UTF8
+characters. The solution is to issue this command instead:
+
+    $ createdb -E UTF8 -T template0 cvsminer
+    Installing PL/PYTHON
+
+There are several triggers and helper functions written in both
+PLPYTHON and PLPGSQL. In order to avoid errors in loading these parts
+of the data you'll need to install the languages for use in the
+database. Depending on your operating system you may need to download
+additional packages to provide these features. Once you've installed
+the software packages, run the following commands to allow their use
+within the cvsminer database:
+
+    $ createlang -d cvsminer PLPYTHON
+    $ createlang -d cvsminer PLPGSQL
+
+On some platforms you may receive an error when attempting to create
+the PLPYTHON language. This is because depending on the platform and
+version of PostgreSQL the language is either referred to as PLPYTHON
+or PLPYTHONU. If you get an error just change the language
+accordingly.
+
+Creating the default User
+-------------------------
+
+Although I've tried to make the data as clean as possible, there are
+still some ownership issues with the data. In particular, it requires
+the user pwagstro (my username when I created the data). You can
+create the user using the following command:
+
+    $ createuser pwagstro
+
+Restoring the Database
+----------------------
+
+Now comes the moment of truth, loading all of the data into the
+database. If everything proceeds as planned you'll get a few small
+warnings about some pieces of data exceeding the size of their
+columns. I have no idea how the data got into the database dump with
+it being bigger than the column. As near as I can tell this has no
+affect on the usability of the database.
+
+    $ pg_restore --no-privileges --no-acl -d cvsminer cvsminer_20100604
+
+On my machine, a 2008 MacBook Pro, this operation took around five
+hours. From my own tests the errors/warnings that it displays can be
+safely ignored (a few permissions issues and perhaps one or two pieces
+of data that are two wide for the column).
+Understanding the Data
+
+There are some slightly confusing aspects of this data that may
+require explanation. First, I suggest reviewing the CVSMiner Schema
+(Google docs may not be able to zoom in enough to view this, so feel
+free to download the document). This document is an automatically
+extracted relationship diagram and I believe it may have missed some
+relationships, but it provides a good enough description of the
+data. In particular, there are some links to the blog entries shown on
+the left of the diagram that weren't extracted when I used Visio to
+generate the document.
+
+The key elements to understand in the data are master_project and
+person. A master_project is meta-project that may include one more
+sub-projects. This construct was necessary because many GNOME projects
+had multiple modules within CVS. Furthermore, a single Bugzilla
+project may correspond to multiple projects in CVS, or a single
+project in CVS may correspond to multiple entries in Bugzilla. The
+situation is repeated again with mailing lists.
+
+I've created a small page with [some sample SQL queries][samplesql] you can run to
+get and overview of the data.
+
+Libraries for Accessing the Data
+--------------------------------
+
+This archive of data was started in the fall of 2003. For myopic young
+graduate students, the Internet was a very different place back
+then. This necessitated some things that seem rather strange by
+today's standards, in particular, odd choices of libraries for
+accessing the data. The major mode of accessing the data during my
+research was a set python scripts that used the SQLObject library to
+map requests to the database.
+
+I'm in the process of cleaning up some of these scripts and making
+them available on the [CVSMiner Project at GitHub][cvsminer]. 
+
+Usage Rights / Citation
+-----------------------
+
+This data has aged and isn't as useful as it once was. Originally I
+requested that authors of papers that used this data add me as a
+co-author to the paper on account of the amount of time it took to
+collect and link together all of this data. If you still would like to
+do that I won't complain, but let me know ahead of time. Otherwise, I
+request that credit be given in the acknowledgements and that a
+reference is provided back to this source. The preferred citation is
+as follows, modify as appropriate for your journal/conference:
+
+<blockquote>
+P. Wagstrom, “GNOME Archive Data,” Aug-2011. [Online]. Available:
+http://academic.patrick.wagstrom.net/research/gnome. [Accessed:
+09-Aug-2011].
+</blockquote>
+
+In addition please let me know when you publish using this data so I
+can maintain a list of works that use this data.
+
+Additional Bonus Data
+---------------------
+
+There is a decent amount of data in this archive that relates to the
+Eclipse ecosystem too. You can follow that information by starting
+with the "community" table. I never did much work with that data,
+maybe you can find something interesting with it.
+
+[cvsminer]: https://github.com/pridkett/cvsminer
+[cvsminer-part1]: https://docs.google.com/uc?id=0B6J_ovuxcj1hYjRhMGY1ZGUtNjI4Zi00MzRjLWE1OTktYjVmMTRlOTIzZmE5&export=download&hl=en_US
+[cvsminer-part2]: https://docs.google.com/uc?id=0B6J_ovuxcj1hYTgyMmJhMGEtZTQwNC00YTI2LWJmZTEtODc5ZDdhYWFjN2E2&export=download&hl=en_US
+[cvsminer-part3]: https://docs.google.com/uc?export=download&confirm=no_antivirus&id=0B6J_ovuxcj1hYjIwMDk5M2QtNzI5OC00NTEwLTkyNWUtYjlmNzhkYmU0YzJl
+[cvsminer-part4]: https://docs.google.com/uc?export=download&confirm=no_antivirus&id=0B6J_ovuxcj1hOTdlMWU0NTAtNGE0Ni00MGQ2LWE0YmMtYjYyYmM2NGZlNGQy
+[cvsminer-md5]: https://docs.google.com/uc?id=0B6J_ovuxcj1hY2FjMTUxZmItNTU5ZS00YmMzLThjMzUtY2ZhMDQ2NThkYzBh&export=download&hl=en_US
+[cvsminer-sha1]: https://docs.google.com/uc?id=0B6J_ovuxcj1hNzA5Y2Q4OWQtYmFkNy00OTQ5LWFlNzYtZWEzNjExMWNlMmM1&export=download&hl=en_US
+[cvsminer-schema]: https://docs.google.com/a/wagstrom.net/file/d/0B6J_ovuxcj1hMjVjZTFkYmItMjYzNS00MDdiLWIxNmQtYzkzM2Y3ZWYwZjg3/edit
+[samplesql]: gnome-sample-sql.html
+[thesis]: /thesis/
+[gnome]: http://www.gnome.org/

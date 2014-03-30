@@ -1,6 +1,7 @@
 ###
 # Compass
 ###
+require "rbconfig"
 require "bibtex"
 
 # Change Compass configuration
@@ -41,7 +42,10 @@ activate :automatic_image_sizes
 
 # use the imageoptim middleman plugin to optimize all images
 # see: https://github.com/plasticine/middleman-imageoptim
-activate :imageoptim
+# only activate the plugin on MacOSX as it doesn't exist on other systems
+if RUBY_PLATFORM =~ /darwin/ then
+  activate :imageoptim
+end
 
 # Methods defined in the helpers block are available in templates
 helpers do
@@ -62,6 +66,10 @@ helpers do
   end
   
   SQUARE_HEIGHT = 170
+
+  def icon_link(iconname, url, posttext=nil, pretext=nil)
+    "<a href=\"" + url + "\">" + (pretext || "") + "<i class=\"paw-sprite-" + iconname + "\"></i>" + (posttext || "") + "</a>"
+  end
 
   def bibtex_list(infile, keyword, ctrprefix="P")
     warn(File.join(source_dir, infile))

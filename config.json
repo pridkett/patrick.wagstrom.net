@@ -1,0 +1,23 @@
+{
+  "contents": "./contents",
+  "templates": "./templates",
+  "views": "./views",
+  "output": "./build",
+  "baseUrl": "/",
+  "locals": {
+    "name": "Patrick Wagstrom's Web Page",
+    "url": "https://patrick.wagstrom.net/",
+    "description": "The Internet's #3 source for information about Patrick Wagstrom",
+    "keywords": "open source, research, socio-technical congruence, ibm, watson",
+    "baseUrl": "/"  
+  },
+  "plugins": [
+    "wintersmith-browserify",
+    "wintersmith-less",
+    "wintersmith-nunjucks"
+  ],
+  "markdown": {
+    "smartLists": true,
+    "smartypants": true
+  }
+}

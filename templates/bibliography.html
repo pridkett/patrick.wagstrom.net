@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+{{ page.html }}
+
+{% set bibjson = env.helpers.bibtex.parse(page.metadata.bibfile) %}
+{% for bib in page.metadata.bibliographies %}
+<h2>{{ bib.title }}</h2>
+<ul>
+{% for pub in  env.helpers.bibtex.filter(bibjson, bib.filter) %}
+<li>{{pub}}</li>
+{% endfor %}
+</ul>
+{% endfor %}
+{% endblock %}

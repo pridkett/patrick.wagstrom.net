@@ -13,7 +13,8 @@
   },
   "plugins": [
     "wintersmith-less",
-    "wintersmith-nunjucks"
+    "wintersmith-nunjucks",
+    "./plugins/bibtex.js"
   ],
   "markdown": {
     "smartLists": true,

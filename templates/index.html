@@ -20,7 +20,7 @@
 <h3 class="affiliations" id="current-affiliations">Current Affiliation</h3>
 <ul class="current-affiliation affiliations">
 {% set affiliation = page.metadata.affiliations[0] %}
-<li class="affiliation">{% if affiliation.url %}<a href="{{affiliation.url}}">{% endif %}<img class="affiliation-image" src="{{baseUrl}}images/{{affiliation.image}}" alt="{{affiliation.alt}}" title="{{affiliation.title}}">{% if affiliation.url %}</a>{% endif %}</li>
+<li class="affiliation">{% if affiliation.url %}<a href="{{affiliation.url}}">{% endif %}<img class="affiliation-image" src="{{baseUrl}}images/{{affiliation.image}}" alt="{{affiliation.alt}}" title="{{affiliation.title}}">{% if affiliation.text %}<br>{{ affiliation.text }}{% endif %}{% if affiliation.url %}</a>{% endif %}</li>
 </ul>
 
 <h3 class="affiliations" id="past-affiliations">Past Affiliations</h3>

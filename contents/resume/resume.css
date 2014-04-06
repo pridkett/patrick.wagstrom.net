@@ -1,0 +1,111 @@
+/* hide various elements for the resume */
+.no-resume, .no-resume *
+{
+    display: none !important;
+}
+
+.mugshot {
+    text-align: center;
+    margin-top: 5px;
+}
+
+ul.info-links {
+    list-style-type: none;
+    text-align: right;
+}
+
+ul.info-links i.fa {
+    width: 1.5em;
+    text-align: center;
+    margin-left: 2px;
+}
+
+ul.social-links {
+    list-style-type: none;
+    padding-left: 0;
+    text-align: center;
+    padding-right: 2px;
+    font-size: 125%;
+}
+
+ul.social-links li {
+    display: inline;
+}
+ul.social-links li:not(:first-child) {
+    padding-left: 0.5ex;
+}
+
+.download-buttons {
+    text-align: center;
+}
+
+ul.job-listing, ul.degree-listing, ul.skill-listing {
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+li.job > ul, li.degree > ul {
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+ul.job-listing > li:not(:first-child), ul.degree-listing > li:not(:first-child) {
+    padding-top: 1em;
+}
+
+span.job-title {
+    font-weight: bold;
+    display: block;
+}
+
+span.job-employer:after {
+    content: ",";
+}
+
+span.job-dates {
+    display: block;
+}
+
+/** degree stuff */
+span.degree-name {
+    font-weight: bold;
+}
+
+span.degree-name:after {
+    content: ",";
+}
+
+span.degree-institution:before {
+    content: "\A";
+    white-space: pre;
+}
+
+span.degree-institution:after {
+    content: ",";
+}
+
+span.degree-description {
+    display: block;
+}
+
+/** skill stuff **/
+span.skill-header {
+    font-weight: bold;
+}
+span.skill-header:after {
+    content: ":";
+}
+
+ul.skill-components {
+    list-style-type: none;
+    display: inline;
+    padding-left: 0px;
+}
+
+ul.skill-components > li {
+    display: inline;
+}
+
+ul.skill-components > li:not(:last-child):after {
+    content: ",";
+}

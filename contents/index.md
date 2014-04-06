@@ -3,7 +3,7 @@ title: Patrick Wagstrom's Home Page
 name: home
 template: index.html
 affiliations:
-  - { image: "IBMWatson.png", alt: "IBM Watson Group", title: "2014 - Present: Founding Member of IBM Watson Life - A Group That Brings Cognitive Computing to the People", url: "http://www.ibmwatson.com/" } 
+  - { image: "IBMWatson.png", alt: "IBM Watson Group", title: "2014 - Present: Founding Member of IBM Watson Life - A Group That Brings Cognitive Computing to the People", url: "http://www.ibmwatson.com/", text: "IBM Watson Group" } 
   - { image: "IBMResearch.png", alt: "IBM Research", title: "2009 - 2014 Research Staff Member at the IBM TJ Watson Research Center", url: "http://www.watson.ibm.com" }
   - { image: "CMUWordmark.png", alt: "Carnegie Mellon University", title: "2003 - 2009 Graduate Student at Carnegie Mellon University", url: "http://www.cmu.edu/" }
   - { image: "CITLogo.png", alt: "Carnegie Institute of Technology", title: "2003 - 2009: Ph.D. program in Engineering and Public Policy at Carnegie Mellon University", url: "http://www.cit.cmu.edu/" }

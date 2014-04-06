@@ -12,7 +12,6 @@
     "license": "MIT",
     "private": true,
     "dependencies": {
-	"wintersmith-browserify": "*",
 	"wintersmith-less": "*",
 	"wintersmith-nunjucks": "*",
 	"browsernizr": "*",

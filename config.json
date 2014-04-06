@@ -12,7 +12,6 @@
     "baseUrl": "/"  
   },
   "plugins": [
-    "wintersmith-browserify",
     "wintersmith-less",
     "wintersmith-nunjucks"
   ],

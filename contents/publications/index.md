@@ -4,12 +4,12 @@ name: publications
 template: bibliography.html
 bibfile: contents/publications/papers.bib
 bibliographies:
-  - { title: "Journal Papers", filter: "mypapers:journal" }
-  - { title: "Conference Papers", filter: "mypapers:conference" }
-  - { title: "Workshop Papers", filter: "mypapers:workshop" }
-  - { title: "Book Chapters", filter: "mypapers:bookchapter" }
-  - { title: "Conference Posters", filter: "mypapers:poster" }
-  - { title: "Technical Reports", filter: "mypapers:techreport" }
+  - { title: "Journal Papers", filter: "mypapers:journal", prefix: "J" }
+  - { title: "Conference Papers", filter: "mypapers:conference", prefix: "C" }
+  - { title: "Workshop Papers", filter: "mypapers:workshop", prefix: "W" }
+  - { title: "Book Chapters", filter: "mypapers:bookchapter", prefix: "BC" }
+  - { title: "Conference Posters", filter: "mypapers:poster", prefix: "P" }
+  - { title: "Technical Reports", filter: "mypapers:techreport", prefix: "TR" }
 stylesheets:
   - { href: "bibliography.css" }
   

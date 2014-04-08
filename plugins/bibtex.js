@@ -49,5 +49,109 @@ module.exports = function(env, callback) {
 	return fd;
     };
 
+    /**
+     * given a list of BibTeX entries, create a nice list of formatted citations
+     */
+    env.helpers.bibtex.toHtmlList = function(data, prefix, digits) {
+	function zeropad(num, digits) {
+	    digits = digits || 2;
+	    var pad = "000000000000000000000";
+	    var rv = num + "";
+	    if (rv.length >= digits) {
+		return rv;
+	    }
+	    return pad.slice(rv.length - digits) + rv;
+	}
+	    
+	var allEntries = [];
+	prefix = prefix || "";
+	digits = digits || 2;
+	data.forEach(
+	    function(elem, idx, arr) {
+		// extract the URL from the file
+		var linkstart = "",
+		    linkstop = "";
+		(elem.entryTags.file || "").split(";").forEach(function (f) {
+		    // parts = shortname, longname, mime
+		    var parts = f.split(":");
+		    
+		    if (parts[2] === "application/pdf") {
+			linkstart = '<a href="' + parts[0] + '">';
+			linkstop = '</a>';
+		    }
+		});
+
+		var entrycounter = prefix + zeropad(idx+1, digits);
+		thisentry = '<li class="bibliograph-entry"><span class="counter">[' + entrycounter + ']</span><span class="authors">' + elem.entryTags.author + '</span><span class="title">' + linkstart + elem.entryTags.title.replace(/[{}]/g,"") + linkstop + "</span>";
+
+		switch (elem.entryType) {
+		    case "article":
+		        thisentry += '<span class="journal">' + elem.entryTags.journal.replace(/[{}]/g,"") + '</span>';
+		        break;
+		    case "incollection":
+		        thisentry += 'in <span class="booktitle">' + elem.entryTags.booktitle.replace(/[{}]/g,"") + '</span>';
+		        break;
+		    case "techreport":
+		        thisentry += 'Technical Report &mdash;';
+		        break;
+		    default:
+		        thisentry += 'in <span class="booktitle">' + elem.entryTags.booktitle.replace(/[{}]/g,"") + '</span>';
+ 		        break;
+		}
+
+		if (elem.entryTags.editor !== undefined) {
+		    edstring = " Ed"
+		    if (elem.entryTags.editor.indexOf(" and ") !== -1) {
+			edstring = " Eds"
+		    }
+		    thisentry += '<span class="editors">' + elem.entryTags.editor + edstring + '</span>';
+		}
+
+		
+		if (elem.entryTags.address !== undefined) {
+		    thisentry += '<span class="address">' + elem.entryTags.address.replace(/[{}]/g,"") + '</span>';
+		}
+		
+		if (elem.entryTags.publisher !== undefined) {
+		    thisentry += '<span class="publisher">' + elem.entryTags.publisher.replace(/[{}]/g,"") + '</span>';
+		}
+
+		if (elem.entryTags.volume !== undefined) {
+		    thisentry += '<span class="volume"> vol. ' + elem.entryTags.volume + '</span>';
+		}
+
+		if (elem.entryTags.number !== undefined) {
+		    thisentry += '<span class="number">no. ' + elem.entryTags.number + '</span>';
+		}
+
+		if (elem.entryTags.pages !== undefined) {
+		    thisentry += '<span class="pages">pp ' + elem.entryTags.pages.replace(/--/g, "&mdash;") + '</span>';
+		}
+
+		if (elem.entryTags.year !== undefined || elem.entryTags.month !== undefined) {
+		    thisentry += '<span class="date">';
+		    if (elem.entryTags.month !== undefined) {
+			var month = elem.entryTags.month;
+			month = month.charAt(0).toUpperCase() + month.slice(1);
+			thisentry += '<span class="month">' + month + '</span>';
+		    }
+
+		    if (elem.entryTags.year !== undefined) {
+			thisentry += '<span class="year">' + elem.entryTags.year + '</span>';
+		    }
+		    thisentry += '</span>';
+		}
+
+		if (elem.entryTags.doi !== undefined) {
+		    thisentry += '<span class="doi"><a href="http://dx.doi.org/' + elem.entryTags.doi + '">' + elem.entryTags.doi + '</a></span>';
+		}
+
+		thisentry += "</li>";
+		allEntries.push(thisentry);
+	    }
+	);
+	return allEntries.join("\n");
+    };
+
     callback();
 };

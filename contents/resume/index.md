@@ -261,7 +261,7 @@ instantclick: false
                         <span class="degree-date">May 2009</span>
                         <span class="degree-institution"><a href="http://www.cmu.edu/">Carnegie Mellon University</a></span>
                         <span class="degree-location">Pittsburgh, PA</span>
-                        <span class="degree-description">Dual degree between the Carnegie Institute of Technology (College of Engineering) and School of Computer Science at Carnegie Mellon University. Ph.D. thesis title "<a href="http://academic.patrick.wagstrom.net/thesis-files/phd-thesis.pdf">Vertical Interaction in Open Software Engineering Communities</a>". Thesis advisors <a href="http://herbsleb.org/">Dr. James Herbsleb</a> and <a href="http://www.casos.cs.cmu.edu/bios/carley/carley.html">Dr. Kathleen Carley</a>.</span>
+                        <span class="degree-description">Dual degree between the Carnegie Institute of Technology (College of Engineering) and School of Computer Science at Carnegie Mellon University. Ph.D. thesis title "<a href="../thesis/">Vertical Interaction in Open Software Engineering Communities</a>". Thesis advisors <a href="http://herbsleb.org/">Dr. James Herbsleb</a> and <a href="http://www.casos.cs.cmu.edu/bios/carley/carley.html">Dr. Kathleen Carley</a>.</span>
                     </li>
                     <li class="degree">
                         <span class="degree-name">MS in <a href="http://www.isri.cmu.edu/education/cos-phd/index.html">Computation, Organizations, and Society</a></span>
@@ -275,7 +275,7 @@ instantclick: false
                         <span class="degree-date">August 2003</span>
                         <span class="degree-institution"><a href="http://www.iit.edu/">Illinois Institute of Technology</a></span>
                         <span class="degree-location">Chicago, IL</span>
-                        <span class="degree-description">Focused on distributed and pervasive computing.</span>
+                        <span class="degree-description">Focused on distributed and pervasive computing. Thesis title "<a href="../thesis/#msthesis">Scarlet: A Framework for Context Aware Computing</a>".</span>
                     </li>
                     <li class="degree">
                         <span class="degree-name">BS in <a href="http://www.iit.edu/csl/cs/">Computer Science</a> / BS in <a href="http://www.iit.edu/engineering/ece/">Computer Engineering</a> / BS in <a href="http://www.iit.edu/engineering/ece/">Electrical Engineering</a></span>

@@ -25,13 +25,13 @@ NOTE: The correct time for the defense is 9:30am.  The rumors of an insanely ear
 **Location:** Carnegie Mellon University, Wean Hall 4625
 
 **Document:**
-- [![](/images/icon_pdf.png) Final Version (double sided)](phd-thesis.pdf)
-- [![](/images/icon_pdf.png) Final Version (single sided)](phd-thesis-single.pdf)
+a- [![](/images/icon_pdf.png) Final Version (double sided)][phd-thesis]
+- [![](/images/icon_pdf.png) Final Version (single sided)][phd-thesis-single]
 
 **Slides:**
-- [![](/images/icon_odp.png) OpenOffice.org Version (Canonical)](defense-slides.odp)
-- [![](/images/icon_ppt.png) Microsoft PowerPoint](defense-slides.ppt)
-- [![](/images/icon_pdf.png) Adobe PDF (No Animations)](defense-slides.pdf)
+- [![](/images/icon_odp.png) OpenOffice.org Version (Canonical)][defense-slides-odp]
+- [![](/images/icon_ppt.png) Microsoft PowerPoint][defense-slides-ppt]
+- [![](/images/icon_pdf.png) Adobe PDF (No Animations)][defense-slides-pdf]
 
 ###Abstract
 
@@ -50,3 +50,9 @@ Software engineering is still a relatively young field, struggling to develop co
 **2/27/2009** - Cleaned up introduction.  Cleared up questions in chapter 2 as per Jim's request.  Spell check on whole document.  Fixed all references.
 
 **2/25/2009** - Reworked introduction for Chapter 5 on individual communication and Socio-Technical congruence.
+
+[phd-thesis]: ../thesis/wagstrom-phd-thesis.pdf
+[phd-thesis-single]: ../thesis/wagstrom-phd-thesis-single.pdf
+[defense-slides-odp]: ../thesis/wagstrom-defense-slides.odp
+[defense-slides-ppt]: ../thesis/wagstrom-defense-slides.ppt
+[defense-slides-pdf]: ../thesis/wagstrom-defense-slides.pdf

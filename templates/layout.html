@@ -29,6 +29,7 @@
         <span class="icon-bar">&nbsp;</span>
         <span class="icon-bar">&nbsp;</span>
         <span class="icon-bar">&nbsp;</span>
+	<span class="icon-bar">&nbsp;</span>
       </button>
       <a class="navbar-brand{{ active_class("home") }}" href="{{ baseUrl }}" id="navbar-home"><i class="fa fa-home"></i>&nbsp;Patrick Wagstrom</a>
     </div>
@@ -36,7 +37,8 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li{{ is_active("projects") }}><a href="{{ baseUrl }}projects/" id="navbar-projects">Projects</a></li>
-        <li{{ is_active("publications") }}><a href="{{ baseUrl }}publications/" id="navbar-publications">Publications</a></li>
+	<li{{ is_active("research") }}><a href="{{ baseUrl }}research/" id="navbar-research">Research</a></li>
+        <li{{ is_active("publications") }}><a href="{{ baseUrl }}publications/" id="navbar-publications" data-no-instant>Publications</a></li>
         <li{{ is_active("resume") }}><a href="{{ baseUrl }}resume/" id="navbar-resume" data-no-instant>Resume</a></li>
         <li{{ is_active("cv") }}><a href="{{ baseUrl }}cv/" id="navbar-cv" data-no-instant>CV</a></li>
         <li{{ is_active("weblog") }}><a href="{{ baseUrl }}weblog/" id="navbar-weblog" data-no-instant>Weblog</a></li>

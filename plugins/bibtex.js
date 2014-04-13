@@ -53,6 +53,30 @@ module.exports = function(env, callback) {
      * given a list of BibTeX entries, create a nice list of formatted citations
      */
     env.helpers.bibtex.toHtmlList = function(data, prefix, digits) {
+
+	/**
+	 * given a set of entryTags create a valid javascript date from the object
+	 */
+	function generateDate(entry) {
+	    var monthMapping = { "jan": 00, "feb": 01, "mar": 02, "apr": 03,
+				 "may": 04, "jun": 05, "jul": 06, "aug": 07,
+				 "sep": 08, "oct": 09, "nov": 10, "dec": 11 },
+	        year = 1969,
+	        month = 0,
+	        day = 1;
+
+	    year = parseInt(entry.entryTags.year, 10);
+	    if (entry.entryTags.month) {
+		month = monthMapping[entry.entryTags.month.toLowerCase().trim()];
+	    }
+
+	    if (month === null || month === undefined) {
+		month = 0;
+	    }
+
+	    return new Date(year, month, day);
+	}
+
 	function zeropad(num, digits) {
 	    digits = digits || 2;
 	    var pad = "000000000000000000000";
@@ -66,6 +90,12 @@ module.exports = function(env, callback) {
 	var allEntries = [];
 	prefix = prefix || "";
 	digits = digits || 2;
+	data.forEach(function(elem, idx, arr) {
+	    data[idx].date = generateDate(elem);
+	});
+	data.sort(function(a,b) {
+	    return a.date - b.date;
+	});
 	data.forEach(
 	    function(elem, idx, arr) {
 		// extract the URL from the file

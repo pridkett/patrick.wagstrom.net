@@ -124,9 +124,26 @@ instantclick: false
                         <ul>
                             <li class="job-info">
                                 <span class="job-title">Research Staff Member</span>
+                                <span class="job-employer"><a href="http://ibmwatson.com/">IBM Watson Group - Watson Life</a></span>
+                                <span class="job-location">Yorktown Heights, NY</span>
+                                <span class="job-dates">January 2014-Present</span>
+                            </li>
+                            <li title="achievements">
+                                <ul>
+                                    <li>Leadership team member responsible for evaluating promising consumer applications of cognitive computing and guiding teams in lean startup and IBM design thinking processes to explore ideas.</li>
+                                    <li>Project lead for the <a href="http://ibmfoodtruck.com/">IBM Food Truck at SXSW</a> which demonstrated cognitive computing to more than 4,000 people and resulted in more than 1 billion media impressions.</li>
+                                    <li>Organized and directed globally distributed teams on how to contextualize solutions to cognitive computing challenges.</li>
+                                    <li>Implemented best practices for DevOps using IBM DevOps services, IBM BlueMix, Jenkins, and more.
+                                </ul>
+                            </li>
+                        </ul>
+                    <li class="job">
+                        <ul>
+                            <li class="job-info">
+                                <span class="job-title">Research Staff Member</span>
                                 <span class="job-employer"><a href="http://www.watson.ibm.com/">IBM TJ Watson Research Center</a></span>
                                 <span class="job-location">Yorktown Heights, NY</span>
-                                <span class="job-dates">August 2009-Present</span>
+                                <span class="job-dates">August 2009-January 2014</span>
                             </li>
                             <li title="achievements">
                                 <ul>

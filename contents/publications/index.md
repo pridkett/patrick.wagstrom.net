@@ -12,11 +12,9 @@ bibliographies:
   - { title: "Technical Reports", filter: "mypapers:techreport", prefix: "TR" }
 stylesheets:
   - { href: "bibliography.css" }
-  
+  - { href: "print.css", media: "print" } 
 ---
 
-The following are the authors copies of my published works. Interested
-folks can also download a [BibTeX file containing references for all of
-my published papers][bibtex].
-
-[bibtex]: papers.bib
+<div class="no-print">The following are the authors copies of my published works. Interested
+folks can also download a <a href="papers.bib">BibTeX file containing references for all of
+my published papers</a></div>

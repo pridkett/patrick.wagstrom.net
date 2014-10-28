@@ -1,0 +1,39 @@
+title: Curling
+timestamp: 08:24 PM Sunday, March 06, 2005 EST
+status: published
+slug: curling
+tags:
+- random
+url: /weblog/2005/03/06/curling/
+
+layout: post
+oldcategories:
+- random
+wordpress_id: '38'
+
+---
+
+Last night Kristina and I went out with a group of folks from school
+to the
+[Robert Morris University Island Sports Center](http://www.rmuislandsports.org/)
+and hung out with the
+[Pittburgh Curling Club](http://www.pittsburghcurlingclub.com/).  It
+was different to say the least.  I think every one of us fell down at
+least a few times.  But it was definately fun and I think we may
+consider doing it again.  At the very least, at $10 a person, it was a
+very cheap way to spend a Saturday evening.
+
+Here's two of the shots I took.  Unfortunately, I realized after I left that
+the light balance was off.  Also, the PowerShot A75 is not the best for getting
+active shots.  Oh yeah, and my batteries died during the evening.  Hopefully
+[Paul](http://www.andrew.cmu.edu/~phines/) got some better shots.
+
+<div class="image caption center">
+    <img src="/weblog/media/2005/03/ameliaThrowing.jpg" alt="Amelia throwing a stone down the lane">
+    <p>Amelia throwing a stone down the lane</p>
+</div>
+
+<div class="image caption center">
+    <img src="/weblog/media/2005/03/maryThrowing.jpg" alt="Mary throwing with Kristina and Vanessa sweeping">
+    <p>Mary throwing with Kristina and Vanessa sweeping</p>
+</div>

@@ -1,0 +1,34 @@
+title: Hawk Tour Gets Some Press
+timestamp: 09:41 PM Wednesday, October 12, 2005 EDT
+status: published
+slug: hawktour
+tags:
+- press
+- hawktour
+- academic
+- iit
+url: /weblog/2005/10/12/hawktour/
+
+layout: post
+oldcategories:
+- academic
+oldtags:
+- hawktour
+- iit
+- press
+wordpress_id: '332'
+
+---
+
+Back at [IIT](http://www.iit.edu/) I started an [IPRO](http://ipro.iit.edu/)
+on pervasive computing under the direction of [Dr. Xian-He Sun](http://www.cs.iit.edu/~sun/).
+The project started out as pervasive solutions for classroom use, but eventually morphed into a
+cool project called [HawkTour](http://www.hawktour.net/).
+It was pretty hard to leave this work because it was a lot of fun and we were creating interesting
+new uses of technology.  Well, after I left, they continued in the vision that was laid out with some
+of my ideas and lots of AMAZING work by [Tyler Butler](http://www.tylerbutler.com/) and
+created a cool pervasive computing application that lets you know what is going on in your area
+while taking a campus tour.  A few days they got some
+[great press from the Boston Globe](http://www.boston.com/business/technology/articles/2005/10/10/location_tracking____for_people_products_places____is_fast_coming_into_its_own/).  This makes me really happy.  Congrats to the folks who are working on this.  It's
+nice to see projects you started on grow up.
+

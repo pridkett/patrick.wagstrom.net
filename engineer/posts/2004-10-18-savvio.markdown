@@ -1,0 +1,35 @@
+title: My Brother's Work
+timestamp: 02:29 PM Monday, October 18, 2004 EDT
+status: published
+slug: savvio
+tags:
+- mlp
+url: /weblog/2004/10/18/savvio/
+
+layout: post
+oldcategories:
+- mlp
+wordpress_id: '10'
+
+---
+
+So this entry has nothing to do with me really.  I just thought that I'd share
+a link to a [slashdot article](http://slashdot.org/articles/04/10/15/1735207.shtml?tid=198&tid=137) about a hard drive my brother [Peter](http://peter.wagstrom.net/) worked on for Seagate.  Here is a little picture
+to see this nice little 2.5 inch SCSI drive.
+
+
+
+
+
+
+
+
+![See the big LSI chip?](/resources/images/blog/savvio.jpg)
+
+
+
+
+Pete worked on the LSI chip
+
+
+

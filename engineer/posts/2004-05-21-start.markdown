@@ -1,0 +1,81 @@
+title: Writing some photo gallery software
+timestamp: 02:11 PM Friday, May 21, 2004 EDT
+status: published
+slug: start
+tags:
+- gallery
+url: /weblog/2004/05/21/start/
+
+layout: post
+oldcategories:
+- gallery
+wordpress_id: '270'
+
+---
+
+Kristina and I just bought a digital camera.  It's not a wonderful one, but
+it's a pretty nice Canon PowerShot A75.  Good enough resolution, takes the
+ubiquitous AA batteries and stores the photos on Compact Flash cards, which
+are nice and cheap.  However, there is a problem.  We'd like to put up a
+photo gallery, but most everyone uses [Gallery](http://gallery.sf.net/), which I'm not too huge of a fan of.  So I've started to hack together my
+own in Python (of course) using PIL for some of the manipulations.
+
+
+
+
+
+
+I haven't made a lot of the decisions yet, like whether or not to make it use
+a database backend, but I have mad some design decisions and gotten it going
+to a small extent.
+
+
+
+
+
+
+
+  * The urls should contain most of the information rather than having it on
+the hook.  This is a lot like the way that PyBloxsom works.  This means that
+for a thumbnail of an image we use galley.py/thumbnail/IMG_0004.JPG instead of
+gallery.py?img=IMG_0004.JPG&op=thumbnail.
+
+
+
+  * Wherever possible, it should be possible to annotate the images.  I really
+like the way that [w3photo](http://w3photo.org/) uses [fotonotes](http://fotonotes.net/) to anootate the photos.  I'm gonna implement
+something like this.
+
+
+
+  * As much formatting as possible should be done outside the CGI script.  This
+probably means that once again it's gonna spit out XML which will be translated
+using XSLT.
+
+
+
+  * On the fly resizing is a must.  This is already done with the thumbnails,
+but it should be available for other sizes too, as not everyone (or anyone basically) can view a 3 megapixel image on a screen, especially me with my 1.4 megapixel laptop screen.
+
+
+
+  * I'd like to make the software modular as possible and make it possible for
+other people to use the software.  This means that I don't want to have many
+dependencies outside of Python, PIL, and LibXML for Python.  This should also
+help ensure it still runs on Win32.
+
+
+
+  * I need to create a solid standard for path naming.  Either they need to end
+with an os.sep or they shouldn't.
+
+
+
+
+
+
+Anyway, I'm sure more will come as I get a chance to write more next week after
+Kristina goes back to Texas for a few days.  In unrelated news, I gave
+[Kristina a new website](http://kristina.wagstrom.net/) but she
+can't use it until after we get married.
+

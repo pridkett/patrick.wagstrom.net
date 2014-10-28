@@ -1,0 +1,25 @@
+title: I accidentally broke stuff
+timestamp: 11:00 PM Wednesday, February 18, 2004 EST
+status: published
+slug: broken
+tags:
+- meta
+url: /weblog/2004/02/18/broken/
+
+layout: post
+oldcategories:
+- meta
+wordpress_id: '122'
+
+---
+
+So last night I got distracted and started playing with rendezvous, but the
+library I was using didn't work under OpenBSD, so I started to hack at it to
+get it to work, and I got almost there, but was having problems with a
+dead interface card on the server.  So I removed the configuration, but this
+caused the server to hang, so I changed the settings, but when the box
+came back it's gateway was all messed.  So long story short, for about 12
+hours today the box was routing packets back to the outside world.  It got
+better around 1pm today or so.  Thanks in large part to being able to
+reconfigure and OpenBSD kernel on the fly.
+

@@ -1,0 +1,23 @@
+title: September 11th as a Political Device
+timestamp: 03:43 PM Wednesday, September 01, 2004 EDT
+status: published
+slug: noche
+tags:
+- politics
+url: /weblog/2004/09/01/noche/
+
+layout: post
+oldcategories:
+- politics
+wordpress_id: '22'
+
+---
+
+Like most people, I find how both parties are using September 11th as
+a political device morally apalling.  I also find the purple heart stickers
+that republican delegates are wearing a disgrace and shameful.  But back to
+the main topic.  The New York Times  has an
+[interesting article](http://www.nytimes.com/2004/09/01/politics/campaign/01about.html) about the lives of a lot of the former workers at Windows
+on the World, the restaurant on the 107th floor of the World Trade Center.
+It's an interesting contrast between them and what the delegates are saying.
+

@@ -1,0 +1,35 @@
+title: The Bean
+timestamp: 12:55 PM Monday, February 07, 2005 EST
+status: published
+slug: thebean
+tags:
+- freedom
+url: /weblog/2005/02/07/thebean/
+
+layout: post
+oldcategories:
+- freedom
+wordpress_id: '249'
+
+---
+
+As most of my readers know, before migrating to Pittsburgh, I lived in Chicago for
+six years.  It's a great city to live in and their parks are wonderful.  While in
+Chicago, I paid my share of city taxes.  I'm sure some of my money went to help
+build Millenium Park, which was supposed to be open in 2000, but didn't open up
+until 2004.  I got a chance to see it in November when I was in town for CSCW.
+
+Well, it turns out, it's illegal for me to photograph "The Bean", even
+though my tax dollars paid for it and it's in a public space.  You can
+read all about it how
+[The Bean is copyrighted Public Space](http://newurbanist.blogspot.com/2005/01/copyrighting-of-public-space.html).
+I don't think that Anish Kapoor, the artist behind The Bean,
+understands copyright law. Here's some of my pictures of the bean.  If you'd like
+the 3.2 megapixel ones let me know.
+
+<img src="/weblog/media/2005/02/theBean1.jpg"><img src="/weblog/media/2005/02/theBean2.jpg"><img src="/weblog/media/2005/02/theBean3.jpg"><img src="/weblog/media/2005/02/theBean4.jpg"><img src="/weblog/media/2005/02/theBean5.jpg"><img src="/weblog/media/2005/02/theBean6.jpg">
+All of these photos are taken by me and owned by me.  I hereby release
+them under a
+[Creative Commons By-SA license](http://creativecommons.org/licenses/by-sa/2.0/).
+Yes, you can feel free to profit off these just to piss Anish Kapoor
+off.

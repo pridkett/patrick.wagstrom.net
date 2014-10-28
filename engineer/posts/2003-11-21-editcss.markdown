@@ -1,0 +1,21 @@
+title: EditCSS for Firebird
+timestamp: 08:31 PM Friday, November 21, 2003 EST
+status: published
+slug: editcss
+tags:
+- web
+url: /weblog/2003/11/21/editcss/
+
+layout: post
+oldcategories:
+- web
+wordpress_id: '221'
+
+---
+
+I just stubled across a neat enhancement for [Firebird](http://www.mozilla.org/products/firebird/).  [Edit CSS](http://editcss.mozdev.org/index.html) allows you to edit the
+CSS of a web page on the fly.  It's great for when you want to see either how a
+web page did something or you want to change something in your web page.  If I
+still did full time web development this would be my new best friend.  You can
+find more information at [http://editcss.mozdev.org/](http://editcss.mozdev.org/).
+

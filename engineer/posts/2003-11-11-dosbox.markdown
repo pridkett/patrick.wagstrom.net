@@ -1,0 +1,24 @@
+title: Curse you Dosbox!
+timestamp: 11:04 PM Tuesday, November 11, 2003 EST
+status: published
+slug: dosbox
+tags:
+- linux
+url: /weblog/2003/11/11/dosbox/
+
+layout: post
+oldcategories:
+- linux
+wordpress_id: '154'
+
+---
+
+As never seems to fail, I broke down and started to play video games again.
+This time I was feeling a little retro, so out came [dosbox](http://dosbox.sourceforge.net/) and some old school games that
+I actually own:
+
+
+
+![Wasteland](/resources/images/blog/wasteland.png)  
+
+![Master of Magic](/resources/images/blog/masterOfMagic.png)

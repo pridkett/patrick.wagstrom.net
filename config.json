@@ -1,7 +1,6 @@
 {
   "contents": "./contents",
   "templates": "./templates",
-  "views": "./views",
   "output": "./build",
   "baseUrl": "/",
   "locals": {

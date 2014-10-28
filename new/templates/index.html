@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="jumbotron" style="background: url('{{ baseUrl }}images/jumbotron.jpg') center center no-repeat; background-size: 100% auto; padding-left: 10px; margin-top: 10px;">
+    <div class="container" style="color: white; text-shadow: -1px -1px 5px #000, -1px 1px 5px #000, 1px -1px 5px #000, 1px 1px 5px #000;">
+        <h2>Patrick Wagstrom</h2>
+        <p>Research Staff Member<br>
+           Watson Life<br>
+           IBM Watson Group</p>
+    </div>
+</div>
+
+<div class="row">
+<div class="col-md-9">
+{{page.html}}
+</div>
+
+<div class="col-md-3 previous-affiliations">
+
+<h3 class="affiliations" id="current-affiliations">Current Affiliation</h3>
+<ul class="current-affiliation affiliations">
+{% set affiliation = page.metadata.affiliations[0] %}
+<li class="affiliation">{% if affiliation.url %}<a href="{{affiliation.url}}">{% endif %}<img class="affiliation-image" src="{{baseUrl}}images/{{affiliation.image}}" alt="{{affiliation.alt}}" title="{{affiliation.title}}">{% if affiliation.text %}<br>{{ affiliation.text }}{% endif %}{% if affiliation.url %}</a>{% endif %}</li>
+</ul>
+
+<h3 class="affiliations" id="past-affiliations">Past Affiliations</h3>
+<ul class="previous-affiliations affiliations">
+{% for affiliation in page.metadata.affiliations %}{% if not loop.first %}
+<li class="affiliation">{% if affiliation.url %}<a href="{{affiliation.url}}">{% endif %}<img class="affiliation-image" src="{{baseUrl}}images/{{affiliation.image}}" alt="{{affiliation.alt}}" title="{{affiliation.title}}">{% if affiliation.url %}</a>{% endif %}</li>
+{% endif %}{% endfor %}
+</ul>
+</div>
+</div>
+{% endblock %}

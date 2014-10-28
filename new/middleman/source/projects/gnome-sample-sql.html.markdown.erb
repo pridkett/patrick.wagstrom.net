@@ -1,0 +1,162 @@
+---
+title: GNOME Sample SQL Queries
+pageId: gnomearchivedatasqlqueries
+---
+
+Getting an Overview of the Data
+-------------------------------
+
+The first thing you'll want to do is to get an idea of the amount of
+data in the database. These queries get general information about the
+major data sources in the database:
+
+    cvsminer=# select count(*) from person;
+     count 
+    -------
+     10145
+    (1 row)
+
+    cvsminer=# select count(*) from mail_message;
+     count  
+    --------
+     857369
+    (1 row)
+
+    cvsminer=# select count(*) from cvs_commit;
+     count  
+    --------
+     726560
+    (1 row)
+
+    cvsminer=# select count(*) from bz_bugs;
+     count  
+    --------
+     411517
+    (1 row)
+
+    cvsminer=# select count(*) from feed_entry;
+     count  
+    --------
+     150153
+    (1 row)
+
+From this it should be very obvious that the data contained in the
+database are not the complete record of everything that ever happened
+in the GNOME community. The data are focused around questions that I
+found most interesting and was focusing on for my own research. Thus,
+not all projects have equal amounts of information in the database.
+
+What Are the Email Addresses of People Who Have Contributed to Evolution?
+-------------------------------------------------------------------------
+
+This query shows how much of the data is linked up. We first take an
+email address (email_address) and map that to person (person), which
+can be mapped to a cvs account (users), which may have created
+multiple cvs commits (cvs_commit), on multiple projects (project),
+which belong to the large evolution master project (master_project). I
+realize that it is possible to compress this query some by eliminating
+the person table and various other optimizations, but it's left fully
+verbose here to make the process clearer.
+
+    cvsminer=# select distinct(email_address.email) 
+                 from email_address, person, person_user, users,
+                 cvs_commit, project, master_project
+                where email_address.person_id=person.person_id 
+                      and person.person_id=person_user.person_id
+                      and person_user.user_id=users.user_id
+                      and users.user_id=cvs_commit.user_id
+                      and cvs_commit.project_id=project.project_id
+                      and
+                 project.master_project_id=master_project.master_project_id
+                      and
+                 master_project.master_project_name='gnome/evolution';
+
+                       email                   
+    -------------------------------------------
+     efgbr@terra.com.br
+     hp@redhat.com
+     spapadim@cs.cmu.edu
+     michael@helixcode.com
+     gilosher@gmail.com
+     damon@gnome.org
+     bulkmeel@yahoo.co.uk
+    [and several hundred more]
+
+What Mailing Lists Do Evolution Developers Post To?
+---------------------------------------------------
+
+This is an expansion of the previous query where we continue the join
+two steps further to join find the all of the mailing list posts that
+the email_address has done (mail_message) and then figure out which
+lists those posts were done on (mailing_list).
+
+    cvsminer=# select distinct(mailing_list.name) 
+                 from mailing_list, mail_message, email_address, person, 
+                      person_user, users, cvs_commit, project,
+                 master_project
+                where
+                 mailing_list.mailing_list_id=mail_message.mailing_list_id
+                      and
+                 mail_message.email_address_id=email_address.email_address_id
+                      and email_address.person_id=person.person_id 
+                      and person.person_id=person_user.person_id
+                      and person_user.user_id=users.user_id
+                      and users.user_id=cvs_commit.user_id
+                      and cvs_commit.project_id=project.project_id
+                      and
+                 project.master_project_id=master_project.master_project_id
+                      and
+                 master_project.master_project_name='gnome/evolution';
+
+               name            
+    ---------------------------
+     libsoup
+     muine
+     gnome-planning-summit
+     atomato
+     evince
+     gtk-app-devel
+     gnome-cyr
+     straw
+     xml-i18n-tools
+     xml-bindings
+    [and many more, 154 total]
+
+How Many Posts Were on Made to Each Blog Aggregator
+---------------------------------------------------
+
+The blog engine was something I wrote for a one off weekend
+project. From there it just ran for a couple of years. That's the
+power of cron. The basic premise was that at some points I crawled the
+various blog planets for their OPML lists of subscriptions. I then
+visited all of those URLs religiously. The planet lists were not
+frequently updated, so this doesn't represent and entirely true image,
+but it might be interesting to natural language people or something
+like that.
+
+    cvsminer=# select aggregator.title, count(feed_entry.feed_entry_id)
+                 from feed_entry, feed, feed_aggregator, aggregator
+                where feed_entry.feed_id=feed.feed_id
+                      and feed.feed_id=feed_aggregator.feed_id
+                      and
+                 feed_aggregator.aggregator_id=aggregator.aggregator_id
+             group by aggregator.title;
+
+              title           | count 
+    --------------------------+-------
+     Fedora People            |  9037
+     Planet GNOME             | 23344
+     planet.freedesktop.org   |  4490
+     PlanetJava.org           | 36626
+     Planet Mozilla           | 11043
+     planet n                 |  8959
+     Planet SuSE              |  7639
+     Planet Ubuntu            |  8898
+     Planet Arslinux          |   966
+     Planet Perl              |  5599
+     Planet GStreamer         |  3645
+     Planet KDE               | 11009
+     Planet Beagle            |  1122
+     Planet Debian            | 22234
+     Unofficial Planet Python | 23834
+    (15 rows)

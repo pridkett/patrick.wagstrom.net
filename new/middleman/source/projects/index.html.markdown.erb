@@ -1,0 +1,97 @@
+---
+title: Projects
+pageId: projects
+---
+
+Professional Projects
+=====================
+
+trendME
+-------
+
+JazzHub Dashboard
+-----------------
+
+GitMiner
+--------
+
+GitMiner is a tool that crawls all of the data avaialble from the
+[GitHub public API][ghapi] to build a complete picture of the contents
+of a set of projects. It was originally developed for a joint research
+project with the University of Nebraska - Lincoln, and has since been
+expanded dramatically. As of August 2013 more than 20 academic
+institutions from around the world had used GitMiner as part of their
+academic research program.
+
+GitMiner is an open source project released under the Apache License
+and can be obtained through the [GitMiner project page at
+GitHub][gitminer]
+
+gitminer-data-rails
+-------------------
+
+Scraping data for GitMiner can be quite difficult and time
+consuming. In order to make the process easier for new researchers I
+worked with Anita Sarma and Corey Jergensen at the University of
+Nebraska-Lincoln to download data for over 1100 different projects
+related to [Ruby on Rails][rails].
+
+This is an open source dataset distributed as a [neo4j
+database][neo4j]. It is released under the Apache License and can be
+obtained through the [gitminer-data-rails project page at
+GitHub][gitminer-data-rails].
+
+online taxonomy tool
+--------------------
+
+A collaborative tool designed to allow multiple peopel to evaluate the
+differing social dimensions of online communities. Published as a
+poster at CSCW 2011 in Hangzhou, China. See [our paper on the tool for
+more information][taxonomypaper]
+
+cvsminer
+--------
+
+A collection of tools and scripts used to analyze large open source
+communities. This package was a critical part of my Ph.D. thesis
+research where it was used to study the ecosystems around Eclipse,
+GNOME, and a handful of smaller ecosystems.
+
+You can find the [complete source code on GitHub][cvsminer]. In
+addition I've made a large dataset of the community freely
+available. See my page on [GNOME Research][gnomeresearch] for more information.
+
+Personal Projects
+=================
+
+dc2uddf
+-------
+
+A fairly simple tool that connects to any dive computer supported by
+[libdivecomputer][libdivecomputer] and exports the collection of dives
+as a [UDDF file][uddf]. This was originally designed because I use a
+Mac as my day to day computer, but unfortunately, my dive computer
+connects via IrDA, which is not supported on Macs. Using this tool I
+can download the dives through a Linux virtual machine and then import
+the dives into [MacDive][macdive].
+
+I wrote a fairly long [blog entry about the creation of dc2uddf][dc2uddfblog] that
+describes the challenges with the solution which provides additional
+background information.
+
+dc2udff is an open source project released under the Apache License
+and can be obtained through the [dc2uddf project page at
+GitHub][dc2uddf].
+
+[gitminer]: https://github.com/pridkett/gitminer
+[gitminer-data-rails]: https://github.com/pridkett/gitminer-data-rails
+[dc2uddf]: https://github.com/pridkett/dc2uddf
+[uddf]: http://uddf.org/
+[macdive]: http://www.mac-dive.com/
+[libdivecomputer]: http://www.libdivecomputer.org/
+[neo4j]: http://www.neo4j.org/
+[dc2uddfblog]: http://patrick.wagstrom.net/weblog/2012/12/04/30-meters-underwater-with-a-dead-physical-layer-protocol/
+[macdive]: http://www.mac-dive.com/
+[taxonomypaper]: /publications/Wagstrom%20et%20al.%20-%202011%20-%20A%20dive%20into%20online%20community%20properties.pdf
+[cvsminer]: https://github.com/pridkett/cvsminer
+[gnomeresearch]: gnome.html

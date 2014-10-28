@@ -1,0 +1,54 @@
+/* hide various elements for printing */
+.no-print, .no-print *
+{
+    display: none !important;
+}
+
+footer {
+    display: none !important;
+}
+
+body {
+    font-size: 1.15rem;
+    margin: 0px;
+}
+
+/* undo boostrap's habit of dumping the URL after a link in print */
+a[href]:after {
+    content: none;
+}
+
+/* make the top tighter */
+.name-header, .name-header h3, .name-header h4{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+h3.heading {
+    margin-top: 0.25ex;
+    margin-bottom: 0px;
+    border-top: 1px solid black;
+    font-size: 1.8rem;
+}
+
+/* re-style the info links on the sidebar */
+ul.info-links {
+    text-align: left;
+    padding-left: 0px;
+}
+
+ul.info-links li {
+    display: inline;
+}
+
+ul.info-links i {
+    display: none !important;
+}
+
+ul.info-links li:first-child:after {
+    content: ", ";
+}
+
+ul.info-links li:not(:first-child):not(:last-child):after {
+    content: " ● ";
+}

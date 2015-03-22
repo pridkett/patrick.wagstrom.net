@@ -50,7 +50,7 @@ instantclick: false
         </div>
         <div class="row download-buttons no-print">
             <div class="col-md-12">
-                <button type="button" class="btn btn-default btn-large" onclick="window.location.href='wagstrom-resume-20131208.pdf';"><i class="fa fa-download"></i> Download</button>
+                <button type="button" class="btn btn-default btn-large" onclick="window.location.href='wagstrom-resume-20150322.pdf';"><i class="fa fa-download"></i> Download</button>
                 <button type="button" class="btn btn-default btn-large" onclick="window.print();"><i class="fa fa-print"></i> Print</button>
             </div>
         </div>
@@ -92,15 +92,13 @@ instantclick: false
                             <li>SQL</li>
                             <li>R</li>
                             <li>C</li>
-                            <li>Applesoft Basic</li>
                         </ul>
                     </li>
                     <li><span class="skill-header">Frameworks/Platforms</span>
                         <ul class="skill-components">
                             <li>Node.js</li>
-                            <li>Deployd</li>
+                            <li>Bluemix/CloudFoundry</li>
                             <li>Neo4j</li>
-                            <li>Bottle</li>
                             <li>Bootstrap</li>
                             <li>Tinkerpop Blueprints</li>
                         </ul>
@@ -133,7 +131,7 @@ instantclick: false
                                     <li>Leadership team member responsible for evaluating promising consumer applications of cognitive computing and guiding teams in lean startup and IBM design thinking processes to explore ideas.</li>
                                     <li>Project lead for the <a href="http://ibmfoodtruck.com/">IBM Food Truck at SXSW</a> which demonstrated cognitive computing to more than 4,000 people and resulted in more than 1 billion media impressions.</li>
                                     <li>Organized and directed globally distributed teams on how to contextualize solutions to cognitive computing challenges.</li>
-                                    <li>Implemented best practices for DevOps using IBM DevOps services, IBM BlueMix, Jenkins, and more.
+                                    <li>Implemented best practices for DevOps using <a href="https://hub.jazz.net/">IBM DevOps Services</a>, <a href="https://bluemix.net/">IBM Bluemix</a>, <a href="https://jenkins-ci.org/">Jenkins</a>, <a href="http://yeoman.io/">Yeoman</a> and more.
                                 </ul>
                             </li>
                         </ul>

@@ -9,8 +9,9 @@ footer {
 }
 
 body {
-    font-size: 1.15rem;
+    font-size: 1.12rem;
     margin: 0px;
+    padding: 0px;
 }
 
 /* undo boostrap's habit of dumping the URL after a link in print */

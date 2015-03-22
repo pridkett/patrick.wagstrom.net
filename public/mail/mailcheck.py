@@ -3,7 +3,7 @@ import sys
 import re
 import time
 
-OUTFILE="~patrick/mailcheck.csv"
+OUTFILE="/home/patrick/mailcheck.csv"
 
 M = imaplib.IMAP4_SSL("imap.gmail.com")
 M.login(sys.argv[1], sys.argv[2])

@@ -10,3 +10,14 @@ bower_components
 _cache
 logs
 output
+public/css
+public/defense
+public/images
+public/index.html
+public/libs
+public/projects
+public/publications
+public/research
+public/resume
+public/thesis
+public/weblog

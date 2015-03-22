@@ -1,2 +1,44 @@
+# I don't allow picsearch bot to visit my site because of the high bandwidth
+# requirements it generates
+User-agent: psbot
+Disallow: /
+
+# I don't approve of Turnitin looking at my material for commercial gain
+User-agent: TurnitinBot
+Disallow: /
+
+# Ditto for BecomeBot - open up your search engine, and maybe I'll allow you again
+User-agent: BecomeBot
+Disallow: /
+
+# if Baidu chooses to censor it's results, I choose to block it
+User-agent: baiduspider
+Disallow: /
+
+# Default rules for normal search engines
 User-agent: *
-Disallow:
+Disallow: /stats
+Disallow: /mt
+Disallow: /guestbook
+Disallow: /ta
+Disallow: /bible
+Disallow: /photos
+Disallow: /gallery
+Disallow: /git
+# disallow all directories and files within
+Disallow: /weblog/wp-admin/
+Disallow: /weblog/wp-includes/
+# disallow these extensions
+Disallow: /weblog/*.php$
+Disallow: /weblog/*.js$
+Disallow: /weblog/*.inc$
+Disallow: /weblog/*.css$
+# Disallow tracking individual post feeds, categories, etc
+Disallow: /weblog/*/trackback/
+Disallow: /weblog/*/feed/
+Disallow: /weblog/tags/
+Disallow: /weblog/category/
+Disallow: /weblog/author/
+Disallow: /outbound
+
+

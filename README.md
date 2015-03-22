@@ -1,19 +1,18 @@
+patrick.wagstrom.net
+====================
 
-# Webapp
+For my actual site please visit http://patrick.wagstrom.net/
 
-Opinionated web application template for wintersmith.
+Components
+----------
 
-Run `npm install` to install the plugins and deps.
+* **new**: [wintersmith][wintersmith] driven site for the generation of most of the static content
+* **engineer**: [engineer][engineer] driven site for the weblog stuff
 
-## Uses
+Building Everything
+-------------------
 
-  * Plugins
-    * [wintersmith-browserify](https://github.com/jnordberg/wintersmith-browserify)
-    * [wintersmith-nunjucks](https://github.com/jbuck/wintersmith-nunjucks)
-    * [wintersmith-less](https://github.com/jnordberg/wintersmith-less)
-  * Other
-    * [browsernizr](https://github.com/jnordberg/browsernizr)
-    * [es5-shim](https://github.com/kriskowal/es5-shim)
-    * [reset.css](http://meyerweb.com/eric/tools/css/reset)
-    * [elements.less](https://github.com/dmitryf/elements)
-    * [ready.js](https://github.com/ded/domready)
+There's a lot of mess here - just run `make` and everything should build.
+
+[wintersmith]: http://wintersmith.io/
+[engineer]:  https://github.com/tylerbutler/engineer

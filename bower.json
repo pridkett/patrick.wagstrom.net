@@ -23,17 +23,11 @@
     "instantclick": "~3.0.1"
   },
   "install": {
-    "path": {
-      "css": "contents/libs/css",
-      "css.map": "contents/libs/css",
-      "js": "contents/libs/js",
-      "map": "contents/libs/js",
-      "eot": "contents/libs/fonts",
-      "ttf": "contents/libs/fonts",
-      "woff": "contents/libs/fonts",
-      "svg": "contents/libs/fonts",
-      "otf": "contents/libs/fonts"
-    },
+    "path": "contents/libs",
+    "woff": "contents/libs/fonts",
+    "ttf": "contents/libs/fonts",
+    "eot": "contents/libs/fonts",
+    "svg": "contents/libs/fonts",
     "sources": {
       "font-awesome": [
         "bower_components/font-awesome/fonts/FontAwesome.otf",
@@ -45,5 +39,5 @@
         "bower_components/font-awesome/css/font-awesome.min.css"
       ]
     }
-  } 
+  }
 }

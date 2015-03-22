@@ -1,6 +1,6 @@
 # R-Script to plot my mailbox data
 
-DATAFILE = "/www/patrick/mail/mailcheck.csv"
+DATAFILE = "~patrick/mailcheck.csv"
 ORIGIN = ISOdatetime(1970,1,1,0,0,0, tz="UTC")
 
 col.line = rgb(0.95, 0.2, 0.2, 0.6)

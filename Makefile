@@ -14,7 +14,10 @@ serve:
 	cd public; python -m SimpleHTTPServer 8000
 
 upload:
-	rsync -avz --progress --delete public/ patrick@pridkett.xen.prgmr.com:/www/patrick
+	rsync -avz --exclude ".git" --delete --progress public/ patrick@pridkett.xen.prgmr.com:/www/patrick
+
+dockerize:
+	rsync -avz --exclude ".git" --delete --progress . core@104.131.98.133:www
 
 clean:
 	rm -rf engineer/output

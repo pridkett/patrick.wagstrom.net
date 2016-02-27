@@ -14,8 +14,8 @@
   <meta property="og:description" content="{{ description }}">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="{{ baseUrl }}css/main.css" type="text/css">
-  <link rel="stylesheet" href="{{ baseUrl }}libs/bootstrap/bootstrap.css" type="text/css">
-  <link rel="stylesheet" href="{{ baseUrl }}libs/font-awesome/font-awesome.css" type="text/css">
+  <link rel="stylesheet" href="{{ baseUrl }}libs/css/bootstrap.css" type="text/css">
+  <link rel="stylesheet" href="{{ baseUrl }}libs/css/font-awesome.css" type="text/css">
   {%- for stylesheet in page.metadata.stylesheets %}
   <link rel="stylesheet" href="{{ stylesheet.href }}" type="text/css"{% if stylesheet.media %} media="{{ stylesheet.media }}"{% endif %}>
   {%- endfor %}
@@ -69,10 +69,10 @@
     <p>Crafted with <a href="http://daringfireball.net/projects/markdown/">Markdown</a>, <a href="https://github.com/jnordberg/wintersmith">Wintersmith</a>, <a href="http://getbootstrap.com/">Bootstrap</a>, <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a> and a lot of <i class="fa fa-heart" style="color: red;"></i> in Connecticut. Check it out on <a href="https://github.com/pridkett/patrick.wagstrom.net/">GitHub</a>.</p>
   </div>
 </footer>
-<script src="{{ baseUrl }}libs/jquery/jquery.js"></script>
-<script src="{{ baseUrl }}libs/bootstrap/bootstrap.js" type="text/javascript"></script>
+<script src="{{ baseUrl }}libs/js/jquery.js"></script>
+<script src="{{ baseUrl }}libs/js/bootstrap.js" type="text/javascript"></script>
 {%- if not page.metadata.stylesheets or page.metadata.instantclick == "false" %}
-<script src="{{ baseUrl }}libs/instantclick/instantclick.js" data-no-instant type="text/javascript"></script>
+<script src="{{ baseUrl }}libs/js/instantclick.js" data-no-instant type="text/javascript"></script>
 <script data-no-instant type="text/javascript">
 $(document).ready(function() {
     InstantClick.init();

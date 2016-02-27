@@ -1,19 +1,23 @@
+patrick.wagstrom.net
+====================
 
-# Webapp
+This is the source code for my web page. You probably want to visit the actual
+web page at http://patrick.wagstrom.net/ rather than just browsing this source
+code, but hey, whatever floats your boat, man.
 
-Opinionated web application template for wintersmith.
+Installation
+============
 
-Run `npm install` to install the plugins and deps.
+Ughh, this requires a lot of different packages.
 
-## Uses
+    npm install -g wintersmith
+    npm install -g bower-installer
+    npm install
 
-  * Plugins
-    * [wintersmith-browserify](https://github.com/jnordberg/wintersmith-browserify)
-    * [wintersmith-nunjucks](https://github.com/jbuck/wintersmith-nunjucks)
-    * [wintersmith-less](https://github.com/jnordberg/wintersmith-less)
-  * Other
-    * [browsernizr](https://github.com/jnordberg/browsernizr)
-    * [es5-shim](https://github.com/kriskowal/es5-shim)
-    * [reset.css](http://meyerweb.com/eric/tools/css/reset)
-    * [elements.less](https://github.com/dmitryf/elements)
-    * [ready.js](https://github.com/ded/domready)
+Now, to build it:
+
+    wintersmith build
+
+And to run a preview of the site:
+
+     wintersmith preview

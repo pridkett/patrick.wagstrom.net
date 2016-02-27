@@ -80,9 +80,11 @@ module.exports = function(env, callback) {
         }
 
         function zeropad(num, digits) {
+            var pad = '000000000000000000000',
+                rv = num.toString();
+
             digits = digits || 2;
-            var pad = "000000000000000000000";
-            var rv = num + "";
+
             if (rv.length >= digits) {
                 return rv;
             }
@@ -103,33 +105,36 @@ module.exports = function(env, callback) {
         data.forEach(
             function (elem, idx, arr) {
                 // extract the URL from the file
-                var linkstart = "",
-                linkstop = "";
-                (elem.entryTags.file || "").split(";").forEach(function (f) {
-                    // parts = shortname, longname, mime
-                    var parts = f.split(":");
+                var linkstart = '',
+                    linkstop = '',
+                    edstring,
+                    thisentry,
+                    entrycounter = prefix + zeropad(idx + 1, digits);
 
-                    if (parts[2] === "application/pdf") {
+                (elem.entryTags.file || '').split(';').forEach(function (f) {
+                    // parts = shortname, longname, mime
+                    var parts = f.split(':');
+
+                    if (parts[2] === 'application/pdf') {
                         linkstart = '<a href="' + parts[0] + '">';
                         linkstop = '</a>';
                     }
                 });
 
-                var entrycounter = prefix + zeropad(idx+1, digits);
                 thisentry = '<li class="bibliograph-entry"><span class="counter">[' + entrycounter + ']</span><span class="authors">' + elem.entryTags.author + '</span><span class="title">' + linkstart + elem.entryTags.title.replace(/[{}]/g,"") + linkstop + "</span>";
 
                 switch (elem.entryType) {
                 case "article":
-                    thisentry += '<span class="journal">' + elem.entryTags.journal.replace(/[{}]/g,"") + '</span>';
+                    thisentry += '<span class="journal">' + elem.entryTags.journal.replace(/[{}]/g, "") + '</span>';
                     break;
                 case "incollection":
-                    thisentry += 'in <span class="booktitle">' + elem.entryTags.booktitle.replace(/[{}]/g,"") + '</span>';
+                    thisentry += 'in <span class="booktitle">' + elem.entryTags.booktitle.replace(/[{}]/g, "") + '</span>';
                     break;
                 case "techreport":
                     thisentry += 'Technical Report &mdash;';
                     break;
                 default:
-                    thisentry += 'in <span class="booktitle">' + elem.entryTags.booktitle.replace(/[{}]/g,"") + '</span>';
+                    thisentry += 'in <span class="booktitle">' + elem.entryTags.booktitle.replace(/[{}]/g, "") + '</span>';
                     break;
                 }
 

@@ -123,10 +123,27 @@ instantclick: false
                     <li class="job">
                         <ul>
                             <li class="job-info">
+                                <span class="job-title">Research Staff Member/Technical Lead</span>
+                                <span class="job-employer"><a href="http://ibmwatson.com/">IBM Watson Group</a></span>
+                                <span class="job-location">Yorktown Heights, NY</span>
+                                <span class="job-dates">January 2015-Present</span>
+                            </li>
+                            <li title="achievements">
+                                <ul>
+                                    <li>Lead distributed team in building cutting edge applications for cognitive computing</li>
+                                    <li>Presented cognitive solutions and technologies to more than a dozen companies in six countries</li>
+                                    <li>Developed best-of-breed modern web application architecture based on Angular, Node.js, and Yeoman</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="job">
+                        <ul>
+                            <li class="job-info">
                                 <span class="job-title">Research Staff Member</span>
                                 <span class="job-employer"><a href="http://ibmwatson.com/">IBM Watson Group - Watson Life</a></span>
                                 <span class="job-location">Yorktown Heights, NY</span>
-                                <span class="job-dates">January 2014-Present</span>
+                                <span class="job-dates">January 2014-January 2015</span>
                             </li>
                             <li title="achievements">
                                 <ul>
@@ -137,6 +154,7 @@ instantclick: false
                                 </ul>
                             </li>
                         </ul>
+                    </li>
                     <li class="job">
                         <ul>
                             <li class="job-info">

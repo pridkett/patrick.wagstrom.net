@@ -1,5 +1,0 @@
-See, I do have to use windows once in a while.  Although I don't really
-like having to.  You can see what my desktop looks like.  As you may
-notice, I still use borland c++ 3.1 for do, because vc++ blows.  I also
-have my copy of Max+Plus II open because I was working on lab at the
-time.  (Max+Plus II is a hardware design tool)	

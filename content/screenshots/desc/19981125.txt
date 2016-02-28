@@ -1,5 +1,0 @@
-After playing around with MLVWM, I decided it really wasn't worth my effort to hack it all up.  So
-I switched back to good old reliable <A HREF="http://www.windowmaker.org/">Window Maker</A>.  The
-background is from <A HREF="http://www.interplay.com/fallout2/">Fallout 2</A> by
-<A HREF="http://www.blackisle.com/">Black Isle Studios</A>.  Although its not Linux, I really
-like fallout and fallout 2.  So Nyah.	

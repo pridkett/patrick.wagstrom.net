@@ -1,4 +1,0 @@
-After too long of a time, I finally went about retheming my desktop at work.
-The background I took from <A HREF="http://x.themes.org/">x.themes.org</A>.
-I also changed themes and added a mail updater for my home email account in
-the bottom corner of the screen.

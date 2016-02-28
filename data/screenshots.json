@@ -1,0 +1,207 @@
+[
+    {
+        "desc": "This is the oldest linux screenshot I have.  I ran linux well before this but didn't take any screenshots.  Anyway, its a bunch of <a href=\"http://www.applix.com/\">ApplixWare</a> stuff running.  ",
+        "image": "19971120.jpg",
+        "date": "November 11, 1997"
+    },
+    {
+        "desc": "This prooves that I did at one point in time have <a href=\"http://www.microsoft.com/\">Evil Empire</a> on my computer.  I was running <a href=\"http://www.anandtech.com/litestep/\">LiteStep</a> at the time.  I had <a href=\"http://www.winamp.com/\">WinAmp</a> running and a session of <a href=\"http://www.cuteftp.com/\">CuteFTP</a> going.  The mail program is <a href=\"http://www.eudora.com/\">Eudora</a>. ",
+        "image": "19980331.jpg",
+        "date": "March 31, 1998"
+    },
+    {
+        "desc": "The first screenshot I took of <a href=\"http://www.kde.org/\">KDE</a> Beta 4 to show it to a friend.  There is my REALLY old web page showing there, and I am making the graphics in <a href=\"http://www.gimp.org/\">GIMP</a> for version 7.0 of <a href=\"http://www.iit.edu/~wagspat/\">my web page</a>.",
+        "image": "19980419.jpg",
+        "date": "April 19, 1998"
+    },
+    {
+        "desc": "This is me showing off some of the stuff that <a href=\"http://www.kde.org/\">KDE</a> Beta 4 had to offer. <a href=\"http://www.gimp.org\">GIMP</a> is open, but I'm not editing anything.  I also have a background pixmap for KFM.  I'm looking at the <a href=\"http://sniffit.rug.ac.be\">SniffIt</a> web page and editing my old home page in <a href=\"http://www.vim.org/\">VIM</a>",
+        "image": "19980425.jpg",
+        "date": "April 25, 1998"
+    },
+    {
+        "desc": "Just me having a little fun with some of my apps like <a href=\"http://www.slickedit.com/\">slickedit</a> and a <a href=\"http://www.java.com/\">java</a> program that I never got fully working.  It was from before I knew how to use swing.  This is my first shot with <a href=\"http://www.windowmaker.org/\">WindowMaker</a> as my window manager.",
+        "image": "19980527.jpg",
+        "date": "May 27, 1998"
+    },
+    {
+        "desc": "Just a little something I did to show how I modified my .Xdefaults to make <a href=\"http://www.netscape.com/\">Netscape</a> look a little cooler.  The thing at the bottom is an xripple session running.  The window manager in this one is <a href=\"http://www.windowmaker.org\">WindowMaker 0.16</a>.  Also running is a session of <a href=\"http://www.bitchx.com/\">BitchX</a>.  Oh yeah, and RXVT's with background pixmaps too. ",
+        "image": "19980704.jpg",
+        "date": "July 4, 1998"
+    },
+    {
+        "desc": "Okay, this is the first real screen shot of my first real theme for window maker.  It still needs a bit more work on some parts.  Also, you need to add some stuff to rgb.txt so you get the right colors.  I'll put it up on my theme page when I deem it good and ready.  I want this to be a good theme, not some crappy thing. ",
+        "image": "19980705.jpg",
+        "date": "July 5, 1998"
+    },
+    {
+        "desc": "This is more or less the final screen shot of the finished version of <a href=\"../themes/index.shtml\">Esotherix</a>, my WindowMaker theme.  It not longer requires you to modify rgb.txt.  You can also see my leet-0 <a href=\"../linux/tcshrc.html\">color prompts</a> and <a href=\"../vim/index.shtml\">VIM syntax highlighting</a>.  Oh yeah, I also got <a href=\"http://www.internetter.com/titan/mess/\">MESS</a> running a genesis. ",
+        "image": "19980706.jpg",
+        "date": "July 6, 1998"
+    },
+    {
+        "desc": "Mmm, the more confusing the screenshot the better...I really was just playing around with <a href=\"http://www.winehq.com/\">Wine</a> here.  I suppose it would have been cooler if I had turned off the managed option, but then the damn wine windows are always on top, which annoys the hell outta me. ",
+        "image": "19980726.jpg",
+        "date": "July 26, 1998"
+    },
+    {
+        "desc": "Playing with <a href=\"http://www.enlightenment.org/\">Enlightenmnet DR0.14</a>.  I general a beutiful product but rushed and poorly implemented.  Too bad too. ",
+        "image": "19980727.jpg",
+        "date": "July 27, 1998"
+    },
+    {
+        "desc": "Just thought I would show off some cool stuff going on with my desktop.  The dock tile is entirely original and is a resul of me playing around in <a href=\"http://www.gimp.org/\">Gimp</a> for a little while.  The background was done by me finding a cool picture on the <a href=\"http://oposite.stsci.edu/pubinfo/pr/1998/18/greatest-hits-gallery.html\">Hubble Space Telescope's Greatest Hits</a> page.  The stuff at the bottom is the result of some blur filters on the black forest postscript font.  Also, note the edition of an Emacs icon on my dock.  A2000 is trying to convert me. ",
+        "image": "19980809.jpg",
+        "date": "August 9, 1998"
+    },
+    {
+        "desc": "Just a little screen shot that I took because I wanted to show happyweed what my desktop looks like.  Nothing spectacular is running other than LICQ, <a href=\"http://www.bitchx.com/\">BitchX</a> and <a href=\"http://www.mysql.com/\">MySQL</a> while editing the nachoism database and looking at hits and stuff. \t ",
+        "image": "19980915.jpg",
+        "date": "September 15, 1998"
+    },
+    {
+        "desc": "I stayed up pretty late last night playing with <a href=\"http://www.iaeste.or.at/linux/mlvwm/mlvwm.html\">mlvwm</a> and decided, damnit, its pretty cool.  I still gotta work on hacking the code a little bit more to make it nicer.  The clock up in the corner is a hacked version of <a href=\"http://www.iaeste.or.at/linux/mlvwm/mlclock.tar.gz\"> mlclock</a> that I worked on.  I'm gonna make it read an rc file one of these days for more configurability. \t ",
+        "image": "19981005.jpg",
+        "date": "October 5, 1998"
+    },
+    {
+        "desc": "This is me with more fun.  I've started to modify mlvwm a little bit in order to make it look a little better.  I've finally gotten around to setting up gvim so it works.  Also you can see corel word perfect 8 running too....Licq sits down in the bottom corner ",
+        "image": "19981009.jpg",
+        "date": "October 9, 1998"
+    },
+    {
+        "desc": "All I can say is:<BR> <FONT SIZE=+3>WHO'S THE BUBBLE MASTAH?</FONT> <BR><BR> Absolute Pimp...  ",
+        "image": "19981018.jpg",
+        "date": "October 18, 1998"
+    },
+    {
+        "desc": "Mass confusion day...designed to make sure you don't know what the hell I'm really doing.  Although I surmise that the xmame should give it away fairly easily...but oh well.  ",
+        "image": "19981023.jpg",
+        "date": "October 23, 1998"
+    },
+    {
+        "desc": "After playing around with MLVWM, I decided it really wasn't worth my effort to hack it all up.  So I switched back to good old reliable <a href=\"http://www.windowmaker.org/\">Window Maker</a>.  The background is from <a href=\"http://www.interplay.com/fallout2/\">Fallout 2</a> by <a href=\"http://www.blackisle.com/\">Black Isle Studios</a>.  Although its not Linux, I really like fallout and fallout 2.  So Nyah.\t ",
+        "image": "19981125.jpg",
+        "date": "November 25, 1998"
+    },
+    {
+        "desc": "See, I do have to use windows once in a while.  Although I don't really like having to.  You can see what my desktop looks like.  As you may notice, I still use borland c++ 3.1 for do, because vc++ blows.  I also have my copy of Max+Plus II open because I was working on lab at the time.  (Max+Plus II is a hardware design tool)\t ",
+        "image": "19990219.jpg",
+        "date": "February, 19, 1999"
+    },
+    {
+        "desc": "Hmm...who says that <a href=\"http://www.freeciv.org\">FreeCIV</a> is ugly?  I think it looks pretty damn nice here.  This is the GTK interface to it, using the marble3d theme.  There are still a few tiny bugs with FreeCiv/GTK, but they are getting fewer I guess.  Its prooving to be a really cool game.  If only it had some sound effects and music it would almost be commercial quality.  If I had the time I would write it in myself... ",
+        "image": "19990222.jpg",
+        "date": "February 22, 1999"
+    },
+    {
+        "desc": "Okay, I have VI with themes here, and everyone is okay with this?  Anyway, this is a shot of Vim 5.4e running on my box with the GTK frontend and the pixmap theme.  Normally I use the Marble3d Theme, but this was taken for dramatic effect. \t ",
+        "image": "19990301.jpg",
+        "date": "March 1, 1999"
+    },
+    {
+        "desc": "I've been really slacking when it comes to taking new screenshots.  I've been running E since right after sprin break.  Its groovy now that everythign works.  What you see here is the HackerGreen theme.  Its small and very functional. Grab it from <a href=\"http://e.themes.org/\">e.themes.org</a> ",
+        "image": "19990413.jpg",
+        "date": "April 13, 1999"
+    },
+    {
+        "desc": "This is my desktop at the end of finals week from my sophomore year in College. I was playing with OpenGL during that week out of boredom. ",
+        "image": "19990514.jpg",
+        "date": "May 14, 1999"
+    },
+    {
+        "desc": "This is a shot of my computer from the <a href=\"http://csl.iit.edu/\">CSL</a> when I was going to do research there.  It's E with the elfwood theme.  I'm also playing around with Java assembly. ",
+        "image": "19990519.jpg",
+        "date": "May 19, 1999"
+    },
+    {
+        "desc": "A quick shot of my desktop running <a href=\"http://www.helixcode.com/\">Helix Gnome</a> 1.2.  I just got the new background for  <a href=\"http://www.digitalblasphemy.com/\">Digital Blasphemy</a> and I think it matches well with my usual decor on my desktop. ",
+        "image": "20000528.jpg",
+        "date": "May 28, 2000"
+    },
+    {
+        "desc": "Just a quick snapshot of my desktop at work.  I've spent most of the day trying to make a window manager like interface in Mozilla using the nightly builds so I can get alpha channel transparency support on PNG files. ",
+        "image": "20000605.jpg",
+        "date": "June 5, 2000"
+    },
+    {
+        "desc": "After too long of a time, I finally went about retheming my desktop at work. The background I took from <a href=\"http://x.themes.org/\">x.themes.org</a>. I also changed themes and added a mail updater for my home email account in the bottom corner of the screen. ",
+        "image": "20000612.jpg",
+        "date": "June 12, 2000"
+    },
+    {
+        "desc": "This is an actual screenshot.  I took this on pimp, a 1998 Wallstreet Powerbook. You can see MacOnLinux running.  I'm still tweaking that some, but it runs all of the mac stuff at normal speed.  Also running is Heroes of Might and Magic 3 (the LinuxPPC version).  That laptop also has Myth2 and Civ:CTP installed. Overall, it's a sweet setup.  The best laptop brand with one of the best OSes. ",
+        "image": "20000614.jpg",
+        "date": "June 14, 2000"
+    },
+    {
+        "desc": "This is my fun shot...taken on the pimp, running MOL with photoslop inside.   Myth 2 on the desktop and vnc connected to dreams' vmware session.  Pretty smooth overall eh? ",
+        "image": "20000615.jpg",
+        "date": "June 15, 2000"
+    },
+    {
+        "desc": "This is my first shot at playing with Xinerama at work.  I also had to put some of my productive apps running.  This configuration is very unstable and I recommend against xinerama with Dual Voodoo 3 3000's and an AGP Rage 64.  It seems to crash randomly. ",
+        "image": "20000830.jpg",
+        "date": "August 30, 2000"
+    },
+    {
+        "desc": "Behold, the power of Xinerama now at home.  This is all done using one video card because I got a Matrox Millenium G400 Max with Dual Head support.  The driver doesn't do 3d yet, but I don't use 3d that much.  I have a feeling it's going to be very hard to go back to a single desktop. ",
+        "image": "20000903.jpg",
+        "date": "September 3, 2000"
+    },
+    {
+        "desc": "First screenshot in a long time.  You see mozilla 0.9.3 with toy factory running looking at my CVS archive.  Some GAIM stuff and also Ximian Gnome 1.4 on RedHat 7.1. ",
+        "image": "20010818.jpg",
+        "date": "August 18, 2001"
+    },
+    {
+        "desc": "This is just to prove that I was playing Fallout in Linux...cool... ",
+        "image": "20011128.jpg",
+        "date": "November 28, 2001"
+    },
+    {
+        "desc": "This is just a little shot showing my setup of Emacs 21.1 on my system.  I'm back to redhat and it seems to have stabilized now that I've upgraded the libraries for GLIBC that previously crashed my web browser quite often.  I'll probably be using Emacs more in the future because it's got some nice features for editing of Lisp. ",
+        "image": "20011230.jpg",
+        "date": "December 30, 2001"
+    },
+    {
+        "desc": "Just a simple shot showing my desktop using both monitors.  I've elected not to use xinerama because I loose acceleration and DGA under xinerama.  Using two displays, I can't drag windows back and forth, but I still have accelleration.  It also prooves to be much more stable.  You can see that I'm running KDE now.  Mainly because its support for dual head is so much superior to Gnome.  Taken under RedHat 7.3. ",
+        "image": "20020715.jpg",
+        "date": "July 15, 2002"
+    },
+    {
+        "desc": "It's been a very long time since I had an update to my screenshots page.  I'm back at one monitor for the time being because my <a href=\"http://www.iit.edu/~cacaben/\">roommate</a> is using the other one on his computer.  I miss dual screens.  You can see bits of this new web page, mysql command center, emacs and my desktop icons here.  I'm still running KDE and have switched to the liquid theme.  No particular reason.  Did that a couple of months ago anyway. ",
+        "image": "20030120.jpg",
+        "date": "January 20, 2003"
+    },
+    {
+        "desc": "I got sick of blue over the weekend.  So I first switched my iconset to the most excellent Noia-warm iconset.  I also darkened my colors a bit too.  I'm using Keramik for my KDE theme and Geramik for my GTK theme here.  I think I'll leave my emacs colors as it for a while as they seem to work really well. ",
+        "image": "20030413.jpg",
+        "date": "April 13, 2003"
+    },
+    {
+        "desc": "Normally I'm a command line guy.  However, I discovered something nifty today while mucking around in Konqueror.  Apparently, I have a plugin that allows me insert a CD and drag <a href=\"http://www.vorbis.com/\">Ogg Vorbis</a> or MP3 files right off the CD.  Ripping for brain dead people. Normally I'd just use <a href=\"http://nostatic.org/grip/\">grip</a>, but this is pretty cool too. ",
+        "image": "20030521.jpg",
+        "date": "May 21, 2003"
+    },
+    {
+        "desc": "This is the screenshot I took when I first realized that I had become a victim of the slashdot effect.  I was slashdotted for posting a weblog on <a href=\"http://patrick.wagstrom.net/weblog/archives/000128.html\">using lpd to spool mp3s</a>.  After the fact I did an <a href=\"http://patrick.wagstrom.net/weblog/archives/000129.html\">in depth analysis of what happened</a>.  ",
+        "image": "20030524.jpg",
+        "date": "May 24, 2003"
+    },
+    {
+        "desc": "Time for another screenshot.  This one is off my laptop running Fedora Core 1 and Gnome 2.4. Nothing really spectacular to see here, move along now. ",
+        "image": "20040321.jpg",
+        "date": "March 21, 2004"
+    },
+    {
+        "desc": "Just a little shot of my desktop running <a href=\"http://www.ubuntulinux.org/\">Ubuntu</a> (the Warty Warthog).  I've got a couple of interesting apps up in the corner.  Including RhythmBox, Gaim, and TomBoy. ",
+        "image": "20041121.jpg",
+        "date": "November 21, 2004"
+    },
+    {
+        "desc": "It's been a really long time since I took a screenshot of my desktop.  Oddly enough, you'll notice that it doesn't look that much different than the desktops looked four or five years ago.  So much for progress.  Of course, I'm also running on about the same machine that I had four years ago too.  This is <a href=\"http://www.ubuntu.com/\">Ubuntu Hardy</a> running <a href=\"http://www.gnome.org/\">GNOME</a>.  The apps you see up are <a href=\"http://reader.google.com/\">Google Reader</a> in <a href=\"http://www.mozilla.com/products/firefox/\">Firefox</a> and <a href=\"http://www.twhirl.org/\">Twihrl</a> a <a href=\"http://www.twitter.com/\">Twitter</a> client written in <a href=\"http://www.adobe.com/products/air/\">Adobe Air</a>. ",
+        "image": "20080612.png",
+        "date": "June 12, 2008"
+    }
+]

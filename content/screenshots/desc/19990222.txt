@@ -1,5 +1,0 @@
-Hmm...who says that <A HREF="http://www.freeciv.org">FreeCIV</A> is ugly?  I think it looks
-pretty damn nice here.  This is the GTK interface to it, using the marble3d theme.  There
-are still a few tiny bugs with FreeCiv/GTK, but they are getting fewer I guess.  Its
-prooving to be a really cool game.  If only it had some sound effects and music it would
-almost be commercial quality.  If I had the time I would write it in myself...

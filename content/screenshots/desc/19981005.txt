@@ -1,8 +1,0 @@
-I stayed up pretty late last night playing with
-<A HREF="http://www.iaeste.or.at/linux/mlvwm/mlvwm.html">mlvwm</A> and
-decided, damnit, its pretty cool.  I still gotta work on hacking the
-code a little bit more to make it nicer.  The clock up in the corner
-is a hacked version of <A HREF="http://www.iaeste.or.at/linux/mlvwm/mlclock.tar.gz">
-mlclock</A> that I worked on.  I'm gonna make it read an rc file one
-of these days for more configurability.
-	

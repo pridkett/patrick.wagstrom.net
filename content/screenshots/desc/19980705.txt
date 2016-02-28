@@ -1,1 +1,0 @@
-Okay, this is the first real screen shot of my first real theme for window maker.  It still needs a bit more work on some parts.  Also, you need to add some stuff to rgb.txt so you get the right colors.  I'll put it up on my theme page when I deem it good and ready.  I want this to be a good theme, not some crappy thing.

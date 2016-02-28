@@ -1,0 +1,16 @@
+.screenshot {
+    margin: 1ex;
+    clear: both;
+}
+
+.screenshot img {
+    margin-right: 2ex;
+    margin-bottom: 2ex;
+    display: inline-block;
+    float: left;
+}
+
+.screenshot span.date {
+    font-weight: bold;
+}
+

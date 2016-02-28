@@ -1,4 +1,0 @@
-This is me with more fun.  I've started to modify mlvwm a little bit
-in order to make it look a little better.  I've finally gotten around
-to setting up gvim so it works.  Also you can see corel word perfect
-8 running too....Licq sits down in the bottom corner

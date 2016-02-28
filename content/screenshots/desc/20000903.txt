@@ -1,4 +1,0 @@
-Behold, the power of Xinerama now at home.  This is all done using one video
-card because I got a Matrox Millenium G400 Max with Dual Head support.  The
-driver doesn't do 3d yet, but I don't use 3d that much.  I have a feeling it's
-going to be very hard to go back to a single desktop.

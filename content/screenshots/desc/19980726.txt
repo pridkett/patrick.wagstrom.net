@@ -1,1 +1,0 @@
-Mmm, the more confusing the screenshot the better...I really was just playing around with <A HREF="http://www.winehq.com/">Wine</A> here.  I suppose it would have been cooler if I had turned off the managed option, but then the damn wine windows are always on top, which annoys the hell outta me.

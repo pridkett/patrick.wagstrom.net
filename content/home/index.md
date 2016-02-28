@@ -1,19 +1,46 @@
 ---
-title: Patrick Wagstrom's Home Page
-name: home
-template: index.html
+title: "Patrick Wagstrom's Home Page"
+name: "home"
+description: "The internet's #3 source for information about Patrick Wagstrom"
+lastmod: 2016-02-27
+jumbotron:
+  image: "/images/jumbotron.jpg"
+  headline: "Patrick Wagstrom"
+  text: "<p>Research Staff Member<br>IBM Watson Group</p>"
 affiliations:
-  - { image: "IBMWatson.png", alt: "IBM Watson Group", title: "2014 - Present: Founding Member of IBM Watson Life - A Group That Brings Cognitive Computing to the People", url: "http://www.ibmwatson.com/", text: "IBM Watson Group" } 
-  - { image: "IBMResearch.png", alt: "IBM Research", title: "2009 - 2014 Research Staff Member at the IBM TJ Watson Research Center", url: "http://www.watson.ibm.com" }
-  - { image: "CMUWordmark.png", alt: "Carnegie Mellon University", title: "2003 - 2009 Graduate Student at Carnegie Mellon University", url: "http://www.cmu.edu/" }
-  - { image: "CITLogo.png", alt: "Carnegie Institute of Technology", title: "2003 - 2009: Ph.D. program in Engineering and Public Policy at Carnegie Mellon University", url: "http://www.cit.cmu.edu/" }
-  - { image: "COS.png", alt: "Ph.D. Program in Computation, Organizations, and Society", title => "2005 - 2009: Ph.D. program in Computations, Organizations, and Society at Carnegie Mellon University", url: "http://www.isri.cmu.edu/education/cos-phd/index.html" }
-  - { image: "CASOS.png", alt: "Computational Analysis of Social and Organizational Systems Lab at Carngie Mellon University", title: "2003 - 2009: Member of the Computational Analysis of Social and Organizational Systems Lab under Dr. Kathleen Carley at Carnegie Mellon University", url: "http://www.casos.cs.cmu.edu/" }
-  - { image: "SWIC.png", alt: "Software Industry Center and Carnegie Mellon University", title: "2007 - 2009: Member of Software Industry Center at Carnegie Mellon University" }
-  - { image: "IllinoisInstituteOfTechnology.png", alt: "Illinois Institute of Technology", title: "1997 - 2003: Undergraduate and MS degrees at Illinois Institute of Technology", url: "http://www.iit.edu/" }
-
+  - image: "/images/IBMWatson.png"
+    alt: "IBM Watson Group"
+    title: "2014 - Present: Founding Member of IBM Watson Life - A Group That Brings Cognitive Computing to the People"
+    url: "http://www.ibmwatson.com/"
+    text: "IBM Watson Group"
+  - image: "/images/IBMResearch.png"
+    alt: "IBM Research"
+    title: "2009 - 2014 Research Staff Member at the IBM TJ Watson Research Center"
+    url: "http://www.watson.ibm.com"
+  - image: "/images/CMUWordmark.png"
+    alt: "Carnegie Mellon University"
+    title: "2003 - 2009 Graduate Student at Carnegie Mellon University"
+    url: "http://www.cmu.edu/"
+  - image: "/images/CITLogo.png"
+    alt: "Carnegie Institute of Technology"
+    title: "2003 - 2009: Ph.D. program in Engineering and Public Policy at Carnegie Mellon University"
+    url: "http://www.cit.cmu.edu/"
+  - image: "/images/COS.png"
+    alt: "Ph.D. Program in Computation, Organizations, and Society"
+    title: "2005 - 2009: Ph.D. program in Computations, Organizations, and Society at Carnegie Mellon University"
+    url: "http://www.isri.cmu.edu/education/cos-phd/index.html"
+  - image: "/images/CASOS.png"
+    alt: "Computational Analysis of Social and Organizational Systems Lab at Carngie Mellon University"
+    title: "2003 - 2009: Member of the Computational Analysis of Social and Organizational Systems Lab under Dr. Kathleen Carley at Carnegie Mellon University"
+    url: "http://www.casos.cs.cmu.edu/"
+  - image: "/images/SWIC.png"
+    alt: "Software Industry Center and Carnegie Mellon University"
+    title: "2007 - 2009: Member of Software Industry Center at Carnegie Mellon University"
+  - image: "/images/IllinoisInstituteOfTechnology.png"
+    alt: "Illinois Institute of Technology"
+    title: "1997 - 2003: Undergraduate and MS degrees at Illinois Institute of Technology"
+    url: "http://www.iit.edu/"
 ---
-
 
 I Help Teams Build Better Software
 ----------------------------------

@@ -1,37 +1,24 @@
-@charset "utf-8";
-
 body {
-    padding-top: 70px;
-    padding-bottom: 40px;
-
-    font-family: verdana;
-    background-image: url('/images/page-bg.png');
-    background-color: rgba(0,0,0,0.2);
-    color: black;
-}
-
-#navbar-home.active {
-    color: #fff;
-}
-
-.sidebar-nav {
-    padding: 9px 0;
+    text-align: justify;
 }
 
 .white-rounded {
     border-radius: 6px;
     background-color: white;
+    color: #444;
 }
 
-h2 a {
-    color: black;
+.jumbotron {
+    border-radius: 6px;
 }
 
+/* page footers */
 #footer-content {
     background-color: rgba(255,255,255,0.7);
     color: #444;
     margin-top: 2ex;
     padding-top: 1ex;
+    margin-bottom: 2ex;
 }
 
 #footer-content ul {
@@ -94,3 +81,6 @@ ul.affiliations li:not(:first-child) img {
 h3.affiliations {
     text-align: center;
 }
+
+
+

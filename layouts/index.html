@@ -1,0 +1,35 @@
+{{ partial "header.html" . }}
+<div class="container white-rounded">
+  {{range where .Data.Pages "Type" "home"}}
+    {{ if isset .Params "jumbotron" }}
+      <div class="jumbotron" style="background: url('{{ .Params.jumbotron.image }}') center center no-repeat; background-size: 100% auto; padding-left: 10px; margin-top: 10px; border-radius: 6px;">
+        <div class="container" style="color: white; text-shadow: -1px -1px 5px #000, -1px 1px 5px #000, 1px -1px 5px #000, 1px 1px 5px #000;">
+            <h2>{{ .Params.jumbotron.headline }}</h2>
+            {{ .Params.jumbotron.text | safeHTML }}
+        </div>
+      </div>
+    {{ end }}
+ 
+    <div class="row">
+      <div class="col-md-9">
+        {{ .Content }}
+      </div>
+      <div class="col-md-3 affiliations">
+        <h3 class="affiliations" id="current-affiliations">Current Affiliation</h3>
+        <ul class="current-affiliation affiliations">
+        {{ range first 1 .Params.affiliations }}
+          <li class="affiliation"><a href="{{ .url }}"><img class="affiliation-image" src="{{ .image }}" alt="{{ .alt }}" title="{{ .title }}">{{ if .text }}<br>{{ .text }}{{ end }}</a></li>
+        {{ end }}
+        </ul>
+
+        <h3 class="affiliations" id="past-affiliations">Past Affiliations</h3>
+        <ul class="previous-affiliations affiliations"> 
+        {{ range after 1 .Params.affiliations }}
+          <li class="affiliation"><a href="{{ .url }}"><img class="affiliation-image" src="{{ .image }}" alt="{{ .alt }}" title="{{ .title }}">{{ if .text }}<br>{{ .text }}{{ end }}</a></li>
+        {{ end }}
+        </ul>
+      </div>
+    </div>
+  {{ end }}
+</div>
+{{ partial "footer.html" . }}

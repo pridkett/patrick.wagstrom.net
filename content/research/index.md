@@ -1,7 +1,8 @@
 ---
-title: Patrick Wagstrom's Research Projects
-name: research
-template: layout.html
+title: "Research"
+name: "research"
+type: "page"
+menu: "main"
 ---
 
 Patrick Wagstrom's Research Projects

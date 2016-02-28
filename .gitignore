@@ -7,3 +7,5 @@ Thumbs.db
 contents/libs
 bower_components
 *.swp
+public
+themes

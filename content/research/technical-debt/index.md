@@ -1,7 +1,7 @@
 ---
-title: Patrick Wagstrom's Research - Technical Debt
-name: technical-debt
-layout: research.html
+title: "Patrick Wagstrom's Research - Technical Debt"
+name: "technical-debt"
+type: "page"
 bibfile: contents/publications/papers.bib
 bibliographies:
   - { title: "Related Works", filter: "mypapers:technical-debt" }

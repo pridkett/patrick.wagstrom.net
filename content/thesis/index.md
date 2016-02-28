@@ -1,7 +1,7 @@
 ---
 title: Patrick Wagstrom's Thesis Page
 name: thesis
-template: layout.html
+type: "page"
 ---
 
 Ph.D. Thesis

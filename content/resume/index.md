@@ -1,15 +1,12 @@
 ---
-title: Patrick Wagstrom's Resume
+title: "Resume"
+name: "resume"
+menu: "main"
 stylesheets:
-  - 
-    href: resume.css
-  -
-    href: print.css
+  - href: resume.css
+  - href: print.css
     media: print
-template: layout.html
-name: resume
 instantclick: false
-
 ---
 
 <div class="row">
@@ -50,8 +47,8 @@ instantclick: false
         </div>
         <div class="row download-buttons no-print">
             <div class="col-md-12">
-                <button type="button" class="btn btn-default btn-large" onclick="window.location.href='wagstrom-resume-20131208.pdf';"><i class="fa fa-download"></i> Download</button>
-                <button type="button" class="btn btn-default btn-large" onclick="window.print();"><i class="fa fa-print"></i> Print</button>
+                <button type="button" class="btn btn-primary btn-large" onclick="window.location.href='wagstrom-resume-20131208.pdf';"><i class="fa fa-download"></i> Download</button>
+                <button type="button" class="btn btn-primary btn-large" onclick="window.print();"><i class="fa fa-print"></i> Print</button>
             </div>
         </div>
     </div>

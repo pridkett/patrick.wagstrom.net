@@ -1,0 +1,43 @@
+---
+date: '2006-08-07T23:30:00-04:00'
+old:
+  layout: post
+  oldcategories:
+  - freedom
+  status: published
+  timestamp: 11:30 PM Monday, August 07, 2006 EDT
+  wordpress_id: '242'
+oldtags:
+- free
+- freedom
+- linux
+- opensource
+- redhat
+slug: free-isnt-free-enough
+tags:
+- opensource
+- redhat
+- linux
+- freedom
+- free
+title: "\u201Cfree\u201D isn't Free enough"
+url: /weblog/2006/08/07/free-isnt-free-enough/
+---
+
+When it comes to freedom, there are several levels of software out there.  At the most difficult level is subscriptionware.  This covers packages like [SAS](http://www.sas.com/), a very powerful statistical analysis package.  These tools typically cost thousands of dollars and require a new license to be obtained every year.  Once the clock on your system ticks past the final date on the license, the software ceases to work.  While it's not ideal, it's in the license agreement, they never promised that you could look  at, manipulate, or even use it, outside of that agreement.  Today, the copy of SAS on our server died because the license expired.  Fortunately, I go to [Carnegie Mellon](http://www.cmu.edu/), where they shell out thousands of dollars for Windows and Linux licenses for SAS.  A simple email got me the updated license.
+
+Another level of software is those that require activation or a serial number but then keep on working because there is no need to check the license anymore. Many games are like this.  Windows used to be like until they instantiated the [Windows Genuine Advantage](http://www.microsoft.com/genuine/downloads/whyValidate.aspx) program.  These packages usually don't include source, but they should still keep on working.  As an example, I was able to install the [Battle.Net](http://www.battle.net/) edition of [Warcraft 2](http://www.blizzard.com/war2bne/) last week using my original key.  No problems at all
+
+At the next level is "free" software.  This is closed source software that is freely available, but not redistributable or otherwise may cause difficulties. Some of the software from [SysInternals](http://www.sysinternals.com/) falls into this category.  On the Linux front, there really isn't much software that falls into this category, [VMWare player](http://www.vmware.com/products/player/) and [VMWare server](http://www.vmware.com/products/server/) do, however.  In VMWare Player's case, it just works.  There isn't a need for a serial number or anything like that.  Server is much more insidious, because I have been beta testing the software, my version was time limited.  I run my server under VMWare server, with very little trouble -- until today.  Today I noticed that my server died.  I logged into the VMWare server console for the first time in what seemed like months, to be greeted with a message that my license had expired and ceased to work.  Getting a new license just required vising a web page, but I ended with a non-sensical error message about the versions required, and finally realized I needed to upgraded VMWare server. In my case, this produced a 3-5 hour outage on my server this afternoon.  I'm still a little confused about whether or not I'll be forced to upgrade again in the future.  This was certainly an annoyance to me, and something I really didn't want to deal with today.
+
+Another example of "free" software that you run into a lot is [Java](http://java.sun.com/).  You know, that language that could have toppled Microsoft if only [Sun](http://www.sun.com/) had a brain about making it easier to redistribute it.  Instead of using Java on the [GNOME](http://www.gnome.org/) desktop, we see that the [Mono](http://www.go-mono.com/) implementation of C#, a language directly from Microsoft, will be included in the next version of GNOME.  However, one good thing is that there is plenty of Open Source software for Java out there -- [Eclipse](http://www.eclipse.org/) and [Jakarta](http://jakarta.apache.org/) come to mind very quickly. However, many of these packages rely on "free" but not freely redistributable software -- such as the JavaMail package (in fairness, the recent versions of JavaMail have been made Open Source) -- which then essentially makes the whole package not-free.  Today, I had the problem of trying to get [Tomcat](http://tomcat.apache.org/) working, but could not find some decent RPMs of it because not everything was freely redistributable.  Yup, here was a decent Open Source package being polluted by non-Open Source software.
+
+At the best level is "free" and Free software -- Open Source.  Software that you are free to redistribute, modify, share, examine, and most importantly use.  In each of the prior cases, the lack of Freedom made it difficult to actually use the software.  With true open source, you should always be able to use it.  Linking open source to non-open source is dangerous because it places an artificial limitation on using the software.  But there also is another dangerous problem with open source.  The subscription model, the same thing that I talked about earlier regarding SAS.  This is the technique that [RedHat](http://www.redhat.com/) has chosen with RHEL.  When your subscription runs out, your system breaks.  While the subscription is great for people who know nothing about system administration, it sucks for people who can administer a box and just need a nice repository to download files from and take care of dependency hell for them.
+
+Unfortunately, RedHat doesn't seem to recognize this, and have locked up their entire repository behind a wall -- sure you can get the source, but you can't get the binaries.  Not without paying their fee.  At first I thought this wouldn't be that bad.  But that was before our RHN subscriptions just randomly started to expire.  Suddenly our nice open source server is no longer usable either.  If you ever seen the circular dependencies that you get when trying to build many RPMs, you'd know why.
+
+Believe it or not, I ran into all of these situations today.  SAS died, my VMWare server suspended my machine because the license expired, my Windows VMWare box (running on my laptop install of VMWare Workstation) refused to upgrade, even though it's a legal copy of Windows XP, Tomcat couldn't compile because of stupid Java dependency hell related to closed source software from Java, and finally there wasn't a damn thing I could do about it because the "subscription" on our server had expired.  Talk about an aggravating day.  Most of these packages have a truly free solution -- for stats I can learn [R](http://www.r-project.org/), which is quite good, but still difficult to use.  I could use [Xen](http://www.xensource.com/) for my virtualization.  I could just not test my [photo gallery software](http://patrick.wagstrom.net/gallery/) in Windows, and tell people to use something else.  I could recommend to the student who wanted Tomcat to use PHP, Python, or ASP.Net instead of Java server pages.  Finally, I could switch our server over to [Ubuntu](http://www.ubuntu.com/) and kick RedHat to the curb.
+
+But here's the problem, they're all just tools.  I already know the tools, I know them well, and they're working.  Sure they really piss me off when all of them break because of the same reason (not being truly Free) on the same day (today).  But there is a massive opportunity cost in switching, and a greater cost if they can't do something I need.  I realized that I'm facing the same dilemma that a lot of organizations and individuals face.  We could run Apache for our web server, but we already know IIS.  We could use Xen for virtualization, but we loose the live migration in VMWare ESX, or worse, without new hardware I couldn't run [OpenBSD](http://www.openbsd.org/).  We could use R, but it's not clear how to create the same graphs we can create in SAS.  It's not 100% that the Free software is broken, it's just different.  And people hate things that are different.
+
+What it comes down to is the intrinsic value one places on freedom related to software.  Do I feel bad when I use software that isn't free?  A little, but not a lot.  For me I can live in the happy medium.  However, the line is always switching.  More frustrations may push the line closer to the switching point, likewise, new features in Open Source competitors help out too.  However, new features in the commercial software may make it more difficult to switch (this is one form of vendor lock-in).  However, one thing is for sure, I need to be cognizant of these situations and make my choices in light of the fact.  Because, as I found out over and over again today, free isn't "Free".

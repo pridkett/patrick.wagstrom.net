@@ -3,7 +3,7 @@ baseurl: "https://patrick.wagstrom.net/"
 title: "patrick dot wagstrom dot net"
 languageCode: "en-us"
 permalinks:
-  post: /weblog/:year/:month/:title
+  post: /weblog/:year/:month/:day/:title
 params:
   subtitle: "The Internet's #3 Site for Information on Patrick Wagstrom"
   author:

@@ -1,0 +1,26 @@
+---
+baseurl: "https://patrick.wagstrom.net/"
+title: "patrick dot wagstrom dot net"
+languageCode: "en-us"
+permalinks:
+  post: /weblog/:year/:month/:title
+params:
+  subtitle: "The Internet's #3 Site for Information on Patrick Wagstrom"
+  author:
+    name: "Patrick Wagstrom"
+    email: "patrick@wagstrom.net"
+  github: "https://github.com/pridkett"
+  twitter: "https://twitter.com/pridkett"
+  facebook: "https://facebook.com/patrick.wagstrom/"
+  googleplus: "https://plus.google.com/+PatrickWagstrom/"
+  youtube: "http://www.youtube.com/user/pridkett/videos"
+  stackoverflow: "http://stackoverflow.com/users/57626/pridkett"
+  stackexchange: "http://stackexchange.com/users/23095/pridkett"
+  linkedin: "http://www.linkedin.com/in/pwagstrom"
+  location: "Connecticut"
+  githubrepo: "https://github.com/pridkett/patrick.wagstrom.net/"
+  theme:
+    inverse: true
+    name: "superhero"
+  strings:
+    home_link: "<i class=\"fa fa-home\"></i> Patrick Wagstrom"

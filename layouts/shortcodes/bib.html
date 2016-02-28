@@ -1,0 +1,6 @@
+<ul class="bibliography bibliography-{{ with .Get "type" }}{{.}}{{ end }}">
+    {{ $type := .Get "type" }}
+    {{ $data := index .Page.Site.Data.bib $type }}
+    {{ $data.html | safeHTML }}
+
+</ul>

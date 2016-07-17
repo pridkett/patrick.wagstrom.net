@@ -14,5 +14,9 @@ title: Custom Firmware for the WRT54G
 url: /weblog/2004/01/06/wrt54gcustomfirmwares/
 ---
 
-I just noticed that James Ewing has a some [custom firmware for the WRT54G](http://www.sveasoft.com/forum6.html) on his website.  I think I'll mess
-around with some of these this weekend.  They've got all the features of the newest LinkSys firmware and have some additional stuff so it's SSHable and what not.  Pretty smooth.
+I just noticed that James Ewing has a some [custom firmware for the
+WRT54G](http://www.sveasoft.com/forum6.html) on his website.  I think I'll mess
+around with some of these this weekend.  They've got all the features of
+the newest LinkSys firmware and have some additional stuff so it's SSHable
+and what not.  Pretty smooth.
+

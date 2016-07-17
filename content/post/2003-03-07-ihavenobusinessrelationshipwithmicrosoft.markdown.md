@@ -14,10 +14,8 @@ title: I Have No Business Relationship With Microsoft
 url: /weblog/2003/03/07/ihavenobusinessrelationshipwithmicrosoft/
 ---
 
-I'm sure this has got to be a violation of some sort of law, probably related the FERPA.  I got this email from some random people outside of IIT today:
-
-
-
+I'm sure this has got to be a violation of some sort of law, probably related
+the FERPA.  I got this email from some random people outside of IIT today:
 
     Hello,
 
@@ -40,9 +38,16 @@ I'm sure this has got to be a violation of some sort of law, probably related th
     Your MSDNAA Online Software System can be found at:
     http://msdn03.e-academy.com/iit_cs
 
+The mail goes one for a few more paragraphs and even has my username and
+password in plaintext.  This is a problem in several ways.  First of all, this
+data is a marketing gold mine for e-academy or whoever.  Knowing that not only
+are these people college students, but they also are computer science graduate
+students can be worth a lot of money.  Furthermore they can track what software
+students use to a greater degree than I think anyone would like to admit.
 
+I'm just really pissed off that my university would distribute my information
+in such a way.  It makes me wonder what other sort of information they have
+given away (I use that term because the MSDNAA program costs money).  I have no
+intention of using the software and will not participate in the program.  I
+need to go bitch at a real person I guess.
 
-
-The mail goes one for a few more paragraphs and even has my username and password in plaintext.  This is a problem in several ways.  First of all, this data is a marketing gold mine for e-academy or whoever.  Knowing that not only are these people college students, but they also are computer science graduate students can be worth a lot of money.  Furthermore they can track what software students use to a greater degree than I think anyone would like to admit.
-
-I'm just really pissed off that my university would distribute my information in such a way.  It makes me wonder what other sort of information they have given away (I use that term because the MSDNAA program costs money).  I have no intention of using the software and will not participate in the program.  I need to go bitch at a real person I guess.

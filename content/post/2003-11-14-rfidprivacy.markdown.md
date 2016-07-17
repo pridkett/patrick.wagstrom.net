@@ -14,5 +14,7 @@ title: RFID Privacy Conference
 url: /weblog/2003/11/14/rfidprivacy/
 ---
 
-I'm in Boston for the next few days at the [RFID Privacy Conference](http://rfidprivacy.org/).  I've never been to
-Boston before, this should be a bit of an adventure.
+I'm in Boston for the next few days at the [RFID Privacy
+Conference](http://rfidprivacy.org/).  I've never been to Boston before, this
+should be a bit of an adventure.
+

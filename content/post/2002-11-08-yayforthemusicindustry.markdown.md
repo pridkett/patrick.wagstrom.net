@@ -14,4 +14,7 @@ title: Yay for the music industry!
 url: /weblog/2002/11/08/yayforthemusicindustry/
 ---
 
-Oh yes, this [letter](http://www.theregister.co.uk/content/54/28009.html) shows why I love the music industry so much.  Way to go EMI...I especially like the warnings about cracking be illegal in the future.
+Oh yes, this [letter](http://www.theregister.co.uk/content/54/28009.html) shows
+why I love the music industry so much.  Way to go EMI...I especially like the
+warnings about cracking be illegal in the future.
+

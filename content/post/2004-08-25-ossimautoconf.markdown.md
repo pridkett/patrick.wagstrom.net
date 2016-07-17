@@ -15,15 +15,10 @@ url: /weblog/2004/08/25/ossimautoconf/
 ---
 
 For some reason I got an uncontrollable urge to force OSSim to use autoconf,
-automake, and assorted friends.  It's kinda nice knowing that I know have
-a real set of make files for the project.  Unfortunately, it still is written
-in [C#](http://www.go-mono.com/) which means I'm limited to the
-ever increasing set of platforms that have a C# implementation.
-
-
-
-
-
+automake, and assorted friends.  It's kinda nice knowing that I know have a
+real set of make files for the project.  Unfortunately, it still is written in
+[C#](http://www.go-mono.com/) which means I'm limited to the ever increasing
+set of platforms that have a C# implementation.
 
 Anyway, it proved to be more of a challenge than I thought.  However,
 [RedHat](http://www.redhat.com/) has the entire

@@ -14,4 +14,10 @@ title: Grad School Decision
 url: /weblog/2003/04/14/gradschooldecision/
 ---
 
-So I've made my decision.  Next fall I'm going to be starting the Ph.D. program in [Engineering and Public Policy](http://www.epp.cmu.edu/) at [Carnegie Mellon](http://www.cmu.edu/).  The problem is that Pennsylvania is ass backwards and has a law that says that I can't bring [my hedgehogs](/hedghogs/) with me.  So if you might be interested in giving either one a home, let me know.  Thanks.
+So I've made my decision.  Next fall I'm going to be starting the Ph.D. program
+in [Engineering and Public Policy](http://www.epp.cmu.edu/) at [Carnegie
+Mellon](http://www.cmu.edu/).  The problem is that Pennsylvania is ass
+backwards and has a law that says that I can't bring [my hedgehogs](/hedghogs/)
+with me.  So if you might be interested in giving either one a home, let me
+know.  Thanks.
+

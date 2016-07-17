@@ -20,18 +20,16 @@ the program to understand that a -RH version is
 okay.  Just run this patch against your source archive and rebuild.  I'll
 submit it to the main project when sourceforge comes back up.
 
+{{< highlight diff >}}
+--- ./temp2/pypgsql/pgversion.c 2002-12-01 17:10:51.000000000 -0500
++++ ./pypgsql/pgversion.c   2003-12-02 00:07:00.000000000 -0500
+@@ -188,6 +188,9 @@
+     if ((*last == 'r') && (*(last+1) == 'c') && isdigit(*(last+2)))
+     return (errno != 0);
 
-
-
-
-    <font color="#008000">--- ./temp2/pypgsql/pgversion.c 2002-12-01 17:10:51.000000000 -0500</font>
-    <font color="#008000">+++ ./pypgsql/pgversion.c   2003-12-02 00:07:00.000000000 -0500</font>
-    <font color="#804000"><b>@@ -188,6 +188,9 @@</b></font>
-         if ((*last == 'r') && (*(last+1) == 'c') && isdigit(*(last+2)))
-        return (errno != 0);
-
-    <font color="#008080">+    if (pgstricmp(last, "-RH") == 0)</font>
-    <font color="#008080">+       return (errno != 0);</font>
-    <font color="#008080">+</font>
-         return ((errno != 0) || (*last != (char)0));
-     }
++    if (pgstricmp(last, "-RH") == 0)
++       return (errno != 0);
++
+     return ((errno != 0) || (*last != (char)0));
+ }
+{{< /highlight >}}

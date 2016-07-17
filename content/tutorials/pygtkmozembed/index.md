@@ -3,8 +3,6 @@ title: "Creating a GNOME Web Browser with Python"
 name: "Creating a GNOME Web Brower with Python"
 type: "page"
 date: "2004-08-18"
-stylesheets:
-  - href: tutorial.css
 ---
 <h2>Overview</h2>1. <a href="#section1">Introduction</a><br>2. <a href="#section2">Starting with Glade</a><br>3. <a href="#section3">Python Code</a><br><a name="section1"></a><h2 class="sectionTitle">1.  Introduction</h2>
       

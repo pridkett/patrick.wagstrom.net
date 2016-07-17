@@ -14,13 +14,13 @@ title: OpenSSH Escape Sequences
 url: /weblog/2002/11/19/opensshescapesequences/
 ---
 
-With telnet most people know you can hit ^] to escape back to the program, but most people don't realize that you can do a similar thing with OpenSSH.  This is VERY helpful when your session dies.  In OpenSSH the escape key is the tilde.  Here is the segment from the [OpenSSH manual](http://www.openbsd.org/cgi-bin/man.cgi?query=ssh).
+With telnet most people know you can hit ^] to escape back to the program, but
+most people don't realize that you can do a similar thing with OpenSSH.  This
+is VERY helpful when your session dies.  In OpenSSH the escape key is the
+tilde.  Here is the segment from the [OpenSSH
+manual](http://www.openbsd.org/cgi-bin/man.cgi?query=ssh).
 
-
-
-
-
-    <b>Escape Characters</b>
+    *Escape Characters*
 
          When a pseudo terminal has been requested, ssh supports a number of func-
          tions through the use of an escape character.
@@ -33,23 +33,20 @@ With telnet most people know you can hit ^] to escape back to the program, but m
 
          The supported escapes (assuming the default `~') are:
 
-         <b>~.</b>      Disconnect
+         ~.      Disconnect
 
-         <b>~^Z</b>     Background ssh
+         ~^Z     Background ssh
 
-         <b>~#</b>      List forwarded connections
+         ~#      List forwarded connections
 
-         <b>~&</b>      Background ssh at logout when waiting for forwarded connection /
+         ~&      Background ssh at logout when waiting for forwarded connection /
                  X11 sessions to terminate
 
-         <b>~?</b>      Display a list of escape characters
+         ~?      Display a list of escape characters
 
-         <b>~C</b>      Open command line (only useful for adding port forwardings using
+         ~C      Open command line (only useful for adding port forwardings using
                  the -L and -R options)
 
-        <b> ~R</b>      Request rekeying of the connection (only useful for SSH protocol
+         ~R      Request rekeying of the connection (only useful for SSH protocol
                  version 2 and if the peer supports it)
-
-
-
 

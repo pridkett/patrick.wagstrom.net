@@ -21,11 +21,6 @@ If for some reason my cable modem dies or my WRT54G goes gimpy, both of which se
 whenever I leave town, the server will be dead for a while.  I'm not even going to try and
 explain to my roommate how to fix it.
 
-
-
-
-
-
 In the mean time, I've got one little gem for [my loyal reader](http://kenneth.stic.net/)
 today.  Pyblosxom (at least the ancient version that I use), got a lot of people to subsribe
 to RSS feeds via the wrong method.  This meant they weren't seeing the most up to date information.
@@ -33,19 +28,12 @@ Because I want people only to subscribe to the most up to date feed, and screw t
 feeds, I had to do some mod_rewrite magic.  Here you go, fixing those
 people who subscribed to the wrong feed:
 
-
-
-
-
-        RewriteCond %{QUERY_STRING} ^.*flav=rss$
-        RewriteRule ^.*$ /weblog/index.rss? [R,L]
-
-
-
-
-
+{{ < highlight apache >}}
+RewriteCond %{QUERY_STRING} ^.*flav=rss$
+RewriteRule ^.*$ /weblog/index.rss? [R,L]
+{{ < /highlight >}}
 
 Quickly what this does is check and see if a request ends with flav=rss,
 which is what caused all the problems.  If it does, mod_rewrite then
 does a hard redirect to the user (in hopes that [bloglines](http://www.bloglines.com/)
-will take the hint) to a URL without a QUERY_STRING for the index feed.
+will take the hint) to a URL without a <span class="verbatim">QUERY_STRING</span> for the index feed.

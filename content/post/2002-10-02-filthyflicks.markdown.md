@@ -14,4 +14,7 @@ title: Filthy Flicks
 url: /weblog/2002/10/02/filthyflicks/
 ---
 
-Most have heard of [CleanFlicks](http://www.cleanflicks.com/) by now, but leave it to California to come up with [FilthyFlicks](http://www.salon.com/people/satire/2002/09/20/filthy/index.html).
+Most have heard of [CleanFlicks](http://www.cleanflicks.com/) by now, but leave
+it to California to come up with
+[FilthyFlicks](http://www.salon.com/people/satire/2002/09/20/filthy/index.html).
+

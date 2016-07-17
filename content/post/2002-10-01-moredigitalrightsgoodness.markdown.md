@@ -14,4 +14,7 @@ title: More digital rights goodness
 url: /weblog/2002/10/01/moredigitalrightsgoodness/
 ---
 
-Edward Felten has a blog up at [http://www.freedom-to-tinker.com/](http://www.freedom-to-tinker.com/) with many an interesting thing on it.
+Edward Felten has a blog up at
+[http://www.freedom-to-tinker.com/](http://www.freedom-to-tinker.com/) with
+many an interesting thing on it.
+

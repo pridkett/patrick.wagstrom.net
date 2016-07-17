@@ -14,6 +14,18 @@ body {
 
 pre {
     background-color: #222;
+    color: #ccc;
+}
+
+span.command, span.filename, span.verbatim {
+    font-family: "Lucida Console", Monaco, monospace;
+    color: #F0489B;
+    background-color: #F0F0F0;
+    padding: 2px;
+}
+
+figure {
+    text-align: center;
 }
 
 /* page footers */

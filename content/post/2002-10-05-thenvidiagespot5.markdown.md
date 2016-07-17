@@ -14,6 +14,7 @@ title: The NVidia GeSpot 5
 url: /weblog/2002/10/05/thenvidiagespot5/
 ---
 
-[NVIDIA Unveils New Video Card for Porn Enthusiasts](http://dailybull.flamewars.org/article.php?id=119).   Stolen off of [fark.com](http://www.fark.com/).
-
+[NVIDIA Unveils New Video Card for Porn
+Enthusiasts](http://dailybull.flamewars.org/article.php?id=119).   Stolen off
+of [fark.com](http://www.fark.com/).
 

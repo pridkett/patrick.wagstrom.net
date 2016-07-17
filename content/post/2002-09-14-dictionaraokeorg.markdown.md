@@ -14,4 +14,7 @@ title: Dictionaraoke.org
 url: /weblog/2002/09/14/dictionaraokeorg/
 ---
 
-[Dictionaraoke.org](http://www.dictionaraoke.org/) is one of the funniest sites I've in a long time.  It provides a little bit of amusement while I'm stuck scanning in 80+ pages for [CS450](http://www.cs.iit.edu/~sun/cs450.htm) because the book is out of print.  Check it out.
+[Dictionaraoke.org](http://www.dictionaraoke.org/) is one of the funniest sites
+I've in a long time.  It provides a little bit of amusement while I'm stuck
+scanning in 80+ pages for [CS450](http://www.cs.iit.edu/~sun/cs450.htm) because
+the book is out of print.  Check it out.

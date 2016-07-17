@@ -14,5 +14,9 @@ title: Homework Distraction
 url: /weblog/2002/09/14/homeworkdistraction/
 ---
 
-Instead of doing homework I decided that I would rather finally add the feature to my web pages where it shows my recent weblogs.  You should be able to see it on the side of some of the pages.  This was accomplished using a modified version of [RSSLIB](http://www.kludgebox.com/rsslib/) and some of my mad PHP skills.
+Instead of doing homework I decided that I would rather finally add the feature
+to my web pages where it shows my recent weblogs.  You should be able to see it
+on the side of some of the pages.  This was accomplished using a modified
+version of [RSSLIB](http://www.kludgebox.com/rsslib/) and some of my mad PHP
+skills.
 

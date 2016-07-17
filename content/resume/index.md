@@ -47,7 +47,7 @@ instantclick: false
         </div>
         <div class="row download-buttons no-print">
             <div class="col-md-12">
-                <button type="button" class="btn btn-primary btn-large" onclick="window.location.href='wagstrom-resume-20131208.pdf';"><i class="fa fa-download"></i> Download</button>
+                <button type="button" class="btn btn-primary btn-large" onclick="window.location.href='wagstrom-resume-20160417.pdf';"><i class="fa fa-download"></i> Download</button>
                 <button type="button" class="btn btn-primary btn-large" onclick="window.print();"><i class="fa fa-print"></i> Print</button>
             </div>
         </div>
@@ -92,7 +92,7 @@ instantclick: false
                             <li>Applesoft Basic</li>
                         </ul>
                     </li>
-                    <li><span class="skill-header">Frameworks/Platforms</span>
+                    <!-- <li><span class="skill-header">Frameworks/Platforms</span>
                         <ul class="skill-components">
                             <li>Node.js</li>
                             <li>Deployd</li>
@@ -101,6 +101,7 @@ instantclick: false
                             <li>Bootstrap</li>
                             <li>Tinkerpop Blueprints</li>
                         </ul>
+                    </li> -->
                     <li><span class="skill-header">Other Assorted Skills</span>
                         <ul class="skill-components">
                             <li>technical and acquisition strategy</li>
@@ -122,14 +123,15 @@ instantclick: false
                             <li class="job-info">
                                 <span class="job-title">Research Staff Member/Technical Lead</span>
                                 <span class="job-employer"><a href="http://ibmwatson.com/">IBM Watson Group</a></span>
-                                <span class="job-location">Yorktown Heights, NY</span>
+                                <span class="job-location">Yorktown Heights, NY / Littleton, MA</span>
                                 <span class="job-dates">January 2015-Present</span>
                             </li>
                             <li title="achievements">
                                 <ul>
-                                    <li>Lead distributed team in building cutting edge applications for cognitive computing</li>
-                                    <li>Presented cognitive solutions and technologies to more than a dozen companies in six countries</li>
-                                    <li>Developed best-of-breed modern web application architecture based on Angular, Node.js, and Yeoman</li>
+                                    <li>Led a globally distributed team in building cutting edge applications for training and maintaining cognitive computing solutions including Watson Engagement Advisor and IBM Watson Natural Language Classifier.</li>
+                                    <li>Conducted research on optimal methods to build and configure cognitive systems.</li>
+                                    <li>Presented cognitive solutions and technologies to more than a dozen companies in six countries.</li>
+                                    <li>Developed best-of-breed modern web application architecture based on Angular, Node.js, GitHub Enterprise, Slack, UrbanCode Deploy and more.</li>
                                 </ul>
                             </li>
                         </ul>
@@ -147,7 +149,7 @@ instantclick: false
                                     <li>Leadership team member responsible for evaluating promising consumer applications of cognitive computing and guiding teams in lean startup and IBM design thinking processes to explore ideas.</li>
                                     <li>Project lead for the <a href="http://ibmfoodtruck.com/">IBM Food Truck at SXSW</a> which demonstrated cognitive computing to more than 4,000 people and resulted in more than 1 billion media impressions.</li>
                                     <li>Organized and directed globally distributed teams on how to contextualize solutions to cognitive computing challenges.</li>
-                                    <li>Implemented best practices for DevOps using IBM DevOps services, IBM BlueMix, Jenkins, and more.
+                                    <li>Implemented best practices for DevOps using IBM DevOps services, IBM BlueMix, Jenkins, and more.</li>
                                 </ul>
                             </li>
                         </ul>

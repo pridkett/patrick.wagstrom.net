@@ -14,11 +14,10 @@ title: Mozilla Follow-Up
 url: /weblog/2002/11/22/mozillafollow-up/
 ---
 
-Okay, so I tried to contact these people and the addresses bounced, go figure.  Here is the followup email that I just sent to their [techsupport](mailto:helpdesk@iit.ecollege.com) and [evaluation@iit.edu](mailto:evaluation@iit.edu).
-
-
-
-
+Okay, so I tried to contact these people and the addresses bounced, go figure.
+Here is the followup email that I just sent to their
+[techsupport](mailto:helpdesk@iit.ecollege.com) and
+[evaluation@iit.edu](mailto:evaluation@iit.edu).
 
     This is a followup to a phone call I just had with your technical
     support people.  The first issue is that of email addresses on this
@@ -116,6 +115,4 @@ Okay, so I tried to contact these people and the addresses bounced, go figure.  
     Peace,
 
     Patrick
-
-
 

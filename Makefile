@@ -1,12 +1,12 @@
 THEME=hugo-multi-bootswatch
 
-all: weblog
+all: build
 
-weblog:
+build:
 	hugo --theme ${THEME}
 
 serve:
 	hugo serve --theme ${THEME}
 
-upload:
+upload: build
 	rsync -avz --exclude ".git" --delete --progress public/ patrick@pridkett.xen.prgmr.com:public_html

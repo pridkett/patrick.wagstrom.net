@@ -2,8 +2,8 @@
 baseurl: "https://patrick.wagstrom.net/"
 title: "patrick dot wagstrom dot net"
 languageCode: "en-us"
-permalinks:
-  post: /weblog/:year/:month/:day/:title
+# permalinks:
+#   post: /weblog/:year/:month/:day/:title
 params:
   subtitle: "The Internet's #3 Site for Information on Patrick Wagstrom"
   author:
@@ -24,3 +24,6 @@ params:
     name: "superhero"
   strings:
     home_link: "<i class=\"fa fa-home\"></i> Patrick Wagstrom"
+  google_ua: "UA-3441054-1"
+  comments: intensedebate
+  comments_account: de6c2d3e38f6fdb9bf16fa9f1904f35d

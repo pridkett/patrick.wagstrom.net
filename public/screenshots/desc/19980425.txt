@@ -1,1 +1,0 @@
-This is me showing off some of the stuff that <A HREF="http://www.kde.org/">KDE</A> Beta 4 had to offer. <A HREF="http://www.gimp.org">GIMP</A> is open, but I'm not editing anything.  I also have a background pixmap for KFM.  I'm looking at the <A HREF="http://sniffit.rug.ac.be">SniffIt</A> web page and editing my old home page in <A HREF="http://www.vim.org/">VIM</A></TD>

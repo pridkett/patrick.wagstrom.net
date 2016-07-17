@@ -1,5 +1,0 @@
-This is an actual screenshot.  I took this on pimp, a 1998 Wallstreet Powerbook.
-You can see MacOnLinux running.  I'm still tweaking that some, but it runs
-all of the mac stuff at normal speed.  Also running is Heroes of Might and Magic
-3 (the LinuxPPC version).  That laptop also has Myth2 and Civ:CTP installed.
-Overall, it's a sweet setup.  The best laptop brand with one of the best OSes.

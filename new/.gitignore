@@ -1,8 +1,0 @@
-publish
-macros.processed
-build
-.DS_Store
-node_modules
-Thumbs.db
-contents/libs
-bower_components

@@ -1,6 +1,0 @@
-This is just a little shot showing my setup of Emacs 21.1 on my system.  I'm
-back to redhat and it seems to have stabilized now that I've upgraded
-the libraries for GLIBC that previously crashed my web browser quite often.
-
-I'll probably be using Emacs more in the future because it's got some nice
-features for editing of Lisp.

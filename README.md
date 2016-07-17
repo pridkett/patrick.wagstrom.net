@@ -1,19 +1,23 @@
 patrick.wagstrom.net
 ====================
 
-For my actual site please visit http://patrick.wagstrom.net/
+This is the source code for my web page. You probably want to visit the actual
+web page at http://patrick.wagstrom.net/ rather than just browsing this source
+code, but hey, whatever floats your boat, man.
 
-Components
-----------
+Installation
+============
 
-* **new**: [wintersmith][wintersmith] driven site for the generation of most of the static content
-* **engineer**: [engineer][engineer] driven site for the weblog stuff
+Ughh, this requires a lot of different packages.
 
-Building Everything
--------------------
+    npm install -g wintersmith
+    npm install -g bower-installer
+    npm install
 
-There's a lot of mess here - just run `make` and everything should build.
+Now, to build it:
 
-[wintersmith]: http://wintersmith.io/
-[engineer]:  https://github.com/tylerbutler/engineer
+    wintersmith build
 
+And to run a preview of the site:
+
+     wintersmith preview

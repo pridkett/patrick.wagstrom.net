@@ -1,0 +1,7 @@
+<div class="container">
+{{ range .Page.Site.Data.screenshots }}
+  <div class="row">
+    <div class="screenshot col-md-offset-1 col-md-10"><a href="shots/{{ .image}}"><img src="thumbs/{{ .image }}"></a><span class="date">{{ .date }}:</span> {{ .desc | safeHTML}}</div>
+  </div>
+{{ end }}
+</div>

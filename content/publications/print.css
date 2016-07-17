@@ -1,0 +1,14 @@
+/* hide various elements for printing */
+.no-print, .no-print *
+{
+    display: none !important;
+}
+
+footer {
+    display: none !important;
+}
+
+/* undo boostrap's habit of dumping the URL after a link in print */
+a[href]:after {
+    content: none;
+}

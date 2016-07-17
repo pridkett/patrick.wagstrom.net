@@ -1,7 +1,0 @@
-It's been a very long time since I had an update to my screenshots page.  I'm
-back at one monitor for the time being because my <a
-href="http://www.iit.edu/~cacaben/">roommate</a> is using the other one on his
-computer.  I miss dual screens.  You can see bits of this new web page, mysql
-command center, emacs and my desktop icons here.  I'm still running KDE and
-have switched to the liquid theme.  No particular reason.  Did that a couple of
-months ago anyway.

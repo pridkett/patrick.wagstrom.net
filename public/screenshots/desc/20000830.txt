@@ -1,4 +1,0 @@
-This is my first shot at playing with Xinerama at work.  I also had to put
-some of my productive apps running.  This configuration is very unstable
-and I recommend against xinerama with Dual Voodoo 3 3000's and an AGP Rage
-64.  It seems to crash randomly.

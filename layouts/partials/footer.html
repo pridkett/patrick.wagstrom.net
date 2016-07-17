@@ -1,0 +1,37 @@
+<footer role="contentinfo">
+  <div class="container white-rounded" id="footer-content">
+    <div class="pw-footer-social">
+      <ul>
+        {{ if isset .Site.Params "facebook" }}
+          <li><a href="{{ .Site.Params.facebook }}" class="btn btn-primary"><i class="fa fa-facebook icon-large"></i> FaceBook</a></li>
+        {{ end }}
+        {{ if isset .Site.Params "twitter" }}
+          <li><a href="{{ .Site.Params.twitter }}" class="btn btn-primary"><i class="fa fa-twitter icon-large"></i> Twitter</a></li>
+        {{ end }}
+        {{ if isset .Site.Params "googleplus" }}
+          <li><a href="{{ .Site.Params.googleplus }}" class="btn btn-primary"><i class="fa fa-google-plus icon-large"></i> Google+</a></li>
+        {{ end }}
+        {{ if isset .Site.Params "github" }}
+          <li><a href="{{ .Site.Params.github }}" class="btn btn-primary"><i class="fa fa-github icon-large"></i> GitHub</a></li>
+        {{ end }}
+        {{ if isset .Site.Params "youtube" }}
+          <li><a href="{{ .Site.Params.youtube }}" class="btn btn-primary"><i class="fa fa-youtube icon-large"></i> YouTube</a></li>
+        {{ end }}
+        {{ if isset .Site.Params "stackoverflow" }}
+          <li><a href="{{ .Site.Params.stackoverflow }}" title="StackOverflow Profile" class="btn btn-primary"><i class="fa fa-stack-overflow"></i> StackOverflow</a></li>
+        {{ end }}
+        {{ if isset .Site.Params "stackexchange" }}
+          <li><a href="{{ .Site.Params.stackexchange }}" title="StackExchange Profile" class="btn btn-primary"><i class="fa fa-stack-exchange"></i> StackExchange</a></li>
+        {{ end }}
+        {{ if isset .Site.Params "linkedin" }}
+          <li><a href="{{ .Site.Params.linkedin }}" title="LinkedIn Profile" class="btn btn-primary"><i class="fa fa-linkedin"></i> LinkedIn</a></li>
+        {{ end }}
+      </ul>
+    </div>
+    <p>Crafted with <a href="http://daringfireball.net/projects/markdown/">Markdown</a>, <a href="https://gohugo.io/">Hugo</a>, <a href="http://getbootstrap.com/">Bootstrap</a>, <a href="http://fontawesome.github.io/Font-Awesome/">Font Awesome</a> and a lot of <i class="fa fa-heart" style="color: red;"></i>{{ if isset .Site.Params "location" }} in {{ .Site.Params.location }}{{end}}. {{ if isset .Site.Params "githubrepo" }}Check it out on <a href="{{ .Site.Params.githubrepo }}">GitHub</a>.{{ end }}</p>
+  </div>
+</footer>
+
+  <!-- container section end -->
+  </body>
+</html>

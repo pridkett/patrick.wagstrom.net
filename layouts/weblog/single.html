@@ -33,11 +33,26 @@
     <div class="col-md-10">{{ .WordCount }}</div>
     <div class="col-md-1"><button class="btn btn-primary">{{ .Next }}</button></div>
   </div> -->
+  {{ if and (isset .Site.Params "commentsEngine") (eq .Site.Params.commentsEngine "intensedebate") }}
   <div class="row">
     <div class="col-md-12">
       <hr>
     </div>
   </div>
+  <!-- stuff for intense debate -->
+  <div class="row">
+    <div class="col-md-offset-1 col-md-10">
+      <script>
+        var idcomments_acct = '{{ .Site.Params.commentsAccount }}';
+        var idcomments_post_id = '{{ .RelPermalink }}';
+        var idcomments_post_url = '{{ .Permalink }}';
+      </script>
+      <span id="IDCommentsPostTitle" style="display:none"></span>
+      <script type='text/javascript' src='https://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+    </div>
+  </div>
+  <!-- end intense debate -->
+  {{ end }}
 </div>
 
 {{ partial "footer.html" . }}

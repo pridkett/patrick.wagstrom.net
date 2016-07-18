@@ -24,7 +24,6 @@
   </div>
   <div class="row">
     <div class="col-md-offset-1 col-md-10">
-      <br>
       {{ .Content }}
     </div>
   </div>
@@ -33,6 +32,12 @@
     <div class="col-md-10">{{ .WordCount }}</div>
     <div class="col-md-1"><button class="btn btn-primary">{{ .Next }}</button></div>
   </div> -->
+  {{ if or (.PrevInSection) (.NextInSection)}}
+  <div class="row">
+      <div class="col-md-offset-1 col-md-5">{{ if .PrevInSection }}<a href="{{ .PrevInSection.Permalink }}" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> Previous Article</a>{{ end }}</div>
+      <div class="col-md-5 text-right">{{ if .NextInSection }}<a href="{{ .NextInSection.Permalink }}" class="btn btn-primary"><i class="fa fa-arrow-right" aria-hidden="true"></i> Next Article</a>{{ end }}</div>
+  </div>
+  {{ end }}
   {{ if and (isset .Site.Params "commentsEngine") (eq .Site.Params.commentsEngine "intensedebate") }}
   <div class="row">
     <div class="col-md-12">

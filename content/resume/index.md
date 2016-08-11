@@ -26,8 +26,8 @@ instantclick: false
         <div class="row">
             <div class="col-md-12">
                 <ul class="info-links">
-                    <li><a href="http://patrick.wagstrom.net/">http://patrick.wagstrom.net/<i class="fa fa-globe"></i></a></li>
                     <li><a href="mailto:patrick@wagstrom.net">patrick@wagstrom.net<i class="fa fa-envelope"></i></a></li>
+                    <li><a href="http://patrick.wagstrom.net/">https://patrick.wagstrom.net/<i class="fa fa-globe"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -47,7 +47,7 @@ instantclick: false
         </div>
         <div class="row download-buttons no-print">
             <div class="col-md-12">
-                <button type="button" class="btn btn-primary btn-large" onclick="window.location.href='wagstrom-resume-20160417.pdf';"><i class="fa fa-download"></i> Download</button>
+                <button type="button" class="btn btn-primary btn-large" onclick="window.location.href='wagstrom-resume-20160811.pdf';"><i class="fa fa-download"></i> Download</button>
                 <button type="button" class="btn btn-primary btn-large" onclick="window.print();"><i class="fa fa-print"></i> Print</button>
             </div>
         </div>
@@ -59,7 +59,7 @@ instantclick: false
         <div class="row">
             <div class="col-md-12">
                 <h3 class="heading">Professional Objective</h3>
-                <p>A challenging position conducting research, development, and data analysis to generate insight and develop novel new methods to solve the world's hardest technical, policy, and social problems by integrating observations of human behavior, raw data, innovative software tools, dynamic visualization, and state of the art analytics.</p>
+                <p>A leadership position conducting research, development, and data analysis to generate insight and develop novel new methods to solve the world's hardest technical, policy, and social problems by integrating observations of human behavior, raw data, innovative software tools, dynamic visualization, and state of the art analytics.</p>
             </div>
         </div>
         <!-- /general purpose -->
@@ -83,13 +83,12 @@ instantclick: false
                     </li>
                     <li><span class="skill-header">Programming Languages</span>
                         <ul class="skill-components">
-                            <li>Python</li>
                             <li>JavaScript</li>
+                            <li>Python</li>
                             <li>Java</li>
                             <li>SQL</li>
                             <li>R</li>
                             <li>C</li>
-                            <li>Applesoft Basic</li>
                         </ul>
                     </li>
                     <!-- <li><span class="skill-header">Frameworks/Platforms</span>
@@ -104,6 +103,8 @@ instantclick: false
                     </li> -->
                     <li><span class="skill-header">Other Assorted Skills</span>
                         <ul class="skill-components">
+                            <li>DevOps architecture and deployment</li>
+                            <li>CloudFoundry</li>
                             <li>technical and acquisition strategy</li>
                             <li>agile methodologies and transformation</li>
                             <li>Linux system administration</li>
@@ -122,14 +123,15 @@ instantclick: false
                         <ul>
                             <li class="job-info">
                                 <span class="job-title">Research Staff Member/Technical Lead</span>
-                                <span class="job-employer"><a href="http://ibmwatson.com/">IBM Watson Group</a></span>
+                                <span class="job-employer"><a href="http://www.ibm.com/watson/">IBM Watson</a></span>
                                 <span class="job-location">Yorktown Heights, NY / Littleton, MA</span>
                                 <span class="job-dates">January 2015-Present</span>
                             </li>
                             <li title="achievements">
                                 <ul>
-                                    <li>Led a globally distributed team in building cutting edge applications for training and maintaining cognitive computing solutions including Watson Engagement Advisor and IBM Watson Natural Language Classifier.</li>
-                                    <li>Conducted research on optimal methods to build and configure cognitive systems.</li>
+                                    <li>Led a globally distributed team that built the <a href="https://www.ibm.com/watson/developercloud/conversation.html">IBM Watson Conversation service</a> - an innovative service to create rich interactions using natural language processing, entity recognition, and scripted dialog.</li>
+                                    <li>Global team lead for Watson Developer Tooling. Created cutting edge applications for creating, training, and maintaining cognitive and machine learning solutions including <a href="http://www.ibm.com/watson/engagement_advisor.html">Watson Engagement Advisor</a> and <a href="https://www.ibm.com/watson/developercloud/nl-classifier.html">IBM Watson Natural Language Classifier</a>.</li>
+                                    <li>Conducted research on optimal methods to build and configure cognitive and machine learning systems.</li>
                                     <li>Presented cognitive solutions and technologies to more than a dozen companies in six countries.</li>
                                     <li>Developed best-of-breed modern web application architecture based on Angular, Node.js, GitHub Enterprise, Slack, UrbanCode Deploy and more.</li>
                                 </ul>
@@ -140,15 +142,16 @@ instantclick: false
                         <ul>
                             <li class="job-info">
                                 <span class="job-title">Research Staff Member</span>
-                                <span class="job-employer"><a href="http://ibmwatson.com/">IBM Watson Group - Watson Life</a></span>
+                                <span class="job-employer"><a href="http://www.ibm.com/watson/">IBM Watson - Watson Life</a></span>
                                 <span class="job-location">Yorktown Heights, NY</span>
                                 <span class="job-dates">January 2014-January 2015</span>
                             </li>
                             <li title="achievements">
                                 <ul>
                                     <li>Leadership team member responsible for evaluating promising consumer applications of cognitive computing and guiding teams in lean startup and IBM design thinking processes to explore ideas.</li>
-                                    <li>Project lead for the <a href="http://ibmfoodtruck.com/">IBM Food Truck at SXSW</a> which demonstrated cognitive computing to more than 4,000 people and resulted in more than 1 billion media impressions.</li>
+                                    <li>Project lead for the <a href="http://www.ibm.com/smarterplanet/us/en/cognitivecooking/truck.html">IBM Food Truck at SXSW</a> which demonstrated cognitive computing to more than 4,000 people and resulted in more than 1 billion media impressions.</li>
                                     <li>Organized and directed globally distributed teams on how to contextualize solutions to cognitive computing challenges.</li>
+                                    <li>Planned and executed international workshops on design thinking methodologies.</li>
                                     <li>Implemented best practices for DevOps using IBM DevOps services, IBM BlueMix, Jenkins, and more.</li>
                                 </ul>
                             </li>

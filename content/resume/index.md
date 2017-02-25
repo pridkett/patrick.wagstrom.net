@@ -59,7 +59,7 @@ instantclick: false
         <div class="row">
             <div class="col-md-12">
                 <h3 class="heading">Professional Objective</h3>
-                <p>A leadership position conducting research, development, and data analysis to generate insight and develop novel new methods to solve the world's hardest technical, policy, and social problems by integrating observations of human behavior, raw data, innovative software tools, dynamic visualization, and state of the art analytics.</p>
+                <p>A leadership position conducting research, development, and data analysis to generate insight and develop novel new methods to solve the world's hardest technical, policy, and social problems by integrating observations of human behavior, raw data, innovative software tools, dynamic visualization, and state of the art machine learning.</p>
             </div>
         </div>
         <!-- /general purpose -->
@@ -75,7 +75,7 @@ instantclick: false
                             <li>social network analysis</li>
                             <li>uncertainty analysis</li>
                             <li>sentiment analysis</li>
-                            <li>hierarchical linear modeling</li>
+                            <li>machine learning</li>
                             <li>multi-attribute utility analysis</li>
                             <li>usability analysis</li>
                             <li>data visualization</li>
@@ -124,14 +124,14 @@ instantclick: false
                             <li class="job-info">
                                 <span class="job-title">Research Staff Member/Technical Lead</span>
                                 <span class="job-employer"><a href="http://www.ibm.com/watson/">IBM Watson</a></span>
-                                <span class="job-location">Yorktown Heights, NY / Littleton, MA</span>
+                                <span class="job-location">Littleton, MA</span>
                                 <span class="job-dates">January 2015-Present</span>
                             </li>
                             <li title="achievements">
                                 <ul>
                                     <li>Led a globally distributed team that built the <a href="https://www.ibm.com/watson/developercloud/conversation.html">IBM Watson Conversation service</a> - an innovative service to create rich interactions using natural language processing, entity recognition, and scripted dialog.</li>
-                                    <li>Global team lead for Watson Developer Tooling. Created cutting edge applications for creating, training, and maintaining cognitive and machine learning solutions including <a href="http://www.ibm.com/watson/engagement_advisor.html">Watson Engagement Advisor</a> and <a href="https://www.ibm.com/watson/developercloud/nl-classifier.html">IBM Watson Natural Language Classifier</a>.</li>
-                                    <li>Conducted research on optimal methods to build and configure cognitive and machine learning systems.</li>
+                                    <li>Global team lead for Watson Developer Cloud Tooling. Created cutting edge applications for creating, training, and maintaining cognitive and machine learning solutions including <a href="http://www.ibm.com/watson/engagement_advisor.html">Watson Engagement Advisor</a> and <a href="https://www.ibm.com/watson/developercloud/nl-classifier.html">IBM Watson Natural Language Classifier</a>.</li>
+                                    <li>Conducted research on optimal methods to build and configure cognitive and machine learning systems resulting in a 95% reduction in human time required to train these systems.</li>
                                     <li>Presented cognitive solutions and technologies to more than a dozen companies in six countries.</li>
                                     <li>Developed best-of-breed modern web application architecture based on Angular, Node.js, GitHub Enterprise, Slack, UrbanCode Deploy and more.</li>
                                 </ul>

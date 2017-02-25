@@ -1,5 +1,6 @@
 ---
 baseurl: "https://patrick.wagstrom.net/"
+# baseurl: "https://test.wagstrom.net"
 title: "patrick dot wagstrom dot net"
 languageCode: "en-us"
 googleAnalytics: "UA-3441054-1"
@@ -8,9 +9,7 @@ googleAnalytics: "UA-3441054-1"
 #   post: /weblog/:year/:month/:day/:title
 params:
   subtitle: "The Internet's #3 Site for Information on Patrick Wagstrom"
-  author:
-    name: "Patrick Wagstrom"
-    email: "patrick@wagstrom.net"
+  author: "Patrick Wagstrom <patrick@wagstrom.net>"
   github: "https://github.com/pridkett"
   twitter: "https://twitter.com/pridkett"
   facebook: "https://facebook.com/patrick.wagstrom/"
@@ -28,3 +27,4 @@ params:
     home_link: "<i class=\"fa fa-home\"></i> Patrick Wagstrom"
   commentsEngine: intensedebate
   commentsAccount: de6c2d3e38f6fdb9bf16fa9f1904f35d
+  relativePaths: true

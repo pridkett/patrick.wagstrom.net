@@ -9,4 +9,4 @@ serve:
 	hugo serve --theme ${THEME}
 
 upload: build
-	rsync -avz --exclude ".git" --delete --progress public/ patrick@pridkett.xen.prgmr.com:public_html
+	rsync -avz --exclude ".git" --progress public/ patrick@pridkett.xen.prgmr.com:public_html

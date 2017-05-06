@@ -47,7 +47,7 @@ instantclick: false
         </div>
         <div class="row download-buttons no-print">
             <div class="col-md-12">
-                <button type="button" class="btn btn-primary btn-large" onclick="window.location.href='wagstrom-resume-20160811.pdf';"><i class="fa fa-download"></i> Download</button>
+                <button type="button" class="btn btn-primary btn-large" onclick="window.location.href='wagstrom-resume-20170506.pdf';"><i class="fa fa-download"></i> Download</button>
                 <button type="button" class="btn btn-primary btn-large" onclick="window.print();"><i class="fa fa-print"></i> Print</button>
             </div>
         </div>

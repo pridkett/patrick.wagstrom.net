@@ -6,7 +6,7 @@ lastmod: 2016-02-27
 jumbotron:
   image: "/images/jumbotron.jpg"
   headline: "Patrick Wagstrom"
-  text: "<p>Research Staff Member<br>IBM Watson Group</p>"
+  text: "<p>Research Scientist<br>The Intersection of Machine Learning, HCI, and Software Engineering</p>"
 affiliations:
   - image: "/images/IBMWatson.png"
     alt: "IBM Watson Group"

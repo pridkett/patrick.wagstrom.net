@@ -119,13 +119,30 @@ instantclick: false
             <div class="col-md-12">
                 <h3 class="heading">Employment History</h3>
                 <ul class="job-listing">
+                <ul class="job-listing">
+                    <li class="job">
+                        <ul>
+                            <li class="job-info">
+                                <span class="job-title">Director of Data Science for Machine Intelligence</span>
+                                <span class="job-employer"><a href="https://www.capitalone.com/">Capital One</a></span>
+                                <span class="job-location">New York, NY</span>
+                                <span class="job-dates">November 2016-Present</span>
+                            </li>
+                            <li title="achievements">
+                                <ul>
+                                    <li>Developing a platform for scalable and personalized real-time reinforcement machine learning models.</li>
+                                    <li>Lead a distributed team building robust machine learning models that incorporate both unstructured text and structured analytical data.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="job">
                         <ul>
                             <li class="job-info">
                                 <span class="job-title">Research Staff Member/Technical Lead</span>
                                 <span class="job-employer"><a href="http://www.ibm.com/watson/">IBM Watson</a></span>
                                 <span class="job-location">Littleton, MA</span>
-                                <span class="job-dates">January 2015-Present</span>
+                                <span class="job-dates">January 2015-November 2016</span>
                             </li>
                             <li title="achievements">
                                 <ul>

@@ -8,8 +8,12 @@ footer {
     display: none !important;
 }
 
+.page-title {
+    display: none !important;
+}
+
 body {
-    font-size: 1.68rem;
+    font-size: 12.61pt;
     margin: 3rem;
 }
 
@@ -27,8 +31,9 @@ a[href]:after {
 h3.heading {
     margin-top: 0.25ex;
     margin-bottom: 0px;
+    padding-top: 0.25rem;
     border-top: 1px solid black;
-    font-size: 1.8rem;
+    font-size: 120%;
 }
 
 /* re-style the info links on the sidebar */
@@ -45,10 +50,6 @@ ul.info-links i {
     display: none !important;
 }
 
-ul.info-links li:first-child:after {
+ul.info-links li:not(:last-child):after {
     content: ", ";
-}
-
-ul.info-links li:not(:first-child):not(:last-child):after {
-    content: " ● ";
 }

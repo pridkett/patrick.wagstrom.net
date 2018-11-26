@@ -6,7 +6,6 @@ stylesheets:
   - href: resume.css
   - href: print.css
     media: print
-instantclick: false
 ---
 
 <div class="row">
@@ -20,13 +19,14 @@ instantclick: false
         <div class="row name-header">
             <div class="col-md-12">
                 <h3>Patrick Wagstrom</h2>
-                <h4>Software Engineering Research Scientist</h3>
+                <h4>Data Science and Artificial Intelligence Leader</h3>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <ul class="info-links">
                     <li><a href="mailto:patrick@wagstrom.net">patrick@wagstrom.net<i class="fa fa-envelope"></i></a></li>
+                    <li id="phone">612-217-2874<i class="fa fa-phone"></i></li>
                     <li><a href="http://patrick.wagstrom.net/">https://patrick.wagstrom.net/<i class="fa fa-globe"></i></a></li>
                 </ul>
             </div>
@@ -47,7 +47,7 @@ instantclick: false
         </div>
         <div class="row download-buttons no-print">
             <div class="col-md-12">
-                <button type="button" class="btn btn-primary btn-large" onclick="window.location.href='wagstrom-resume-20170506.pdf';"><i class="fa fa-download"></i> Download</button>
+                <button type="button" class="btn btn-primary btn-large" onclick="window.location.href='wagstrom-resume-20181125.pdf';"><i class="fa fa-download"></i> Download</button>
                 <button type="button" class="btn btn-primary btn-large" onclick="window.print();"><i class="fa fa-print"></i> Print</button>
             </div>
         </div>
@@ -58,66 +58,27 @@ instantclick: false
         <!-- general purpose -->
         <div class="row">
             <div class="col-md-12">
-                <h3 class="heading">Professional Objective</h3>
-                <p>A leadership position conducting research, development, and data analysis to generate insight and develop novel new methods to solve the world's hardest technical, policy, and social problems by integrating observations of human behavior, raw data, innovative software tools, dynamic visualization, and state of the art machine learning.</p>
+                <p>
+                Accelerate data science and artificial intelligence by combining best practices from cloud deployment, devops, and human-computer interaction. Integrate diverse data streams of raw data, observations of human behavior, dynamic visualizations, and innovative tools to drive stakeholder insight. Hands-on leader that builds cohesive distributed teams by bringing together the best people from many backgrounds and creating a shared sense of vision and ownership.</p>
             </div>
         </div>
         <!-- /general purpose -->
-        <!-- skills -->
-        <div class="row">
+        <!-- critical skills -->
+        <!-- <div class="row">
             <div class="col-md-12">
-                <h3 class="heading">Skills</h3>
-                <ul class="skill-listing">
-                    <li><span class="skill-header">Research Methods</span>
-                        <ul class="skill-components">
-                            <li>data mining</li>
-                            <li>qualitative interviews</li>
-                            <li>social network analysis</li>
-                            <li>uncertainty analysis</li>
-                            <li>sentiment analysis</li>
-                            <li>machine learning</li>
-                            <li>multi-attribute utility analysis</li>
-                            <li>usability analysis</li>
-                            <li>data visualization</li>
-                        </ul>
-                    </li>
-                    <li><span class="skill-header">Programming Languages</span>
-                        <ul class="skill-components">
-                            <li>JavaScript</li>
-                            <li>Python</li>
-                            <li>Java</li>
-                            <li>SQL</li>
-                            <li>R</li>
-                            <li>C</li>
-                        </ul>
-                    </li>
-                    <!-- <li><span class="skill-header">Frameworks/Platforms</span>
-                        <ul class="skill-components">
-                            <li>Node.js</li>
-                            <li>Deployd</li>
-                            <li>Neo4j</li>
-                            <li>Bottle</li>
-                            <li>Bootstrap</li>
-                            <li>Tinkerpop Blueprints</li>
-                        </ul>
-                    </li> -->
-                    <li><span class="skill-header">Other Assorted Skills</span>
-                        <ul class="skill-components">
-                            <li>DevOps architecture and deployment</li>
-                            <li>CloudFoundry</li>
-                            <li>technical and acquisition strategy</li>
-                            <li>agile methodologies and transformation</li>
-                            <li>Linux system administration</li>
-                        </ul>
-                    </li>
+            <h3 class="heading">Critical Skills</h3>
+                <ul>
+                    <li></li>
+                    <li>B</li>
+                    <li>C</li>
                 </ul>
             </div>
-        </div>
-        <!-- /skills -->
+        </div> -->
+        <!-- /critical skills -->
         <!-- employment -->
         <div class="row">
             <div class="col-md-12">
-                <h3 class="heading">Employment History</h3>
+                <h3 class="heading">Professional Experience</h3>
                 <ul class="job-listing">
                 <ul class="job-listing">
                     <li class="job">
@@ -130,8 +91,11 @@ instantclick: false
                             </li>
                             <li title="achievements">
                                 <ul>
-                                    <li>Developing a platform for scalable and personalized real-time reinforcement machine learning models.</li>
-                                    <li>Lead a distributed team building robust machine learning models that incorporate both unstructured text and structured analytical data.</li>
+                                    <li>Architect of a platform for scalable and personalized real-time reinforcement machine learning models on top of Kubernetes, gRPC, and AWS inside a regulated industry.</li>
+                                    <li>Lead a distributed team of data scientists, data engineers, and product managers to deliver our platform in a complex enterprise environment.</li>
+                                    <li>Led a distributed team to build robust machine learning models that incorporate both unstructured text and structured analytical data to identify customer issues in a large corpus of customer communication.</li>
+                                    <li>Manage a growing team of data scientists across four locations in three states.</li>
+                                    <li>Build out academic research program by partnering with universities to explore implications of fairness in artificial intelligence.</li>
                                 </ul>
                             </li>
                         </ul>
@@ -147,7 +111,7 @@ instantclick: false
                             <li title="achievements">
                                 <ul>
                                     <li>Led a globally distributed team that built the <a href="https://www.ibm.com/watson/developercloud/conversation.html">IBM Watson Conversation service</a> - an innovative service to create rich interactions using natural language processing, entity recognition, and scripted dialog.</li>
-                                    <li>Global team lead for Watson Developer Cloud Tooling. Created cutting edge applications for creating, training, and maintaining cognitive and machine learning solutions including <a href="http://www.ibm.com/watson/engagement_advisor.html">Watson Engagement Advisor</a> and <a href="https://www.ibm.com/watson/developercloud/nl-classifier.html">IBM Watson Natural Language Classifier</a>.</li>
+                                    <li>Global team lead for Watson Developer Cloud Tooling. Created cutting edge applications for creating, training, and maintaining cognitive and machine learning solutions including Watson Engagement Advisor and <a href="https://www.ibm.com/watson/developercloud/nl-classifier.html">IBM Watson Natural Language Classifier</a>.</li>
                                     <li>Conducted research on optimal methods to build and configure cognitive and machine learning systems resulting in a 95% reduction in human time required to train these systems.</li>
                                     <li>Presented cognitive solutions and technologies to more than a dozen companies in six countries.</li>
                                     <li>Developed best-of-breed modern web application architecture based on Angular, Node.js, GitHub Enterprise, Slack, UrbanCode Deploy and more.</li>
@@ -166,10 +130,10 @@ instantclick: false
                             <li title="achievements">
                                 <ul>
                                     <li>Leadership team member responsible for evaluating promising consumer applications of cognitive computing and guiding teams in lean startup and IBM design thinking processes to explore ideas.</li>
-                                    <li>Project lead for the <a href="http://www.ibm.com/smarterplanet/us/en/cognitivecooking/truck.html">IBM Food Truck at SXSW</a> which demonstrated cognitive computing to more than 4,000 people and resulted in more than 1 billion media impressions.</li>
-                                    <li>Organized and directed globally distributed teams on how to contextualize solutions to cognitive computing challenges.</li>
+                                    <li>Organized and led globally distributed teams on how to contextualize solutions to cognitive computing challenges.</li>
+                                    <li>Project lead for the IBM Food Truck at SXSW which demonstrated cognitive computing to more than 4,000 people and resulted in more than 1 billion media impressions.</li>
                                     <li>Planned and executed international workshops on design thinking methodologies.</li>
-                                    <li>Implemented best practices for DevOps using IBM DevOps services, IBM BlueMix, Jenkins, and more.</li>
+                                    <li class="no-resume">Implemented best practices for DevOps using IBM DevOps services, IBM BlueMix, Jenkins, and more.</li>
                                 </ul>
                             </li>
                         </ul>
@@ -184,8 +148,8 @@ instantclick: false
                             </li>
                             <li title="achievements">
                                 <ul>
+                                    <li>Analytics lead for JazzHub, IBM's cloud software development strategy. Designed analytics strategy, implemented metrics driven development, introduced A/B testing, and developed analytics dashboards.</li>
                                     <li>Technical and strategy contributor to IBM's research and acquisition strategy for software development tools and processes.</li>
-                                    <li>Analytics lead for <a href="http://hub.jazz.net/">JazzHub</a>, IBM's cloud software development strategy. Designed analytics strategy, implemented metrics driven development, introduced A/B testing, and developed analytics dashboards.</li>
                                     <li>Developed and designed <a href="https://github.com/pridkett/gitminer">GitMiner</a> - an open source project used by 15 universities to perform graph analysis on large scale software engineering databases such as GitHub and BitBucket.</li>
                                     <li>Led a research team to evaluate productivity of new users and small teams using IBM's enterprise software engineering and product development environments.</li>
                                     <li>Developed WhatsMyBrand, a framework for assessing an individual's personal brand by analyzing connections and contents of their actions through public social networks and relating those actions to the actions of others in their network.</li>
@@ -210,13 +174,13 @@ instantclick: false
                                 <ul>
                                     <li>Designed and developed <a href="https://github.com/pridkett/cvsminer">CVSMiner</a> an open source tool to perform social network and technical analysis of software engineering ecosystems such as GNOME and Eclipse.</li>
                                     <li>Worked with members of the GNOME Foundation and Eclipse Foundation to evaluate and improve the relationships between non-profit foundations that manage open source ecosystems and commercial firms.</li>
-                                    <li>Delivered lectures in classes on software engineering and technology policy.</li>
+                                    <li class="no-resume">Delivered lectures in classes on software engineering and technology policy.</li>
                                     <li>Utilized a variety of qualitative and quantitative research methods: stakeholder interviews, message analysis, natural language processing, data mining, machine learning, and social network analysis to generate insight into largely ad hoc software development processes.</li>
                                 </ul>
                             </li>
                         </ul>
                     </li>
-                    <li class="job">
+                    <li class="job, no-resume">
                         <ul>
                             <li class="job-info">
                                 <span class="job-title">Summer Research Intern</span>
@@ -233,7 +197,7 @@ instantclick: false
                             </li>
                         </ul>
                     </li>
-                    <li class="job">
+                    <li class="job, no-resume">
                         <ul>
                             <li class="job-info">
                                 <span class="job-title">Teaching/Research Assistant</span>
@@ -251,7 +215,7 @@ instantclick: false
                             </li>
                         </ul>
                     </li>
-                    <li class="job">
+                    <li class="job, no-resume">
                         <ul>
                             <li class="job-info">
                                 <span class="job-title">Summer Research Intern</span>
@@ -267,7 +231,7 @@ instantclick: false
                             </li>
                         </ul>
                     </li>
-                    <li class="job">
+                    <li class="job, no-resume">
                         <ul>
                             <li class="job-info">
                                 <span class="job-title">Senior Developer</span>
@@ -285,7 +249,7 @@ instantclick: false
                             </li>
                         </ul>
                     </li>
-                    <li class="job">
+                    <li class="job, no-resume">
                         <ul>
                             <li class="job-info">
                                 <span class="job-title">Developer</span>
@@ -315,32 +279,105 @@ instantclick: false
                         <span class="degree-date">May 2009</span>
                         <span class="degree-institution"><a href="http://www.cmu.edu/">Carnegie Mellon University</a></span>
                         <span class="degree-location">Pittsburgh, PA</span>
-                        <span class="degree-description">Dual degree between the Carnegie Institute of Technology (College of Engineering) and School of Computer Science at Carnegie Mellon University. Ph.D. thesis title "<a href="../thesis/">Vertical Interaction in Open Software Engineering Communities</a>". Thesis advisors <a href="http://herbsleb.org/">Dr. James Herbsleb</a> and <a href="http://www.casos.cs.cmu.edu/bios/carley/carley.html">Dr. Kathleen Carley</a>.</span>
+                        <span class="degree-description">Thesis: "<a href="../thesis/">Vertical Interaction in Open Software Engineering Communities</a>". Advisors: <a href="http://herbsleb.org/">Dr. James Herbsleb</a> and <a href="http://www.casos.cs.cmu.edu/bios/carley/carley.html">Dr. Kathleen Carley</a>.</span>
                     </li>
                     <li class="degree">
                         <span class="degree-name">MS in <a href="http://www.isri.cmu.edu/education/cos-phd/index.html">Computation, Organizations, and Society</a></span>
                         <span class="degree-date">May 2007</span>
                         <span class="degree-institution"><a href="http://www.cmu.edu/">Carnegie Mellon University</a></span>
                         <span class="degree-location">Pittsburgh, PA</span>
-                        <span class="degree-description">Intermediate degree awarded en route to my Ph.D.</span>
+                        <!-- <span class="degree-description">Intermediate degree awarded en route to my Ph.D.</span> -->
                     </li>
                     <li class="degree">
                         <span class="degree-name">MS in <a href="http://www.iit.edu/csl/cs/">Computer Science</a></span>
                         <span class="degree-date">August 2003</span>
                         <span class="degree-institution"><a href="http://www.iit.edu/">Illinois Institute of Technology</a></span>
                         <span class="degree-location">Chicago, IL</span>
-                        <span class="degree-description">Focused on distributed and pervasive computing. Thesis title "<a href="../thesis/#msthesis">Scarlet: A Framework for Context Aware Computing</a>".</span>
+                        <span class="degree-description">Thesis: "<a href="../thesis/#msthesis">Scarlet: A Framework for Context Aware Computing</a>". Advisor: Dr. Xian-He Sun.</span>
                     </li>
                     <li class="degree">
                         <span class="degree-name">BS in <a href="http://www.iit.edu/csl/cs/">Computer Science</a> / BS in <a href="http://www.iit.edu/engineering/ece/">Computer Engineering</a> / BS in <a href="http://www.iit.edu/engineering/ece/">Electrical Engineering</a></span>
                         <span class="degree-date">May 2002</span>
                         <span class="degree-institution"><a href="http://www.iit.edu/">Illinois Institute of Technology</a></span>
                         <span class="degree-location">Chicago, IL</span>
-                        <span class="degree-description">I was on scholarship and it seemed like a good idea to keep tacking on degrees.</span>
+                        <!-- <span class="degree-description">I was on scholarship and it seemed like a good idea to keep tacking on degrees.</span> -->
                     </li>
                 </ul>
             </div>
         </div>
         <!-- /education -->
+                <!-- skills -->
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="heading">Technical Skills</h3>
+                <ul class="skill-listing">
+                    <li><span class="skill-header">Programming Languages</span>
+                        <ul class="skill-components">
+                            <li>Python</li>
+                            <li>SQL</li>
+                            <li>Java</li>
+                            <li>JavaScript</li>
+                            <li>Shell</li>
+                        </ul>
+                    </li>
+                    <li><span class="skill-header">Systems and Technologies</span>
+                        <ul class="skill-components">
+                            <li>Kubernetes</li>
+                            <li>AWS</li>
+                            <li>CloudFoundry</li>
+                            <li>Docker</li>
+                            <li>Linux</li>
+                            <li>distributed systems architecture</li>
+                            <li>Relational Databases (PostgreSQL)</li>
+                            <li>Document Databases (DynamoDB)</li>
+                            <li>Graph Databases (Neo4j)</li>
+                        </ul>
+                    </li>
+                    <li><span class="skill-header">Frameworks and Libraries</span>
+                        <ul class="skill-components">
+                            <li>scikit-learn</li>
+                            <li>TensorFlow</li>
+                            <li>IBM Watson</li>
+                            <li>Express</li>
+                            <li>Jupyter</li>
+                        </ul>
+                    </li>
+                </ul>
+<!-- 
+                    <li><span class="skill-header">Research Methods</span>
+                        <ul class="skill-components">
+                            <li>data mining</li>
+                            <li>machine learning</li>
+                            <li>uncertainty analysis</li>
+                            <li>qualitative interviews</li>
+                            <li>social network analysis</li>
+                            <li>sentiment analysis</li>
+                            <li>multi-attribute utility analysis</li>
+                        </ul>
+                    </li>
+                    <li><span class="skill-header">Programming Languages</span>
+                        <ul class="skill-components">
+                            <li>Python</li>
+                            <li>JavaScript</li>
+                            <li>Java</li>
+                            <li>SQL</li>
+                            <li>R</li>
+                            <li>C</li>
+                        </ul>
+                    </li>
+                    <li><span class="skill-header">Other Assorted Skills</span>
+                        <ul class="skill-components">
+                            <li>DevOps architecture and deployment</li>
+                            <li>CloudFoundry</li>
+                            <li>Kubernetes</li>
+                            <li>AWS</li>
+                            <li>Agile methodologies and transformation</li>
+                            <li>Linux system administration</li>
+                        </ul>
+                    </li>
+                </ul> -->
+            </div>
+        </div>
+        <!-- /skills -->
     </div>
 </div>

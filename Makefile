@@ -1,6 +1,7 @@
 THEME=hugo-multi-bootswatch
-HUGO_BUILD_OPTS="--log --logFile hugo.log"
-HUGO_SERVE_OPTS=""
+HUGO_BUILD_OPTS=--log --logFile hugo.log
+HUGO_SERVE_LOGFILE=hugo_serve.log
+HUGO_SERVE_OPTS=-v --debug --log --logFile ${HUGO_SERVE_LOGFILE} --verboseLog --disableFastRender
 
 all: build
 

@@ -97,3 +97,16 @@ ul.affiliations li:not(:first-child) img {
 h3.affiliations {
     text-align: center;
 }
+
+#home_jumbotron, #home_jumbotron h2 {
+    --border-color: rgba(0, 0, 0, 0.5);
+    --shadow-color: var(--border-color);
+    font-family: helvetica;
+    font-weight: 900;
+    color: white;
+    text-shadow: 0 0 5px var(--shadow-color), 1px 1px 0 var(--border-color), -1px -1px 0 var(--border-color), 1px -1px 0 var(--border-color), -1px 1px 0 var(--border-color);
+}
+
+#home_jumbotron p {
+    font-weight: 500;
+}

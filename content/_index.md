@@ -6,7 +6,7 @@ lastmod: 2016-02-27
 jumbotron:
   image: "/images/jumbotron.jpg"
   headline: "Patrick Wagstrom"
-  text: "<p>Research Scientist<br>The Intersection of Machine Learning, HCI, and Software Engineering</p>"
+  text: "<p>Data Scientist and Machine Learning<br>With Occasional Forays in Software Engineering and Human-Computer Interaction</p>"
 affiliations:
   - image: "/images/IBMWatson.png"
     alt: "IBM Watson Group"
@@ -42,8 +42,12 @@ affiliations:
     url: "http://www.iit.edu/"
 ---
 
-I Help Teams Build Better Software
-----------------------------------
+Building Modern Software is Hard: I Help Teams Tackle It
+---------------------------------------------------------
+
+Despite being called software engineering, the practice of building large scale pieces of complex software is still fraught with perils, both technical and social. Unmanaged dependencies arise out of seemingly nowhere. Team members experiment with a new technology that takes the down an exploration path that ends in disappointment. Cloud runtime platforms change their APIs resulting in applications that no longer scale as designed.
+
+I've been researching and building production software systems for more than twenty years across a variety of platforms. I've worked on teams from tiny startups to some of the biggest tech companies. 
 
 It's relatively easy to put together a small piece of software, such
 as software to generate and serve a weblog or a tool that uses

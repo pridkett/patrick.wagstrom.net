@@ -6,6 +6,7 @@ stylesheets:
   - href: resume.css
   - href: print.css
     media: print
+renderphone: false
 ---
 
 <div class="row">
@@ -25,9 +26,9 @@ stylesheets:
         <div class="row">
             <div class="col-md-12">
                 <ul class="info-links">
-                    <li><a href="mailto:patrick@wagstrom.net">patrick@wagstrom.net<i class="fa fa-envelope"></i></a></li>
-                    <li id="phone">612-217-2874<i class="fa fa-phone"></i></li>
-                    <li><a href="http://patrick.wagstrom.net/">https://patrick.wagstrom.net/<i class="fa fa-globe"></i></a></li>
+                    {{< infolink href="mailto:patrick@wagstrom.net" icon="fa-envelope" >}}patrick@wagstrom.net{{< /infolink >}}
+                    {{< infolink href="http://patrick.wagstrom.net/" icon="fa-globe" >}}https://patrick.wagstrom.net/{{< /infolink >}}
+                    {{< phonelink >}}
                 </ul>
             </div>
         </div>

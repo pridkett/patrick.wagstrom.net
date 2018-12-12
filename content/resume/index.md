@@ -6,7 +6,6 @@ stylesheets:
   - href: resume.css
   - href: print.css
     media: print
-renderphone: false
 ---
 
 <div class="row">

@@ -18,8 +18,8 @@ stylesheets:
         </div>
         <div class="row name-header">
             <div class="col-md-12">
-                <h3>Patrick Wagstrom</h2>
-                <h4>Data Science and Artificial Intelligence Leader</h3>
+                <h3>Patrick Wagstrom</h3>
+                <h4>Data Science and Artificial Intelligence Leader</h4>
             </div>
         </div>
         <div class="row">
@@ -37,9 +37,7 @@ stylesheets:
                     <li><a href="https://github.com/pridkett" title="GitHub Profile"><i class="fa fa-github"></i></a></li>
                     <li><a href="http://stackoverflow.com/users/57626/pridkett" title="StackOverflow Profile"><i class="fa fa-stack-overflow"></i></a></li>
                     <li><a href="http://stackexchange.com/users/23095/pridkett" title="StackExchange Profile"><i class="fa fa-stack-exchange"></i></a></li>
-                    <li><a href="https://twitter.com/pridkett" title="Twitter Profile"><i class="fa fa-twitter"></i></a></li>
                     <li><a href="https://www.facebook.com/patrick.wagstrom" title="Facebook Profile"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="https://plus.google.com/+PatrickWagstrom/" title="Google Plus Profile"><i class="fa fa-google-plus"></i></a></li>
                     <li><a href="http://www.youtube.com/user/pridkett/videos" title="YouTube Profile"><i class="fa fa-youtube"></i></a></li>
                     <li><a href="http://www.linkedin.com/in/pwagstrom" title="LinkedIn Profile"><i class="fa fa-linkedin"></i></a></li>
                 </ul>
@@ -47,7 +45,7 @@ stylesheets:
         </div>
         <div class="row download-buttons no-print">
             <div class="col-md-12">
-                <button type="button" class="btn btn-primary btn-large" onclick="window.location.href='wagstrom-resume-20181125.pdf';"><i class="fa fa-download"></i> Download</button>
+                <button type="button" class="btn btn-primary btn-large" onclick="window.location.href='wagstrom-resume-20190314.pdf';"><i class="fa fa-download"></i> Download</button>
                 <button type="button" class="btn btn-primary btn-large" onclick="window.print();"><i class="fa fa-print"></i> Print</button>
             </div>
         </div>
@@ -84,18 +82,20 @@ stylesheets:
                     <li class="job">
                         <ul>
                             <li class="job-info">
+                                <span class="job-title">Senior Director of Data Science for Machine Learning Platforms</span>
+                                <span class="job-dates">January 2019-Present</span>
                                 <span class="job-title">Director of Data Science for Machine Intelligence</span>
-                                <span class="job-employer"><a href="https://www.capitalone.com/">Capital One</a></span>
-                                <span class="job-location">New York, NY</span>
                                 <span class="job-dates">November 2016-Present</span>
+                                <span class="job-employer"><a href="https://www.capitalone.com/">Capital One</a></span>
+                                <span class="job-location">New York, NY and McLean, VA</span>
                             </li>
                             <li title="achievements">
                                 <ul>
-                                    <li>Architect of a platform for scalable and personalized real-time reinforcement machine learning models on top of Kubernetes, gRPC, and AWS inside a regulated industry.</li>
+                                    <li>Architect and overall lead for the Capital One Card Machine Learning Platform  - a platform for scalable and personalized real-time reinforcement machine learning models on top of Kubernetes, gRPC, and AWS inside a regulated industry.</li>
                                     <li>Lead a distributed team of data scientists, data engineers, and product managers to deliver our platform in a complex enterprise environment.</li>
                                     <li>Led a distributed team to build robust machine learning models that incorporate both unstructured text and structured analytical data to identify customer issues in a large corpus of customer communication.</li>
-                                    <li>Manage a growing team of data scientists across four locations in three states.</li>
-                                    <li>Build out academic research program by partnering with universities to explore implications of fairness in artificial intelligence.</li>
+                                    <li>Manage, grow, and nurture a team of data scientists across multiple locations and states.</li>
+                                    <li>Built out an academic research partnership with universities to explore implications of fairness in artificial intelligence.</li>
                                 </ul>
                             </li>
                         </ul>
@@ -104,9 +104,9 @@ stylesheets:
                         <ul>
                             <li class="job-info">
                                 <span class="job-title">Research Staff Member/Technical Lead</span>
-                                <span class="job-employer"><a href="http://www.ibm.com/watson/">IBM Watson</a></span>
-                                <span class="job-location">Littleton, MA</span>
                                 <span class="job-dates">January 2015-November 2016</span>
+                                <span class="job-employer"><a href="https://www.ibm.com/watson/">IBM Watson</a></span>
+                                <span class="job-location">Littleton, MA</span>
                             </li>
                             <li title="achievements">
                                 <ul>
@@ -123,9 +123,9 @@ stylesheets:
                         <ul>
                             <li class="job-info">
                                 <span class="job-title">Research Staff Member</span>
-                                <span class="job-employer"><a href="http://www.ibm.com/watson/">IBM Watson - Watson Life</a></span>
-                                <span class="job-location">Yorktown Heights, NY</span>
                                 <span class="job-dates">January 2014-January 2015</span>
+                                <span class="job-employer"><a href="https://www.ibm.com/watson/">IBM Watson - Watson Life</a></span>
+                                <span class="job-location">Yorktown Heights, NY</span>
                             </li>
                             <li title="achievements">
                                 <ul>
@@ -142,9 +142,9 @@ stylesheets:
                         <ul>
                             <li class="job-info">
                                 <span class="job-title">Research Staff Member</span>
-                                <span class="job-employer"><a href="http://www.watson.ibm.com/">IBM TJ Watson Research Center</a></span>
-                                <span class="job-location">Yorktown Heights, NY</span>
                                 <span class="job-dates">August 2009-January 2014</span>
+                                <span class="job-employer"><a href="https://www.watson.ibm.com/">IBM TJ Watson Research Center</a></span>
+                                <span class="job-location">Yorktown Heights, NY</span>
                             </li>
                             <li title="achievements">
                                 <ul>
@@ -152,7 +152,8 @@ stylesheets:
                                     <li>Technical and strategy contributor to IBM's research and acquisition strategy for software development tools and processes.</li>
                                     <li>Developed and designed <a href="https://github.com/pridkett/gitminer">GitMiner</a> - an open source project used by 15 universities to perform graph analysis on large scale software engineering databases such as GitHub and BitBucket.</li>
                                     <li>Led a research team to evaluate productivity of new users and small teams using IBM's enterprise software engineering and product development environments.</li>
-                                    <li>Developed WhatsMyBrand, a framework for assessing an individual's personal brand by analyzing connections and contents of their actions through public social networks and relating those actions to the actions of others in their network.</li>
+                                    <li>Published papers on topics around distributed collaboration, technical debt in software, and flow of ideas in software engineering communities.</li>
+                                    <li class="no-resume">Developed WhatsMyBrand, a framework for assessing an individual's personal brand by analyzing connections and contents of their actions through public social networks and relating those actions to the actions of others in their network.</li>
                                     <li class="no-resume">Worked with IBM clients to teach about uncertainty and value elicitation in software development</li>
                                     <li class="no-resume">Mapped extended stakeholders in enterprise software development and analyzed their relation to technical debt</li>
                                     <li class="no-resume">Developed novel methods and metrics for understanding extended enterprise software development stakeholder collaboration and coordination</li>
@@ -166,9 +167,9 @@ stylesheets:
                         <ul>
                             <li class="job-info">
                                 <span class="job-title">Graduate Research Assistant</span>
-                                <span class="job-employer"><a href="http://www.cmu.edu/">Carnegie Mellon University</a></span>
-                                <span class="job-location">Pittsburgh, PA</span>
                                 <span class="job-dates">August 2003-July 2009</span>
+                                <span class="job-employer"><a href="https://www.cmu.edu/">Carnegie Mellon University</a></span>
+                                <span class="job-location">Pittsburgh, PA</span>
                             </li>
                             <li class="job-achievements">
                                 <ul>
@@ -184,9 +185,9 @@ stylesheets:
                         <ul>
                             <li class="job-info">
                                 <span class="job-title">Summer Research Intern</span>
+                                <span class="job-dates">June 2007-August 2007</span>
                                 <span class="job-employer"><a href="http://www.watson.ibm.com/">IBM TJ Watson Research Center</a></span>
                                 <span class="job-location">Hawthorne, NY</span>
-                                <span class="job-dates">June 2007-August 2007</span>
                             </li>
                             <li class="job-achievements">
                                 <ul>
@@ -309,7 +310,7 @@ stylesheets:
                 <!-- skills -->
         <div class="row">
             <div class="col-md-12">
-                <h3 class="heading">Technical Skills</h3>
+                <h3 class="heading">Select Technical Skills</h3>
                 <ul class="skill-listing">
                     <li><span class="skill-header">Programming Languages</span>
                         <ul class="skill-components">
@@ -328,9 +329,9 @@ stylesheets:
                             <li>Docker</li>
                             <li>Linux</li>
                             <li>distributed systems architecture</li>
-                            <li>Relational Databases (PostgreSQL)</li>
-                            <li>Document Databases (DynamoDB)</li>
-                            <li>Graph Databases (Neo4j)</li>
+                            <li>relational databases</li>
+                            <li>document databases</li>
+                            <li>graph databases</li>
                         </ul>
                     </li>
                     <li><span class="skill-header">Frameworks and Libraries</span>
@@ -339,7 +340,6 @@ stylesheets:
                             <li>TensorFlow</li>
                             <li>IBM Watson</li>
                             <li>Express</li>
-                            <li>Jupyter</li>
                         </ul>
                     </li>
                 </ul>

@@ -1,0 +1,36 @@
+name: Compile and Publish Weblog
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: Checkout Theme
+      uses: srt32/git-actions@v0.0.3
+      with:
+        args: mkdir -p themes && cd themes && git clone https://github.com/pridkett/hugo-theme-patrick-custom
+
+    - name: Hugo Build
+      uses: srt32/hugo-action@v0.0.3
+      with:
+        args: --theme=hugo-theme-patrick-custom
+
+    - name: Push to remote server
+      uses: AEnterprise/rsync-deploy@v1.0
+      env:
+        DEPLOY_KEY: ${{ secrets.RSYNC_SERVER_SSH_KEY }}
+        ARGS: "-e -c -r --delete"
+        SERVER_PORT: ${{ secrets.RSYNC_SERVER_PORT }}
+        FOLDER: "./public"
+        SERVER_IP: ${{ secrets.RSYNC_SERVER_HOST }}
+        USERNAME: ${{ secrets.RSYNC_USERNAME }}
+        SERVER_DESTINATION: ${{ secrets.RSYNC_SERVER_DESTINATION }}

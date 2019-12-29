@@ -2,24 +2,32 @@
 title: "Patrick Wagstrom's Home Page"
 name: "home"
 description: "The internet's #3 source for information about Patrick Wagstrom"
-lastmod: 2016-02-27
+lastmod: 2019-12-28
 jumbotron:
   image: "/images/jumbotron.jpg"
   headline: "Patrick Wagstrom"
-  text: "<p>Data Scientist and Machine Learning<br>With Occasional Forays in Software Engineering and Human-Computer Interaction</p>"
+  text: "<p>Data Scientist and Machine Learning Leader<br>With Occasional Forays in Software Engineering and Human-Computer Interaction</p>"
 affiliations:
-  - image: "/images/IBMWatson.png"
+  - image: "/images/200px-Verizon_logo.png"
+    alt: "Verizon"
+    title: "2019 - Present: Emerging Technologies (AI/ML, Blockchain, VR/AR, etc) at Verizon"
+    url: "https://www.verizon.com/"
+  - image: "/images/200px-Capital_One_logo.png"
+    alt: "Capital One"
+    title: "2016 - 2019: Data Science Models and Machine Learning Platforms at Capital One"
+    url: "https://www.capitalone.com/"
+  - image: "/images/200px-IBM_Watson_logo.png"
     alt: "IBM Watson Group"
-    title: "2014 - Present: Founding Member of IBM Watson Life - A Group That Brings Cognitive Computing to the People"
+    title: "2014 - 2016: Founding Member of IBM Watson Life - A Group That Brings Cognitive Computing to the People"
     url: "http://www.ibmwatson.com/"
-    text: "IBM Watson Group"
+    # text: "IBM Watson Group"
   - image: "/images/IBMResearch.png"
     alt: "IBM Research"
-    title: "2009 - 2014 Research Staff Member at the IBM TJ Watson Research Center"
+    title: "2009 - 2014: Research Staff Member at the IBM TJ Watson Research Center"
     url: "http://www.watson.ibm.com"
   - image: "/images/CMUWordmark.png"
     alt: "Carnegie Mellon University"
-    title: "2003 - 2009 Graduate Student at Carnegie Mellon University"
+    title: "2003 - 2009: Graduate Student at Carnegie Mellon University"
     url: "http://www.cmu.edu/"
   - image: "/images/CITLogo.png"
     alt: "Carnegie Institute of Technology"
@@ -114,7 +122,7 @@ on a variety of projects around IBM, the most prominent of which is
 Contact Information
 -------------------
 The best way to contact me is via my personal email account,
-[patrick@wagstrom.net][email], or on [Twitter where I'm @pridkett][twitter].
+[patrick@wagstrom.net][email]. I'm also on [Twitter where I'm @pridkett][twitter], but I'm not very active there anymore.
 
 [email]: mailto:patrick@wagstrom.net
 [jazzhub]: http://hub.jazz.net/

@@ -13,13 +13,11 @@
         </div>
         <div class="row">
             <div class="col-md-offset-1 col-md-10">
-                <ul>
-                    {{ range .Paginator.Pages }}
-                        {{ if ne .Params.menu "main" }}         
-                            {{ .Render "post-snippet"}}
-                        {{ end }}
+                {{ range .Paginator.Pages }}
+                    {{ if ne .Params.menu "main" }}         
+                        {{ .Render "post-snippet"}}
                     {{ end }}
-                </ul>
+                {{ end }}
             </div>
         </div>
         </section>

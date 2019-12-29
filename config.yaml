@@ -1,19 +1,34 @@
 ---
 baseurl: "https://patrick.wagstrom.net/"
-# baseurl: "https://test.wagstrom.net"
 title: "patrick dot wagstrom dot net"
 languageCode: "en-us"
 googleAnalytics: "UA-3441054-1"
 
-# permalinks:
-#   post: /weblog/:year/:month/:day/:title
+menu:
+  main:
+  - identifier: blog
+    name: blog
+    url: /weblog/
+    weight: -100
+  - identifer: resume
+    name: resume
+    url: /resume/
+    weight: -100
+  - identifier: research
+    name: research
+    url: /research/
+    weight: -100
+  - identifier: publications
+    name: publications
+    url: /publications/
+    weight: -100
+    
 params:
   subtitle: "The Internet's #3 Site for Information on Patrick Wagstrom"
   author: "Patrick Wagstrom <patrick@wagstrom.net>"
   github: "https://github.com/pridkett"
   twitter: "https://twitter.com/pridkett"
   facebook: "https://facebook.com/patrick.wagstrom/"
-  googleplus: "https://plus.google.com/+PatrickWagstrom/"
   youtube: "http://www.youtube.com/user/pridkett/videos"
   stackoverflow: "http://stackoverflow.com/users/57626/pridkett"
   stackexchange: "http://stackexchange.com/users/23095/pridkett"

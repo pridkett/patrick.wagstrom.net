@@ -6,7 +6,6 @@
             </div>
             <div class="navbar-collapse collapse navbar-responsive-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/weblog/">{{ if .Site.Params.strings.blog_navbar_link }}{{ .Site.Params.strings.blog_navbar_link }}{{ else }}Blog{{ end }}</a></li>
                     {{ range .Site.Menus.main }}
                       <li><a href="{{.URL}}"> {{ .Name }} </a></li>
                     {{end}}

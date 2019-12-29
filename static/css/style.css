@@ -110,3 +110,11 @@ h3.affiliations {
 #home_jumbotron p {
     font-weight: 500;
 }
+
+article div.timestamp {
+    text-align: right;
+}
+
+article {
+    padding-bottom: 2em;
+}

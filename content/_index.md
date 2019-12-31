@@ -6,7 +6,7 @@ lastmod: 2019-12-28
 jumbotron:
   image: "/images/jumbotron.jpg"
   headline: "Patrick Wagstrom"
-  text: "<p>Data Scientist and Machine Learning Leader<br>With Occasional Forays in Software Engineering and Human-Computer Interaction</p>"
+  text: "<p>Data Science and Aritficial Intelligence Leader</p>"
 affiliations:
   - image: "/images/200px-Verizon_logo.png"
     alt: "Verizon"

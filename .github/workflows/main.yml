@@ -22,7 +22,7 @@ jobs:
     - name: Hugo Build
       uses: srt32/hugo-action@v0.0.3
       with:
-        args: --theme=hugo-theme-patrick-custom
+        args: --theme=hugo-theme-patrick-custom --ignoreCache
 
     - name: Push to remote server
       uses: AEnterprise/rsync-deploy@v1.0

@@ -22,6 +22,12 @@ menu:
     name: publications
     url: /publications/
     weight: -100
+
+# Enable unsafe rendering for complicated pages
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
     
 params:
   subtitle: "The Internet's #3 Site for Information on Patrick Wagstrom"

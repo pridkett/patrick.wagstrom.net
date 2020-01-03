@@ -11,6 +11,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Clean build directory
+      run: rm -rf public
+
+    - name: Clean cache directory
+      run: rm -rf resources
+
     - name: Checkout
       uses: actions/checkout@v1
 

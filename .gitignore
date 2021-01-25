@@ -8,5 +8,4 @@ contents/libs
 bower_components
 *.swp
 public
-themes
 *.log

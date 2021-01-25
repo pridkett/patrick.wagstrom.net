@@ -45,7 +45,7 @@ stylesheets:
         </div>
         <div class="row download-buttons no-print">
             <div class="col-md-12">
-                <button type="button" class="btn btn-primary btn-large" onclick="window.location.href='wagstrom-resume-20190314.pdf';"><i class="fa fa-download"></i> Download</button>
+                <button type="button" class="btn btn-primary btn-large" onclick="window.location.href='wagstrom-resume-20191228.pdf';"><i class="fa fa-download"></i> Download</button>
                 <button type="button" class="btn btn-primary btn-large" onclick="window.print();"><i class="fa fa-print"></i> Print</button>
             </div>
         </div>
@@ -82,10 +82,27 @@ stylesheets:
                     <li class="job">
                         <ul>
                             <li class="job-info">
+                                <span class="job-title">Director of Emerging Technology</span>
+                                <span class="job-dates">September 2019-Present</span>
+                                <span class="job-employer"><a href="https://www.verizon.com/">Verizon</a></span>
+                                <span class="job-location">Basking Ridge, NJ and Hartford, CT</span>
+                            </li>
+                            <li title="achievements">
+                                <ul>
+                                    <li>Define and architect overall enterprise strategy for reproducible machine learning including data management, model training, model serving, and model refit</li>
+                                    <li>Build up a mulit-location innovation lab that brings the best of new technologies to our enterprise teams</li>
+                                    <li>Lead proof-of-concept emerging solutions around blockchain identity and machine learning model development</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="job">
+                        <ul>
+                            <li class="job-info">
                                 <span class="job-title">Senior Director of Data Science for Machine Learning Platforms</span>
-                                <span class="job-dates">January 2019-Present</span>
+                                <span class="job-dates">January 2019-September 2019</span>
                                 <span class="job-title">Director of Data Science for Machine Intelligence</span>
-                                <span class="job-dates">November 2016-Present</span>
+                                <span class="job-dates">November 2016-January 2019</span>
                                 <span class="job-employer"><a href="https://www.capitalone.com/">Capital One</a></span>
                                 <span class="job-location">New York, NY and McLean, VA</span>
                             </li>

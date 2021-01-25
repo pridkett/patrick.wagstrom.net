@@ -57,7 +57,7 @@ stylesheets:
         <div class="row">
             <div class="col-md-12">
                 <p>
-                Accelerate data science and artificial intelligence by combining best practices from cloud deployment, devops, and human-computer interaction. Integrate diverse data streams of raw data, observations of human behavior, dynamic visualizations, and innovative tools to drive stakeholder insight. Hands-on leader that builds cohesive distributed teams by bringing together the best people from many backgrounds and creating a shared sense of vision and ownership.</p>
+                Executive leader of cutting edge data science and machine learning teams. Accelerate data science and artificial intelligence by combining best practices from cloud deployment, devops, and human-computer interaction. Hands-on leader that builds cohesive distributed teams by bringing together the best people from many backgrounds and creating a shared sense of vision and ownership.</p>
             </div>
         </div>
         <!-- /general purpose -->

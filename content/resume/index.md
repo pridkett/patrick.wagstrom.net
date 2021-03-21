@@ -57,7 +57,7 @@ stylesheets:
         <div class="row">
             <div class="col-md-12">
                 <p>
-                Executive leader of cutting edge data science and machine learning teams. Accelerate data science and artificial intelligence by combining best practices from cloud deployment, devops, and human-computer interaction. Hands-on leader that builds cohesive distributed teams by bringing together the best people from many backgrounds and creating a shared sense of vision and ownership.</p>
+                Executive leader of cutting edge data science and machine learning teams. Accelerate data science and artificial intelligence by combining best practices from machine learning, risk management, cloud deployment, devops, and human-computer interaction. Hands-on leader that builds cohesive distributed teams by bringing together great people from diverse backgrounds and creating a shared sense of vision and ownership.</p>
             </div>
         </div>
         <!-- /general purpose -->
@@ -89,9 +89,11 @@ stylesheets:
                             </li>
                             <li title="achievements">
                                 <ul>
-                                    <li>Define and architect overall enterprise strategy for reproducible machine learning including data management, model training, model serving, and model refit</li>
-                                    <li>Build up a mulit-location innovation lab that brings the best of new technologies to our enterprise teams</li>
-                                    <li>Lead proof-of-concept emerging solutions around blockchain identity and machine learning model development</li>
+                                    <li>Built a team 15 FTEs and additional vendor contractors with a $15mm annual budget from the ground up - including attracting internal and external talent and negotiating for budget allocations.</li>
+                                    <li>Defined and architect overall enterprise strategy for reproducible machine learning and MLOps including data management, model training, model serving, model refit, and model risk management.</li>
+                                    <li>Led proof-of-concept solutions around blockchain identity and asset management, augmented and virtual reality, cross-device biometrics, IoT, and more.</li>
+                                    <li>Conceived of and built models for cell site energy efficiency resulting in a $5mm annual savings and conversion into a digital twin for future simulation.</li>
+                                    <li>Created and ran numerous cultural and knowledge sharing events including Data Science Reading Group and Emerging Tech Brown Bag Sessions along with heavy participation in internal and external speaking and outreach events.</li>
                                 </ul>
                             </li>
                         </ul>
@@ -109,10 +111,11 @@ stylesheets:
                             <li title="achievements">
                                 <ul>
                                     <li>Architect and overall lead for the Capital One Card Machine Learning Platform  - a platform for scalable and personalized real-time reinforcement machine learning models on top of Kubernetes, gRPC, and AWS inside a regulated industry.</li>
-                                    <li>Lead a distributed team of data scientists, data engineers, and product managers to deliver our platform in a complex enterprise environment.</li>
+                                    <li>Led a distributed team of data scientists (12), data engineers (22), and product managers (3) to deliver our platform in a complex cloud-based enterprise environment.</li>
                                     <li>Led a distributed team to build robust machine learning models that incorporate both unstructured text and structured analytical data to identify customer issues in a large corpus of customer communication.</li>
-                                    <li>Manage, grow, and nurture a team of data scientists across multiple locations and states.</li>
+                                    <li>Managed, grew, and nurtured a team of 18 data scientists across four states.</li>
                                     <li>Built out an academic research partnership with universities to explore implications of fairness in artificial intelligence.</li>
+                                    <li>Conducted more than 200 interviews of data scientists, data engineers, and product managers to help grow Card Machine Learning from 33 to 168 people and Capital One's New York Card team from 8 to nearly 200.</li>
                                 </ul>
                             </li>
                         </ul>
@@ -325,8 +328,9 @@ stylesheets:
         </div>
         <!-- /education -->
                 <!-- skills -->
-        <div class="row">
-            <div class="col-md-12">
+        <!--
+        <div class="row" class="no-print">
+            <div class="col-md-12" class="no-print">
                 <h3 class="heading">Select Technical Skills</h3>
                 <ul class="skill-listing">
                     <li><span class="skill-header">Programming Languages</span>
@@ -342,25 +346,24 @@ stylesheets:
                         <ul class="skill-components">
                             <li>Kubernetes</li>
                             <li>AWS</li>
-                            <li>CloudFoundry</li>
                             <li>Docker</li>
                             <li>Linux</li>
                             <li>distributed systems architecture</li>
                             <li>relational databases</li>
                             <li>document databases</li>
                             <li>graph databases</li>
+                            <li>data warehousing</li>
                         </ul>
                     </li>
-                    <li><span class="skill-header">Frameworks and Libraries</span>
+                    <li><span class="skill-header">Machine Learning Frameworks and Libraries</span>
                         <ul class="skill-components">
                             <li>scikit-learn</li>
                             <li>TensorFlow</li>
-                            <li>IBM Watson</li>
-                            <li>Express</li>
+                            <li>XGBoost</li>
+                            <li>LIME</li>
+                            <li>Shap</li>
                         </ul>
                     </li>
-                </ul>
-<!-- 
                     <li><span class="skill-header">Research Methods</span>
                         <ul class="skill-components">
                             <li>data mining</li>
@@ -392,9 +395,9 @@ stylesheets:
                             <li>Linux system administration</li>
                         </ul>
                     </li>
-                </ul> -->
+                </ul>
             </div>
-        </div>
+        </div> -->
         <!-- /skills -->
     </div>
 </div>

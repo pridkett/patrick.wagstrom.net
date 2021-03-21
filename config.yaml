@@ -2,7 +2,6 @@
 baseurl: "https://patrick.wagstrom.net/"
 title: "patrick dot wagstrom dot net"
 languageCode: "en-us"
-googleAnalytics: "UA-3441054-1"
 
 menu:
   main:

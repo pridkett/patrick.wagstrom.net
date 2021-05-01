@@ -30,13 +30,13 @@ jobs:
       with:
         args: --theme=hugo-theme-patrick-custom --ignoreCache
 
-    - name: Push to remote server
-      uses: AEnterprise/rsync-deploy@v1.0
-      env:
-        DEPLOY_KEY: ${{ secrets.RSYNC_SERVER_SSH_KEY }}
-        ARGS: "-e -crz"
-        SERVER_PORT: ${{ secrets.RSYNC_SERVER_PORT }}
-        FOLDER: "./public"
-        SERVER_IP: ${{ secrets.RSYNC_SERVER_HOST }}
-        USERNAME: ${{ secrets.RSYNC_USERNAME }}
-        SERVER_DESTINATION: ${{ secrets.RSYNC_SERVER_DESTINATION }}
+    - name: rsync deployments
+      uses: burnett01/rsync-deployments@4.1
+      with:
+        switches: -avz
+        path: public
+        remote_path: ${{ secrets.RSYNC_SERVER_DESTINATION }}
+        remote_port: ${{ secrets.RSYNC_SERVER_PORT }}
+        remote_host: ${{ secrets.RSYNC_SERVER_HOST }}
+        remote_user: ${{ secrets.RSYNC_USERNAME }}
+        remote_key: ${{ secrets.RSYNC_SERVER_SSH_KEY }}

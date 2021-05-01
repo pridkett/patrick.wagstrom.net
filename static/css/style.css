@@ -118,3 +118,28 @@ article div.timestamp {
 article {
     padding-bottom: 2em;
 }
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table thead {
+    background-color: #ccc;
+    border-bottom: 1px solid #777;
+}
+
+table thead th, table tbody tr td {
+    padding-left: 1ex;
+    padding-right: 1ex;
+}
+
+figure {
+    padding: 1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+figure figcaption {
+    font-weight: bold;
+}

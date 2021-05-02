@@ -35,3 +35,5 @@ params:
   commentsAccount: de6c2d3e38f6fdb9bf16fa9f1904f35d
   relativePaths: true
   resumeShowPhone: false
+
+theme: "hugo-theme-patrick-custom"

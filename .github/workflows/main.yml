@@ -18,17 +18,17 @@ jobs:
       run: rm -rf resources
 
     - name: Checkout
-      uses: actions/checkout@v1
-
-    - name: Checkout Theme
-      uses: srt32/git-actions@v0.0.3
+      uses: actions/checkout@v2
       with:
-        args: mkdir -p themes && cd themes && git clone https://github.com/pridkett/hugo-theme-patrick-custom
+        submodules: 'true'
 
-    - name: Hugo Build
-      uses: srt32/hugo-action@v0.0.3
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
       with:
-        args: --theme=hugo-theme-patrick-custom --ignoreCache
+        hugo-version: '0.82.0'
+        extended: true
+
+    - run: hugo
 
     - name: rsync deployments
       uses: burnett01/rsync-deployments@4.1

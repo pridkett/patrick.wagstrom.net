@@ -5,21 +5,9 @@ languageCode: "en-us"
 
 menu:
   main:
-  - identifier: blog
-    name: blog
+  - identifier: Blog
+    name: Blog
     url: /weblog/
-    weight: -100
-  - identifer: resume
-    name: resume
-    url: /resume/
-    weight: -100
-  - identifier: research
-    name: research
-    url: /research/
-    weight: -100
-  - identifier: publications
-    name: publications
-    url: /publications/
     weight: -100
 
 # Enable unsafe rendering for complicated pages

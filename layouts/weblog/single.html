@@ -43,18 +43,18 @@
   {{ end }}
 
   {{ if and (isset .Site.Params "commentsengine") (eq .Site.Params.commentsengine "intensedebate") }}
-  <div class="row">
-    <div class="col-md-12">
-      <hr>
-    </div>
-  </div>
   <!-- stuff for intense debate -->
   <div class="row">
     <div class="col-md-offset-1 col-md-10">
-      <script>
-        var idcomments_acct = '{{ .Site.Params.commentsAccount }}';
-        var idcomments_post_id = '{{ .RelPermalink }}';
-        var idcomments_post_url = '{{ .Permalink }}';
+      <hr>
+      <script type="text/javascript">
+        var idcomments_acct = "{{ .Site.Params.commentsAccount }}";
+        {{ if and (isset .Site.Params "commentsmapping") (isset .Site.Params.commentsmapping .RelPermalink ) }}
+        var idcomments_post_id = "{{ index .Site.Params.commentsmapping .RelPermalink }}";
+        {{ else }}
+        var idcomments_post_id = "{{ .RelPermalink | safeURL }}";
+        {{ end }}
+        var idcomments_post_url = "{{ .Permalink | safeJS }}";
       </script>
       <span id="IDCommentsPostTitle" style="display:none"></span>
       <script type='text/javascript' src='https://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>

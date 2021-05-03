@@ -4,21 +4,22 @@
   <div class="row">
     <div class="col-md-offset-1 col-md-10">
       <h3>{{ .Title }}</h3>
-        <span class="label label-primary">{{ if .Site.Params.strings.date_format }}{{ .Date.Format .Site.Params.strings.date_format }}{{ else }}{{ .Date.Format "Mon, Jan 2, 2006" }}{{ end }}</span>
-        {{ if isset .Params "categories" }} 
-          in 
-          {{ range $i, $e :=.Params.categories }}
-            {{if $i}} , {{end}}
-            <a href="/categories/{{ . | urlize }}">{{ . }}</a>
-          {{ end }}
-        {{ end }}
-        {{ if isset .Params "tags" }}
-          with tags
-          {{ range $i, $e :=.Params.tags }}
-            {{if $i}} , {{end}}
-            <a href="/tags/{{ . | urlize }}">{{ . }}</a>
-          {{ end }}
-        {{ end }} 
+      <span class="label label-primary">{{ if .Site.Params.strings.date_format }}{{ .Date.Format
+        .Site.Params.strings.date_format }}{{ else }}{{ .Date.Format "Mon, Jan 2, 2006" }}{{ end }}</span>
+      {{ if isset .Params "categories" }}
+      in
+      {{ range $i, $e :=.Params.categories }}
+      {{if $i}} , {{end}}
+      <a href="/categories/{{ . | urlize }}">{{ . }}</a>
+      {{ end }}
+      {{ end }}
+      {{ if isset .Params "tags" }}
+      with tags
+      {{ range $i, $e :=.Params.tags }}
+      {{if $i}} , {{end}}
+      <a href="/tags/{{ . | urlize }}">{{ . }}</a>
+      {{ end }}
+      {{ end }}
       </small>
     </div>
   </div>
@@ -34,11 +35,14 @@
   </div> -->
   {{ if or (.PrevInSection) (.NextInSection)}}
   <div class="row">
-      <div class="col-md-offset-1 col-md-5">{{ if .PrevInSection }}<a href="{{ .PrevInSection.Permalink }}" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> Previous Article</a>{{ end }}</div>
-      <div class="col-md-5 text-right">{{ if .NextInSection }}<a href="{{ .NextInSection.Permalink }}" class="btn btn-primary"><i class="fa fa-arrow-right" aria-hidden="true"></i> Next Article</a>{{ end }}</div>
+    <div class="col-md-offset-1 col-md-5">{{ if .PrevInSection }}<a href="{{ .PrevInSection.Permalink }}"
+        class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> Previous Article</a>{{ end }}</div>
+    <div class="col-md-5 text-right">{{ if .NextInSection }}<a href="{{ .NextInSection.Permalink }}"
+        class="btn btn-primary"><i class="fa fa-arrow-right" aria-hidden="true"></i> Next Article</a>{{ end }}</div>
   </div>
   {{ end }}
-  {{ if and (isset .Site.Params "commentsEngine") (eq .Site.Params.commentsEngine "intensedebate") }}
+
+  {{ if and (isset .Site.Params "commentsengine") (eq .Site.Params.commentsengine "intensedebate") }}
   <div class="row">
     <div class="col-md-12">
       <hr>

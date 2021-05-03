@@ -31,8 +31,8 @@ params:
     name: "superhero"
   strings:
     home_link: "<i class=\"fa fa-home\"></i> Patrick Wagstrom"
-  commentsEngine: intensedebate
-  commentsAccount: de6c2d3e38f6fdb9bf16fa9f1904f35d
+  commentsengine: intensedebate
+  commentsaccount: de6c2d3e38f6fdb9bf16fa9f1904f35d
   relativePaths: true
   resumeShowPhone: false
 

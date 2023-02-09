@@ -13,7 +13,7 @@ stylesheets:
     <div class="col-md-3 sidebar">
         <div class="row no-print">
             <div class="col-md-12 mugshot">
-                <img src="mugshot.small.jpg" height="200" width="164" alt="A Very Dated Photo of Patrick Wagstrom">
+                <img src="Headshot%20-%20Patrick%20Wagstrom%20-%2020221114%20-%20204x204.jpg" height="204" width="204" alt="A dazzling and beautiful professional headshot Photo of Patrick Wagstrom" id="profilepic">
             </div>
         </div>
         <div class="row name-header">
@@ -57,7 +57,7 @@ stylesheets:
         <div class="row">
             <div class="col-md-12">
                 <p>
-                Executive leader of cutting edge data science and machine learning teams. Accelerate data science and artificial intelligence by combining best practices from machine learning, risk management, cloud deployment, devops, and human-computer interaction. Hands-on leader that builds cohesive distributed teams by bringing together great people from diverse backgrounds and creating a shared sense of vision and ownership.</p>
+                Executive leader of cutting edge data science, machine learning, and software engineering organizations. I accelerate value from data by combining best practices from machine learning, risk management, cloud deployment, devops, and human-computer interaction. Hands-on technical leader that builds cohesive distributed teams by bringing together great people from diverse backgrounds while creating a shared sense of vision and ownership.</p>
             </div>
         </div>
         <!-- /general purpose -->
@@ -78,22 +78,44 @@ stylesheets:
             <div class="col-md-12">
                 <h3 class="heading">Professional Experience</h3>
                 <ul class="job-listing">
-                <ul class="job-listing">
+					<li class="job">
+						<ul>
+							<li class="job-info">
+								<span class="job-employer"><a href="https://www.brightcove.com/">Brightcove</a></span>
+								<span class="job-location">Boston, MA and Hartford, CT</span>
+								<span class="job-title">Chief Data Officer</span>
+								<span class="job-dates">May 2021 - December 2022</span>
+							</li>
+							<li title="achievements">
+								<ul>
+									<li>Built and managed an organizaiton of 34 FTE and 12 contractors in engineering, data science, and product management responsible for data platforms, analytics and insights, data and model governance, and customer facing data products.</li>
+									<li>Executive sponsor and owner of the $12.3mm <a href="https://www.brightcove.com/en/company/press/Brightcove-acquires-Wicket-Labs/">acquisition of Wicket Labs</a> - Brightcove's biggest acquisition in 8 years that brought critical media analytics skills and focus to Brightcove. Brought the product to more the 50x as many customers in under 1 year.</li>
+									<li>Ownership multi-million dollar annual relationship with Google for Google Cloud Platform.</li>
+									<li>Led team and built out models of video classification from text transcripts, audio, and video processing - including sourcing of training data, development of algorithms, and creation of model execution platform.</li>
+									<li>Responsible for end-to-end analytics collection and processing system for tens of thousands of events a second, hundreds of millions of videos, billions of monthly views, and trillions of rows of data in our data warehouse.</li>
+									<li>Rearchitected and led migration of Brightcove's real-time analytics pipeline from Google Dataflow to Google Pub/Sub, resulting in a savings of $300k annually.</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
                     <li class="job">
                         <ul>
                             <li class="job-info">
-                                <span class="job-title">Director of Emerging Technology</span>
-                                <span class="job-dates">September 2019-Present</span>
                                 <span class="job-employer"><a href="https://www.verizon.com/">Verizon</a></span>
                                 <span class="job-location">Basking Ridge, NJ and Hartford, CT</span>
+                                <span class="job-title">Director of Emerging Technology</span>
+                                <span class="job-dates">September 2019-April 2021</span>
                             </li>
                             <li title="achievements">
                                 <ul>
-                                    <li>Built a team 15 FTEs and additional vendor contractors with a $15mm annual budget from the ground up - including attracting internal and external talent and negotiating for budget allocations.</li>
+                                    <li>Built a team 15 FTEs and additional 51 vendor contractors with a $15mm annual budget from the ground up - including attracting internal and external talent and negotiating for budget allocations.</li>
                                     <li>Defined and architect overall enterprise strategy for reproducible machine learning and MLOps including data management, model training, model serving, model refit, and model risk management.</li>
-                                    <li>Led proof-of-concept solutions around blockchain identity and asset management, augmented and virtual reality, cross-device biometrics, IoT, and more.</li>
+									<li>Led the advanced data warehouse and data pipeline architecture functions - migrating from a number of on prem ad-hoc solutions (i.e. Teradata and Hadoop) to a streaming cloud based solution around Google BigQuery.</li>
+                                    <li>Led proof-of-concept solutions around blockchain identity and asset management, augmented and virtual reality for Verizon retail and 5G UWB Home Internet, cross-device biometrics, and more.</li>
                                     <li>Conceived of and built models for cell site energy efficiency resulting in a $5mm annual savings and conversion into a digital twin for future simulation.</li>
+									<li>Led team that developed a holistic model for connecting online brand discussion to customer profiles to support cusomter servicing - including customer and agent action prediction models and patent pending bot detection model.</li>
                                     <li>Created and ran numerous cultural and knowledge sharing events including Data Science Reading Group and Emerging Tech Brown Bag Sessions along with heavy participation in internal and external speaking and outreach events.</li>
+									<li>Worked with legal and policy experts for the creation of numerous Verizon policies, including facial racognition, energy efficiency, and data privacy.</li>
                                 </ul>
                             </li>
                         </ul>
@@ -101,12 +123,12 @@ stylesheets:
                     <li class="job">
                         <ul>
                             <li class="job-info">
+                                <span class="job-employer"><a href="https://www.capitalone.com/">Capital One</a></span>
+                                <span class="job-location">New York, NY and McLean, VA</span>
                                 <span class="job-title">Senior Director of Data Science for Machine Learning Platforms</span>
                                 <span class="job-dates">January 2019-September 2019</span>
                                 <span class="job-title">Director of Data Science for Machine Intelligence</span>
                                 <span class="job-dates">November 2016-January 2019</span>
-                                <span class="job-employer"><a href="https://www.capitalone.com/">Capital One</a></span>
-                                <span class="job-location">New York, NY and McLean, VA</span>
                             </li>
                             <li title="achievements">
                                 <ul>
@@ -123,10 +145,10 @@ stylesheets:
                     <li class="job">
                         <ul>
                             <li class="job-info">
-                                <span class="job-title">Research Staff Member/Technical Lead</span>
-                                <span class="job-dates">January 2015-November 2016</span>
                                 <span class="job-employer"><a href="https://www.ibm.com/watson/">IBM Watson</a></span>
                                 <span class="job-location">Littleton, MA</span>
+                                <span class="job-title">Research Staff Member/Technical Lead</span>
+                                <span class="job-dates">January 2015-November 2016</span>
                             </li>
                             <li title="achievements">
                                 <ul>
@@ -142,10 +164,10 @@ stylesheets:
                     <li class="job">
                         <ul>
                             <li class="job-info">
-                                <span class="job-title">Research Staff Member</span>
-                                <span class="job-dates">January 2014-January 2015</span>
                                 <span class="job-employer"><a href="https://www.ibm.com/watson/">IBM Watson - Watson Life</a></span>
                                 <span class="job-location">Yorktown Heights, NY</span>
+                                <span class="job-title">Research Staff Member</span>
+                                <span class="job-dates">January 2014-January 2015</span>
                             </li>
                             <li title="achievements">
                                 <ul>
@@ -161,10 +183,10 @@ stylesheets:
                     <li class="job">
                         <ul>
                             <li class="job-info">
-                                <span class="job-title">Research Staff Member</span>
-                                <span class="job-dates">August 2009-January 2014</span>
                                 <span class="job-employer"><a href="https://www.watson.ibm.com/">IBM TJ Watson Research Center</a></span>
                                 <span class="job-location">Yorktown Heights, NY</span>
+                                <span class="job-title">Research Staff Member</span>
+                                <span class="job-dates">August 2009-January 2014</span>
                             </li>
                             <li title="achievements">
                                 <ul>
@@ -186,10 +208,10 @@ stylesheets:
                     <li class="job">
                         <ul>
                             <li class="job-info">
-                                <span class="job-title">Graduate Research Assistant</span>
-                                <span class="job-dates">August 2003-July 2009</span>
                                 <span class="job-employer"><a href="https://www.cmu.edu/">Carnegie Mellon University</a></span>
                                 <span class="job-location">Pittsburgh, PA</span>
+                                <span class="job-title">Graduate Research Assistant</span>
+                                <span class="job-dates">August 2003-July 2009</span>
                             </li>
                             <li class="job-achievements">
                                 <ul>
@@ -204,10 +226,10 @@ stylesheets:
                     <li class="job, no-resume">
                         <ul>
                             <li class="job-info">
-                                <span class="job-title">Summer Research Intern</span>
-                                <span class="job-dates">June 2007-August 2007</span>
                                 <span class="job-employer"><a href="http://www.watson.ibm.com/">IBM TJ Watson Research Center</a></span>
                                 <span class="job-location">Hawthorne, NY</span>
+                                <span class="job-title">Summer Research Intern</span>
+                                <span class="job-dates">June 2007-August 2007</span>
                             </li>
                             <li class="job-achievements">
                                 <ul>
@@ -221,9 +243,9 @@ stylesheets:
                     <li class="job, no-resume">
                         <ul>
                             <li class="job-info">
-                                <span class="job-title">Teaching/Research Assistant</span>
                                 <span class="job-employer"><a href="http://www.iit.edu/csl/cs/">Computer Science Department, Illinois Institute of Technology</a></span>
                                 <span class="job-location">Chicago, IL</span>
+                                <span class="job-title">Teaching/Research Assistant</span>
                                 <span class="job-dates">September 2000-August 2003</span>
                             </li>
                             <li class="job-achievements">
@@ -239,8 +261,8 @@ stylesheets:
                     <li class="job, no-resume">
                         <ul>
                             <li class="job-info">
+                                <span class="job-employer"><a href="http://www.mcs.anl.gov/">Argonne National Laboratory - Math and Computer Science Division</a></span>
                                 <span class="job-title">Summer Research Intern</span>
-                                <span class="job-employer"><a href="http://www.mcs.anl.gov/">Math and Computer Science Division, Argonne National Laboratory</a></span>
                                 <span class="job-location">Argonne, IL</span>
                                 <span class="job-dates">April 2002-September 2002</span>
                             </li>
@@ -255,9 +277,9 @@ stylesheets:
                     <li class="job, no-resume">
                         <ul>
                             <li class="job-info">
-                                <span class="job-title">Senior Developer</span>
                                 <span class="job-employer"><a href="http://www.lecltd.com/">LEC, Ltd</a></span>
                                 <span class="job-location">Chicago, IL</span>
+                                <span class="job-title">Senior Developer</span>
                                 <span class="job-dates">April 1999-September 2000</span>
                             </li>
                             <li class="job-achievements">
@@ -273,9 +295,9 @@ stylesheets:
                     <li class="job, no-resume">
                         <ul>
                             <li class="job-info">
-                                <span class="job-title">Developer</span>
                                 <span class="job-employer"><a href="http://www.mypoints.com/">MyPoints</a></span>
                                 <span class="job-location">Schaumburg, IL</span>
+                                <span class="job-title">Developer</span>
                                 <span class="job-dates">April 1998-September 1998</span>
                             </li>
                             <li class="job-achievements">

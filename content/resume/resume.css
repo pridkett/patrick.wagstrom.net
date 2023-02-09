@@ -9,6 +9,11 @@
     margin-top: 5px;
 }
 
+img#profilepic {
+    width: 204px;
+    height: 204px;
+}
+
 ul.info-links {
     list-style-type: none;
     text-align: right;
@@ -60,6 +65,15 @@ span.job-title {
 
 span.job-employer:after {
     content: ",";
+}
+
+span.job-employer {
+    font-weight: bold;
+}
+
+span.job-location {
+    /* display: none; */
+    font-weight: bold;
 }
 
 span.job-dates {

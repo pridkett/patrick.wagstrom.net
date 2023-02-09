@@ -10,6 +10,9 @@ menu:
     url: /weblog/
     weight: -100
 
+ignoreFiles:
+  - resume/\\.*
+
 # Enable unsafe rendering for complicated pages
 markup:
   goldmark:

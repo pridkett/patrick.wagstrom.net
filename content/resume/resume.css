@@ -80,6 +80,10 @@ span.job-dates {
     display: block;
 }
 
+span.job-hours {
+    display: none;
+}
+
 /** degree stuff */
 span.degree-name {
     font-weight: bold;

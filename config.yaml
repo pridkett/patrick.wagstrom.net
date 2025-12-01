@@ -10,8 +10,8 @@ menu:
     url: /weblog/
     weight: -100
 
-ignoreFiles:
-  - resume/\\.*
+# ignoreFiles:
+#   - resume/\\.*
 
 # Enable unsafe rendering for complicated pages
 markup:
@@ -80,3 +80,20 @@ params:
   resumeShowPhone: false
 
 theme: "hugo-theme-patrick-custom"
+
+outputs:
+  home:
+    - html
+    - RSS
+  section:
+    - html
+    - RSS
+  page:
+    - html
+
+outputFormats:
+  RSS:
+    mediaType: "application/rss+xml"
+    baseName: "index"
+    suffixes: ".rss"
+

@@ -1,3 +1,12 @@
+@media print {
+
+/* disable ligatures for printing - this messes up some resume scanners */
+* {
+  font-variant-ligatures: none;
+  -webkit-font-feature-settings: "liga" 0, "clig" 0, "dlig" 0;
+  font-feature-settings: "liga" 0, "clig" 0, "dlig" 0;
+}
+    
 /* hide various elements for printing */
 .no-print, .no-print *
 {
@@ -13,8 +22,12 @@ footer {
 }
 
 body {
-    font-size: 12.60pt;
-    margin: 3rem;
+    font-size: 11.8pt;
+    line-height: 1.23;
+    margin-top: 0.5in;
+    margin-right: 0.5in;
+    margin-left: 0.5in;
+    margin-bottom: 0.5in;
 }
 
 /* undo boostrap's habit of dumping the URL after a link in print */
@@ -23,9 +36,25 @@ a[href]:after {
 }
 
 /* make the top tighter */
-.name-header, .name-header h3, .name-header h4{
+.name-header h3 {
+    margin-top: -0.2in;
+    margin-bottom: 0px;
+}
+
+.name-header h4 {
     margin-top: 0px;
     margin-bottom: 0px;
+}
+
+
+
+/* .name-header, .name-header h3, .name-header h4{ */
+/*     margin-top: 0in; */
+/*     margin-bottom: 0px; */
+/* } */
+
+.name-header h3 {
+    font-weight: bold;
 }
 
 h3.heading {
@@ -34,6 +63,10 @@ h3.heading {
     padding-top: 0.25rem;
     border-top: 1px solid black;
     font-size: 120%;
+}
+
+h3.heading.extra-padding {
+    margin-top: 2ex;
 }
 
 /* re-style the info links on the sidebar */
@@ -52,4 +85,62 @@ ul.info-links i {
 
 ul.info-links li:not(:last-child):after {
     content: ", ";
+}
+
+span.job-employer::after {
+    content: " — ";
+    display: inline;
+    font-weight: normal;
+}
+
+span.job-location {
+    font-weight: normal;
+}
+
+span.job-title {
+    display: inline;
+}
+
+span.job-title::before {
+    content: "";
+    display: block;
+}
+
+span.job-title::after {
+    content: ", ";
+    font-weight: normal;
+}
+
+span.job-dates {
+    display: inline;
+}
+
+/* span.job-dates:has(+ span)::after { */
+/*     content: ", "; */
+/* } */
+
+/* span.job-hours { */
+/*     display: inline; */
+/* } */
+
+/* span.job-hours::after { */
+/*     content: ""; */
+/*     display: block; */
+/* } */
+
+/* span.job-dates:not(:has(+ span.job-hours))::after { */
+/*     content: ""; */
+/*     display: block; */
+/* } */
+
+span.job-dates::after {
+    content: "";
+    display: block;
+}
+
+@media print {
+  orphans: 4;
+  widows: 2;
+} 
+
 }

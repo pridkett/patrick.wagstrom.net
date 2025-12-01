@@ -1,7 +1,7 @@
 THEME=hugo-theme-patrick-custom
-HUGO_BUILD_OPTS=--log --logFile hugo.log --verbose
+HUGO_BUILD_OPTS=--logLevel info --verbose
 HUGO_SERVE_LOGFILE=hugo_serve.log
-HUGO_SERVE_OPTS=-v --debug --logLevel info  --disableFastRender -D -F
+HUGO_SERVE_OPTS=--logLevel info  --disableFastRender -D -F
 
 all: build
 

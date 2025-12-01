@@ -37,11 +37,11 @@ crappy hierarchical thing that I had been doing.  Yay for good software.
 
 [
 
-![del.icio.us and nutr.itio.us screenshot](/media/2004/10/deliciousNutritiousThumb.png)
+![del.icio.us and nutr.itio.us screenshot](/weblog/media/2004/10/deliciousNutritiousThumb.png)
 
 
 
 
 Del.icio.us and nutr.itio.us with some sidebar fun
 
-](/media/2004/10/deliciousNutritious.png)
+](/weblog/media/2004/10/deliciousNutritious.png)

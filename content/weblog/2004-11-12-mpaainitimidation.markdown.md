@@ -26,23 +26,23 @@ the ad, and my commentary follows.
 
 [
 
-![Full size MPAA Intimidation Ad](/media/2004/11/mpaaIntimidation_thumb.jpg)
+![Full size MPAA Intimidation Ad](/weblog/media/2004/11/mpaaIntimidation_thumb.jpg)
 
 
 
 
 Full Size MPAA Initimdation Ad
 
-](/media/2004/11/mpaaIntimidation.jpg)[
+](/weblog/media/2004/11/mpaaIntimidation.jpg)[
 
-![MPAA Intimidation Text](/media/2004/11/mpaaIntimidation2_thumb.jpg)
+![MPAA Intimidation Text](/weblog/media/2004/11/mpaaIntimidation2_thumb.jpg)
 
 
 
 
 MPAA Intimidation Text
 
-](/media/2004/11/mpaaIntimidation2.jpg)
+](/weblog/media/2004/11/mpaaIntimidation2.jpg)
 
 
 

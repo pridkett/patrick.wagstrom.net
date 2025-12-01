@@ -26,11 +26,11 @@ which is probably the next task.
 
 
 
-![pywifiapplet image 1](/media/2004/11/pywifiapplet1.png)
+![pywifiapplet image 1](/weblog/media/2004/11/pywifiapplet1.png)
 
 Sittin in the Panel
 
-![pywifiapplet image 2](/media/2004/11/pywifiapplet2.png)
+![pywifiapplet image 2](/weblog/media/2004/11/pywifiapplet2.png)
 
 Configuring the Applet
 

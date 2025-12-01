@@ -22,7 +22,7 @@ artifacts from being JPEG compressed a few too many times.
 I got tired of this, so I created a nice new vector image.  This was done using
 [Inkscape](http://www.inkscape.org/) and [Autotrace](http://autotrace.sf.net/) (for the words).  Now that it's SVG, not only is it smaller
 once compressed, but it also is infinitely scalable and convertable.  If you
-can see the picture, [click here](/media/2005/02/casosLogo.svg) to download the SVG file.  You might need the SVG Plugin from Adobe.
+can see the picture, [click here](/weblog/media/2005/02/casosLogo.svg) to download the SVG file.  You might need the SVG Plugin from Adobe.
 
 I was really impressed with how easy this was.  There still are a few tweaks
 that should be done to the letters, which will reduce the file size even more,

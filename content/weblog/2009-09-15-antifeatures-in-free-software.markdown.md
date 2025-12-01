@@ -31,7 +31,7 @@ Common examples of antifeatures are software packages that arbitrarily the numbe
 With the Free Software Foundation so adamantly anti-antifeature, you can imagine my surprise when I discovered [GNU IceCat](http://www.gnu.org/software/gnuzilla/).  Not only is IceCat a duplication of effort of Debian’s [IceWeasel](http://wiki.debian.org/Iceweasel) software — both are versions of [Mozilla Firefox](http://www.getfirefox.com/) that lack the registered trademark of the Firefox branding, something that requires a usage agreement (note: IceCat originated before IceWeasel and originally was named IceWeasel, however the name was ceded to Debian when the latter became more dominant and higher profile). To be fair, Mozilla has little choice in this matter. You’re legally obligated to defend a registered trademark or you can lose it — a law that is fundamentally at odds with Free software. However, what is surprising about IceCat is that rather than providing the full access to the plugin ecosystem for Firefox, IceCat has chosen to provide access to only those plugins that are also Free software.
 
 <div class="image caption center">
-    [![Mozilla Firefox](/media/2009/09/firefox.png)](http://www.getfirefox.com/) vs. [![GNU IceCat](/media/2009/09/icecat.png)](http://www.gnu.org/software/gnuzilla/) vs. [![Debian IceWeasel](/media/2009/09/iceweasel.png)](http://wiki.debian.org/Iceweasel)
+    [![Mozilla Firefox](/weblog/media/2009/09/firefox.png)](http://www.getfirefox.com/) vs. [![GNU IceCat](/weblog/media/2009/09/icecat.png)](http://www.gnu.org/software/gnuzilla/) vs. [![Debian IceWeasel](/weblog/media/2009/09/iceweasel.png)](http://wiki.debian.org/Iceweasel)
 
     <p>It's like there's a nerd fight and no one cares!</p>
 </div>

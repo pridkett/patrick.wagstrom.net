@@ -35,7 +35,7 @@ pieced together a panorama of the city.  I'm fairly pleased with the results,
 the coloration on the camera is a little off, but not bad for our little
 point and click camera.
 
-[![Pittsburgh as viewed from the Duquesne Incline](/media/2006/04/pittsburghPanorama.thumb.jpg)](/media/2006/04/pittsburghPanorama.jpg)
+[![Pittsburgh as viewed from the Duquesne Incline](/weblog/media/2006/04/pittsburghPanorama.thumb.jpg)](/weblog/media/2006/04/pittsburghPanorama.jpg)
 
 The image is under a [Creative Commons By-NonCommercial-ShareAlike license](http://creativecommons.org/licenses/by-nc-sa/2.5/).  If you'd like the full resolution image (7430x1326) or to use it for other
 purposes, email me.

@@ -89,19 +89,19 @@ The total size of all packages downloaded was 160.33MB, when unpacked these file
 
 While drive storage is a concern, it's actually pretty minor.  Drive space is really cheap and a couple of hundred megs here or there don't make much of a difference.  However, transferring all that data is what consumes my time.  Surely it's not the case that everything in each one of those packages was new.  To examine this, I plotted the number of files in the package versus the number of files the incremental update modified.  The correlation is 0.43, which isneither high nor low -- some correlation is to be expected because the number of modified files can never go higher than the number of files in the package.  The fact that the correlation isn't higher means that many packages are sending files that don't need to be updated.
 
-![total files vs modified files plot](/media/2007/09/dpkgTotalFilesVsModifiedFiles.png)
+![total files vs modified files plot](/weblog/media/2007/09/dpkgTotalFilesVsModifiedFiles.png)
 
 For many people, correlations and log-log plots may not be the most helpful in understanding what is going on, so lets visualize this another way.  Below is a histogram showing how many packages had what percentage of files modified.  It's pretty clear that most packages had only a small fraction of files modified.  In many cases, 80% of the files transmitted had no changes at all.  Multiply that across multiple incremental updates, and that's a lot of wasted bandwidth and
 disk space.
 
-![histogram of percentage of files modified](/media/2007/09/dpkgPercentageModifiedHistogram.png)
+![histogram of percentage of files modified](/weblog/media/2007/09/dpkgPercentageModifiedHistogram.png)
 
 After seeing the histogram, some folks will argue that updates are more likely to larger files, so we're not really wasting as much bandwidth.  After all, looking at many packages, such as bash, the largest files are often binaries
 and libraries -- those that are most likely to be changed in the incremental updates.  To understand this, I wrote a script to create dummy incremental packages.  Basically, I copied all of the files that were modified into a new directory, created a tarball of the files, and examined the size of the executable.  This is only a rough estimate of the size as I did not create a dpkg, so it's missing the associated overhead there and estimates of bandwidth saved may be a bit optimistic.
 
 The total size of all the dummy packages was 76.35MB, a savings of almost 84MB, or 53% of the original size.  It's like a double speedup in your download speeds.  In addition, we save a bit a disk space, and the bandwidth requirements for update sites are diminished significantly.  Not all updates compressed the same amount, as shown below.
 
-![histogram of percentage of incremental package size](/media/2007/09/dpkgPercentageHistogram.png)
+![histogram of percentage of incremental package size](/weblog/media/2007/09/dpkgPercentageHistogram.png)
 
 About a sixth of the smaller packages would be under 10% of the downloaded package size, while another sixth of the packages would have little change in their size.  The rest of the packages have a pretty uniform distribution.
 

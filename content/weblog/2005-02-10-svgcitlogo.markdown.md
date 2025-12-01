@@ -23,8 +23,8 @@ non-editable format.  With that being said, my new hack today is the
 For some reason, my SVG viewer doesn't like always displaying these,
 but I assure that you can mangle them all you'd like in your favorite
 SVG editor.  If you'd like to download them, here is the
-[black logo](/media/2005/02/CITblack.svg) and here is the
-[blue logo](/media/2005/02/CITblue.svg).
+[black logo](/weblog/media/2005/02/CITblack.svg) and here is the
+[blue logo](/weblog/media/2005/02/CITblue.svg).
 
 <a href="/weblog/media/2005/02/CITblack.svg"><object
 data="/weblog/media/2005/02/CITblack.svg"

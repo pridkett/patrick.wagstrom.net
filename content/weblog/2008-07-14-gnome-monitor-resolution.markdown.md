@@ -35,7 +35,7 @@ compared to my wife's X series.  To solve some of these issues, I have external 
 Or, rather it was, until [Keith Packard](http://www.keithp.com/) gave the X subsystem a good swift boot to the head with XRandR 1.2, which now allows hotplugging of monitors.  Gone are the days of having to kill my X session to do a presentation.  It's bliss baby.  However, Keith is not a GUI genius, at Boston GNOME Summit 2006 he threatened the community with designing his own GUI.  Immediately everyone was revolted as Keith showed the most popular GUI he designed: xmille.
 
 <div class="image caption center">
-    [![](/media/2008/07/xmille-screenshot.jpg)](/media/2008/07/xmille-screenshot.jpg)
+    [![](/weblog/media/2008/07/xmille-screenshot.jpg)](/weblog/media/2008/07/xmille-screenshot.jpg)
 
     <p>A thumbnail of the xmille GUI. Really, you don't want to click it to see the whole thing, it's painfully bad.</p>
 </div>
@@ -46,7 +46,7 @@ fairly often.  I fixed some bugs, and posted my own [git public repository](http
 I was pleasantly surprised to see that Ubunty Hardy (2008.04) included a wonderful little applet as part of the GNOME control center, the Monitor Resolution Settings applet.  Using this little applet, XRandR 1.2 compliant drivers (basically any open source driver) get a great little GUI to easily set and configure monitors.  It even allows the arbitrary location of monitors relative to one another.  It's a great little tool.  Now, if only the open source ATI drivers supported accelerated monitor rotation on a second head, then I could actually rotate my 20 inch monitor at home for working on long documents.  For the time being, this works well enough.  In fact, it's a lifesaver when giving presentations.  Nothing spells tacky like having everyone see your login as you kill X to give a presentation.
 
 <div class="image caption center">
-    ![](/media/2008/07/gnome-monitor-resolution.png)
+    ![](/weblog/media/2008/07/gnome-monitor-resolution.png)
 
     <p>The beautiful new monitor settings applet in Ubuntu</p>
 </div>

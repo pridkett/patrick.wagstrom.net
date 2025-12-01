@@ -36,7 +36,7 @@ explanation of where we live:
 
 
 
-![Map of Neighborhood](/media/2004/10/trogdorMap.png)
+![Map of Neighborhood](/weblog/media/2004/10/trogdorMap.png)
 
 
 
@@ -77,20 +77,20 @@ house is burninated.
 
 [
 
-![Burninate!](/media/2004/10/trogdorVisit1Thumb.jpg)
+![Burninate!](/weblog/media/2004/10/trogdorVisit1Thumb.jpg)
 
-](/media/2004/10/trogdorVisit1.jpg)
-
-[
-
-![Burninate!](/media/2004/10/trogdorVisit2Thumb.jpg)
-
-](/media/2004/10/trogdorVisit2.jpg)
+](/weblog/media/2004/10/trogdorVisit1.jpg)
 
 [
 
-![Burninate!](/media/2004/10/trogdorVisit3Thumb.jpg)
+![Burninate!](/weblog/media/2004/10/trogdorVisit2Thumb.jpg)
 
-](/media/2004/10/trogdorVisit3.jpg)
+](/weblog/media/2004/10/trogdorVisit2.jpg)
+
+[
+
+![Burninate!](/weblog/media/2004/10/trogdorVisit3Thumb.jpg)
+
+](/weblog/media/2004/10/trogdorVisit3.jpg)
 
 

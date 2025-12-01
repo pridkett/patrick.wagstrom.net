@@ -37,7 +37,7 @@ This was actually the most straightforward of the processes.  It was a simple ma
 
 This was a little more difficult.  By default Thunderbird doesn't have a calendar tool, instead you'll want to install the [Mozilla Lightning](http://www.mozilla.org/projects/calendar/lightning/) extension to Thunderbird.  This is the extension version of the very nice [Mozilla Sunbird](http://www.mozilla.org/projects/calendar/sunbird/) calendar.  Lightning allow you to import iCal calendars and also use the webcal protocol to collaborate over the web.  One would think that this would be as simple as exporting my calendars from Evolution and then importing them again into Lighting -- of course, things are never that simple.  Upon my import attempt I was greeted with the following error message:
 
-![](/resources/images/blog/lightningCalendarImportError.png)
+![](/media/2007/01/lightningCalendarImportError.png)
 
 A little digging found that the problem was due to the dates in the iCal exported file.  Specifically, Evolution violated the spec by not defining the time zone in the export.  All of the event start times were defined like this:
 

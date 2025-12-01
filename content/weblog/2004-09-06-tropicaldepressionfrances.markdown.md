@@ -27,9 +27,9 @@ says that we have a 100% chance of rain coming up here.  What fun.
 
 
 
-[![Tropical Storm Frances Projected Path (30KiB)](/resources/images/blog/tropicalStormFrancesThumb.png)
+[![Tropical Storm Frances Projected Path (30KiB)](/media/2004/09/tropicalStormFrancesThumb.png)
 
-Projected Path of Tropical Storm Frances](/resources/images/blog/tropicalStormFrances.png)
+Projected Path of Tropical Storm Frances](/media/2004/09/tropicalStormFrances.png)
 
 
 

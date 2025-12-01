@@ -28,14 +28,14 @@ I had to give up.  It had a lived a nice good life.
 
 [
 
-![final van mileage](/resources/images/blog/farewellVanMileageThumb.jpg)
+![final van mileage](/media/2004/09/farewellVanMileageThumb.jpg)
 
 
 
 
 Final van Mileage
 
-](/resources/images/blog/farewellVanMileage.jpg)
+](/media/2004/09/farewellVanMileage.jpg)
 
 
 
@@ -56,32 +56,32 @@ taken away.
 
 [
 
-![The van sitting there](/resources/images/blog/farewellVan1Thumb.jpg)
+![The van sitting there](/media/2004/09/farewellVan1Thumb.jpg)
 
 
 
 
 The immobile van
 
-](/resources/images/blog/farewellVan1.jpg)[
+](/media/2004/09/farewellVan1.jpg)[
 
-![Loading the van up](/resources/images/blog/farewellVan2Thumb.jpg)
+![Loading the van up](/media/2004/09/farewellVan2Thumb.jpg)
 
 
 
 
 Hoisting it up
 
-](/resources/images/blog/farewellVan2.jpg)[
+](/media/2004/09/farewellVan2.jpg)[
 
-![Driving away with the van](/resources/images/blog/farewellVan3Thumb.jpg)
+![Driving away with the van](/media/2004/09/farewellVan3Thumb.jpg)
 
 
 
 
 Towing it away
 
-](/resources/images/blog/farewellVan3.jpg)
+](/media/2004/09/farewellVan3.jpg)
 
 
 

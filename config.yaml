@@ -95,5 +95,4 @@ outputFormats:
   RSS:
     mediaType: "application/rss+xml"
     baseName: "index"
-    suffixes: ".rss"
 

@@ -378,4 +378,3 @@ Before considering the site fixed:
 
 ### Theme
 - Custom theme: [themes/hugo-theme-patrick-custom/](themes/hugo-theme-patrick-custom/) (git submodule)
-- Alternate theme: [themes/hugo-theme-patrick-custom-working/](themes/hugo-theme-patrick-custom-working/) (appears to be a backup)

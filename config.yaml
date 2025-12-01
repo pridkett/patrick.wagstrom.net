@@ -81,6 +81,11 @@ params:
 
 theme: "hugo-theme-patrick-custom"
 
+mediaTypes:
+  application/rss:
+    suffixes:
+      - rss
+
 outputs:
   home:
     - html
@@ -93,6 +98,6 @@ outputs:
 
 outputFormats:
   RSS:
-    mediaType: "application/rss+xml"
+    mediaType: "application/rss"
     baseName: "index"
 

@@ -25,7 +25,7 @@ Finally, I use [powerline-go](https://github.com/justjanne/powerline-go) for my 
 
 This is why I wrote [prompt-color-tool](https://github.com/prikett/prompt-color-tool) a small utility that can be used to calculate the foreground and background color to be used in prompts and status bars on your terminals. As with most things, a picture, or in this case an animated gif, is probably the easiest way to show this.
 
-<figure><img src="/weblog/media/2024/11/prompt-color-tool-demo.gif" width="570" height="398"><figcaption>Look at the prompt, window chrome, and tmux colors all staying in sync.</figure>
+<figure><img src="/weblog/media/2024/11/prompt-color-tool-demo.gif" width="570" height="398"><figcaption>Look at the prompt, window chrome, and tmux colors all staying in sync.</figcaption></figure>
 
 This doesn't come 100% for free, there are small snippets that you'll need to add to your configuraiton files, but those are all documented in the README for the project. If you've got more that integrations that you'd like to see added, as I primarily use powerline-go, tmux, iterm2, and fish shell, feel free to submit a PR or just ping me and I'll see about getting them into the documentation.
 

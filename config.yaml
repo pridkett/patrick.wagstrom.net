@@ -22,6 +22,8 @@ markup:
 params:
   subtitle: "The Internet's #3 Site for Information on Patrick Wagstrom"
   author: "Patrick Wagstrom <patrick@wagstrom.net>"
+  authorName: "Patrick Wagstrom"
+  authorEmail: "patrick@wagstrom.net"
   github: "https://github.com/pridkett"
   youtube: "http://www.youtube.com/user/pridkett/videos"
   stackoverflow: "http://stackoverflow.com/users/57626/pridkett"
@@ -101,3 +103,11 @@ outputFormats:
     mediaType: "application/rss"
     baseName: "index"
 
+
+# Hugo 0.164 blocks raw HTML content files by default
+# (security.allowContent defaults to ['! ^text/html$']). This site has
+# hand-written HTML pages under content/ (mail, walking, tutorials/mythTV64)
+# whose URLs must be preserved, so re-allow all content media types.
+security:
+  allowContent:
+    - '.*'

@@ -19,8 +19,8 @@ Last year I finished the bulk of the upgrade to the network in my home. At the c
 I also run [Pi-Hole](https://pi-hole.net/) on my local network. While the bulk of the details of how I got it running in Docker with IPv6, NextDNS, and continually updated reverse DNS will be saved for a future post, this posed an intresting problem. I could configure my DNS on my Unifi Dream Machine to use the Pi-Hole as the DNS, but, because IPv6 machines will rotate through IP addresses, this resulted in sometimes hundreds of different hosts in my Pi-Hole logs. It became impossible to see what devices were querying remote hosts on my network.
 
 <figure>
-<a href="/weblog/media/2021/07/unifi-ipv6-dns-setting.png"><img src="/weblog/media/2021/07/unifi-ipv6-dns-setting.png" width="500" height="">
-<figcaption>On the UDM Pro, you can set IPv6 DNS settings under Settings → Networks → Advanced</figcaption></a>
+<a href="/weblog/media/2021/07/unifi-ipv6-dns-setting.png"><img src="/weblog/media/2021/07/unifi-ipv6-dns-setting.png" width="500" height=""></a>
+<figcaption>On the UDM Pro, you can set IPv6 DNS settings under Settings → Networks → Advanced</figcaption>
 </figure>
 
 When you have an IPv6 DNS set up, Apple devices (and probably others too), will default to using the IPv6 DNS servers first. This means that if you're unaware of this fact, you could be leaking your DNS entries to your ISP.
@@ -62,8 +62,8 @@ Today, I finally discovered a nice solution. There's a [special address space in
 In my case, because my Pi-Hole installation is at 192.168.1.2, I can covert that to `::ffff:c0a8:102` and this will force all DNS requests to my local Pi-Hole over IPv4 and make it super easy to track everything across hosts on my network.
 
 <figure>
-<a href="/weblog/media/2021/07/unifi-ipv6-to-ipv4-dns-setting.png"><img src="/weblog/media/2021/07/unifi-ipv6-to-ipv4-dns-setting.png" width="500" height="235">
-<figcaption>Setting your IPv6 DNS to the IPv4 in IPv6 range forces all DNS to IPv4</figcaption></a>
+<a href="/weblog/media/2021/07/unifi-ipv6-to-ipv4-dns-setting.png"><img src="/weblog/media/2021/07/unifi-ipv6-to-ipv4-dns-setting.png" width="500" height="235"></a>
+<figcaption>Setting your IPv6 DNS to the IPv4 in IPv6 range forces all DNS to IPv4</figcaption>
 </figure>
 
 What's even more interesting about this is as opposed to setting a full IPv6 DNS entry as the first resolver, MacOS sets it as the last entry and helpfully decodes the address. You can see this by running `scutil --dns`

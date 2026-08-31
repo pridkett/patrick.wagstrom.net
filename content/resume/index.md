@@ -61,7 +61,7 @@ stylesheets:
         <div class="row">
             <div class="col-md-12">
                 <p>
-                Strategic and hands-on executive leader in artificial intelligence, machine learning, data engineering, and software development with extensive experience in organizations across finance, telecom, and video streaming. Proven track record in driving cutting-edge impactful AI/ML initiatives, building high-performing teams, modernizing data pipelines, and driving significant business value.
+                Strategic and hands-on executive leader in artificial intelligence, machine learning, data engineering, and software development, with experience across legal, finance, telecom, and video streaming. I drive cutting-edge AI/ML initiatives, build high-performing teams, modernize data pipelines, and deliver significant business value.
 				<!-- I am a hands-on executive leader of data, machine learning, and software engineering organizations with broad experience in foundational research, finance, telecom, and video streaming. I build organizations that transform companies and markets with data driven insights and best of breed emerging technologies. -->
 				</p>
             </div>
@@ -84,11 +84,31 @@ stylesheets:
             <div class="col-md-12">
                 <h3 class="heading">Professional Experience</h3>
 				<ul class="job-listing">
+                    <li class="job">
+                        <ul>
+                            <li class="job-info">
+                                <span class="job-employer"><a href="https://thomsonreuters.com/">Thomson Reuters</a></span>
+                                <span class="job-location">Hartford, CT (Remote)</span>
+                                <span class="job-title">Distinguished Engineer</span>
+                                <span class="job-dates">January 2025 - Present</span>
+                            </li>
+                            <li title="achievements">
+                                <ul>
+                                    <li>Led engineering for development of Westlaw Advantage - our legal Deep Research solution and most successful product launch ever.</li>
+                                    <li>Led overall work on initial CoCounsel Legal MCP server and our integration with Anthropic and Claude Legal as their first external plugin.</li>
+                                    <li>Led engineering for Westlaw Brief Builder - our agentic solution that tackles some of the hardest legal challenges - drafting litigation briefs.</li>
+                                    <li>Rationalized complex authorization, authentication, and integration with legacy systems and updating for an autonomous agentic driven world.</li>
+                                    <li>Bring together engineers and scientists weekly to lead culture around agentic development with Agentic Coffeehouse series.</li>
+                                    <li>Work directly with scientists and frontier AI labs on design, implementation, and evaluation of future model and agentic solutions.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
 					<li class="job">
 						<ul>
 							<li class="job-info">
 								<span class="job-employer"><a href="https://www.grainger.com/">Grainger</a></span>
-								<span class="job-location">Chicago, IL and Hartford, CT</span>
+								<span class="job-location">Chicago, IL and Hartford, CT (Hybrid)</span>
 								<span class="job-title">Senior Director Applied ML</span>
 								<span class="job-dates">July 2023 - August 2024</span>
 								<span class="job-hours">Full Time (40 hours/week)</span>
@@ -98,10 +118,9 @@ stylesheets:
 									<li>Led team of 43 FTE ML scientists, software engineers, and product managers on product search and discovery, LLM agents, computer vision, ML in mobile applications, data pipelines, and governance.</li>
 									<li>Developed an LLM-based customer service agent using search and unstructured data with OpenAI on Azure to provide human-in-the-middle assistance to Grainger employees.</li>
 									<li>Enhanced the search capabilities of Grainger.com, the 11th largest ecommerce site in the US, through introduction of vector and hybrid search.</li>
-									<li>Led team that build out innovative synthetic data generation product identification using 3D CAD models, Stable Diffusion, and Unity.</li>
-									<li>Designed overall data architecture and MLOps integration - integrating an S3 data lake with data products, Kafka event streaming, Databricks for MLOps and data processing workflows, Snowflake for analytical workflows, and Atlan for data governance.</li>
-									<li>Defined the ML Scientist job family across the company and integrate it into overall talent strategy including recruiting and talent development.</li>
-									<li>Worked with legal partners to define and implement generative AI governance process.</li>
+									<li>Led team that built out innovative synthetic data generation product identification using 3D CAD models, Stable Diffusion, and Unity.</li>
+									<li>Designed the overall data architecture and MLOps integration - an S3 data lake with data products, Kafka event streaming, Databricks, Snowflake, and Atlan for data governance.</li>
+									<li>Defined the ML Scientist job family across the company, integrated it into overall talent strategy, and partnered with legal to implement generative AI governance.</li>
 								</ul>
 							</li>
 						</ul>
@@ -110,10 +129,9 @@ stylesheets:
 						<ul>
 							<li class="job-info">
 								<span class="job-employer"><a href="https://www.brightcove.com/">Brightcove</a></span>
-								<span class="job-location">Boston, MA and Hartford, CT</span>
+								<span class="job-location">Boston, MA and Hartford, CT (Hybrid)</span>
 								<span class="job-title">Chief Data Officer</span>
 								<span class="job-dates">May 2021 - December 2022</span>
-								<span class="job-hours">Full Time (40 hours/week)</span>
 							</li>
 							<li title="achievements">
 								<ul>
@@ -121,19 +139,16 @@ stylesheets:
 								    <li>Owned end-to-end analytics collection and processing systems handling trillions of rows of data and billions of monthly video views on both AWS and GCP.</li>
 									<li>Managed an organization of 34 FTEs and 12 contractors, overseeing data platforms, analytics and insights, data and model governance, and customer-facing data products.</li>
 									<li>Executed the $12.3 million acquisition of Wicket Labs, expanding Brightcove's viewer analytics capabilities and growing the product customer base by over 50x in under a year.</li>
-									<li>Collaborated closely with C-level executives at Brightcove and customers, driving corporate strategies and fostering strong business relationships.</li>
+									<li class="no-print">Collaborated closely with C-level executives at Brightcove and customers, driving corporate strategies and fostering strong business relationships.</li>
 									<!-- <li>Championed initiatives to enhance engineering performance and implement effective performance management across the organization.</li> -->
 									<li>Negotiated and owned a multi-million dollar partnership with Google Cloud Platform - securing a 7-figure discount.</li>
-									<li>Maintained and expanded multi-cloud data infrastructure using tools such as Trino, Glue, Lambda, SageMaker, and Redshift on AWS and BigQuery, Cloud Composer, Dataflow, and Pub/Sub on GCP.</li>
+									<li>Maintained and expanded multi-cloud data infrastructure - Trino, Glue, Lambda, SageMaker, and Redshift on AWS; BigQuery, Composer, Dataflow, and Pub/Sub on GCP.</li>
 									<!-- <li>Developed multi-modal video classification models using text transcripts, audio, and video processing.</li> -->
 									<!-- <li>Directly conducted research on the impact of super-resolution algorithms on streaming, from holistic bandwidth, encoding cost, and device playback cost perspectives.</li> -->
-									<!-- As Chief Data Officer I led all things data, analytics, and machine learning related at Brightcove. We break this up into three pillars - data and model governance, data platforms, and analytics/machine learning.
-
-On the governance front, we operate in a global environment and need to ensure that the data we collect and use is in compliance with local laws. Furthermore, we passionate about making sure that our models are built and deployed responsibly.
-
-For data platforms, Brightcove operates on AWS for our operational environment and GCP for our analytical environment. We make use of some of the best of breed technologies like Google BigQuery for large scale data analysis. We also maintain our environment for building and training models on AWS.
-
-Finally, for analytics and machine learning, we help the business solve relevant problems at massive scale. A single customer can often generate terabytes of data and getting insight out of this is non-trivial. We build the systems needed to generate those insights. But, we need to do more than look back, we also build models to look forward. Whether they're trying to classify types of users for churn or our ambitious Video Intelligence work, Brightcove is doing machine learning at scale.-->
+									<!-- As Chief Data Officer I led all things data, analytics, and machine learning related at Brightcove. We break this up into three pillars - data and model governance, data platforms, and analytics/machine learning. -->
+									<!-- On the governance front, we operate in a global environment and need to ensure that the data we collect and use is in compliance with local laws. Furthermore, we passionate about making sure that our models are built and deployed responsibly. -->
+									<!-- For data platforms, Brightcove operates on AWS for our operational environment and GCP for our analytical environment. We make use of some of the best of breed technologies like Google BigQuery for large scale data analysis. We also maintain our environment for building and training models on AWS. -->
+									<!-- Finally, for analytics and machine learning, we help the business solve relevant problems at massive scale. A single customer can often generate terabytes of data and getting insight out of this is non-trivial. We build the systems needed to generate those insights. But, we need to do more than look back, we also build models to look forward. Whether they're trying to classify types of users for churn or our ambitious Video Intelligence work, Brightcove is doing machine learning at scale. -->
 								</ul>
 							</li>
 						</ul>
@@ -142,20 +157,20 @@ Finally, for analytics and machine learning, we help the business solve relevant
                         <ul>
                             <li class="job-info">
                                 <span class="job-employer"><a href="https://www.verizon.com/">Verizon</a></span>
-                                <span class="job-location">Basking Ridge, NJ and Hartford, CT</span>
+                                <span class="job-location">Basking Ridge, NJ and Hartford, CT (Hybrid)</span>
                                 <span class="job-title">Director of Emerging Technology</span>
                                 <span class="job-dates">September 2019 - April 2021</span>
-								<span class="job-hours">Full Time (40 hours/week)</span>
+								<!-- <span class="job-hours">Full Time (40 hours/week)</span> -->
                             </li>
                             <li title="achievements">
                                 <ul>
 								    <li>Built and managed a team of 9 FTEs and 51 vendor contractors with a $15 million annual budget, collaborating closely with CIO, CTO, and CDAO to influence corporate strategies.</li>
 									<li>Worked alongside legal and policy experts to create several Verizon policies, including facial recognition, energy efficiency, model risk management, and data privacy.</li>
 									<li>Developed cell site energy efficiency machine learning models, resulting in $5 million annual savings and the creation of a digital twin for future simulation.</li>
-									<li>Led the development of a holistic model connecting online brand discussions to customer profiles, supporting customer service operations and building patent-pending bot detection models.</li>
+									<li>Led development of a model connecting online brand discussions to customer profiles, supporting customer service and patent-pending bot detection.</li>
 									<li>Designed a new data architecture to migrate from ad-hoc on-prem Teradata and Hadoop solutions to a managed streaming data architecture with Google BigQuery.</li>
-									<li>Architected an enterprise strategy for reproducible machine learning and MLOps.</li>
-									<li>Led the software engineering dojos - intensive collaboration environments to improve engineering efficiency - until the onset of COVID-19 halted face-to-face interactions.</li>
+									<li class="no-print">Architected an enterprise strategy for reproducible machine learning and MLOps.</li>
+									<li class="no-print">Led the software engineering dojos - intensive collaboration environments to improve engineering efficiency - until the onset of COVID-19 halted face-to-face interactions.</li>
 									<!-- <li>Developed systems for blockchain based identity management and sim swap protection across mobile carriers.</li> -->
 									<!-- I'm building a cutting edge team to chart the future for more than 100MM Verizon customers. We use machine learning, blockchain, augmented reality, and more to conduct experiments and build solutions that transform Verizon's ability to deliver amazing customer experiences across all of our product. -->
                                 </ul>
@@ -170,19 +185,19 @@ Finally, for analytics and machine learning, we help the business solve relevant
                                 <!-- <span class="job-title">Senior Director of Data Science for Machine Learning Platforms</span> -->
                                 <span class="job-title">Senior Director of Data Science</span>
                                 <span class="job-dates">January 2019 - September 2019</span>
-								<span class="job-hours">Full Time (40 hours/week)</span>
+								<!-- <span class="job-hours">Full Time (40 hours/week)</span> -->
                                 <!-- <span class="job-title">Director of Data Science for Machine Intelligence</span> -->
                                 <span class="job-title">Director of Data Science</span>
                                 <span class="job-dates">November 2016 - January 2019</span>
-								<span class="job-hours">Full Time (40 hours/week)</span>
+								<!-- <span class="job-hours">Full Time (40 hours/week)</span> -->
                             </li>
                             <li title="achievements">
                                 <ul>
-                                    <li>Architect and overall lead of the Capital One Card Machine Learning Platform  - a platform for scalable and personalized real-time reinforcement learning-based machine learning models using tools such as Kubernetes, gRPC, and AWS in a heavily regulated environment.</li>
+                                    <li>Architect and overall lead of the Capital One Card Machine Learning Platform - scalable, personalized, real-time reinforcement learning models on Kubernetes, gRPC, and AWS in a heavily regulated environment.</li>
 									<li>Led a team that deployed and managed multi-modal customer intelligence models working on both structured and unstructured text and voice data, resulting in $27 million annual savings.</li>
                                     <li>Hired, managed, and developed a distributed team of 18 data scientists and data analysts.</li>
-                                    <li>Built out a $1.2mm academic research partnership with universities to explore responsibility and fairness in artificial intelligence.</li>
-                                    <li>Conducted more than 300 hiring interviews to help grow Card Machine Learning from 33 to 168 people and Capital One's New York Card team from 8 to nearly 200.</li>
+                                    <li class="no-print">Built out a $1.2mm academic research partnership with universities to explore responsibility and fairness in artificial intelligence.</li>
+                                    <li class="no-print">Conducted more than 300 hiring interviews to help grow Card Machine Learning from 33 to 168 people and Capital One's New York Card team from 8 to nearly 200.</li>
 									<li>Championed reproducible machine learning and MLOps across the organization, ensuring best practices in data management, model training and refit, model serving, and risk management.</li>
 									<li class="no-resume">Collaborated with cross-functional teams to develop and implement the company's data privacy and AI ethics policies.</li>
                                 </ul>
@@ -194,42 +209,29 @@ I'm responsible for the Machine Learning Automation and Platform work within Cap
                     <li class="job">
                         <ul>
                             <li class="job-info">
-                                <span class="job-employer"><a href="https://www.ibm.com/watson/">IBM Watson</a></span>
-                                <span class="job-location">Littleton, MA</span>
+                                <span class="job-employer"><a href="https://www.ibm.com/watson/">IBM Research</a></span>
+                                <span class="job-location">Littleton, MA and Yorktown Heights, NY</span>
                                 <span class="job-title">Research Staff Member/Technical Lead</span>
                                 <span class="job-dates">January 2014 - November 2016</span>
-								<span class="job-hours">Full Time (40 hours/week)</span>
-                            </li>
-                            <li title="achievements">
-                                <ul>
-                                    <li>Led a globally distributed team that built the IBM Watson Conversation service - an innovative service to create rich conversational interfaces with natural language processing.</li>
-                                    <li>Global team lead for Watson Developer Cloud Tooling. Created cutting edge applications for creating, training, and maintaining cognitive and machine learning solutions including Watson Engagement Advisor and IBM Watson Natural Language Classifier.</li>
-									<li>Technical lead for Chef Watson and the IBM Food Truck - one of the first consumer facing generative AI solutions - demonstrated in 2014 garnering more than 1 billion media impressions.</li>
-                                    <!-- <li>Engineering and on-site lead for the Chef Watson and the IBM Food Truck at SXSW, which demonstrated generative AI based cognitive computing to more than 4,000 people and resulted in more than 1 billion media impressions.</li> -->
-                                    <li>Researched, designed, and built tools to customize AI/ML models and systems at scale - supporting hundreds of thousands of users and use cases.</li>
-									<li>Traveled around the world to conduct research with and work side-by-side with our customers to better understand the potential for AI/ML.</li>
-                                    <li>Led evolution of internal development standards and tools from a legacy Java stack to a modern stack based on Node.js and embracing tools such a GitHub.</li>
-                                    <!-- <li>Founding member of the IBM Watson business group within IBM</li> -->
-								</ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="job">
-                        <ul>
-                            <li class="job-info">
-                                <span class="job-employer"><a href="https://www.watson.ibm.com/">IBM TJ Watson Research Center</a></span>
-                                <span class="job-location">Yorktown Heights, NY</span>
                                 <span class="job-title">Research Staff Member</span>
                                 <span class="job-dates">August 2009 - January 2014</span>
-								<span class="job-hours">Full Time (40 hours/week)</span>
+								<!-- <span class="job-hours">Full Time (40 hours/week)</span> -->
                             </li>
                             <li title="achievements">
                                 <ul>
-									<li>Team lead for the "Millennial Enterprise" aspect of IBM's 2013 Global Technology Outlook, which described the need for user data in building out AI/ML to IBM and customer C-Level executives.</li>
-                                    <li>Analytics lead for JazzHub, IBM's cloud software development strategy. Designed analytics strategy, introduced A/B testing, and developed analytics dashboards.</li>
+                                    <li>Led a globally distributed team that built the IBM Watson Conversation service - creating rich conversational interfaces with natural language processing.</li>
+                                    <li>Global team lead for Watson Developer Cloud Tooling - applications to create, train, and maintain cognitive and ML solutions including Watson Engagement Advisor and Natural Language Classifier.</li>
+									<li>Technical lead for Chef Watson and the IBM Food Truck - one of the first consumer facing generative AI solutions - garnering more than 1 billion media impressions in 2014.</li>
+                                    <!-- <li>Engineering and on-site lead for the Chef Watson and the IBM Food Truck at SXSW, which demonstrated generative AI based cognitive computing to more than 4,000 people and resulted in more than 1 billion media impressions.</li> -->
+                                    <li>Researched, designed, and built tools to customize AI/ML models at scale for hundreds of thousands of users.</li>
+									<li>Team lead for the "Millennial Enterprise" chapter of IBM's 2013 Global Technology Outlook, presented to IBM and customer C-Level executives.</li>
+									<li class="no-print">Traveled around the world to conduct research with and work side-by-side with our customers to better understand the potential for AI/ML.</li>
+                                    <li class="no-print">Led evolution of internal development standards and tools from a legacy Java stack to a modern stack based on Node.js and embracing tools such a GitHub.</li>
+                                    <!-- <li>Founding member of the IBM Watson business group within IBM</li> -->
+                                    <li class="no-print">Analytics lead for JazzHub, IBM's cloud software development strategy. Designed analytics strategy, introduced A/B testing, and developed analytics dashboards.</li>
                                     <li class="no-print">Developed and designed <a href="https://github.com/pridkett/gitminer">GitMiner</a> - an open source project used by 15 universities to perform graph analysis on large scale software engineering repositories such as GitHub and BitBucket.</li>
                                     <li class="no-resume">Led a research team to evaluate productivity of new users and small teams using IBM's enterprise software engineering and product development environments.</li>
-                                    <li>Published papers on topics around distributed collaboration, technical debt in software, and flow of ideas in software engineering communities.</li>
+                                    <li class="no-print">Published papers on topics around distributed collaboration, technical debt in software, and flow of ideas in software engineering communities.</li>
                                     <li class="no-resume">Developed WhatsMyBrand, a framework for assessing an individual's personal brand by analyzing connections and contents of their actions through public social networks and relating those actions to the actions of others in their network.</li>
                                     <li class="no-resume">Worked with IBM clients to teach about uncertainty and value elicitation in software development.</li>
                                     <li class="no-resume">Mapped extended stakeholders in enterprise software development and analyzed their relation to technical debt.</li>

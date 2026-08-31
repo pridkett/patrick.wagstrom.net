@@ -1,11 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "Bash(hugo version:*)",
-      "Bash(test:*)",
-      "Bash(timeout 5 hugo server:*)",
-      "Bash(hugo:*)",
-      "Bash(rm:*)"
+      "Bash(curl:*)",
+      "Bash(md5:*)",
+      "Bash(git restore:*)",
+      "Bash(python3:*)",
+      "Bash(find:*)",
+      "Bash(git commit:*)",
+      "Bash(python3 -)"
     ],
     "deny": [],
     "ask": []

@@ -17,14 +17,30 @@ make upload
 
 ## Current Status
 
-**Hugo Version**: v0.152.2+extended+withdeploy (as of 2025-11-30)
+**Hugo Version**: v0.164.0+extended+withdeploy (as of 2026-08-30)
+
+`make build` and `make serve` both work. Getting there required several
+fixes for changes in Hugo since v0.102:
+
+- `security.allowContent` in [config.yaml](config.yaml) re-allows raw `.html`
+  files under `content/` (Hugo now rejects `text/html` content by default).
+- `.Site.Author` was removed; the RSS templates use `params.authorName` /
+  `params.authorEmail` instead.
+- [layouts/_default/single.html](layouts/_default/single.html) is the fallback
+  template for pages with no type-specific layout, so the standalone HTML pages
+  under `content/mail` and `content/walking` render verbatim as they always have.
+- The theme's RSS template was renamed `layouts/rss.xml` -> `layouts/index.rss`.
+- `hugo --verbose` was removed, so it is gone from the Makefile.
 
 **Known Issues**:
-- The site currently fails to build/serve with template errors
-- Primary error: `html/template:weblog/rss.xml:2:13: no such template "_default/rss.xml"`
-- Warning: `Unknown kind "weblog" in outputs configuration`
-
-These issues are related to template system changes in newer versions of Hugo and need to be addressed.
+- `content/tutorials/index.md` should probably be `_index.md`. As named, it makes
+  `tutorials` a leaf bundle, so `/tutorials/mythTV64/` is never rendered. It only
+  still works in production because `make upload` rsyncs without `--delete`.
+- Deprecation warnings remain for `languageCode` (use `locale`), `.Site.Data`
+  (use `hugo.Data`), and `.Site.LanguageCode` (use `.Site.Language.Locale`); the
+  last two live in the theme submodule.
+- Sections other than `weblog` request an RSS output format they have no
+  template for, which logs a warning per build.
 
 ## Project Structure
 

@@ -24,3 +24,4 @@ public/weblog
 *.swp
 public
 *.log
+.hugo_build.lock

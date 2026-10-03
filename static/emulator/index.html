@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Game Boy Color player</title><link rel="stylesheet" href="player.css"></head>
+<body>
+  <div id="game"><canvas id="mainCanvas" width="160" height="144" tabindex="0" aria-label="Game Boy Color game screen">Your browser needs canvas support to play.</canvas></div>
+  <div id="controller" aria-label="Game controls">
+    <div class="dpad"><button type="button" data-button="Up" aria-label="Up">↑</button><button type="button" data-button="Left" aria-label="Left">←</button><button type="button" data-button="Down" aria-label="Down">↓</button><button type="button" data-button="Right" aria-label="Right">→</button></div>
+    <div class="system-buttons">
+      <button type="button" data-button="Select">Select</button><button type="button" data-button="Start">Start</button>
+      <button type="button" id="pause-game" class="icon-button" data-paused="false" aria-label="Pause game" title="Pause game"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pause-icon" d="M6 4h4v16H6zm8 0h4v16h-4z"/><path class="play-icon" d="M7 3v18l15-9z"/></svg></button>
+      <button type="button" id="sound-game" class="icon-button" data-muted="true" aria-label="Unmute sound" title="Unmute sound"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h4l5-4v14l-5-4H3z"/><g class="sound-waves" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 8a6 6 0 0 1 0 8M18 5a10 10 0 0 1 0 14"/></g><path class="sound-slash" d="M3 3l18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    </div>
+    <div class="action-buttons"><button type="button" data-button="B">B</button><button type="button" data-button="A">A</button></div>
+  </div>
+  <p id="player-status" role="status" aria-live="polite">Loading cartridge…</p>
+  <script src="binjgb.js"></script><script src="runtime.js"></script><script src="controls.js"></script>
+</body>
+</html>

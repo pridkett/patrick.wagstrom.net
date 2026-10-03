@@ -9,6 +9,10 @@ menu:
     name: Blog
     url: /weblog/
     weight: -100
+  - identifier: Games
+    name: Games
+    url: /games/
+    weight: -90
 
 # ignoreFiles:
 #   - resume/\\.*

@@ -1,0 +1,32 @@
+html, body { height: 100%; margin: 0; }
+body { box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; padding: 16px; background: #2b3e50; color: #fff; font: 13px/1.5 system-ui, sans-serif; }
+* { box-sizing: border-box; }
+#game { display: flex; justify-content: center; align-items: center; flex: 1; min-height: 0; }
+#game canvas { display: block; width: min(100%, 480px); height: auto; max-height: 100%; aspect-ratio: 160 / 144; object-fit: contain; image-rendering: pixelated; }
+#game canvas:focus-visible { outline: 2px solid #8294a4; outline-offset: 3px; }
+#controller { display: flex; align-items: center; justify-content: space-between; gap: 14px; width: min(100%, 680px); margin: auto; }
+button { min-width: 44px; min-height: 44px; background: #4e5d6c; color: #fff; border: 1px solid #8294a4; border-radius: 5px; font: inherit; touch-action: none; user-select: none; -webkit-user-select: none; cursor: pointer; }
+button:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+button.held, button:active { background: #df691a; }
+.dpad { display: grid; grid-template-columns: repeat(3,44px); grid-template-rows: repeat(2,44px); gap: 4px; flex-shrink: 0; }
+.dpad [data-button="Up"] { grid-column: 2; }
+.dpad [data-button="Left"] { grid-column: 1; grid-row: 2; }
+.dpad [data-button="Down"] { grid-column: 2; grid-row: 2; }
+.dpad [data-button="Right"] { grid-column: 3; grid-row: 2; }
+.system-buttons { display: grid; grid-template-columns: repeat(2, minmax(50px, 1fr)); gap: 6px; }
+.system-buttons button { padding: 4px 9px; }
+.icon-button { display: flex; align-items: center; justify-content: center; }
+.icon-button svg { width: 24px; height: 24px; fill: currentColor; }
+[data-paused="false"] .play-icon, [data-paused="true"] .pause-icon,
+[data-muted="true"] .sound-waves, [data-muted="false"] .sound-slash { display: none; }
+.action-buttons { display: flex; gap: 10px; }
+.action-buttons button { border-radius: 50%; width: 54px; height: 54px; background: #df691a; font-size: 20px; font-weight: 700; }
+#player-status { margin: 0; text-align: center; font-size: 12px; min-height: 36px; }
+#player-status[role="alert"] { color: #ffd4b6; }
+@media (max-width: 440px) {
+  body { padding: 12px; }
+  #controller { flex-wrap: wrap; gap: 10px; }
+  .system-buttons { order: 3; width: 100%; grid-template-columns: repeat(4, minmax(0,1fr)); }
+  .system-buttons button { padding: 4px; }
+  #player-status { font-size: 11px; }
+}

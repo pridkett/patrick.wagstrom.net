@@ -1,0 +1,4 @@
+{{ $css := resources.Get "games/games.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+{{ $js := resources.Get "games/games.js" | minify | fingerprint }}
+<script defer src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>

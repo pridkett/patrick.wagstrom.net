@@ -1,0 +1,9 @@
+{{- $url := .Params.rom | default "" -}}
+{{- if $url -}}
+  {{- if not (findRE `^/roms/[a-z0-9][a-z0-9-]*\.(gb|gbc)$` $url) -}}
+    {{- errorf "Game %s: rom must be a /roms/<filename>.gb or .gbc path" .Path -}}
+  {{- else if not (fileExists (printf "static%s" $url)) -}}
+    {{- errorf "Game %s: static ROM %s does not exist" .Path $url -}}
+  {{- end -}}
+{{- end -}}
+{{- return $url -}}

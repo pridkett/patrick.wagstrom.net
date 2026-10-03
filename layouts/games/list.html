@@ -1,0 +1,25 @@
+{{ partial "header.html" . }}
+{{ partial "games/assets.html" . }}
+<main class="white-rounded w2-games w2-library" id="w2-games">
+  <header class="w2-heading"><h1>{{ .Title }}</h1><div>{{ .Content }}</div></header>
+  <div class="w2-cartridges">
+    {{ range .RegularPages.ByWeight }}
+    {{ $rom := partial "games/rom-url.html" . }}
+    <article class="w2-cartridge">
+      <div class="w2-cartridge-notch" aria-hidden="true"></div>
+      <div class="w2-cartridge-label">
+        <a class="w2-cartridge-preview" href="{{ .RelPermalink }}">
+          <div class="w2-cartridge-screen">{{ partial "games/artwork.html" . }}</div>
+          <div class="w2-cartridge-copy"><span class="w2-platform">Game Boy Color</span><h2>{{ .Title }}</h2><p>{{ .Description }}</p></div>
+        </a>
+        <div class="w2-cartridge-actions">
+          <a class="w2-play-label" href="{{ .RelPermalink }}" aria-label="Play {{ .Title }}">Play game <span aria-hidden="true">→</span></a>
+          {{ if $rom }}<a class="w2-rom-label" href="{{ $rom }}" download aria-label="Download {{ .Title }} ROM">Download ROM <span aria-hidden="true">↓</span></a>{{ end }}
+        </div>
+      </div>
+      <span class="w2-cartridge-bottom" aria-hidden="true">▼</span>
+    </article>
+    {{ end }}
+  </div>
+</main>
+{{ partial "footer.html" . }}

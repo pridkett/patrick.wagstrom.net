@@ -1,0 +1,36 @@
+{{ partial "header.html" . }}
+{{ partial "games/assets.html" . }}
+{{ $rom := partial "games/rom-url.html" . }}
+<main class="white-rounded w2-games w2-game-page" id="w2-games">
+  <a class="w2-back" href="{{ .CurrentSection.RelPermalink }}">← All games</a>
+  <header class="w2-heading"><span class="w2-platform">{{ .Params.platform | default "Game Boy Color" }}</span><h1>{{ .Title }}</h1><p>{{ .Description }}</p></header>
+  <div class="w2-game-layout">
+    <section class="w2-play-area" id="w2-play-area" aria-label="Play {{ .Title }}">
+      {{ if $rom }}
+      <div class="w2-single-player" id="w2-single-player">
+        <iframe src="/emulator/?rom={{ $rom | urlquery }}" title="Play {{ .Title }}" allow="autoplay; fullscreen; gamepad" allowfullscreen></iframe>
+      </div>
+      <div class="w2-player-actions"><a class="btn btn-primary" href="{{ $rom }}" download>Download ROM</a>{{ with .Params.sourceURL }}<a class="btn btn-default" href="{{ . }}">Source code</a>{{ end }}<button type="button" id="w2-fullscreen" class="btn btn-default" hidden>Fullscreen</button></div>
+      {{ else }}<p>This cartridge is coming soon.</p>{{ end }}
+    </section>
+    <aside class="w2-game-details" aria-label="Game information">
+      {{ with .Content }}<section class="w2-game-story"><h2>About the game</h2>{{ . }}</section>{{ end }}
+      {{ if $rom }}
+      <section class="w2-controls-guide" aria-labelledby="w2-controls-title">
+        <h2 id="w2-controls-title">Controls</h2>
+        <p>Click the screen to use your keyboard, or use the on-screen buttons.</p>
+        <dl class="w2-keyboard-controls">
+          <div><dt>Move</dt><dd>Arrow keys / <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd></dd></div>
+          <div><dt>A button</dt><dd><kbd>Z</kbd></dd></div>
+          <div><dt>B button</dt><dd><kbd>X</kbd></dd></div>
+          <div><dt>Start</dt><dd><kbd>Enter</kbd></dd></div>
+          <div><dt>Select</dt><dd><kbd>Shift</kbd></dd></div>
+          <div><dt>Pause / resume</dt><dd><kbd>Space</kbd></dd></div>
+        </dl>
+        <p class="w2-sound-hint">Sound starts muted. Tap the speaker to turn it on.</p>
+      </section>
+      {{ end }}
+    </aside>
+  </div>
+</main>
+{{ partial "footer.html" . }}

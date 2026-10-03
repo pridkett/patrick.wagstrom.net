@@ -1,0 +1,6 @@
+{{ $image := .Resources.GetMatch (.Params.screenshot | default "screenshot.png") }}
+{{ if $image }}
+  <img src="{{ $image.RelPermalink }}" alt="{{ .Title }} game screenshot" width="160" height="144" loading="lazy">
+{{ else }}
+  <img src="{{ .Params.previewArtwork | default "/images/games/w2-research.png" }}" alt="W2 Research bumper artwork; game screenshot not supplied" width="160" height="144" loading="lazy">
+{{ end }}

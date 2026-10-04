@@ -1,0 +1,369 @@
+/* Homepage layout. Other pages keep the shared theme. */
+.pw-home {
+  color-scheme: light dark;
+  --pw-paper: light-dark(#f7f4e9, #202821);
+  --pw-ink: light-dark(#213f30, #e7eadc);
+  --pw-text: light-dark(#303a31, #d2d9ce);
+  --pw-muted: light-dark(#626958, #adb8a5);
+  --pw-rule: light-dark(#bbc0ab, #53604e);
+  --pw-link: light-dark(#994524, #e6b48b);
+  background: var(--pw-paper);
+  color: var(--pw-text);
+  font: 400 16px/1.65 system-ui, sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+}
+
+.pw-home * {
+  box-sizing: border-box;
+}
+
+.pw-home .pw-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--pw-rule);
+}
+
+.pw-home .pw-address {
+  font: 400 12px/1.5 system-ui, sans-serif;
+  color: var(--pw-muted);
+}
+
+.pw-home nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  font-size: 14px;
+}
+
+.pw-home a {
+  color: var(--pw-link);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.pw-home a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.pw-home nav a {
+  color: var(--pw-ink);
+}
+
+.pw-home h1, .pw-home h2, .pw-home h3 {
+  color: var(--pw-ink);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 500;
+}
+
+.pw-home h1 {
+  font-size: clamp(40px, 6vw, 68px);
+  line-height: .99;
+  letter-spacing: -.045em;
+  margin: 0 0 27px;
+}
+
+.pw-home h2 {
+  font-size: 29px;
+  line-height: 1.18;
+  letter-spacing: -.025em;
+  margin: 0 0 19px;
+}
+
+.pw-home h3 {
+  font-size: 21px;
+  line-height: 1.3;
+  margin: 0 0 8px;
+}
+
+.pw-home p {
+  margin: 0 0 17px;
+}
+
+.pw-home .pw-hello {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 160px;
+  gap: 48px;
+  padding: 40px 0 28px;
+  align-items: start;
+}
+
+.pw-home .pw-lede {
+  font-size: 21px;
+  line-height: 1.5;
+  max-width: 680px;
+  color: var(--pw-ink);
+}
+
+.pw-home .pw-face {
+  margin: 6px 0 0;
+}
+
+.pw-home .pw-portrait {
+  display: block;
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.pw-home figcaption {
+  color: var(--pw-muted);
+  font: 400 12px/1.5 system-ui, sans-serif;
+  margin-top: 10px;
+}
+
+.pw-home .pw-current {
+  max-width: 670px;
+}
+
+.pw-home .pw-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 258px;
+  gap: 50px;
+  border-top: 2px solid var(--pw-ink);
+  padding-top: 28px;
+}
+
+.pw-home .pw-work p {
+  max-width: 600px;
+}
+
+.pw-home .pw-writing {
+  padding-top: 25px;
+}
+
+.pw-home .pw-story {
+  padding: 14px 0;
+  border-top: 1px solid var(--pw-rule);
+}
+
+.pw-home .pw-story h3 {
+  font-size: 22px;
+}
+
+.pw-home .pw-story p {
+  font-size: 14px;
+  margin: 0;
+  color: var(--pw-muted);
+}
+
+.pw-home .pw-story a {
+  color: var(--pw-ink);
+}
+
+.pw-home .pw-game {
+  border-left: 1px solid var(--pw-rule);
+  padding-left: 24px;
+}
+
+.pw-home .pw-game h2 {
+  font-size: 27px;
+}
+
+.pw-home .pw-game figure {
+  margin: 0 0 18px;
+}
+
+.pw-home .pw-game img {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+}
+
+.pw-home .pw-game p {
+  font-size: 15px;
+}
+
+.pw-home .pw-aside-note {
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid var(--pw-rule);
+  color: var(--pw-muted);
+}
+
+.pw-home .pw-aside-note p {
+  font-size: 14px;
+}
+
+.pw-home .pw-contact {
+  margin-top: 31px;
+  padding-top: 21px;
+  border-top: 2px solid var(--pw-ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 20px;
+}
+
+.pw-home .pw-contact p {
+  margin: 0;
+}
+
+.pw-home .pw-contact h2 {
+  font: 500 27px/1.3 'Helvetica Neue', Arial, sans-serif;
+  color: var(--pw-ink);
+}
+
+.pw-home .pw-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-size: 14px;
+}
+
+.pw-home .pw-footer-note {
+  color: var(--pw-muted);
+  font: 400 11px/1.6 system-ui, sans-serif;
+  margin-top: 28px;
+}
+
+.pw-home .pw-page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 25px clamp(22px, 5vw, 58px) 28px;
+}
+
+@media (max-width: 730px) {
+  .pw-home .pw-top {
+    align-items: start;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .pw-home .pw-hello {
+    gap: 24px;
+    grid-template-columns: minmax(0, 1fr) 110px;
+  }
+  .pw-home .pw-portrait {
+    width: 110px;
+    height: 110px;
+  }
+  .pw-home .pw-body {
+    gap: 28px;
+    grid-template-columns: minmax(0, 1fr) 200px;
+  }
+  .pw-home .pw-game {
+    padding-left: 18px;
+  }
+  .pw-home .pw-contact {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 540px) {
+  .pw-home {
+    font-size: 15px;
+  }
+  .pw-home .pw-page {
+    padding: 20px;
+  }
+  .pw-home .pw-hello {
+    grid-template-columns: 1fr;
+    padding-top: 28px;
+    gap: 0;
+  }
+  .pw-home .pw-face {
+    grid-row: 1;
+    margin: 0 0 24px;
+    display: flex;
+    align-items: end;
+    gap: 16px;
+  }
+  .pw-home .pw-portrait {
+    width: 90px;
+    height: 90px;
+  }
+  .pw-home .pw-lede {
+    font-size: 20px;
+  }
+  .pw-home .pw-body {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .pw-home .pw-game {
+    border-left: 0;
+    border-top: 1px solid var(--pw-rule);
+    padding: 24px 0 0;
+  }
+  .pw-home .pw-game figure {
+    max-width: 300px;
+  }
+  .pw-home nav {
+    gap: 8px 19px;
+  }
+  .pw-home nav a, .pw-home .pw-social a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+.pw-home .pw-address {
+  text-decoration: none;
+}
+
+.pw-home .pw-current {
+  margin-bottom: 17px;
+}
+
+.pw-home .pw-face figcaption {
+  max-width: 110px;
+}
+
+.pw-home .pw-more, .pw-home .pw-play {
+  margin-top: 15px;
+}
+
+.pw-home .pw-aside-note > :last-child {
+  margin-bottom: 0;
+}
+
+.pw-home .pw-contact h2 {
+  margin: 0;
+}
+
+.pw-home .pw-footer-note {
+  margin-top: 15px;
+}
+
+.pw-home a:focus-visible {
+  outline: 2px solid var(--pw-link);
+  outline-offset: 4px;
+}
+
+.pw-home .pw-skip {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  transform: translateY(-200%);
+  background: var(--pw-paper);
+  padding: 8px 16px;
+  z-index: 1;
+}
+
+.pw-home .pw-skip:focus {
+  transform: none;
+}
+
+@media (pointer: coarse) {
+  .pw-home nav a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+@media print {
+  .pw-home {
+    color-scheme: light;
+  }
+  .pw-home .pw-skip {
+    display: none;
+  }
+}

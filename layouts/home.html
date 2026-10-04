@@ -1,36 +1,105 @@
-{{ partial "header.html" . }}
-<div class="container white-rounded">
-  {{ if isset .Params "jumbotron" }}
-      <div class="jumbotron" id="home_jumbotron" style="background: url('{{ .Params.jumbotron.image }}') center center no-repeat; background-size: 100% auto; padding-left: 10px; margin-top: 10px; border-radius: 6px;">
-        <!-- <div class="container" style="color: white; text-shadow: -1px -1px 5px #000, -1px 1px 5px #000, 1px -1px 5px #000, 1px 1px 5px #000;"> -->
-          <div class="container">
-                <h2>{{ .Params.jumbotron.headline }}</h2>
-            {{ .Params.jumbotron.text | safeHTML }}
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Locale }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ .Description }}">
+  <meta name="author" content="{{ .Site.Params.authorName }}">
+  <title>{{ .Title }} · {{ .Site.Title }}</title>
+  <link rel="canonical" href="{{ .Permalink }}">
+  <link rel="icon" href="{{ "favicon.ico" | relURL }}">
+  <link rel="stylesheet" href="{{ "css/home.css" | relURL }}">
+  {{ range partial "feed-links.html" . }}
+  <link href="{{ .Permalink }}" rel="alternate" type="{{ .MediaType.Type }}" title="{{ $.Site.Title }} — {{ if eq .Name "rss" }}RSS{{ else }}Atom{{ end }}">
+  {{ end }}
+</head>
+<body class="pw-home">
+  <a class="pw-skip" href="#main">Skip to content</a>
+  <div class="pw-page">
+    <header class="pw-top">
+      <a class="pw-address" href="{{ .Site.Home.RelPermalink }}">patrick dot wagstrom dot net</a>
+      <nav aria-label="Main navigation">
+        <a href="{{ "weblog/" | relURL }}">Writing</a>
+        <a href="{{ "games/" | relURL }}">Games</a>
+        <a href="{{ "resume/" | relURL }}">Résumé</a>
+      </nav>
+    </header>
+    <main id="main" tabindex="-1">
+      <section class="pw-hello" aria-labelledby="pw-name">
+        <div>
+          <h1 id="pw-name">{{ .Title }}</h1>
+          <p class="pw-lede">{{ .Params.intro }}</p>
+          <div class="pw-current">{{ .Params.current | markdownify }}</div>
         </div>
-      </div>
-    {{ end }}
-
-    <div class="row">
-      <div class="col-md-9">
-        {{ .Content }}
-      </div>
-      <div class="col-md-3 affiliations">
-        {{ if isset .Params "affiliations" }}
-        <h3 class="affiliations" id="current-affiliations">Current Affiliation</h3>
-        <ul class="current-affiliation affiliations">
-        {{ range first 1 .Params.affiliations }}
-          <li class="affiliation"><a href="{{ .url }}"><img class="affiliation-image" src="{{ .image }}" alt="{{ .alt }}" title="{{ .title }}">{{ if .text }}<br>{{ .text }}{{ end }}</a></li>
+        {{ with .Params.portrait }}
+          {{ $portrait := . }}
+          {{ with $.Site.GetPage .page }}
+            {{ with .Resources.Get $portrait.image }}
+            <figure class="pw-face">
+              <img class="pw-portrait" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ $portrait.alt }}">
+              <figcaption>{{ $portrait.caption }}</figcaption>
+            </figure>
+            {{ end }}
+          {{ end }}
         {{ end }}
-        </ul>
-
-        <h3 class="affiliations" id="past-affiliations">Past Affiliations</h3>
-        <ul class="previous-affiliations affiliations">
-        {{ range after 1 .Params.affiliations }}
-          <li class="affiliation"><a href="{{ .url }}"><img class="affiliation-image" src="{{ .image }}" alt="{{ .alt }}" title="{{ .title }}">{{ if .text }}<br>{{ .text }}{{ end }}</a></li>
-        {{ end }}
-        </ul>
+      </section>
+      <div class="pw-body">
+        <div>
+          <section class="pw-work" aria-label="Professional work">
+            {{ .Content }}
+          </section>
+          {{ with .Params.featuredWriting }}
+          <section class="pw-writing" aria-labelledby="pw-writing-heading">
+            <h2 id="pw-writing-heading">{{ $.Params.writingTitle }}</h2>
+            {{ range . }}
+              {{ $entry := . }}
+              {{ with $.Site.GetPage .page }}
+              <article class="pw-story">
+                <h3><a href="{{ .RelPermalink }}">{{ $entry.title }}</a></h3>
+                <p>{{ $entry.summary }} <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006" }}</time></p>
+              </article>
+              {{ end }}
+            {{ end }}
+            <p class="pw-more"><a href="{{ "weblog/" | relURL }}">More from the weblog</a></p>
+          </section>
+          {{ end }}
+        </div>
+        {{ with .Params.project }}
+          {{ $project := . }}
+          {{ with $.Site.GetPage .page }}
+          <aside class="pw-game" aria-labelledby="pw-game-heading">
+            <h2 id="pw-game-heading">{{ $project.title }}</h2>
+            {{ $projectURL := .RelPermalink }}
+            {{ with .Resources.Get $project.image }}
+            <figure>
+              <a href="{{ $projectURL }}"><img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ $project.imageAlt }}" loading="lazy" decoding="async"></a>
+            </figure>
+            {{ end }}
+            <p>{{ $project.intro }}</p>
+            <div>{{ $project.description | markdownify }}</div>
+            <p class="pw-play"><a href="{{ .RelPermalink }}">{{ $project.linkText }}</a></p>
+            <div class="pw-aside-note">{{ $project.note | markdownify }}</div>
+          </aside>
+          {{ end }}
         {{ end }}
       </div>
-    </div>
-</div>
-{{ partial "footer.html" . }}
+    </main>
+    <footer>
+      <section class="pw-contact" aria-labelledby="pw-contact-heading">
+        <div>
+          <h2 id="pw-contact-heading">Say hello.</h2>
+          <a href="mailto:{{ .Site.Params.authorEmail }}">{{ .Site.Params.authorEmail }}</a>
+        </div>
+        <nav class="pw-social" aria-label="Find me and subscribe">
+          {{ with .Site.Params.github }}<a href="{{ . }}">GitHub</a>{{ end }}
+          {{ with .Site.Params.linkedin }}<a href="{{ . }}">LinkedIn</a>{{ end }}
+          {{ range partial "feed-links.html" . }}
+          <a href="{{ .RelPermalink }}">{{ if eq .Name "rss" }}RSS, naturally{{ else }}Atom{{ end }}</a>
+          {{ end }}
+        </nav>
+      </section>
+      <p class="pw-footer-note">{{ .Params.footerNote }}</p>
+    </footer>
+  </div>
+</body>
+</html>

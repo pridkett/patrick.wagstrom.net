@@ -100,7 +100,8 @@ over them. Do not enable global rsync deletion to remove these files.
 - `content/publications/`: bibliography shortcode backed by `data/bib`.
 - `content/screenshots/`: screenshot gallery backed by `data/screenshots`.
 - `content/games/`: game pages and screenshots; emulator assets are in `static/`.
-- `content/tutorials/_index.md`: historical tutorial listing, linked from navigation.
+- `content/tutorials/_index.md`: historical tutorial listing, retained for old
+  inbound links. Tutorials, publications, and research are not promoted on the homepage.
 - `content/tutorials/pygtkmozembed/`: the 2004 Python tutorial, rendered with its
   original content and a dated archive note. Its URL is explicitly pinned.
 - `static/tutorials/mythTV64/`: the 2005–2006 MythTV archive, copied verbatim to

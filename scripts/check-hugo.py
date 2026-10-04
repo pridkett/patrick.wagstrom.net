@@ -94,8 +94,6 @@ def check_site(output):
             "Homepage must declare the configured locale")
     require(any(t == "a" and a.get("href") == "/weblog/" for t, a in home.elements),
             "Blog navigation link is missing")
-    require(any(t == "a" and a.get("href") == "/tutorials/" for t, a in home.elements),
-            "Historical tutorials navigation link is missing")
     for tag, attrs in home.elements:
         asset = attrs.get("src") if tag == "script" else attrs.get("href") if (
             tag == "link" and attrs.get("rel") == "stylesheet") else None

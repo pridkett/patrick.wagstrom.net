@@ -38,8 +38,8 @@ After a minute or two JazzHub will return with your brand new shiny project page
 
 <figure class="image caption center">
 	<img src="/weblog/media/2013/10/jazzhub-project-created.png" width="970" height="531" alt="Project Successfully Created">
-	<p>Project Successfully Created</p>
-</div>
+	<figcaption>Project Successfully Created</figcaption>
+</figure>
 
 Setting up lscm
 ---------------

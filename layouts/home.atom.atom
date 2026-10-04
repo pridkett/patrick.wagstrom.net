@@ -1,2 +1,2 @@
 {{- $feed := partial "weblog-feed.html" . -}}
-{{- partial "rss.html" $feed -}}
+{{- partial "atom.html" $feed -}}

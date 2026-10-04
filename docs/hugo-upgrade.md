@@ -34,16 +34,78 @@ incorrectly described it as generally deprecated.
 
 ## Feed behavior and preserved output
 
-The existing feeds remain `/index.rss` and `/weblog/index.rss`, each containing
-the same 15 weblog entries and full post content. Both retain the weblog channel
-title and page link; their self links now identify the actual feed being read.
-Author metadata is preserved. Locale output now uses `en-US`.
+The compatibility migration initially retained `/index.rss` and
+`/weblog/index.rss`. The subsequent feed improvements consolidate generation
+at `/index.rss` and add Atom 1.0 at `/index.atom`. Both contain the same 15
+published weblog entries, selected recursively and sorted by publication date.
+Other sections and taxonomies render HTML only. Drafts and future posts are
+excluded even when the development server enables them for HTML previews.
 
-The site's wrapper names are `home.rss.rss` and `weblog/section.rss.rss`: the first
-`rss` identifies the output format and the second identifies the custom media
-extension. The standalone theme supplies `home.rss.xml` and `list.rss.xml` for
-Hugo's default XML feed URLs. These all call the same renderer. The theme's
-generic feeds support section, taxonomy, and term pages when enabled by a site.
+The site's wrappers are `home.rss.rss` and `home.atom.atom`: the first suffix
+identifies the output format and the second identifies the custom media
+extension. They share weblog selection, limits, timestamps, and article content
+preparation. The standalone theme retains `home.rss.xml` and `list.rss.xml` for
+Hugo's default XML feed URLs, including generic section and taxonomy behavior.
+
+RSS GUIDs remain the existing HTTPS post permalinks, and Atom uses those same
+entry IDs. Publication dates remain unchanged. For significant editorial updates,
+add `lastmod` to the post's front matter; otherwise update dates equal the original
+publication date. Each feed's update timestamp is the maximum among its included
+entries. Empty feeds use a stable Unix epoch timestamp. Git history, file times,
+rebuilds, and edits outside the weblog do not advance these timestamps.
+
+Both formats retain full article HTML. Feed preparation decodes title entities,
+resolves content URLs against each article's permalink, strips scripts and CSS,
+and replaces iframe embeds with ordinary links. Quoted and unquoted links,
+fragments, query strings, protocol-relative media, and ordinary responsive image
+URL lists are supported. Historical external HTTP hyperlinks are retained;
+embedded media must use HTTPS. Code samples remain verbatim. A mismatched figure
+closing tag in the historical JazzHub article was repaired at its source.
+
+Themed pages advertise the canonical RSS and Atom URLs and display subscription
+links. Handwritten mail, walking, and tutorial archive HTML remains unchanged.
+
+### Feed HTTP configuration and deployment
+
+The live site uses Caddy. Import `ops/feeds.caddy` inside its existing site block
+when deploying these changes. For example, retain the existing root and other
+directives and add:
+
+```caddyfile
+patrick.wagstrom.net {
+    # Existing root and other configuration remain here.
+    import /absolute/path/to/ops/feeds.caddy
+    file_server
+}
+```
+
+The snippet redirects `/index.xml`, `/weblog/index.rss`, `/weblog/index.xml`, and
+legacy tag/category `.xml` or `.rss` feeds to `/index.rss` with HTTP 308. These
+routes take precedence over stale files left by historical deployments. Keep the
+redirects indefinitely for old subscriptions. It sets the RSS/Atom MIME types,
+`Cache-Control: public, max-age=3600`, and `Access-Control-Allow-Origin: *` on the
+two canonical feeds. Caddy's file server retains ETag/Last-Modified and 304 support.
+
+Validate the complete production Caddy configuration before reloading it.
+Publishing Hugo output alone will **not** install this server configuration.
+Do not enable rsync `--delete`: other historical pages still require investigation.
+No production upload or server reload was performed during implementation.
+
+```sh
+make check                 # Site, theme, and isolated feed regression checks
+make check-feeds-http      # Temporary local server; requires Caddy
+```
+
+The HTTP check uses fresh build output, simulates stale feed files, and verifies
+redirects, MIME types, caching, CORS, and both conditional request mechanisms.
+The feed regression fixture checks identical formats, stable IDs and dates,
+editorial updates, exclusion of unrelated pages/drafts/future posts, empty feeds,
+URL resolution, code preservation, and deterministic rebuilds. It needs only the
+Python standard library and Hugo. The W3C validator code was also run separately
+against both generated feeds at their canonical URLs with no errors or warnings;
+its dependencies are not required by `make check`. Actual reader UI rendering has
+not been tested. After deployment, recheck canonical feeds and legacy redirects
+against production and inspect articles in representative readers.
 
 The Hugo compatibility upgrade preserves all **1,592 production file paths**
 from a fresh baseline build, including historical weblog URLs, local assets,

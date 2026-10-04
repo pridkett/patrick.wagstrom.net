@@ -8,6 +8,7 @@ import subprocess
 import tempfile
 from urllib.parse import unquote, urljoin, urlsplit
 import xml.etree.ElementTree as ET
+from check_feeds import check_feeds, check_discovery, check_feed_regressions
 
 
 class HTML(HTMLParser):
@@ -101,25 +102,8 @@ def check_site(output):
         if asset and asset.startswith("/"):
             require(local_file(output, asset).is_file(), f"Missing theme asset: {asset}")
 
-    feeds = []
-    for name in ("index.rss", "weblog/index.rss"):
-        channel = ET.parse(output / name).find("channel")
-        items = channel.findall("item")
-        require(len(items) == 15, f"Expected 15 posts in {name}")
-        expected_url = "https://patrick.wagstrom.net/" + name
-        self_link = channel.find("{http://www.w3.org/2005/Atom}link")
-        require(self_link is not None and self_link.get("href") == expected_url,
-                f"Incorrect RSS self URL in {name}")
-        require(self_link.get("type") == "application/rss+xml", "Incorrect RSS MIME type")
-        require(channel.findtext("language") == "en-US", "Incorrect RSS locale")
-        require("patrick@wagstrom.net" in channel.findtext("managingEditor", ""),
-                "Feed author metadata is missing")
-        links = [item.findtext("link") for item in items]
-        for item, url in zip(items, links):
-            require(local_file(output, url).is_file(), f"Feed points to missing page: {url}")
-            require(item.findtext("description"), f"Feed content is empty: {url}")
-        feeds.append(links)
-    require(feeds[0] == feeds[1], "Home and weblog feeds must contain the same posts")
+    check_feeds(output)
+    check_discovery(output)
 
     resume = HTML(output / "resume/index.html")
     for css in ("/resume/resume.css", "/resume/print.css"):
@@ -202,4 +186,5 @@ if __name__ == "__main__":
                             "--panicOnWarning"], check=True)
             check_site(Path(directory))
     check_theme(args.hugo)
-    print("Hugo site and standalone theme checks passed.")
+    check_feed_regressions(args.hugo)
+    print("Hugo site, feed regressions, and standalone theme checks passed.")

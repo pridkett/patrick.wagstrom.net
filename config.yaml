@@ -88,10 +88,15 @@ params:
 
   relativePaths: true
   resumeShowPhone: false
+  canonicalFeeds: true
+  feedLimit: 15
 
 theme: "hugo-theme-patrick-custom"
 
 mediaTypes:
+  application/atom+xml:
+    suffixes:
+      - atom
   application/rss+xml:
     suffixes:
       - rss
@@ -100,6 +105,7 @@ outputs:
   home:
     - html
     - RSS
+    - Atom
   section:
     - html
   taxonomy:
@@ -110,9 +116,21 @@ outputs:
     - html
 
 outputFormats:
+  Atom:
+    mediaType: "application/atom+xml"
+    baseName: "index"
+    isPlainText: false
+    noUgly: true
   RSS:
     mediaType: "application/rss+xml"
     baseName: "index"
+
+# Only deliberate editorial changes advance feed update timestamps.
+frontmatter:
+  lastmod:
+    - lastmod
+    - date
+    - publishDate
 
 
 # Hugo 0.164 blocks raw HTML content files by default

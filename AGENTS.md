@@ -60,20 +60,33 @@ Use `hugo.Data`, `.Site.Language.Locale`, and `now.Year`; do not use the removed
 Goldmark raw HTML support, and IntenseDebate mappings. Keep
 `security.allowContent` enabled for the handwritten HTML under `content/`.
 
-The home and weblog feeds retain `/index.rss` and `/weblog/index.rss`, with 15
-full-content entries each. Other sections and taxonomies render HTML only.
-`content/weblog/_index.md` explicitly enables RSS for that section.
+The canonical feeds are `/index.rss` (RSS 2.0) and `/index.atom` (Atom 1.0),
+with the same 15 full-content weblog entries. Other sections and taxonomies
+render HTML only; `content/weblog/_index.md` does not enable separate feeds.
+The site's `weblog-feed.html` partial selects published weblog pages recursively
+and excludes drafts and future posts even in preview builds. Preserve existing
+RSS GUIDs and use the same permalink identifiers for Atom entries. Sort by
+publication date, and advance update dates only through explicit editorial
+`lastmod` (falling back to publication date), never Git, file, or build times.
 
-Site feed wrappers are `layouts/home.rss.rss` and
-`layouts/weblog/section.rss.rss`. The repeated suffix represents the RSS output
-format and the custom `.rss` media extension. Both call the theme's shared
-`layouts/_partials/rss.html`. Feed metadata uses `params.authorName` and
+Site feed wrappers are `layouts/home.rss.rss` and `layouts/home.atom.atom`.
+The repeated suffix represents the output format and its custom media extension.
+They call the theme's shared RSS/Atom renderers and feed content helpers.
+`params.canonicalFeeds` makes themed pages advertise both home feeds and show
+subscription links. Feed metadata uses `params.authorName` and
 `params.authorEmail`; `params.author` remains a string for the HTML author tag.
 
 The standalone theme also supplies `home.rss.xml` and `list.rss.xml` for Hugo's
 standard XML feed extension. Do not remove these just because the site overrides
 its own feeds. The standalone theme fixture in `scripts/check-hugo.py` exercises
 templates that normal site builds would hide.
+
+`ops/feeds.caddy` supplies permanent redirects for legacy home, weblog, and
+taxonomy feeds, correct content types, caching, and public CORS. Import it into
+the existing production site block during an explicitly requested deployment.
+Old feed files can remain after rsync uploads; the redirects must take precedence
+over them. Do not enable global rsync deletion to remove these files.
+`make check-feeds-http` tests this snippet with a temporary local Caddy server.
 
 ## Content and assets
 

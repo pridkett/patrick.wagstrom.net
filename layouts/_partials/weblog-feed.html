@@ -1,0 +1,5 @@
+{{- $weblog := .Site.GetPage "/weblog" -}}
+{{- $pages := where $weblog.RegularPagesRecursive "Draft" false -}}
+{{- $pages = where $pages "PublishDate" "le" now -}}
+{{- $pages = where $pages "Date" "le" now -}}
+{{- return (dict "page" . "channel" $weblog "pages" $pages) -}}

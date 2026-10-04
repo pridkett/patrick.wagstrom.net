@@ -1,0 +1,2 @@
+{{- $weblog := .Site.GetPage "/weblog" -}}
+{{- partial "rss.html" (dict "page" . "channel" $weblog "pages" $weblog.RegularPages) -}}

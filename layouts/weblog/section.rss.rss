@@ -1,0 +1,1 @@
+{{- partial "rss.html" (dict "page" . "channel" . "pages" .RegularPages) -}}

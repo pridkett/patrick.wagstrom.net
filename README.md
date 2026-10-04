@@ -9,10 +9,13 @@ Installation
 ============
 
 Building and installation of the site is fairly straightforward. You'll need to install
-[hugo](https://gohugo.io/), but that can be easily done on most platforms. On my Mac, you
+[Hugo extended](https://gohugo.io/installation/). The publishing workflow pins
+Hugo **0.167.0**; the site and custom theme also pass checks on **0.164.0**.
+On my Mac, you
 can just run:
 
     brew install hugo
+    git submodule update --init --recursive
     make
 
 And you should get all the pages generated in the `public` subdirectory.
@@ -23,3 +26,12 @@ If you want to run the web server to view the pages as you edit them, you can ru
 
 And it should fire up a web server on http://localhost:1313/ that you can use to look
 at the pages as you edit them.
+
+Run `make check` to build in a fresh temporary directory and verify feeds,
+legacy URLs, historical tutorial links and assets, resume styles, shortcodes,
+game pages, and the theme without site overrides. Warnings fail the check.
+To use a separate Hugo binary,
+run `make check HUGO=/absolute/path/to/hugo`.
+
+See [the Hugo upgrade notes](docs/hugo-upgrade.md) for the migration details,
+remaining issues, and how to commit and publish changes to the theme submodule.

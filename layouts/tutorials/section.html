@@ -1,0 +1,12 @@
+{{ partial "header.html" . }}
+
+<main class="container white-rounded">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="page-title">{{ .Title }}</h3>
+      {{ .Content }}
+    </div>
+  </div>
+</main>
+
+{{ partial "footer.html" . }}

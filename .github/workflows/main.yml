@@ -25,10 +25,12 @@ jobs:
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v3
       with:
-        hugo-version: '0.152.2'
+        hugo-version: '0.167.0'
         extended: true
 
-    - run: hugo
+    - run: make check
+
+    - run: make build
 
     - name: rsync deployments
       uses: burnett01/rsync-deployments@4.1

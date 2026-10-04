@@ -1,7 +1,7 @@
 ---
 baseurl: "https://patrick.wagstrom.net/"
 title: "patrick dot wagstrom dot net"
-languageCode: "en-us"
+locale: "en-US"
 
 menu:
   main:
@@ -13,6 +13,10 @@ menu:
     name: Games
     url: /games/
     weight: -90
+  - identifier: Tutorials
+    name: Tutorials
+    url: /tutorials/
+    weight: -80
 
 # ignoreFiles:
 #   - resume/\\.*
@@ -88,7 +92,7 @@ params:
 theme: "hugo-theme-patrick-custom"
 
 mediaTypes:
-  application/rss:
+  application/rss+xml:
     suffixes:
       - rss
 
@@ -98,19 +102,22 @@ outputs:
     - RSS
   section:
     - html
-    - RSS
+  taxonomy:
+    - html
+  term:
+    - html
   page:
     - html
 
 outputFormats:
   RSS:
-    mediaType: "application/rss"
+    mediaType: "application/rss+xml"
     baseName: "index"
 
 
 # Hugo 0.164 blocks raw HTML content files by default
 # (security.allowContent defaults to ['! ^text/html$']). This site has
-# hand-written HTML pages under content/ (mail, walking, tutorials/mythTV64)
+# hand-written HTML pages under content/ (mail, walking)
 # whose URLs must be preserved, so re-allow all content media types.
 security:
   allowContent:

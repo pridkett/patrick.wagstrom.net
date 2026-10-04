@@ -67,14 +67,26 @@ links. Handwritten mail, walking, and tutorial archive HTML remains unchanged.
 
 ### Feed HTTP configuration and deployment
 
-The live site uses Caddy. Import `ops/feeds.caddy` inside its existing site block
-when deploying these changes. For example, retain the existing root and other
-directives and add:
+The hosting repository is
+[webpage-docker-containers](https://github.com/pridkett/webpage-docker-containers).
+Its `personal-website` service already uses `caddy:alpine`, with the website output
+mounted at `/usr/share/caddy`. The `caddy-gen` container handles public hostnames
+and HTTPS, forwarding to the website backend on port 80.
+
+`ops/webpage-docker-containers-feeds.patch` applies to hosting repository revision
+`9e93dd9`. It adds one read-only configuration mount to `personal-website`:
+
+```yaml
+      - ./personal-website:/etc/caddy:ro
+```
+
+The patch also adds `personal-website/feeds.caddy`, copied from `ops/feeds.caddy`,
+and the following backend `personal-website/Caddyfile`:
 
 ```caddyfile
-patrick.wagstrom.net {
-    # Existing root and other configuration remain here.
-    import /absolute/path/to/ops/feeds.caddy
+:80 {
+    root * /usr/share/caddy
+    import /etc/caddy/feeds.caddy
     file_server
 }
 ```
@@ -86,10 +98,36 @@ redirects indefinitely for old subscriptions. It sets the RSS/Atom MIME types,
 `Cache-Control: public, max-age=3600`, and `Access-Control-Allow-Origin: *` on the
 two canonical feeds. Caddy's file server retains ETag/Last-Modified and 304 support.
 
-Validate the complete production Caddy configuration before reloading it.
-Publishing Hugo output alone will **not** install this server configuration.
+Apply the patch from the hosting repository checkout. Publish the website output
+containing the two canonical feeds, validate the backend configuration, then
+recreate only the website service:
+
+```sh
+git apply /path/to/patrick.wagstrom.net/ops/webpage-docker-containers-feeds.patch
+docker compose run --rm --no-deps personal-website caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile
+docker compose up -d --no-deps --force-recreate personal-website
+```
+
+The hosting patch leaves the website content mount and proxy labels in place.
+Keep its `personal-website/feeds.caddy` synchronized with `ops/feeds.caddy` when
+changing feed delivery settings. After subsequent configuration edits, reload
+the backend with:
+
+```sh
+docker compose exec personal-website caddy reload --config /etc/caddy/Caddyfile --adapter caddyfile
+```
+
+Publishing Hugo output alone will **not** install or reload the server configuration.
 Do not enable rsync `--delete`: other historical pages still require investigation.
 No production upload or server reload was performed during implementation.
+
+The hosting patch was checked against a clean archive of revision `9e93dd9`, and
+the modified Compose configuration parses successfully. Its exact Caddyfile was
+validated and exercised in a temporary local Docker container using the same
+`caddy:alpine` image (Caddy 2.11.6 at verification). Canonical feed bytes, MIME
+types, caching, CORS, both 304 mechanisms, legacy redirects, hostname aliases,
+and the historical tutorial archive all passed. This tests the website backend;
+the live frontend proxy still requires verification after deployment.
 
 ```sh
 make check                 # Site, theme, and isolated feed regression checks

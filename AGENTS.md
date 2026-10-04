@@ -82,8 +82,12 @@ its own feeds. The standalone theme fixture in `scripts/check-hugo.py` exercises
 templates that normal site builds would hide.
 
 `ops/feeds.caddy` supplies permanent redirects for legacy home, weblog, and
-taxonomy feeds, correct content types, caching, and public CORS. Import it into
-the existing production site block during an explicitly requested deployment.
+taxonomy feeds, correct content types, caching, and public CORS.
+`ops/webpage-docker-containers-feeds.patch` adds the required Caddy configuration
+mount to the hosting repository's `personal-website` service, plus its backend
+Caddyfile and a copy of the feed rules. Keep the rule copies synchronized. Apply
+and validate the hosting patch during an explicitly requested deployment; see
+`docs/hugo-upgrade.md` for the targeted container rollout commands.
 Old feed files can remain after rsync uploads; the redirects must take precedence
 over them. Do not enable global rsync deletion to remove these files.
 `make check-feeds-http` tests this snippet with a temporary local Caddy server.

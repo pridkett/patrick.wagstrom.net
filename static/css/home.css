@@ -217,6 +217,18 @@
   font-size: 14px;
 }
 
+.pw-home .pw-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pw-home .pw-social-icon {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+}
+
 .pw-home .pw-footer-note {
   color: var(--pw-muted);
   font: 400 11px/1.6 system-ui, sans-serif;

@@ -9,68 +9,40 @@ stylesheets:
     media: print
 ---
 
-<div class="row">
+<div class="resume-layout">
     <!-- sidebar -->
-    <div class="col-md-3 sidebar">
-        <div class="row no-print">
-            <div class="col-md-12 mugshot">
-                <img src="/resume/Headshot%20-%20Patrick%20Wagstrom%20-%2020221114%20-%20204x204.jpg" height="204" width="204" alt="A dazzling and beautiful professional headshot photograph of Patrick Wagstrom" id="profilepic">
-            </div>
+    <aside class="resume-sidebar">
+        <div class="resume-portrait no-print">
+            <img src="/resume/Headshot%20-%20Patrick%20Wagstrom%20-%2020221114%20-%20204x204.jpg" height="204" width="204" alt="A dazzling and beautiful professional headshot photograph of Patrick Wagstrom" id="profilepic">
         </div>
-        <div class="row name-header">
-            <div class="col-md-12">
-                <h3>Patrick Wagstrom</h3>
-                <h4>Data Engineering and Artificial Intelligence Leader</h4>
-            </div>
+        <div class="resume-identity">
+            <h1>Patrick Wagstrom</h1>
+            <p class="resume-role">Data Engineering and Artificial Intelligence Leader</p>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <ul class="info-links">
-                    {{< infolink href="mailto:patrick@wagstrom.net" icon="fa-envelope" >}}patrick@wagstrom.net{{< /infolink >}}
-                    <!-- {{< infolink href="http://patrick.wagstrom.net/" icon="fa-globe" >}}https://patrick.wagstrom.net/{{< /infolink >}} -->
-                    {{< infolink icon="fa-globe">}}Coventry, CT{{< /infolink >}}
-                    {{< phonelink >}}
-                </ul>
-            </div>
+        <ul class="info-links">
+            {{< infolink href="mailto:patrick@wagstrom.net" icon="fa-envelope" >}}patrick@wagstrom.net{{< /infolink >}}
+            <!-- {{< infolink href="http://patrick.wagstrom.net/" icon="fa-globe" >}}https://patrick.wagstrom.net/{{< /infolink >}} -->
+            {{< infolink icon="fa-globe">}}Coventry, CT{{< /infolink >}}
+            {{< phonelink >}}
+        </ul>
+        <div class="resume-actions no-print">
+            <a class="resume-action" href="wagstrom-resume-20210308.pdf"><i class="fa fa-download" aria-hidden="true"></i> Download</a>
+            <button type="button" class="resume-action" onclick="window.print();"><i class="fa fa-print" aria-hidden="true"></i> Print</button>
         </div>
-        <div class="row no-print">
-            <div class="col-md-12">
-                <ul class="social-links">
-                    <li><a href="https://github.com/pridkett" title="GitHub Profile"><i class="fa fa-github"></i></a></li>
-                    <li><a href="http://stackoverflow.com/users/57626/pridkett" title="StackOverflow Profile"><i class="fa fa-stack-overflow"></i></a></li>
-{{< if condition="false" >}}
-                    <li><a href="http://stackexchange.com/users/23095/pridkett" title="StackExchange Profile"><i class="fa fa-stack-exchange"></i></a></li>
-                    <li><a href="https://www.facebook.com/patrick.wagstrom" title="Facebook Profile"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="http://www.youtube.com/user/pridkett/videos" title="YouTube Profile"><i class="fa fa-youtube"></i></a></li>
-{{< /if >}}
-                    <li><a href="http://www.linkedin.com/in/pwagstrom" title="LinkedIn Profile"><i class="fa fa-linkedin"></i></a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="row download-buttons no-print">
-            <div class="col-md-12">
-                <button type="button" class="btn btn-primary btn-large" onclick="window.location.href='wagstrom-resume-20210308.pdf';"><i class="fa fa-download"></i> Download</button>
-                <button type="button" class="btn btn-primary btn-large" onclick="window.print();"><i class="fa fa-print"></i> Print</button>
-            </div>
-        </div>
-    </div>
+    </aside>
     <!-- /sidebar -->
     <!-- main body -->
-    <div class="col-md-9 main-body">
+    <div class="resume-body">
         <!-- general purpose -->
-        <div class="row">
-            <div class="col-md-12">
                 <p>
                 Strategic and hands-on executive leader in artificial intelligence, machine learning, data engineering, and software development, with experience across legal, finance, telecom, and video streaming. I drive cutting-edge AI/ML initiatives, build high-performing teams, modernize data pipelines, and deliver significant business value.
 				<!-- I am a hands-on executive leader of data, machine learning, and software engineering organizations with broad experience in foundational research, finance, telecom, and video streaming. I build organizations that transform companies and markets with data driven insights and best of breed emerging technologies. -->
 				</p>
-            </div>
-        </div>
         <!-- /general purpose -->
         <!-- critical skills -->
-        <!-- <div class="row">
-            <div class="col-md-12">
-            <h3 class="heading">Critical Skills</h3>
+        <!-- <div class="resume-group">
+            <div class="resume-group">
+            <h2 class="resume-heading">Critical Skills</h2>
                 <ul>
                     <li></li>
                     <li>B</li>
@@ -80,9 +52,8 @@ stylesheets:
         </div> -->
         <!-- /critical skills -->
         <!-- employment -->
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="heading">Professional Experience</h3>
+        <section class="resume-section">
+                <h2 class="resume-heading">Professional Experience</h2>
 				<ul class="job-listing">
                     <li class="job">
                         <ul>
@@ -347,13 +318,11 @@ I'm responsible for the Machine Learning Automation and Platform work within Cap
                         </ul>
                     </li>
                 </ul>
-            </div>
-        </div>
+        </section>
 			<!-- /employment history -->
         <!-- education -->
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="heading extra-padding">Education</h3>
+        <section class="resume-section">
+                <h2 class="resume-heading extra-padding">Education</h2>
                 <ul class="degree-listing">
                     <li class="degree">
                         <span class="degree-name">Ph.D. in <a href="http://www.epp.cmu.edu/">Engineering and Public Policy</a> and <a href="http://www.isri.cmu.edu/education/cos-phd/index.html">Computation, Organizations, and Society</a></span>
@@ -384,14 +353,13 @@ I'm responsible for the Machine Learning Automation and Platform work within Cap
                         <!-- <span class="degree-description">I was on scholarship and it seemed like a good idea to keep tacking on degrees.</span> -->
                     </li>
                 </ul>
-            </div>
-        </div>
+        </section>
         <!-- /education -->
                 <!-- skills -->
         <!--
-        <div class="row" class="no-print">
-            <div class="col-md-12" class="no-print">
-                <h3 class="heading">Select Technical Skills</h3>
+        <div class="resume-group" class="no-print">
+            <div class="resume-group" class="no-print">
+                <h2 class="resume-heading">Select Technical Skills</h2>
                 <ul class="skill-listing">
                     <li><span class="skill-header">Programming Languages</span>
                         <ul class="skill-components">

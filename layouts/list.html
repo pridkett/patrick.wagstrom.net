@@ -1,0 +1,11 @@
+{{ partial "header.html" . }}
+<main class="pw-listing">
+  <h1 class="pw-page-title">{{ .Site.Params.strings.posts_list_header | default .Title }}</h1>
+  {{ with .Content }}<div class="pw-document-body">{{ . }}</div>{{ end }}
+  <ul class="pw-page-list">
+    {{ range .Pages }}
+      {{ if ne .Params.menu "main" }}{{ partial "post-title.html" . }}{{ end }}
+    {{ end }}
+  </ul>
+</main>
+{{ partial "footer.html" . }}

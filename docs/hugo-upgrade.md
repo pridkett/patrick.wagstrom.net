@@ -2,6 +2,11 @@
 
 Audit date: October 4, 2026.
 
+The theme was subsequently consolidated into this repository. The findings below
+record the earlier compatibility audit; current templates and assets live under
+`layouts/`, `archetypes/`, and `static/`. There is no theme/submodule dependency.
+See [the standalone migration notes](standalone-site.md) for the current structure.
+
 The project had already received partial Hugo compatibility repairs. The local
 Hugo installation was **0.164.0**, while the GitHub publishing workflow still
 installed **0.152.2**. The latest stable release at the time of the audit is
@@ -44,7 +49,7 @@ excluded even when the development server enables them for HTML previews.
 The site's wrappers are `home.rss.rss` and `home.atom.atom`: the first suffix
 identifies the output format and the second identifies the custom media
 extension. They share weblog selection, limits, timestamps, and article content
-preparation. The standalone theme retains `home.rss.xml` and `list.rss.xml` for
+preparation. Local fallback templates retain `home.rss.xml` and `list.rss.xml` for
 Hugo's default XML feed URLs, including generic section and taxonomy behavior.
 
 RSS GUIDs remain the existing HTTPS post permalinks, and Atom uses those same
@@ -130,7 +135,7 @@ and the historical tutorial archive all passed. This tests the website backend;
 the live frontend proxy still requires verification after deployment.
 
 ```sh
-make check                 # Site, theme, and isolated feed regression checks
+make check                 # Site, local template, and isolated feed regression checks
 make check-feeds-http      # Temporary local server; requires Caddy
 ```
 
@@ -154,8 +159,8 @@ remain unchanged, and no deployment deletion settings were changed.
 ## Validation
 
 `make check` now builds in a fresh temporary directory and fails on warnings.
-It checks generated output and separately builds a small site using only the
-theme, so project overrides cannot hide obsolete theme templates. It uses
+It checks generated output and separately builds a small site using the local
+templates, exercising fallback layouts and standard XML feeds. It uses
 Python's standard library and needs no additional packages.
 
 Verified:
@@ -233,27 +238,21 @@ directory during checks; the new check command uses temporary output instead.
 
 ### Frontend dependencies
 
-The theme bundles Bootstrap **3.3.5**, jQuery **2.1.4**, Bootswatch styles, and
-Font Awesome. The Hugo migration preserves those files and the current visual
-appearance. Updating them requires its own migration: Bootstrap's grid,
-navigation, buttons, labels, and custom CSS cannot be replaced by current
-Bootstrap assets without adapting the templates. Review the game showcase and
-resume print styling as part of that work.
+The Hugo migration preserved Bootstrap **3.3.5**, jQuery **2.1.4**, Bootswatch
+styles, and Font Awesome. A subsequent frontend cleanup removed the Bootstrap
+and jQuery runtime includes, migrated layouts and controls to semantic native
+CSS, and removed `params.theme`. Font Awesome remains separate. Legacy framework
+files retain their public URLs; deployment still must not delete archive assets.
+The résumé keeps its custom screen/print styles, 11.8pt print type, 1.23 line
+height, and 0.5in body margins. See the
+[frontend cleanup validation](frontend-cleanup/resume-css/README.md) for rendered
+desktop/mobile, palette, and print evidence.
 
-### Publishing the theme changes
+### Publishing site changes
 
-The theme is a Git submodule, so the work belongs to two repositories. Before
-publishing the updated site:
-
-1. Review and commit the theme changes in
-   `themes/hugo-theme-patrick-custom`, using the project's Conventional Commit
-   and co-author trailer requirements.
-2. Commit the site changes and the updated theme submodule reference together.
-3. Run `make check` from a fresh checkout with submodules initialized before
-   deploying.
-4. When publishing, push the theme commit before the site commit so GitHub
-   Actions can fetch the updated submodule.
-
-Committing only the site changes would retrieve the previous theme on a clean
-checkout. Leave the pre-existing untracked game-showcase documents and shortcode
-backup out of this migration.
+All template and asset changes now belong in this repository. Review and commit
+them using the project's Conventional Commit and co-author trailer requirements.
+Run `make check` from a fresh checkout before deploying; no submodule initialization
+or separate theme push is needed. Deployment still requires an explicit request.
+Leave the pre-existing untracked game-showcase documents and shortcode backup
+out of this migration.

@@ -1,12 +1,5 @@
-/* Homepage layout. Other pages keep the shared theme. */
+/* Homepage layout; site.css supplies the shared palette. */
 .pw-home {
-  color-scheme: light dark;
-  --pw-paper: light-dark(#f7f4e9, #202821);
-  --pw-ink: light-dark(#213f30, #e7eadc);
-  --pw-text: light-dark(#303a31, #d2d9ce);
-  --pw-muted: light-dark(#626958, #adb8a5);
-  --pw-rule: light-dark(#bbc0ab, #53604e);
-  --pw-link: light-dark(#994524, #e6b48b);
   background: var(--pw-paper);
   color: var(--pw-text);
   font: 400 16px/1.65 system-ui, sans-serif;

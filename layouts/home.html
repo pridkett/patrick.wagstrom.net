@@ -8,6 +8,7 @@
   <title>{{ .Title }} · {{ .Site.Title }}</title>
   <link rel="canonical" href="{{ .Permalink }}">
   <link rel="icon" href="{{ "favicon.ico" | relURL }}">
+  <link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
   <link rel="stylesheet" href="{{ "css/home.css" | relURL }}">
   {{ range partial "feed-links.html" . }}
   <link href="{{ .Permalink }}" rel="alternate" type="{{ .MediaType.Type }}" title="{{ $.Site.Title }} — {{ if eq .Name "rss" }}RSS{{ else }}Atom{{ end }}">
@@ -16,14 +17,7 @@
 <body class="pw-home">
   <a class="pw-skip" href="#main">Skip to content</a>
   <div class="pw-page">
-    <header class="pw-top">
-      <a class="pw-address" href="{{ .Site.Home.RelPermalink }}">patrick dot wagstrom dot net</a>
-      <nav aria-label="Main navigation">
-        <a href="{{ "weblog/" | relURL }}">Writing</a>
-        <a href="{{ "games/" | relURL }}">Games</a>
-        <a href="{{ "resume/" | relURL }}">Résumé</a>
-      </nav>
-    </header>
+    {{ partial "site-nav.html" . }}
     <main id="main" tabindex="-1">
       <section class="pw-hello" aria-labelledby="pw-name">
         <div>
@@ -84,22 +78,7 @@
         {{ end }}
       </div>
     </main>
-    <footer>
-      <section class="pw-contact" aria-labelledby="pw-contact-heading">
-        <div>
-          <h2 id="pw-contact-heading">Say hello.</h2>
-          <a href="mailto:{{ .Site.Params.authorEmail }}">{{ .Site.Params.authorEmail }}</a>
-        </div>
-        <nav class="pw-social" aria-label="Find me and subscribe">
-          {{ with .Site.Params.github }}<a href="{{ . }}">{{ partial "home-link-icon.html" "github" }}<span>GitHub</span></a>{{ end }}
-          {{ with .Site.Params.linkedin }}<a href="{{ . }}">{{ partial "home-link-icon.html" "linkedin" }}<span>LinkedIn</span></a>{{ end }}
-          {{ range partial "feed-links.html" . }}
-          <a href="{{ .RelPermalink }}">{{ partial "home-link-icon.html" .Name }}<span>{{ if eq .Name "rss" }}RSS{{ else }}Atom{{ end }}</span></a>
-          {{ end }}
-        </nav>
-      </section>
-      <p class="pw-footer-note">{{ .Params.footerNote }}</p>
-    </footer>
+    {{ partial "site-footer.html" . }}
   </div>
 </body>
 </html>

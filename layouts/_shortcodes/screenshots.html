@@ -1,7 +1,8 @@
-<div class="container">
+<div class="pw-gallery">
 {{ range hugo.Data.screenshots }}
-  <div class="row">
-    <div class="screenshot col-md-offset-1 col-md-10"><a href="shots/{{ .image}}"><img src="thumbs/{{ .image }}"></a><span class="date">{{ .date }}:</span> {{ .desc | safeHTML}}</div>
-  </div>
+  <figure class="pw-gallery-entry">
+    <a href="shots/{{ .image }}"><img src="thumbs/{{ .image }}" alt="Desktop screenshot, {{ .date }}" loading="lazy"></a>
+    <figcaption><span class="date">{{ .date }}:</span> {{ .desc | safeHTML }}</figcaption>
+  </figure>
 {{ end }}
 </div>

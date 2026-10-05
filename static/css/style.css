@@ -1,15 +1,5 @@
 body {
-    text-align: justify;
-}
-
-.white-rounded {
-    border-radius: 6px;
-    background-color: white;
-    color: #444;
-}
-
-.jumbotron {
-    border-radius: 6px;
+    text-align: left;
 }
 
 pre {

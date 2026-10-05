@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
-"""Check generated site behavior and exercise theme templates without overrides."""
+"""Check the standalone site's output, templates, and feed behavior."""
 
 import argparse
+from html import unescape
 from html.parser import HTMLParser
 from pathlib import Path
+import re
+import shutil
 import subprocess
 import tempfile
 from urllib.parse import unquote, urljoin, urlsplit
@@ -98,19 +101,40 @@ def check_site(output):
         asset = attrs.get("src") if tag == "script" else attrs.get("href") if (
             tag == "link" and attrs.get("rel") == "stylesheet") else None
         if asset and asset.startswith("/"):
-            require(local_file(output, asset).is_file(), f"Missing theme asset: {asset}")
+            require(local_file(output, asset).is_file(), f"Missing site asset: {asset}")
 
     check_feeds(output)
     check_discovery(output)
 
     resume = HTML(output / "resume/index.html")
+    require(any(t == "main" and a.get("class") == "resume-sheet"
+                for t, a in resume.elements), "Missing native résumé wrapper")
+    require(any(t == "aside" and a.get("class") == "resume-sidebar"
+                for t, a in resume.elements), "Missing résumé contact sidebar")
+    require(not any(t == "pre" for t, _ in resume.elements),
+            "Résumé HTML must not become an indented Markdown code block")
+    require('mailto:patrick@wagstrom.net' in resume.text and 'fa-envelope' in resume.text,
+            "Missing résumé email address or inline icon")
+    require(any(t == "a" and a.get("class") == "resume-action"
+                and local_file(output, "/resume/" + a.get("href", "")).is_file()
+                for t, a in resume.elements), "Missing résumé download control or PDF")
+    require(any(t == "button" and a.get("onclick") == "window.print();"
+                for t, a in resume.elements), "Missing résumé print control")
+    for _, attrs in resume.elements:
+        require(not any(re.fullmatch(r"row|container|col-(?:xs|sm|md|lg)-.*|btn(?:-.*)?", c)
+                        for c in attrs.get("class", "").split()),
+                "Résumé still uses Bootstrap layout or button classes")
+    for source in (Path(__file__).resolve().parents[1] / "content/resume").glob("*.pdf"):
+        target = output / "resume" / source.name
+        require(target.is_file() and target.read_bytes() == source.read_bytes(),
+                f"Résumé download changed or disappeared: {source.name}")
     for css in ("/resume/resume.css", "/resume/print.css"):
         require(any(t == "link" and a.get("href") == css for t, a in resume.elements),
                 f"Missing resume stylesheet: {css}")
         require(local_file(output, css).is_file(), f"Missing resume asset: {css}")
     require("bibliography-conference" in (output / "publications/index.html").read_text(),
             "Bibliography shortcode did not render")
-    require("screenshot col-md" in (output / "screenshots/index.html").read_text(),
+    require('class="pw-gallery-entry"' in (output / "screenshots/index.html").read_text(),
             "Screenshots shortcode did not render")
     post = output / "weblog/2003/05/23/lpdforfunandmp3playing/index.html"
     require(post.is_file(), "Legacy weblog URL is missing")
@@ -118,17 +142,57 @@ def check_site(output):
             "Legacy comment mapping changed")
     game = (output / "games/amelias-sea-turtle-adventure/index.html").read_text()
     require("/emulator/" in game and "w2-player" in game, "Game player did not render")
+    check_frontend(output)
     check_tutorials(output)
+    check_writing(output)
 
 
-def check_theme(hugo):
+def check_frontend(output):
+    """Historical framework URLs remain available; shared-shell pages must not load them."""
+    for path in output.rglob("*.html"):
+        text = path.read_text()
+        if 'class="pw-site' not in text and 'class="pw-home' not in text:
+            continue
+        page = HTML(path)
+        for tag, attrs in page.elements:
+            asset = attrs.get("src", "") if tag == "script" else attrs.get("href", "") if (
+                tag == "link" and attrs.get("rel") == "stylesheet") else ""
+            require(not re.search(r"css/theme/|bootstrap|jquery", asset, re.I),
+                    f"Shared-shell page loads a retired framework: {path.relative_to(output)}: {asset}")
+
+
+def check_writing(output):
+    archive = HTML(output / "weblog/index.html")
+    links = [a.get("href") for t, a in archive.elements if t == "a"]
+    require("/weblog/recent/" in links, "Recent writing view is missing from the archive")
+    require(any(a.get("id") == "year-2002" for _, a in archive.elements),
+            "The year archive omits the oldest writing")
+    # Every published article must remain discoverable from the archive.
+    for path in (output / "weblog").rglob("index.html"):
+        if 'class="pw-post"' in path.read_text():
+            url = "/" + path.parent.relative_to(output).as_posix() + "/"
+            require(links.count(url) == 1, f"Archive omits or duplicates an article: {url}")
+    for route in ("/weblog/recent/", "/weblog/recent/page/2/", "/weblog/page/2/"):
+        page = HTML(local_file(output, route))
+        summaries = re.findall(r'<article class="pw-entry">.*?<p>(.*?)</p>', page.text, re.S)
+        require(summaries, f"Writing page has no article summaries: {route}")
+        require(all(len(unescape(summary).split()) <= 45 for summary in summaries),
+                f"Writing excerpts are too long: {route}")
+        for tag, attrs in page.elements:
+            if tag == "a" and attrs.get("href", "").startswith("/weblog/"):
+                require(local_file(output, attrs["href"]).is_file(),
+                        f"Broken writing or pagination link: {attrs['href']}")
+
+
+def check_templates(hugo):
+    """Exercise inherited fallback layouts and XML feeds using only local files."""
     repo = Path(__file__).resolve().parents[1]
-    with tempfile.TemporaryDirectory(prefix="hugo-theme-check-") as directory:
+    with tempfile.TemporaryDirectory(prefix="hugo-template-check-") as directory:
         source = Path(directory)
+        for name in ("layouts", "static"):
+            shutil.copytree(repo / name, source / name)
         (source / "hugo.toml").write_text(
             'baseURL = "https://example.org/"\nlocale = "en-US"\n'
-            'theme = "hugo-theme-patrick-custom"\n'
-            f'themesDir = "{repo / "themes"}"\n'
             '[params]\nauthor = "Example Author"\nauthorName = "Example Author"\n'
             'authorEmail = "example@example.org"\n'
         )
@@ -151,23 +215,27 @@ def check_theme(hugo):
         output = source / "public"
         for kind in ("post", "link", "weblog", "page", "other"):
             require((output / kind / "example/index.html").is_file(),
-                    f"Theme failed to render {kind} without site overrides")
-        home = (output / "index.html").read_text()
-        for title in ("Example post", "Example link", "Example weblog"):
-            require(title in home, f"Theme homepage omitted {title}")
-        require('href="/page/2/"' in home and (output / "page/2/index.html").is_file(),
-                "Theme homepage pagination failed")
-        require('href="https://example.org/post/menu/"' not in home,
-                "Menu-only page appeared in theme post list")
+                    f"Local templates failed to render {kind}")
+        post_list = (output / "post/index.html").read_text()
+        require("Example post" in post_list and 'href="https://example.org/post/menu/"' not in post_list,
+                "Fallback list must include posts and exclude menu-only pages")
+        require('url=https://example.org/target/' in (output / "link/example/index.html").read_text(),
+                "Link redirect template changed")
+        for kind in ("post", "page", "other"):
+            require("Example content." in (output / kind / "example/index.html").read_text(),
+                    f"Local {kind} layout lost page content")
+        weblog = (output / "weblog/index.html").read_text()
+        require("Example weblog" in weblog, "Weblog archive omitted its post")
         channel = ET.parse(output / "index.xml").find("channel")
         titles = [item.findtext("title") for item in channel.findall("item")]
-        require(len(titles) == 15 and "Menu only" not in titles, "Theme feed filtering failed")
+        require(len(titles) == 15 and "Menu only" not in titles, "Fallback feed filtering failed")
         require("Example weblog" in titles and "Linklog: Example link" in titles,
-                "Theme feed omitted weblog or link content")
+                "Fallback feed omitted weblog or link content")
         for path in output.rglob("*.xml"):
             ET.parse(path)
         require(ET.parse(output / "tags/index.xml").findall("./channel/item"),
-                "Theme taxonomy feed is empty")
+                "Fallback taxonomy feed is empty")
+        check_frontend(output)
 
 
 if __name__ == "__main__":
@@ -183,6 +251,6 @@ if __name__ == "__main__":
             subprocess.run([args.hugo, "--source", str(repo), "--destination", directory,
                             "--panicOnWarning"], check=True)
             check_site(Path(directory))
-    check_theme(args.hugo)
+    check_templates(args.hugo)
     check_feed_regressions(args.hugo)
-    print("Hugo site, feed regressions, and standalone theme checks passed.")
+    print("Standalone Hugo site, template fixtures, and feed regressions passed.")

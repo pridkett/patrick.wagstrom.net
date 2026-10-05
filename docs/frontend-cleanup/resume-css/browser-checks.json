@@ -1,0 +1,580 @@
+{
+  "report": [
+    {
+      "route": "/resume/",
+      "width": 1440,
+      "colorScheme": "light",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/resume/resume.css",
+        "http://127.0.0.1:13139/resume/print.css"
+      ]
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "colorScheme": "light",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/css/home.css"
+      ]
+    },
+    {
+      "route": "/publications/",
+      "width": 1440,
+      "colorScheme": "light",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/publications/bibliography.css",
+        "http://127.0.0.1:13139/publications/print.css"
+      ]
+    },
+    {
+      "route": "/research/",
+      "width": 1440,
+      "colorScheme": "light",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css"
+      ]
+    },
+    {
+      "route": "/screenshots/",
+      "width": 1440,
+      "colorScheme": "light",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/screenshots/screenshots.css"
+      ]
+    },
+    {
+      "route": "/tutorials/",
+      "width": 1440,
+      "colorScheme": "light",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css"
+      ]
+    },
+    {
+      "route": "/tutorials/pygtkmozembed/",
+      "width": 1440,
+      "colorScheme": "light",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css"
+      ]
+    },
+    {
+      "route": "/weblog/",
+      "width": 1440,
+      "colorScheme": "light",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/css/weblog.css"
+      ]
+    },
+    {
+      "route": "/weblog/recent/page/2/",
+      "width": 1440,
+      "colorScheme": "light",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/css/weblog.css"
+      ]
+    },
+    {
+      "route": "/weblog/2003/05/23/lpdforfunandmp3playing/",
+      "width": 1440,
+      "colorScheme": "light",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/css/weblog.css"
+      ]
+    },
+    {
+      "route": "/games/",
+      "width": 1440,
+      "colorScheme": "light",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/games/games.min.949081b4fca3c6a4fb6c82a1e52709625f2b208f4621ae8aa33d4f720e4a194a.css"
+      ]
+    },
+    {
+      "route": "/games/amelias-sea-turtle-adventure/",
+      "width": 1440,
+      "colorScheme": "light",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/games/games.min.949081b4fca3c6a4fb6c82a1e52709625f2b208f4621ae8aa33d4f720e4a194a.css"
+      ]
+    },
+    {
+      "route": "/resume/",
+      "width": 1440,
+      "colorScheme": "dark",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/resume/resume.css",
+        "http://127.0.0.1:13139/resume/print.css"
+      ]
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "colorScheme": "dark",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/css/home.css"
+      ]
+    },
+    {
+      "route": "/publications/",
+      "width": 1440,
+      "colorScheme": "dark",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/publications/bibliography.css",
+        "http://127.0.0.1:13139/publications/print.css"
+      ]
+    },
+    {
+      "route": "/research/",
+      "width": 1440,
+      "colorScheme": "dark",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css"
+      ]
+    },
+    {
+      "route": "/screenshots/",
+      "width": 1440,
+      "colorScheme": "dark",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/screenshots/screenshots.css"
+      ]
+    },
+    {
+      "route": "/tutorials/",
+      "width": 1440,
+      "colorScheme": "dark",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css"
+      ]
+    },
+    {
+      "route": "/tutorials/pygtkmozembed/",
+      "width": 1440,
+      "colorScheme": "dark",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css"
+      ]
+    },
+    {
+      "route": "/weblog/",
+      "width": 1440,
+      "colorScheme": "dark",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/css/weblog.css"
+      ]
+    },
+    {
+      "route": "/weblog/recent/page/2/",
+      "width": 1440,
+      "colorScheme": "dark",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/css/weblog.css"
+      ]
+    },
+    {
+      "route": "/weblog/2003/05/23/lpdforfunandmp3playing/",
+      "width": 1440,
+      "colorScheme": "dark",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/css/weblog.css"
+      ]
+    },
+    {
+      "route": "/games/",
+      "width": 1440,
+      "colorScheme": "dark",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/games/games.min.949081b4fca3c6a4fb6c82a1e52709625f2b208f4621ae8aa33d4f720e4a194a.css"
+      ]
+    },
+    {
+      "route": "/games/amelias-sea-turtle-adventure/",
+      "width": 1440,
+      "colorScheme": "dark",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/games/games.min.949081b4fca3c6a4fb6c82a1e52709625f2b208f4621ae8aa33d4f720e4a194a.css"
+      ]
+    },
+    {
+      "route": "/resume/",
+      "width": 390,
+      "colorScheme": "light",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/resume/resume.css",
+        "http://127.0.0.1:13139/resume/print.css"
+      ]
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "colorScheme": "light",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/css/home.css"
+      ]
+    },
+    {
+      "route": "/publications/",
+      "width": 390,
+      "colorScheme": "light",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/publications/bibliography.css",
+        "http://127.0.0.1:13139/publications/print.css"
+      ]
+    },
+    {
+      "route": "/research/",
+      "width": 390,
+      "colorScheme": "light",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css"
+      ]
+    },
+    {
+      "route": "/screenshots/",
+      "width": 390,
+      "colorScheme": "light",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/screenshots/screenshots.css"
+      ]
+    },
+    {
+      "route": "/tutorials/",
+      "width": 390,
+      "colorScheme": "light",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css"
+      ]
+    },
+    {
+      "route": "/tutorials/pygtkmozembed/",
+      "width": 390,
+      "colorScheme": "light",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css"
+      ]
+    },
+    {
+      "route": "/weblog/",
+      "width": 390,
+      "colorScheme": "light",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/css/weblog.css"
+      ]
+    },
+    {
+      "route": "/weblog/recent/page/2/",
+      "width": 390,
+      "colorScheme": "light",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/css/weblog.css"
+      ]
+    },
+    {
+      "route": "/weblog/2003/05/23/lpdforfunandmp3playing/",
+      "width": 390,
+      "colorScheme": "light",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/css/weblog.css"
+      ]
+    },
+    {
+      "route": "/games/",
+      "width": 390,
+      "colorScheme": "light",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/games/games.min.949081b4fca3c6a4fb6c82a1e52709625f2b208f4621ae8aa33d4f720e4a194a.css"
+      ]
+    },
+    {
+      "route": "/games/amelias-sea-turtle-adventure/",
+      "width": 390,
+      "colorScheme": "light",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/games/games.min.949081b4fca3c6a4fb6c82a1e52709625f2b208f4621ae8aa33d4f720e4a194a.css"
+      ]
+    },
+    {
+      "route": "/resume/",
+      "width": 390,
+      "colorScheme": "dark",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/resume/resume.css",
+        "http://127.0.0.1:13139/resume/print.css"
+      ]
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "colorScheme": "dark",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/css/home.css"
+      ]
+    },
+    {
+      "route": "/publications/",
+      "width": 390,
+      "colorScheme": "dark",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/publications/bibliography.css",
+        "http://127.0.0.1:13139/publications/print.css"
+      ]
+    },
+    {
+      "route": "/research/",
+      "width": 390,
+      "colorScheme": "dark",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css"
+      ]
+    },
+    {
+      "route": "/screenshots/",
+      "width": 390,
+      "colorScheme": "dark",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/screenshots/screenshots.css"
+      ]
+    },
+    {
+      "route": "/tutorials/",
+      "width": 390,
+      "colorScheme": "dark",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css"
+      ]
+    },
+    {
+      "route": "/tutorials/pygtkmozembed/",
+      "width": 390,
+      "colorScheme": "dark",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css"
+      ]
+    },
+    {
+      "route": "/weblog/",
+      "width": 390,
+      "colorScheme": "dark",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/css/weblog.css"
+      ]
+    },
+    {
+      "route": "/weblog/recent/page/2/",
+      "width": 390,
+      "colorScheme": "dark",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/css/weblog.css"
+      ]
+    },
+    {
+      "route": "/weblog/2003/05/23/lpdforfunandmp3playing/",
+      "width": 390,
+      "colorScheme": "dark",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/css/weblog.css"
+      ]
+    },
+    {
+      "route": "/games/",
+      "width": 390,
+      "colorScheme": "dark",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/games/games.min.949081b4fca3c6a4fb6c82a1e52709625f2b208f4621ae8aa33d4f720e4a194a.css"
+      ]
+    },
+    {
+      "route": "/games/amelias-sea-turtle-adventure/",
+      "width": 390,
+      "colorScheme": "dark",
+      "overflow": false,
+      "styles": [
+        "http://127.0.0.1:13139/css/font-awesome.min.css",
+        "http://127.0.0.1:13139/css/style.css",
+        "http://127.0.0.1:13139/css/site.css",
+        "http://127.0.0.1:13139/games/games.min.949081b4fca3c6a4fb6c82a1e52709625f2b208f4621ae8aa33d4f720e4a194a.css"
+      ]
+    }
+  ],
+  "print": {
+    "font": "15.7333px",
+    "line": "19.352px",
+    "margin": "48px",
+    "ligatures": "none",
+    "hidden": true,
+    "iconsHidden": true,
+    "layout": "block"
+  },
+  "phoneToggle": true,
+  "errors": [],
+  "frameworkRequests": []
+}

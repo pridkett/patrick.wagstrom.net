@@ -1,0 +1,4 @@
+<li class="pw-list-entry">
+  <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+  {{ if not .Date.IsZero }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format (.Site.Params.strings.date_format | default "Mon, Jan 2, 2006") }}</time>{{ end }}
+</li>

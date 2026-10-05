@@ -1,5 +1,6 @@
 ---
 title: "Powerwalls and Eversource Battery Demand Response - How Much Did I Make in 2022?"
+summary: "What Eversource’s battery demand response program paid for my Powerwalls in 2022, how the program works, and what participating means for homeowners in Connecticut."
 slug: powerwall-and-battery-demand-response
 date: 2023-06-23T08:00:00-04:00
 tags:

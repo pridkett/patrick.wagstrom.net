@@ -1,36 +1,26 @@
 {{ partial "header.html" . }}
-    <div class="container white-rounded">
-        <section id="main">
-        <div class="row">
-            <div class="text-center">
-                <h3>
-                    {{ if .Site.Params.strings.posts_list_header }}
-                        {{ .Site.Params.strings.posts_list_header }}
-                    {{ else }}
-                        Posts
-                    {{ end }}</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-offset-1 col-md-10">
-                {{ range .Paginator.Pages }}
-                    {{ if ne .Params.menu "main" }}
-                        {{ partial "post-snippet.html" . }}
-                    {{ end }}
-                {{ end }}
-            </div>
-        </div>
-        </section>
-        <div class="row">
-            <hr>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="text-center">
-                    {{ partial "pagination.html" . }}
-                </div>
-            </div>
-        </div>
-    </div>
-
+{{/* Keep the original /weblog/page/N/ routes available for inbound links. */}}
+{{ $pages := .RegularPagesRecursive.ByDate.Reverse }}
+{{ $paginator := .Paginate $pages }}
+<main class="pw-writing">
+  {{ partial "weblog-heading.html" (dict "Site" .Site "archive" (eq $paginator.PageNumber 1)) }}
+  {{ if eq $paginator.PageNumber 1 }}
+    {{ range $pages.GroupByDate "2006" }}
+    <section class="pw-year" aria-labelledby="year-{{ .Key }}">
+      <h2 id="year-{{ .Key }}">{{ .Key }}</h2>
+      <div class="pw-year-posts">
+        {{ range .Pages }}
+        <article class="pw-archive-entry">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2" }}</time>
+          <h3><a href="{{ .RelPermalink }}">{{ .Title | htmlUnescape }}</a></h3>
+        </article>
+        {{ end }}
+      </div>
+    </section>
+    {{ end }}
+  {{ else }}
+    {{ range $paginator.Pages }}{{ partial "post-snippet.html" . }}{{ end }}
+    <nav class="pw-pagination" aria-label="Writing pages">{{ partial "pagination.html" . }}</nav>
+  {{ end }}
+</main>
 {{ partial "footer.html" . }}

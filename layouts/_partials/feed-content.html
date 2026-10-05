@@ -1,0 +1,49 @@
+{{- $page := . -}}
+{{- $content := string .Content -}}
+{{/* Readers strip styles and scripts. Keep code readable without either. */}}
+{{- $content = replaceRE `(?is)<(script|style)\b[^>]*>.*?</(?:script|style)\s*>` "" $content -}}
+{{- $content = replaceRE `(?i)\s+(?:style|on[a-z]+)\s*=\s*(?:"[^"]*"|'[^']*')` "" $content -}}
+{{/* Replace embeds with accessible links rather than depending on a whitelist. */}}
+{{- range findRE `(?is)<iframe\b[^>]*>.*?</iframe\s*>` $content -}}
+  {{- $embed := . -}}
+  {{- $replacement := "" -}}
+  {{- with findRE `(?i)\ssrc\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)` $embed 1 -}}
+    {{- $url := replaceRE `(?is)^.*?=\s*` "" (index . 0) -}}
+    {{- $url = strings.TrimPrefix "\"" $url | strings.TrimSuffix "\"" | strings.TrimPrefix "'" | strings.TrimSuffix "'" -}}
+    {{- $url = partial "feed-url.html" (dict "page" $page "url" $url) -}}
+    {{- $replacement = printf `<a href="%s">View embedded media</a>` ($url | htmlEscape) -}}
+  {{- end -}}
+  {{- $content = replace $content $embed $replacement -}}
+{{- end -}}
+{{/* Resolve root paths, post-relative paths, fragments, and // hosts correctly. */}}
+{{/* Work only inside real tags so HTML examples in code blocks stay verbatim. */}}
+{{- range findRE `(?s)<[a-zA-Z](?:[^>"']|"[^"]*"|'[^']*')*>` $content -}}
+{{- $original := . -}}
+{{- $tag := . -}}
+{{- range findRE `(?i)\s(?:href|src|poster)\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)` $tag -}}
+  {{- $attribute := . -}}
+  {{- $name := replaceRE `(?is)^\s*([a-z]+).*` "$1" $attribute -}}
+  {{- $url := replaceRE `(?is)^.*?=\s*` "" $attribute -}}
+  {{- $url = strings.TrimPrefix "\"" $url | strings.TrimSuffix "\"" | strings.TrimPrefix "'" | strings.TrimSuffix "'" -}}
+  {{- $url = partial "feed-url.html" (dict "page" $page "url" $url) -}}
+  {{- $tag = replace $tag $attribute (printf ` %s="%s"` $name ($url | htmlEscape)) -}}
+{{- end -}}
+{{/* Each srcset candidate has its own URL, optionally followed by a descriptor. */}}
+{{- range findRE `(?i)\ssrcset\s*=\s*(?:"[^"]*"|'[^']*')` $tag -}}
+  {{- $attribute := . -}}
+  {{- $value := replaceRE `(?is)^.*?=\s*["'](.*)["']$` "$1" $attribute -}}
+  {{- $candidates := slice -}}
+  {{- range split $value "," -}}
+    {{- $candidate := trim . " \t\r\n" -}}
+    {{- if $candidate -}}
+      {{- $url := index (findRE `^\S+` $candidate) 0 -}}
+      {{- $descriptor := strings.TrimPrefix $url $candidate -}}
+      {{- $url = partial "feed-url.html" (dict "page" $page "url" $url) -}}
+      {{- $candidates = $candidates | append (printf "%s%s" $url $descriptor) -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $tag = replace $tag $attribute (printf ` srcset="%s"` (delimit $candidates ", " | htmlEscape)) -}}
+{{- end -}}
+{{- $content = replace $content $original $tag -}}
+{{- end -}}
+{{- return $content -}}

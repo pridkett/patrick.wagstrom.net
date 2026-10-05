@@ -138,7 +138,7 @@ def check_feeds(output, count=15, local_links=True):
 
 
 def check_discovery(output):
-    # Standalone handwritten mail/walking/archive HTML intentionally bypasses the theme.
+    # Standalone handwritten mail/walking/archive HTML intentionally bypasses the shared shell.
     for name in ("index.html", "weblog/index.html", "weblog/page/2/index.html",
                  "weblog/2003/05/23/lpdforfunandmp3playing/index.html", "resume/index.html",
                  "tags/index.html", "tags/firewall/index.html", "games/index.html"):
@@ -170,8 +170,7 @@ def check_feed_regressions(hugo):
     with tempfile.TemporaryDirectory(prefix="hugo-feed-regressions-") as directory:
         source = Path(directory)
         shutil.copyfile(repo / "config.yaml", source / "config.yaml")
-        for name in ("layouts", "themes"):
-            (source / name).symlink_to(repo / name, target_is_directory=True)
+        (source / "layouts").symlink_to(repo / "layouts", target_is_directory=True)
         weblog = source / "content/weblog"
         weblog.mkdir(parents=True)
         shutil.copyfile(repo / "content/weblog/_index.md", weblog / "_index.md")

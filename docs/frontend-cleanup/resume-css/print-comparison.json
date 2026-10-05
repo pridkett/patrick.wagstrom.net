@@ -1,0 +1,49 @@
+{
+  "pages": [
+    {
+      "page": 1,
+      "dimensions": [
+        928,
+        1200
+      ],
+      "differenceBoundingBox": [
+        71,
+        78,
+        855,
+        1164
+      ]
+    },
+    {
+      "page": 2,
+      "dimensions": [
+        928,
+        1200
+      ],
+      "differenceBoundingBox": [
+        71,
+        32,
+        839,
+        1176
+      ]
+    },
+    {
+      "page": 3,
+      "dimensions": [
+        928,
+        1200
+      ],
+      "differenceBoundingBox": [
+        356,
+        115,
+        706,
+        200
+      ]
+    }
+  ],
+  "textUnchanged": true,
+  "wordCounts": [
+    445,
+    471,
+    47
+  ]
+}

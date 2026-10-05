@@ -1,0 +1,10 @@
+{{/* An empty feed still needs a valid, reproducible Atom timestamp. */}}
+{{- $updated := time.AsTime "1970-01-01T00:00:00Z" -}}
+{{- $pages := partial "feed-pages.html" . -}}
+{{- if $pages -}}
+  {{- $updated = (index $pages 0).Lastmod -}}
+  {{- range $pages -}}
+    {{- if .Lastmod.After $updated -}}{{- $updated = .Lastmod -}}{{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $updated -}}

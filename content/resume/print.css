@@ -1,146 +1,53 @@
+/* Print only the résumé, retaining its compact scanner-friendly typography. */
 @media print {
-
-/* disable ligatures for printing - this messes up some resume scanners */
-* {
-  font-variant-ligatures: none;
-  -webkit-font-feature-settings: "liga" 0, "clig" 0, "dlig" 0;
-  font-feature-settings: "liga" 0, "clig" 0, "dlig" 0;
-}
-    
-/* hide various elements for printing */
-.no-print, .no-print *
-{
-    display: none !important;
-}
-
-footer {
-    display: none !important;
-}
-
-.page-title {
-    display: none !important;
-}
-
-body {
+  .pw-site.pw-resume {
+    color-scheme: light;
+    background: white;
+    color: black;
     font-size: 11.8pt;
     line-height: 1.23;
-    margin-top: 0.5in;
-    margin-right: 0.5in;
-    margin-left: 0.5in;
-    margin-bottom: 0.5in;
-}
-
-/* undo boostrap's habit of dumping the URL after a link in print */
-a[href]:after {
-    content: none;
-}
-
-/* make the top tighter */
-.name-header h3 {
-    margin-top: -0.2in;
-    margin-bottom: 0px;
-}
-
-.name-header h4 {
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
-
-
-/* .name-header, .name-header h3, .name-header h4{ */
-/*     margin-top: 0in; */
-/*     margin-bottom: 0px; */
-/* } */
-
-.name-header h3 {
+    margin: .5in;
+  }
+  .pw-resume *, .pw-resume *::before, .pw-resume *::after {
+    color: black !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    font-variant-ligatures: none;
+    font-feature-settings: "liga" 0, "clig" 0, "dlig" 0;
+  }
+  .pw-resume .pw-top, .pw-resume .pw-footer, .pw-resume .pw-skip,
+  .pw-resume .no-print { display: none !important; }
+  .pw-resume .pw-page { max-width: none; padding: 0; }
+  .pw-resume .resume-sheet { margin: 0; padding: 0 15px; }
+  .pw-resume .resume-layout { display: block; }
+  .pw-resume .resume-section { display: flow-root; }
+  .pw-resume .resume-identity { display: flow-root; }
+  .pw-resume a[href]::after { content: none; }
+  .pw-resume p, .pw-resume h1, .pw-resume h2 { orphans: 3; widows: 3; }
+  .pw-resume .resume-identity h1 {
+    margin: -.2in 0 0;
+    font-size: 26px;
     font-weight: bold;
-}
-
-h3.heading {
-    margin-top: 0.25ex;
-    margin-bottom: 0px;
-    padding-top: 0.25rem;
+  }
+  .pw-resume .resume-role { margin: 0; font-size: 19px; }
+  .pw-resume .resume-heading {
+    margin: .25ex 0 0;
+    padding-top: .25rem;
     border-top: 1px solid black;
     font-size: 120%;
-}
-
-h3.heading.extra-padding {
-    margin-top: 2ex;
-}
-
-/* re-style the info links on the sidebar */
-ul.info-links {
-    text-align: left;
-    padding-left: 0px;
-}
-
-ul.info-links li {
-    display: inline;
-}
-
-ul.info-links i {
-    display: none !important;
-}
-
-ul.info-links li:not(:last-child):after {
-    content: ", ";
-}
-
-span.job-employer::after {
-    content: " — ";
-    display: inline;
-    font-weight: normal;
-}
-
-span.job-location {
-    font-weight: normal;
-}
-
-span.job-title {
-    display: inline;
-}
-
-span.job-title::before {
-    content: "";
-    display: block;
-}
-
-span.job-title::after {
-    content: ", ";
-    font-weight: normal;
-}
-
-span.job-dates {
-    display: inline;
-}
-
-/* span.job-dates:has(+ span)::after { */
-/*     content: ", "; */
-/* } */
-
-/* span.job-hours { */
-/*     display: inline; */
-/* } */
-
-/* span.job-hours::after { */
-/*     content: ""; */
-/*     display: block; */
-/* } */
-
-/* span.job-dates:not(:has(+ span.job-hours))::after { */
-/*     content: ""; */
-/*     display: block; */
-/* } */
-
-span.job-dates::after {
-    content: "";
-    display: block;
-}
-
-@media print {
-  orphans: 4;
-  widows: 2;
-} 
-
+    break-after: avoid;
+  }
+  .pw-resume .resume-heading.extra-padding { margin-top: 2ex; }
+  .pw-resume .resume-sheet .info-links { text-align: left; padding-left: 0; font-size: inherit; }
+  .pw-resume .info-links li, .pw-resume .info-links a { display: inline; white-space: normal; }
+  .pw-resume .info-links i { display: none !important; }
+  .pw-resume .info-links li:not(:last-child)::after { content: ", "; }
+  .pw-resume .job-employer::after { content: " — "; display: inline; font-weight: normal; }
+  .pw-resume .job-location { font-weight: normal; }
+  .pw-resume .job-title { display: inline; }
+  .pw-resume .job-title::before { content: ""; display: block; }
+  .pw-resume .job-title::after { content: ", "; font-weight: normal; }
+  .pw-resume .job-dates { display: inline; }
+  .pw-resume .job-dates::after { content: ""; display: block; }
 }

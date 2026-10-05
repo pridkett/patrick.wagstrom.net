@@ -1,0 +1,7 @@
+{{- $page := . -}}
+{{- if .Site.Params.canonicalFeeds -}}{{- $page = .Site.Home -}}{{- end -}}
+{{- $links := slice -}}
+{{- range slice "RSS" "Atom" -}}
+  {{- with $page.OutputFormats.Get . -}}{{- $links = $links | append . -}}{{- end -}}
+{{- end -}}
+{{- return $links -}}

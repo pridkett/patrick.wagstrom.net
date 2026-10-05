@@ -1,0 +1,2334 @@
+[
+  {
+    "name": "home",
+    "path": "/",
+    "size": "desktop",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 1469,
+    "styles": [
+      "/css/site.css",
+      "/css/home.css"
+    ],
+    "headings": [
+      {
+        "text": "Patrick Wagstrom",
+        "margin": "0px 0px 27px",
+        "font": "68px"
+      },
+      {
+        "text": "The work",
+        "margin": "0px 0px 19px",
+        "font": "29px"
+      },
+      {
+        "text": "A few rabbit holes",
+        "margin": "0px 0px 19px",
+        "font": "29px"
+      },
+      {
+        "text": "I watched football. Then I measured the bitrate.",
+        "margin": "0px 0px 8px",
+        "font": "22px"
+      },
+      {
+        "text": "An unreasonable amount of attention to terminal colors",
+        "margin": "0px 0px 8px",
+        "font": "22px"
+      }
+    ],
+    "contentWidth": 1004,
+    "buttons": []
+  },
+  {
+    "name": "research",
+    "path": "/research/",
+    "size": "desktop",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 2196,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "Research",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Patrick Wagstrom’s Research Projects",
+        "margin": "21px 0px 10.5px",
+        "font": "39px"
+      },
+      {
+        "text": "Technical Debt",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "Software Ecosystems",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "Software Organizations",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "publications",
+    "path": "/publications/",
+    "size": "desktop",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 2880,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "bibliography.css",
+      "print.css"
+    ],
+    "headings": [
+      {
+        "text": "Publications",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Journal Papers",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "Conference Papers",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "Workshop Papers",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "Book Chapters",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "screenshots",
+    "path": "/screenshots/",
+    "size": "desktop",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 7982,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "screenshots.css"
+    ],
+    "headings": [
+      {
+        "text": "Screenshots",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "tutorials",
+    "path": "/tutorials/",
+    "size": "desktop",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 1000,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "Tutorials",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "contentWidth": 1004,
+    "buttons": []
+  },
+  {
+    "name": "tutorial",
+    "path": "/tutorials/pygtkmozembed/",
+    "size": "desktop",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 8043,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "Creating a GNOME Web Browser with Python",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Overview",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "1.  Introduction",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "2.  Starting with Glade",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "3.  Python Code",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "taxonomy",
+    "path": "/categories/",
+    "size": "desktop",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 1000,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "\n\t\t\t\t\n\t\t\t\t\tPosts\n\t\t\t\t",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "games",
+    "path": "/games/",
+    "size": "desktop",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 1000,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/games/games.min.5a1412cf6fa80d07343215c8dbba9ff85de3732596a0202bc01c734361603394.css"
+    ],
+    "headings": [
+      {
+        "text": "Games",
+        "margin": "0px 0px 16px",
+        "font": "36px"
+      },
+      {
+        "text": "Ski Boat Driver",
+        "margin": "10px 0px 14px",
+        "font": "25px"
+      },
+      {
+        "text": "Amelia's Sea Turtle Adventure",
+        "margin": "10px 0px 14px",
+        "font": "25px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "contentWidth": 1004,
+    "buttons": []
+  },
+  {
+    "name": "writing",
+    "path": "/weblog/",
+    "size": "desktop",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 32674,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/css/weblog.css"
+    ],
+    "headings": [
+      {
+        "text": "Writing",
+        "margin": "0px 0px 20px",
+        "font": "56px"
+      },
+      {
+        "text": "2025",
+        "margin": "0px",
+        "font": "23px"
+      },
+      {
+        "text": "A Fix for Unifi Controllers Not Taking Your Firewall Rules",
+        "margin": "5px 0px 0px",
+        "font": "21px"
+      },
+      {
+        "text": "2024",
+        "margin": "0px",
+        "font": "23px"
+      },
+      {
+        "text": "Synchronizing Prompt, Terminal Emulator, and Tmux Colors",
+        "margin": "5px 0px 0px",
+        "font": "21px"
+      }
+    ],
+    "contentWidth": 760,
+    "buttons": []
+  },
+  {
+    "name": "recent",
+    "path": "/weblog/recent/",
+    "size": "desktop",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 2662,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/css/weblog.css"
+    ],
+    "headings": [
+      {
+        "text": "Writing",
+        "margin": "0px 0px 20px",
+        "font": "56px"
+      },
+      {
+        "text": "A Fix for Unifi Controllers Not Taking Your Firewall Rules",
+        "margin": "8px 0px 12px",
+        "font": "27px"
+      },
+      {
+        "text": "Synchronizing Prompt, Terminal Emulator, and Tmux Colors",
+        "margin": "8px 0px 12px",
+        "font": "27px"
+      },
+      {
+        "text": "Powerwalls and Eversource Battery Demand Response - How Much Did I Make in 2022?",
+        "margin": "8px 0px 12px",
+        "font": "27px"
+      },
+      {
+        "text": "Amazon Thursday Night Football - A Bandwidth Story",
+        "margin": "8px 0px 12px",
+        "font": "27px"
+      }
+    ],
+    "contentWidth": 760,
+    "buttons": []
+  },
+  {
+    "name": "vpn",
+    "path": "/weblog/2003/11/08/vpn/",
+    "size": "desktop",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 4403,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/css/weblog.css"
+    ],
+    "headings": [
+      {
+        "text": "Connecting to CMU's VPN in Linux",
+        "margin": "0px 0px 22px",
+        "font": "46px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "contentWidth": 900,
+    "buttons": []
+  },
+  {
+    "name": "photos",
+    "path": "/weblog/2005/08/26/tvlicenses/",
+    "size": "desktop",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 3952,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/css/weblog.css"
+    ],
+    "headings": [
+      {
+        "text": "My Parents' TV Runs Linux",
+        "margin": "0px 0px 22px",
+        "font": "46px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "contentWidth": 900,
+    "buttons": []
+  },
+  {
+    "name": "table",
+    "path": "/weblog/2006/08/08/mythtv-power-consumption/",
+    "size": "desktop",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 3177,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/css/weblog.css"
+    ],
+    "headings": [
+      {
+        "text": "Measuring Power Consumption in MythTV",
+        "margin": "0px 0px 22px",
+        "font": "46px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "contentWidth": 900,
+    "buttons": []
+  },
+  {
+    "name": "resume",
+    "path": "/resume/",
+    "size": "desktop",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 3857,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/resume/resume.css",
+      "/resume/print.css"
+    ],
+    "headings": [
+      {
+        "text": "Patrick Wagstrom",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Professional Experience",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Education",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "home",
+    "path": "/",
+    "size": "desktop",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 1469,
+    "styles": [
+      "/css/site.css",
+      "/css/home.css"
+    ],
+    "headings": [
+      {
+        "text": "Patrick Wagstrom",
+        "margin": "0px 0px 27px",
+        "font": "68px"
+      },
+      {
+        "text": "The work",
+        "margin": "0px 0px 19px",
+        "font": "29px"
+      },
+      {
+        "text": "A few rabbit holes",
+        "margin": "0px 0px 19px",
+        "font": "29px"
+      },
+      {
+        "text": "I watched football. Then I measured the bitrate.",
+        "margin": "0px 0px 8px",
+        "font": "22px"
+      },
+      {
+        "text": "An unreasonable amount of attention to terminal colors",
+        "margin": "0px 0px 8px",
+        "font": "22px"
+      }
+    ],
+    "contentWidth": 1004,
+    "buttons": []
+  },
+  {
+    "name": "research",
+    "path": "/research/",
+    "size": "desktop",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 2196,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "Research",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Patrick Wagstrom’s Research Projects",
+        "margin": "21px 0px 10.5px",
+        "font": "39px"
+      },
+      {
+        "text": "Technical Debt",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "Software Ecosystems",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "Software Organizations",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "publications",
+    "path": "/publications/",
+    "size": "desktop",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 2880,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "bibliography.css",
+      "print.css"
+    ],
+    "headings": [
+      {
+        "text": "Publications",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Journal Papers",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "Conference Papers",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "Workshop Papers",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "Book Chapters",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "screenshots",
+    "path": "/screenshots/",
+    "size": "desktop",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 7982,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "screenshots.css"
+    ],
+    "headings": [
+      {
+        "text": "Screenshots",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "tutorials",
+    "path": "/tutorials/",
+    "size": "desktop",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 1000,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "Tutorials",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "contentWidth": 1004,
+    "buttons": []
+  },
+  {
+    "name": "tutorial",
+    "path": "/tutorials/pygtkmozembed/",
+    "size": "desktop",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 8043,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "Creating a GNOME Web Browser with Python",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Overview",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "1.  Introduction",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "2.  Starting with Glade",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "3.  Python Code",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "taxonomy",
+    "path": "/categories/",
+    "size": "desktop",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 1000,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "\n\t\t\t\t\n\t\t\t\t\tPosts\n\t\t\t\t",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "games",
+    "path": "/games/",
+    "size": "desktop",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 1000,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/games/games.min.5a1412cf6fa80d07343215c8dbba9ff85de3732596a0202bc01c734361603394.css"
+    ],
+    "headings": [
+      {
+        "text": "Games",
+        "margin": "0px 0px 16px",
+        "font": "36px"
+      },
+      {
+        "text": "Ski Boat Driver",
+        "margin": "10px 0px 14px",
+        "font": "25px"
+      },
+      {
+        "text": "Amelia's Sea Turtle Adventure",
+        "margin": "10px 0px 14px",
+        "font": "25px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "contentWidth": 1004,
+    "buttons": []
+  },
+  {
+    "name": "writing",
+    "path": "/weblog/",
+    "size": "desktop",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 32674,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/css/weblog.css"
+    ],
+    "headings": [
+      {
+        "text": "Writing",
+        "margin": "0px 0px 20px",
+        "font": "56px"
+      },
+      {
+        "text": "2025",
+        "margin": "0px",
+        "font": "23px"
+      },
+      {
+        "text": "A Fix for Unifi Controllers Not Taking Your Firewall Rules",
+        "margin": "5px 0px 0px",
+        "font": "21px"
+      },
+      {
+        "text": "2024",
+        "margin": "0px",
+        "font": "23px"
+      },
+      {
+        "text": "Synchronizing Prompt, Terminal Emulator, and Tmux Colors",
+        "margin": "5px 0px 0px",
+        "font": "21px"
+      }
+    ],
+    "contentWidth": 760,
+    "buttons": []
+  },
+  {
+    "name": "recent",
+    "path": "/weblog/recent/",
+    "size": "desktop",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 2662,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/css/weblog.css"
+    ],
+    "headings": [
+      {
+        "text": "Writing",
+        "margin": "0px 0px 20px",
+        "font": "56px"
+      },
+      {
+        "text": "A Fix for Unifi Controllers Not Taking Your Firewall Rules",
+        "margin": "8px 0px 12px",
+        "font": "27px"
+      },
+      {
+        "text": "Synchronizing Prompt, Terminal Emulator, and Tmux Colors",
+        "margin": "8px 0px 12px",
+        "font": "27px"
+      },
+      {
+        "text": "Powerwalls and Eversource Battery Demand Response - How Much Did I Make in 2022?",
+        "margin": "8px 0px 12px",
+        "font": "27px"
+      },
+      {
+        "text": "Amazon Thursday Night Football - A Bandwidth Story",
+        "margin": "8px 0px 12px",
+        "font": "27px"
+      }
+    ],
+    "contentWidth": 760,
+    "buttons": []
+  },
+  {
+    "name": "vpn",
+    "path": "/weblog/2003/11/08/vpn/",
+    "size": "desktop",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 4403,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/css/weblog.css"
+    ],
+    "headings": [
+      {
+        "text": "Connecting to CMU's VPN in Linux",
+        "margin": "0px 0px 22px",
+        "font": "46px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "contentWidth": 900,
+    "buttons": []
+  },
+  {
+    "name": "photos",
+    "path": "/weblog/2005/08/26/tvlicenses/",
+    "size": "desktop",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 3952,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/css/weblog.css"
+    ],
+    "headings": [
+      {
+        "text": "My Parents' TV Runs Linux",
+        "margin": "0px 0px 22px",
+        "font": "46px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "contentWidth": 900,
+    "buttons": []
+  },
+  {
+    "name": "table",
+    "path": "/weblog/2006/08/08/mythtv-power-consumption/",
+    "size": "desktop",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 3177,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/css/weblog.css"
+    ],
+    "headings": [
+      {
+        "text": "Measuring Power Consumption in MythTV",
+        "margin": "0px 0px 22px",
+        "font": "46px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "contentWidth": 900,
+    "buttons": []
+  },
+  {
+    "name": "resume",
+    "path": "/resume/",
+    "size": "desktop",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 3857,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/resume/resume.css",
+      "/resume/print.css"
+    ],
+    "headings": [
+      {
+        "text": "Patrick Wagstrom",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Professional Experience",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Education",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "home",
+    "path": "/",
+    "size": "mobile",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 2696,
+    "styles": [
+      "/css/site.css",
+      "/css/home.css"
+    ],
+    "headings": [
+      {
+        "text": "Patrick Wagstrom",
+        "margin": "0px 0px 27px",
+        "font": "40px"
+      },
+      {
+        "text": "The work",
+        "margin": "0px 0px 19px",
+        "font": "29px"
+      },
+      {
+        "text": "A few rabbit holes",
+        "margin": "0px 0px 19px",
+        "font": "29px"
+      },
+      {
+        "text": "I watched football. Then I measured the bitrate.",
+        "margin": "0px 0px 8px",
+        "font": "22px"
+      },
+      {
+        "text": "An unreasonable amount of attention to terminal colors",
+        "margin": "0px 0px 8px",
+        "font": "22px"
+      }
+    ],
+    "contentWidth": 350,
+    "buttons": []
+  },
+  {
+    "name": "research",
+    "path": "/research/",
+    "size": "mobile",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 4567,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "Research",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Patrick Wagstrom’s Research Projects",
+        "margin": "21px 0px 10.5px",
+        "font": "39px"
+      },
+      {
+        "text": "Technical Debt",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "Software Ecosystems",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "Software Organizations",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "publications",
+    "path": "/publications/",
+    "size": "mobile",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 7729,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "bibliography.css",
+      "print.css"
+    ],
+    "headings": [
+      {
+        "text": "Publications",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Journal Papers",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "Conference Papers",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "Workshop Papers",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "Book Chapters",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "screenshots",
+    "path": "/screenshots/",
+    "size": "mobile",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 16404,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "screenshots.css"
+    ],
+    "headings": [
+      {
+        "text": "Screenshots",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "tutorials",
+    "path": "/tutorials/",
+    "size": "mobile",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 1035,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "Tutorials",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "contentWidth": 350,
+    "buttons": []
+  },
+  {
+    "name": "tutorial",
+    "path": "/tutorials/pygtkmozembed/",
+    "size": "mobile",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 11934,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "Creating a GNOME Web Browser with Python",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Overview",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "1.  Introduction",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "2.  Starting with Glade",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "3.  Python Code",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "taxonomy",
+    "path": "/categories/",
+    "size": "mobile",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 844,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "\n\t\t\t\t\n\t\t\t\t\tPosts\n\t\t\t\t",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "games",
+    "path": "/games/",
+    "size": "mobile",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 2278,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/games/games.min.5a1412cf6fa80d07343215c8dbba9ff85de3732596a0202bc01c734361603394.css"
+    ],
+    "headings": [
+      {
+        "text": "Games",
+        "margin": "0px 0px 16px",
+        "font": "30px"
+      },
+      {
+        "text": "Ski Boat Driver",
+        "margin": "10px 0px 14px",
+        "font": "25px"
+      },
+      {
+        "text": "Amelia's Sea Turtle Adventure",
+        "margin": "10px 0px 14px",
+        "font": "25px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "contentWidth": 350,
+    "buttons": []
+  },
+  {
+    "name": "writing",
+    "path": "/weblog/",
+    "size": "mobile",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 36909,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/css/weblog.css"
+    ],
+    "headings": [
+      {
+        "text": "Writing",
+        "margin": "0px 0px 20px",
+        "font": "40px"
+      },
+      {
+        "text": "2025",
+        "margin": "0px",
+        "font": "23px"
+      },
+      {
+        "text": "A Fix for Unifi Controllers Not Taking Your Firewall Rules",
+        "margin": "5px 0px 0px",
+        "font": "21px"
+      },
+      {
+        "text": "2024",
+        "margin": "0px",
+        "font": "23px"
+      },
+      {
+        "text": "Synchronizing Prompt, Terminal Emulator, and Tmux Colors",
+        "margin": "5px 0px 0px",
+        "font": "21px"
+      }
+    ],
+    "contentWidth": 350,
+    "buttons": []
+  },
+  {
+    "name": "recent",
+    "path": "/weblog/recent/",
+    "size": "mobile",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 3868,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/css/weblog.css"
+    ],
+    "headings": [
+      {
+        "text": "Writing",
+        "margin": "0px 0px 20px",
+        "font": "40px"
+      },
+      {
+        "text": "A Fix for Unifi Controllers Not Taking Your Firewall Rules",
+        "margin": "8px 0px 12px",
+        "font": "25px"
+      },
+      {
+        "text": "Synchronizing Prompt, Terminal Emulator, and Tmux Colors",
+        "margin": "8px 0px 12px",
+        "font": "25px"
+      },
+      {
+        "text": "Powerwalls and Eversource Battery Demand Response - How Much Did I Make in 2022?",
+        "margin": "8px 0px 12px",
+        "font": "25px"
+      },
+      {
+        "text": "Amazon Thursday Night Football - A Bandwidth Story",
+        "margin": "8px 0px 12px",
+        "font": "25px"
+      }
+    ],
+    "contentWidth": 350,
+    "buttons": []
+  },
+  {
+    "name": "vpn",
+    "path": "/weblog/2003/11/08/vpn/",
+    "size": "mobile",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 4998,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/css/weblog.css"
+    ],
+    "headings": [
+      {
+        "text": "Connecting to CMU's VPN in Linux",
+        "margin": "0px 0px 22px",
+        "font": "32px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "contentWidth": 350,
+    "buttons": []
+  },
+  {
+    "name": "photos",
+    "path": "/weblog/2005/08/26/tvlicenses/",
+    "size": "mobile",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 4053,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/css/weblog.css"
+    ],
+    "headings": [
+      {
+        "text": "My Parents' TV Runs Linux",
+        "margin": "0px 0px 22px",
+        "font": "32px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "contentWidth": 350,
+    "buttons": []
+  },
+  {
+    "name": "table",
+    "path": "/weblog/2006/08/08/mythtv-power-consumption/",
+    "size": "mobile",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 4646,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/css/weblog.css"
+    ],
+    "headings": [
+      {
+        "text": "Measuring Power Consumption in MythTV",
+        "margin": "0px 0px 22px",
+        "font": "32px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "contentWidth": 350,
+    "buttons": []
+  },
+  {
+    "name": "resume",
+    "path": "/resume/",
+    "size": "mobile",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 7919,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/resume/resume.css",
+      "/resume/print.css"
+    ],
+    "headings": [
+      {
+        "text": "Patrick Wagstrom",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Professional Experience",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Education",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "home",
+    "path": "/",
+    "size": "mobile",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 2696,
+    "styles": [
+      "/css/site.css",
+      "/css/home.css"
+    ],
+    "headings": [
+      {
+        "text": "Patrick Wagstrom",
+        "margin": "0px 0px 27px",
+        "font": "40px"
+      },
+      {
+        "text": "The work",
+        "margin": "0px 0px 19px",
+        "font": "29px"
+      },
+      {
+        "text": "A few rabbit holes",
+        "margin": "0px 0px 19px",
+        "font": "29px"
+      },
+      {
+        "text": "I watched football. Then I measured the bitrate.",
+        "margin": "0px 0px 8px",
+        "font": "22px"
+      },
+      {
+        "text": "An unreasonable amount of attention to terminal colors",
+        "margin": "0px 0px 8px",
+        "font": "22px"
+      }
+    ],
+    "contentWidth": 350,
+    "buttons": []
+  },
+  {
+    "name": "research",
+    "path": "/research/",
+    "size": "mobile",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 4567,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "Research",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Patrick Wagstrom’s Research Projects",
+        "margin": "21px 0px 10.5px",
+        "font": "39px"
+      },
+      {
+        "text": "Technical Debt",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "Software Ecosystems",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "Software Organizations",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "publications",
+    "path": "/publications/",
+    "size": "mobile",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 7729,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "bibliography.css",
+      "print.css"
+    ],
+    "headings": [
+      {
+        "text": "Publications",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Journal Papers",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "Conference Papers",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "Workshop Papers",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "Book Chapters",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "screenshots",
+    "path": "/screenshots/",
+    "size": "mobile",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 16404,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "screenshots.css"
+    ],
+    "headings": [
+      {
+        "text": "Screenshots",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "tutorials",
+    "path": "/tutorials/",
+    "size": "mobile",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 1035,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "Tutorials",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "contentWidth": 350,
+    "buttons": []
+  },
+  {
+    "name": "tutorial",
+    "path": "/tutorials/pygtkmozembed/",
+    "size": "mobile",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 11934,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "Creating a GNOME Web Browser with Python",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Overview",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "1.  Introduction",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "2.  Starting with Glade",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      },
+      {
+        "text": "3.  Python Code",
+        "margin": "21px 0px 10.5px",
+        "font": "32px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "taxonomy",
+    "path": "/categories/",
+    "size": "mobile",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 844,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "\n\t\t\t\t\n\t\t\t\t\tPosts\n\t\t\t\t",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "games",
+    "path": "/games/",
+    "size": "mobile",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 2278,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/games/games.min.5a1412cf6fa80d07343215c8dbba9ff85de3732596a0202bc01c734361603394.css"
+    ],
+    "headings": [
+      {
+        "text": "Games",
+        "margin": "0px 0px 16px",
+        "font": "30px"
+      },
+      {
+        "text": "Ski Boat Driver",
+        "margin": "10px 0px 14px",
+        "font": "25px"
+      },
+      {
+        "text": "Amelia's Sea Turtle Adventure",
+        "margin": "10px 0px 14px",
+        "font": "25px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "contentWidth": 350,
+    "buttons": []
+  },
+  {
+    "name": "writing",
+    "path": "/weblog/",
+    "size": "mobile",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 36909,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/css/weblog.css"
+    ],
+    "headings": [
+      {
+        "text": "Writing",
+        "margin": "0px 0px 20px",
+        "font": "40px"
+      },
+      {
+        "text": "2025",
+        "margin": "0px",
+        "font": "23px"
+      },
+      {
+        "text": "A Fix for Unifi Controllers Not Taking Your Firewall Rules",
+        "margin": "5px 0px 0px",
+        "font": "21px"
+      },
+      {
+        "text": "2024",
+        "margin": "0px",
+        "font": "23px"
+      },
+      {
+        "text": "Synchronizing Prompt, Terminal Emulator, and Tmux Colors",
+        "margin": "5px 0px 0px",
+        "font": "21px"
+      }
+    ],
+    "contentWidth": 350,
+    "buttons": []
+  },
+  {
+    "name": "recent",
+    "path": "/weblog/recent/",
+    "size": "mobile",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 3868,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/css/weblog.css"
+    ],
+    "headings": [
+      {
+        "text": "Writing",
+        "margin": "0px 0px 20px",
+        "font": "40px"
+      },
+      {
+        "text": "A Fix for Unifi Controllers Not Taking Your Firewall Rules",
+        "margin": "8px 0px 12px",
+        "font": "25px"
+      },
+      {
+        "text": "Synchronizing Prompt, Terminal Emulator, and Tmux Colors",
+        "margin": "8px 0px 12px",
+        "font": "25px"
+      },
+      {
+        "text": "Powerwalls and Eversource Battery Demand Response - How Much Did I Make in 2022?",
+        "margin": "8px 0px 12px",
+        "font": "25px"
+      },
+      {
+        "text": "Amazon Thursday Night Football - A Bandwidth Story",
+        "margin": "8px 0px 12px",
+        "font": "25px"
+      }
+    ],
+    "contentWidth": 350,
+    "buttons": []
+  },
+  {
+    "name": "vpn",
+    "path": "/weblog/2003/11/08/vpn/",
+    "size": "mobile",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 4998,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/css/weblog.css"
+    ],
+    "headings": [
+      {
+        "text": "Connecting to CMU's VPN in Linux",
+        "margin": "0px 0px 22px",
+        "font": "32px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "contentWidth": 350,
+    "buttons": []
+  },
+  {
+    "name": "photos",
+    "path": "/weblog/2005/08/26/tvlicenses/",
+    "size": "mobile",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 4053,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/css/weblog.css"
+    ],
+    "headings": [
+      {
+        "text": "My Parents' TV Runs Linux",
+        "margin": "0px 0px 22px",
+        "font": "32px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "contentWidth": 350,
+    "buttons": []
+  },
+  {
+    "name": "table",
+    "path": "/weblog/2006/08/08/mythtv-power-consumption/",
+    "size": "mobile",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 4646,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/css/weblog.css"
+    ],
+    "headings": [
+      {
+        "text": "Measuring Power Consumption in MythTV",
+        "margin": "0px 0px 22px",
+        "font": "32px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "contentWidth": 350,
+    "buttons": []
+  },
+  {
+    "name": "resume",
+    "path": "/resume/",
+    "size": "mobile",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 7919,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/resume/resume.css",
+      "/resume/print.css"
+    ],
+    "headings": [
+      {
+        "text": "Patrick Wagstrom",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Professional Experience",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Education",
+        "margin": "21px 0px 10.5px",
+        "font": "26px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "game",
+    "path": "/games/amelias-sea-turtle-adventure/",
+    "size": "desktop",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 1208,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/games/games.min.5a1412cf6fa80d07343215c8dbba9ff85de3732596a0202bc01c734361603394.css"
+    ],
+    "headings": [
+      {
+        "text": "Amelia's Sea Turtle Adventure",
+        "margin": "0px 0px 16px",
+        "font": "36px"
+      },
+      {
+        "text": "About the game",
+        "margin": "0px 0px 16px",
+        "font": "23px"
+      },
+      {
+        "text": "Controls",
+        "margin": "0px 0px 16px",
+        "font": "23px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "contentWidth": 1004,
+    "buttons": [
+      {
+        "text": "Download ROM",
+        "height": 44
+      },
+      {
+        "text": "Fullscreen",
+        "height": 44
+      }
+    ]
+  },
+  {
+    "name": "game",
+    "path": "/games/amelias-sea-turtle-adventure/",
+    "size": "desktop",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 1208,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/games/games.min.5a1412cf6fa80d07343215c8dbba9ff85de3732596a0202bc01c734361603394.css"
+    ],
+    "headings": [
+      {
+        "text": "Amelia's Sea Turtle Adventure",
+        "margin": "0px 0px 16px",
+        "font": "36px"
+      },
+      {
+        "text": "About the game",
+        "margin": "0px 0px 16px",
+        "font": "23px"
+      },
+      {
+        "text": "Controls",
+        "margin": "0px 0px 16px",
+        "font": "23px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "contentWidth": 1004,
+    "buttons": [
+      {
+        "text": "Download ROM",
+        "height": 44
+      },
+      {
+        "text": "Fullscreen",
+        "height": 44
+      }
+    ]
+  },
+  {
+    "name": "game",
+    "path": "/games/amelias-sea-turtle-adventure/",
+    "size": "mobile",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 1996,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/games/games.min.5a1412cf6fa80d07343215c8dbba9ff85de3732596a0202bc01c734361603394.css"
+    ],
+    "headings": [
+      {
+        "text": "Amelia's Sea Turtle Adventure",
+        "margin": "0px 0px 16px",
+        "font": "30px"
+      },
+      {
+        "text": "About the game",
+        "margin": "0px 0px 16px",
+        "font": "23px"
+      },
+      {
+        "text": "Controls",
+        "margin": "0px 0px 16px",
+        "font": "23px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "contentWidth": 350,
+    "buttons": [
+      {
+        "text": "Download ROM",
+        "height": 44
+      },
+      {
+        "text": "Fullscreen",
+        "height": 44
+      }
+    ]
+  },
+  {
+    "name": "game",
+    "path": "/games/amelias-sea-turtle-adventure/",
+    "size": "mobile",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 1996,
+    "styles": [
+      "/css/theme/superhero.css",
+      "/css/font-awesome.min.css",
+      "/css/style.css",
+      "/css/site.css",
+      "/games/games.min.5a1412cf6fa80d07343215c8dbba9ff85de3732596a0202bc01c734361603394.css"
+    ],
+    "headings": [
+      {
+        "text": "Amelia's Sea Turtle Adventure",
+        "margin": "0px 0px 16px",
+        "font": "30px"
+      },
+      {
+        "text": "About the game",
+        "margin": "0px 0px 16px",
+        "font": "23px"
+      },
+      {
+        "text": "Controls",
+        "margin": "0px 0px 16px",
+        "font": "23px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "contentWidth": 350,
+    "buttons": [
+      {
+        "text": "Download ROM",
+        "height": 44
+      },
+      {
+        "text": "Fullscreen",
+        "height": 44
+      }
+    ]
+  }
+]

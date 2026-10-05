@@ -1,0 +1,13 @@
+{{ partial "header.html" . }}
+<main class="pw-document pw-article">
+  <header>
+    <h1 class="pw-page-title">{{ .Title }}</h1>
+    <p class="pw-article-meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format (.Site.Params.strings.date_format | default "Mon, Jan 2, 2006") }}</time>
+      {{ with .Params.categories }} in {{ range $i, $category := . }}{{ if $i }}, {{ end }}<a href="/categories/{{ . | urlize }}">{{ . }}</a>{{ end }}{{ end }}
+      {{ with .Params.tags }} using tags {{ range $i, $tag := . }}{{ if $i }}, {{ end }}<a href="/tags/{{ . | urlize }}">{{ . }}</a>{{ end }}{{ end }}
+    </p>
+  </header>
+  <div class="pw-document-body">{{ .Content }}</div>
+</main>
+{{ partial "footer.html" . }}

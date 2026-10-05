@@ -1,0 +1,40 @@
+{{- $page := .page -}}
+{{- $channel := .channel -}}
+{{- $site := $page.Site -}}
+{{ printf `<?xml version="1.0" encoding="utf-8"?>` | safeHTML }}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ with $channel.Title }}{{ . | htmlUnescape }} on {{ end }}{{ $site.Title | htmlUnescape }}</title>
+    <link>{{ $channel.Permalink }}</link>
+    <description>Recent content {{ with $channel.Title }}in {{ . }} {{ end }}on {{ $site.Title }}</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>{{ $site.Language.Locale }}</language>
+    {{ with $site.Params.authorEmail }}
+    <managingEditor>{{ . }}{{ with $site.Params.authorName }} ({{ . }}){{ end }}</managingEditor>
+    <webMaster>{{ . }}{{ with $site.Params.authorName }} ({{ . }}){{ end }}</webMaster>
+    {{ end }}
+    {{ with $site.Copyright }}<copyright>{{ . }}</copyright>{{ end }}
+    {{ $updated := partial "feed-updated.html" . }}
+    {{ if not $updated.IsZero }}
+    <lastBuildDate>{{ $updated.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</lastBuildDate>
+    {{ end }}
+    {{ with $page.OutputFormats.Get "RSS" }}
+    <atom:link href="{{ .Permalink }}" rel="self" type="{{ .MediaType.Type }}" />
+    {{ end }}
+    {{ range partial "feed-pages.html" . }}
+    <item>
+      <title>{{ if eq .Type "link" }}{{ with $site.Params.strings.linklog_text }}{{ . }}{{ else }}Linklog: {{ end }}{{ end }}{{ .Title | htmlUnescape }}</title>
+      <link>{{ .Permalink }}</link>
+      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
+      {{ if eq .Type "link" }}
+      {{ with .Params.author }}<author>{{ . }}</author>{{ end }}
+      {{ else }}
+      {{ with $site.Params.authorEmail }}<author>{{ . }}{{ with $site.Params.authorName }} ({{ . }}){{ end }}</author>{{ end }}
+      {{ end }}
+      <guid isPermaLink="true">{{ .Permalink }}</guid>
+      {{ range .Params.tags }}<category>{{ . }}</category>{{ end }}
+      <description>{{ partial "feed-content.html" . | html }}</description>
+    </item>
+    {{ end }}
+  </channel>
+</rss>

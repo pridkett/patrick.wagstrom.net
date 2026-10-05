@@ -1,5 +1,6 @@
 ---
 title: "A Fix for Unifi Controllers Not Taking Your Firewall Rules"
+summary: "My UniFi controller stopped applying firewall changes. Two broken configuration symlinks turned out to be the cause. Here’s how I found and fixed them."
 date: 2025-11-30T23:20:59-05:00
 slug: unifi-not-taking-firewall-rules
 draft: false
@@ -42,4 +43,3 @@ ln -sf /data/udapi-config/<previous-file-name>.json udapi-net-cfg.json.prev
 ```
 
 Hopefully this doesn't happen to you. I'm probably an edge case having an UDM Pro that has been upgraded multiple times over the past five years. At some point, I feel like it's going to be easier to wipe the machine clean and start over - because, as I've discovered before, restoring a system backup, doesn't always restore everything perfectly. But that's a story for another day.
-

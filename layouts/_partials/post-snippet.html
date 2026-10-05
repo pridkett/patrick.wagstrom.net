@@ -1,23 +1,7 @@
-<article>
-	<div class="row">
-		<div class="col-md-8">
-			<h4><a href="{{ .RelPermalink }}">{{ .Title }}</a></h4>
-		</div>
-		<div class="col-md-4 timestamp">
-			<h4 class="timestamp">{{ if .Site.Params.strings.date_format }}{{ .Date.Format .Site.Params.strings.date_format }}{{ else }}{{ .Date.Format "Mon, Jan 2, 2006" }}{{ end }}</h4>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-offset-1 col-md-10">
-		{{ .Summary }}
-		</div>
-	</div>
-	{{ if .Truncated }}
-	<!-- This <div> includes a read more link, but only if the summary is truncated... -->
-	<div class="row">
-		<div class="col-md-offset-10 col-md-2">
-		  <a href="{{ .RelPermalink }}">Read More…</a>
-		</div>
-	</div>
-	{{ end }}
+{{- $summary := .Summary | plainify | htmlUnescape | replaceRE "\\s+" " " | strings.TrimSpace -}}
+{{- $words := split $summary " " -}}
+<article class="pw-entry">
+  <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+  <h2><a href="{{ .RelPermalink }}">{{ .Title | htmlUnescape }}</a></h2>
+  <p>{{ delimit (first 45 $words) " " }}{{ if gt (len $words) 45 }}…{{ end }}</p>
 </article>

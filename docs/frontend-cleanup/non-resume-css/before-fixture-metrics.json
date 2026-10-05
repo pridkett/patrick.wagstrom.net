@@ -1,0 +1,486 @@
+[
+  {
+    "name": "fixtureList",
+    "path": "/__fixture/post/",
+    "size": "desktop",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 1000,
+    "styles": [
+      "/__fixture/css/theme/default.css",
+      "/__fixture/css/font-awesome.min.css",
+      "/__fixture/css/style.css",
+      "/__fixture/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "\n\t\t\t\t\n\t\t\t\t\tPosts\n\t\t\t\t",
+        "margin": "20px 0px 10px",
+        "font": "24px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "fixturePost",
+    "path": "/__fixture/post/example/",
+    "size": "desktop",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 1000,
+    "styles": [
+      "/__fixture/css/theme/default.css",
+      "/__fixture/css/font-awesome.min.css",
+      "/__fixture/css/style.css",
+      "/__fixture/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "Example article",
+        "margin": "20px 0px 10px",
+        "font": "24px"
+      },
+      {
+        "text": "A section heading",
+        "margin": "20px 0px 10px",
+        "font": "30px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "fixtureTerm",
+    "path": "/__fixture/tags/hugo/",
+    "size": "desktop",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 1000,
+    "styles": [
+      "/__fixture/css/theme/default.css",
+      "/__fixture/css/font-awesome.min.css",
+      "/__fixture/css/style.css",
+      "/__fixture/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "\n\t\t\t\t\n\t\t\t\t\tPosts\n\t\t\t\t",
+        "margin": "20px 0px 10px",
+        "font": "24px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "fixtureTaxonomy",
+    "path": "/__fixture/tags/",
+    "size": "desktop",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 1000,
+    "styles": [
+      "/__fixture/css/theme/default.css",
+      "/__fixture/css/font-awesome.min.css",
+      "/__fixture/css/style.css",
+      "/__fixture/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "\n\t\t\t\t\n\t\t\t\t\tPosts\n\t\t\t\t",
+        "margin": "20px 0px 10px",
+        "font": "24px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "fixtureList",
+    "path": "/__fixture/post/",
+    "size": "desktop",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 1000,
+    "styles": [
+      "/__fixture/css/theme/default.css",
+      "/__fixture/css/font-awesome.min.css",
+      "/__fixture/css/style.css",
+      "/__fixture/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "\n\t\t\t\t\n\t\t\t\t\tPosts\n\t\t\t\t",
+        "margin": "20px 0px 10px",
+        "font": "24px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "fixturePost",
+    "path": "/__fixture/post/example/",
+    "size": "desktop",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 1000,
+    "styles": [
+      "/__fixture/css/theme/default.css",
+      "/__fixture/css/font-awesome.min.css",
+      "/__fixture/css/style.css",
+      "/__fixture/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "Example article",
+        "margin": "20px 0px 10px",
+        "font": "24px"
+      },
+      {
+        "text": "A section heading",
+        "margin": "20px 0px 10px",
+        "font": "30px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "fixtureTerm",
+    "path": "/__fixture/tags/hugo/",
+    "size": "desktop",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 1000,
+    "styles": [
+      "/__fixture/css/theme/default.css",
+      "/__fixture/css/font-awesome.min.css",
+      "/__fixture/css/style.css",
+      "/__fixture/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "\n\t\t\t\t\n\t\t\t\t\tPosts\n\t\t\t\t",
+        "margin": "20px 0px 10px",
+        "font": "24px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "fixtureTaxonomy",
+    "path": "/__fixture/tags/",
+    "size": "desktop",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 1440,
+    "view": 1440,
+    "height": 1000,
+    "styles": [
+      "/__fixture/css/theme/default.css",
+      "/__fixture/css/font-awesome.min.css",
+      "/__fixture/css/style.css",
+      "/__fixture/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "\n\t\t\t\t\n\t\t\t\t\tPosts\n\t\t\t\t",
+        "margin": "20px 0px 10px",
+        "font": "24px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "fixtureList",
+    "path": "/__fixture/post/",
+    "size": "mobile",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 844,
+    "styles": [
+      "/__fixture/css/theme/default.css",
+      "/__fixture/css/font-awesome.min.css",
+      "/__fixture/css/style.css",
+      "/__fixture/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "\n\t\t\t\t\n\t\t\t\t\tPosts\n\t\t\t\t",
+        "margin": "20px 0px 10px",
+        "font": "24px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "fixturePost",
+    "path": "/__fixture/post/example/",
+    "size": "mobile",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 1070,
+    "styles": [
+      "/__fixture/css/theme/default.css",
+      "/__fixture/css/font-awesome.min.css",
+      "/__fixture/css/style.css",
+      "/__fixture/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "Example article",
+        "margin": "20px 0px 10px",
+        "font": "24px"
+      },
+      {
+        "text": "A section heading",
+        "margin": "20px 0px 10px",
+        "font": "30px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "fixtureTerm",
+    "path": "/__fixture/tags/hugo/",
+    "size": "mobile",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 844,
+    "styles": [
+      "/__fixture/css/theme/default.css",
+      "/__fixture/css/font-awesome.min.css",
+      "/__fixture/css/style.css",
+      "/__fixture/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "\n\t\t\t\t\n\t\t\t\t\tPosts\n\t\t\t\t",
+        "margin": "20px 0px 10px",
+        "font": "24px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "fixtureTaxonomy",
+    "path": "/__fixture/tags/",
+    "size": "mobile",
+    "colorScheme": "light",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 844,
+    "styles": [
+      "/__fixture/css/theme/default.css",
+      "/__fixture/css/font-awesome.min.css",
+      "/__fixture/css/style.css",
+      "/__fixture/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "\n\t\t\t\t\n\t\t\t\t\tPosts\n\t\t\t\t",
+        "margin": "20px 0px 10px",
+        "font": "24px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "fixtureList",
+    "path": "/__fixture/post/",
+    "size": "mobile",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 844,
+    "styles": [
+      "/__fixture/css/theme/default.css",
+      "/__fixture/css/font-awesome.min.css",
+      "/__fixture/css/style.css",
+      "/__fixture/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "\n\t\t\t\t\n\t\t\t\t\tPosts\n\t\t\t\t",
+        "margin": "20px 0px 10px",
+        "font": "24px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "fixturePost",
+    "path": "/__fixture/post/example/",
+    "size": "mobile",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 1070,
+    "styles": [
+      "/__fixture/css/theme/default.css",
+      "/__fixture/css/font-awesome.min.css",
+      "/__fixture/css/style.css",
+      "/__fixture/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "Example article",
+        "margin": "20px 0px 10px",
+        "font": "24px"
+      },
+      {
+        "text": "A section heading",
+        "margin": "20px 0px 10px",
+        "font": "30px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "fixtureTerm",
+    "path": "/__fixture/tags/hugo/",
+    "size": "mobile",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 844,
+    "styles": [
+      "/__fixture/css/theme/default.css",
+      "/__fixture/css/font-awesome.min.css",
+      "/__fixture/css/style.css",
+      "/__fixture/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "\n\t\t\t\t\n\t\t\t\t\tPosts\n\t\t\t\t",
+        "margin": "20px 0px 10px",
+        "font": "24px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "buttons": []
+  },
+  {
+    "name": "fixtureTaxonomy",
+    "path": "/__fixture/tags/",
+    "size": "mobile",
+    "colorScheme": "dark",
+    "status": 200,
+    "width": 390,
+    "view": 390,
+    "height": 844,
+    "styles": [
+      "/__fixture/css/theme/default.css",
+      "/__fixture/css/font-awesome.min.css",
+      "/__fixture/css/style.css",
+      "/__fixture/css/site.css"
+    ],
+    "headings": [
+      {
+        "text": "\n\t\t\t\t\n\t\t\t\t\tPosts\n\t\t\t\t",
+        "margin": "20px 0px 10px",
+        "font": "24px"
+      },
+      {
+        "text": "Say hello.",
+        "margin": "0px",
+        "font": "27px"
+      }
+    ],
+    "buttons": []
+  }
+]

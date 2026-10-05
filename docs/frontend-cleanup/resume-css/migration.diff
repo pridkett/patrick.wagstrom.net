@@ -1,0 +1,708 @@
+--- before/AGENTS.md
++++ after/AGENTS.md
+@@ -51,6 +51,11 @@
+ The header and footer provide shared navigation and a contact footer.
+ `static/css/site.css` supplies the homepage palette and interior
+ page shell; `static/css/weblog.css` styles the archive and article reading layout.
++Shared-shell pages use focused native CSS, with Grid/Flexbox layouts and semantic
++page classes. Do not add Bootstrap/Bootswatch or jQuery runtime includes.
++Font Awesome remains a separate icon stylesheet. The résumé uses
++`content/resume/resume.css` and its scoped `print.css`; keep its 11.8pt print
++type, 1.23 line height, 0.5in body margins, and hidden print controls intact.
+ Keep prose left-aligned, summaries bounded to 45 words, and the résumé's print
+ styles intact.
+ 
+@@ -126,12 +131,14 @@
+ 
+ Edit layouts and frontend assets directly in this repository. Keep the migrated
+ theme's MIT notice in `docs/licenses/hugo-theme-patrick-custom.txt`, and preserve
+-the license comments in bundled third-party assets. `params.theme.name` selects
+-a local Bootswatch CSS file under `static/css/theme/`; it is not a Hugo theme
+-dependency. Do not include unrelated local changes in commits.
++the license comments in bundled third-party assets. Legacy Bootswatch, Bootstrap,
++and jQuery files remain under `static/` to preserve historical public URLs; they
++are not runtime dependencies, and `params.theme` is no longer used. Do not
++delete archive assets or include unrelated local changes in commits.
+ 
+ `make check` fails on Hugo warnings and verifies feed XML and URLs, core pages,
+-legacy comments, assets, resume styles, bibliography and screenshot shortcodes,
++legacy comments, assets, native résumé markup and unchanged downloads, absence
++of retired framework includes, bibliography and screenshot shortcodes,
+ game rendering, and an isolated local template fixture including post, link,
+ weblog, menu-only, generic page, and taxonomy feeds. Builds run in fresh
+ temporary directories so stale generated pages cannot mask missing output.
+@@ -140,5 +147,5 @@
+ that directory as part of verification; use temporary destinations instead.
+ 
+ Do not claim external services or client-side interactions were verified just
+-because the generated HTML contains their scripts. Keep Bootstrap and other
+-frontend asset upgrades separate from Hugo compatibility work.
++because the generated HTML contains their scripts. Keep future frontend
++dependency changes separate from Hugo compatibility work.
+--- before/CLAUDE.md
++++ after/CLAUDE.md
+@@ -44,8 +44,11 @@
+ 
+ Template and asset changes belong in this repository. The former theme's MIT
+ notice is retained in `docs/licenses/hugo-theme-patrick-custom.txt`.
+-The bundled Bootstrap 3.3.5 and jQuery 2.1.4 still use the
+-existing appearance and need a separate frontend migration if upgraded.
++Shared-shell pages use focused native CSS and semantic Grid/Flexbox layouts.
++Bootstrap/Bootswatch and jQuery are no longer runtime dependencies; their legacy
++asset URLs remain available. Do not reintroduce their includes or `params.theme`.
++Font Awesome remains separate. The résumé has scoped screen and print styles,
++with 11.8pt print type, 1.23 line height, and 0.5in body margins.
+ 
+ Historical tutorials remain available at `/tutorials/`, a branch bundle, but are
+ omitted from shared navigation. The Python tutorial keeps `/tutorials/pygtkmozembed/` and its original
+--- before/README.md
++++ after/README.md
+@@ -30,6 +30,8 @@
+ Run `make check` to build in a fresh temporary directory and verify feeds,
+ legacy URLs, historical tutorial links and assets, resume styles, shortcodes,
+ game pages, and isolated fallback templates. Warnings fail the check.
++Shared pages use focused native CSS; checks reject Bootstrap/Bootswatch and
++jQuery runtime includes while preserving their historical asset URLs.
+ To use a separate Hugo binary,
+ run `make check HUGO=/absolute/path/to/hugo`.
+ 
+--- before/config.yaml
++++ after/config.yaml
+@@ -39,9 +39,6 @@
+   linkedin: "http://www.linkedin.com/in/pwagstrom"
+   location: "Connecticut"
+   githubrepo: "https://github.com/pridkett/patrick.wagstrom.net/"
+-  theme:
+-    inverse: true
+-    name: "superhero"
+   strings:
+     home_link: "<i class=\"fa fa-home\"></i> Patrick Wagstrom"
+   commentsengine: intensedebate
+--- before/content/resume/index.md
++++ after/content/resume/index.md
+@@ -9,54 +9,40 @@
+     media: print
+ ---
+ 
+-<div class="row">
++<div class="resume-layout">
+     <!-- sidebar -->
+-    <div class="col-md-3 sidebar">
+-        <div class="row no-print">
+-            <div class="col-md-12 mugshot">
+-                <img src="/resume/Headshot%20-%20Patrick%20Wagstrom%20-%2020221114%20-%20204x204.jpg" height="204" width="204" alt="A dazzling and beautiful professional headshot photograph of Patrick Wagstrom" id="profilepic">
+-            </div>
++    <aside class="resume-sidebar">
++        <div class="resume-portrait no-print">
++            <img src="/resume/Headshot%20-%20Patrick%20Wagstrom%20-%2020221114%20-%20204x204.jpg" height="204" width="204" alt="A dazzling and beautiful professional headshot photograph of Patrick Wagstrom" id="profilepic">
+         </div>
+-        <div class="row name-header">
+-            <div class="col-md-12">
+-                <h3>Patrick Wagstrom</h3>
+-                <h4>Data Engineering and Artificial Intelligence Leader</h4>
+-            </div>
++        <div class="resume-identity">
++            <h1>Patrick Wagstrom</h1>
++            <p class="resume-role">Data Engineering and Artificial Intelligence Leader</p>
+         </div>
+-        <div class="row">
+-            <div class="col-md-12">
+-                <ul class="info-links">
+-                    {{< infolink href="mailto:patrick@wagstrom.net" icon="fa-envelope" >}}patrick@wagstrom.net{{< /infolink >}}
+-                    <!-- {{< infolink href="http://patrick.wagstrom.net/" icon="fa-globe" >}}https://patrick.wagstrom.net/{{< /infolink >}} -->
+-                    {{< infolink icon="fa-globe">}}Coventry, CT{{< /infolink >}}
+-                    {{< phonelink >}}
+-                </ul>
+-            </div>
++        <ul class="info-links">
++            {{< infolink href="mailto:patrick@wagstrom.net" icon="fa-envelope" >}}patrick@wagstrom.net{{< /infolink >}}
++            <!-- {{< infolink href="http://patrick.wagstrom.net/" icon="fa-globe" >}}https://patrick.wagstrom.net/{{< /infolink >}} -->
++            {{< infolink icon="fa-globe">}}Coventry, CT{{< /infolink >}}
++            {{< phonelink >}}
++        </ul>
++        <div class="resume-actions no-print">
++            <a class="resume-action" href="wagstrom-resume-20210308.pdf"><i class="fa fa-download" aria-hidden="true"></i> Download</a>
++            <button type="button" class="resume-action" onclick="window.print();"><i class="fa fa-print" aria-hidden="true"></i> Print</button>
+         </div>
+-        <div class="row download-buttons no-print">
+-            <div class="col-md-12">
+-                <button type="button" class="btn btn-primary btn-large" onclick="window.location.href='wagstrom-resume-20210308.pdf';"><i class="fa fa-download"></i> Download</button>
+-                <button type="button" class="btn btn-primary btn-large" onclick="window.print();"><i class="fa fa-print"></i> Print</button>
+-            </div>
+-        </div>
+-    </div>
++    </aside>
+     <!-- /sidebar -->
+     <!-- main body -->
+-    <div class="col-md-9 main-body">
++    <div class="resume-body">
+         <!-- general purpose -->
+-        <div class="row">
+-            <div class="col-md-12">
+                 <p>
+                 Strategic and hands-on executive leader in artificial intelligence, machine learning, data engineering, and software development, with experience across legal, finance, telecom, and video streaming. I drive cutting-edge AI/ML initiatives, build high-performing teams, modernize data pipelines, and deliver significant business value.
+ 				<!-- I am a hands-on executive leader of data, machine learning, and software engineering organizations with broad experience in foundational research, finance, telecom, and video streaming. I build organizations that transform companies and markets with data driven insights and best of breed emerging technologies. -->
+ 				</p>
+-            </div>
+-        </div>
+         <!-- /general purpose -->
+         <!-- critical skills -->
+-        <!-- <div class="row">
+-            <div class="col-md-12">
+-            <h3 class="heading">Critical Skills</h3>
++        <!-- <div class="resume-group">
++            <div class="resume-group">
++            <h2 class="resume-heading">Critical Skills</h2>
+                 <ul>
+                     <li></li>
+                     <li>B</li>
+@@ -66,9 +52,8 @@
+         </div> -->
+         <!-- /critical skills -->
+         <!-- employment -->
+-        <div class="row">
+-            <div class="col-md-12">
+-                <h3 class="heading">Professional Experience</h3>
++        <section class="resume-section">
++                <h2 class="resume-heading">Professional Experience</h2>
+ 				<ul class="job-listing">
+                     <li class="job">
+                         <ul>
+@@ -333,13 +318,11 @@
+                         </ul>
+                     </li>
+                 </ul>
+-            </div>
+-        </div>
++        </section>
+ 			<!-- /employment history -->
+         <!-- education -->
+-        <div class="row">
+-            <div class="col-md-12">
+-                <h3 class="heading extra-padding">Education</h3>
++        <section class="resume-section">
++                <h2 class="resume-heading extra-padding">Education</h2>
+                 <ul class="degree-listing">
+                     <li class="degree">
+                         <span class="degree-name">Ph.D. in <a href="http://www.epp.cmu.edu/">Engineering and Public Policy</a> and <a href="http://www.isri.cmu.edu/education/cos-phd/index.html">Computation, Organizations, and Society</a></span>
+@@ -370,14 +353,13 @@
+                         <!-- <span class="degree-description">I was on scholarship and it seemed like a good idea to keep tacking on degrees.</span> -->
+                     </li>
+                 </ul>
+-            </div>
+-        </div>
++        </section>
+         <!-- /education -->
+                 <!-- skills -->
+         <!--
+-        <div class="row" class="no-print">
+-            <div class="col-md-12" class="no-print">
+-                <h3 class="heading">Select Technical Skills</h3>
++        <div class="resume-group" class="no-print">
++            <div class="resume-group" class="no-print">
++                <h2 class="resume-heading">Select Technical Skills</h2>
+                 <ul class="skill-listing">
+                     <li><span class="skill-header">Programming Languages</span>
+                         <ul class="skill-components">
+--- before/content/resume/print.css
++++ after/content/resume/print.css
+@@ -1,146 +1,53 @@
++/* Print only the résumé, retaining its compact scanner-friendly typography. */
+ @media print {
+-
+-/* disable ligatures for printing - this messes up some resume scanners */
+-* {
+-  font-variant-ligatures: none;
+-  -webkit-font-feature-settings: "liga" 0, "clig" 0, "dlig" 0;
+-  font-feature-settings: "liga" 0, "clig" 0, "dlig" 0;
+-}
+-    
+-/* hide various elements for printing */
+-.no-print, .no-print *
+-{
+-    display: none !important;
+-}
+-
+-footer {
+-    display: none !important;
+-}
+-
+-.page-title {
+-    display: none !important;
+-}
+-
+-body {
++  .pw-site.pw-resume {
++    color-scheme: light;
++    background: white;
++    color: black;
+     font-size: 11.8pt;
+     line-height: 1.23;
+-    margin-top: 0.5in;
+-    margin-right: 0.5in;
+-    margin-left: 0.5in;
+-    margin-bottom: 0.5in;
+-}
+-
+-/* undo boostrap's habit of dumping the URL after a link in print */
+-a[href]:after {
+-    content: none;
+-}
+-
+-/* make the top tighter */
+-.name-header h3 {
+-    margin-top: -0.2in;
+-    margin-bottom: 0px;
+-}
+-
+-.name-header h4 {
+-    margin-top: 0px;
+-    margin-bottom: 0px;
+-}
+-
+-
+-
+-/* .name-header, .name-header h3, .name-header h4{ */
+-/*     margin-top: 0in; */
+-/*     margin-bottom: 0px; */
+-/* } */
+-
+-.name-header h3 {
++    margin: .5in;
++  }
++  .pw-resume *, .pw-resume *::before, .pw-resume *::after {
++    color: black !important;
++    background: transparent !important;
++    box-shadow: none !important;
++    text-shadow: none !important;
++    font-variant-ligatures: none;
++    font-feature-settings: "liga" 0, "clig" 0, "dlig" 0;
++  }
++  .pw-resume .pw-top, .pw-resume .pw-footer, .pw-resume .pw-skip,
++  .pw-resume .no-print { display: none !important; }
++  .pw-resume .pw-page { max-width: none; padding: 0; }
++  .pw-resume .resume-sheet { margin: 0; padding: 0 15px; }
++  .pw-resume .resume-layout { display: block; }
++  .pw-resume .resume-section { display: flow-root; }
++  .pw-resume .resume-identity { display: flow-root; }
++  .pw-resume a[href]::after { content: none; }
++  .pw-resume p, .pw-resume h1, .pw-resume h2 { orphans: 3; widows: 3; }
++  .pw-resume .resume-identity h1 {
++    margin: -.2in 0 0;
++    font-size: 26px;
+     font-weight: bold;
+-}
+-
+-h3.heading {
+-    margin-top: 0.25ex;
+-    margin-bottom: 0px;
+-    padding-top: 0.25rem;
++  }
++  .pw-resume .resume-role { margin: 0; font-size: 19px; }
++  .pw-resume .resume-heading {
++    margin: .25ex 0 0;
++    padding-top: .25rem;
+     border-top: 1px solid black;
+     font-size: 120%;
++    break-after: avoid;
++  }
++  .pw-resume .resume-heading.extra-padding { margin-top: 2ex; }
++  .pw-resume .resume-sheet .info-links { text-align: left; padding-left: 0; font-size: inherit; }
++  .pw-resume .info-links li, .pw-resume .info-links a { display: inline; white-space: normal; }
++  .pw-resume .info-links i { display: none !important; }
++  .pw-resume .info-links li:not(:last-child)::after { content: ", "; }
++  .pw-resume .job-employer::after { content: " — "; display: inline; font-weight: normal; }
++  .pw-resume .job-location { font-weight: normal; }
++  .pw-resume .job-title { display: inline; }
++  .pw-resume .job-title::before { content: ""; display: block; }
++  .pw-resume .job-title::after { content: ", "; font-weight: normal; }
++  .pw-resume .job-dates { display: inline; }
++  .pw-resume .job-dates::after { content: ""; display: block; }
+ }
+-
+-h3.heading.extra-padding {
+-    margin-top: 2ex;
+-}
+-
+-/* re-style the info links on the sidebar */
+-ul.info-links {
+-    text-align: left;
+-    padding-left: 0px;
+-}
+-
+-ul.info-links li {
+-    display: inline;
+-}
+-
+-ul.info-links i {
+-    display: none !important;
+-}
+-
+-ul.info-links li:not(:last-child):after {
+-    content: ", ";
+-}
+-
+-span.job-employer::after {
+-    content: " — ";
+-    display: inline;
+-    font-weight: normal;
+-}
+-
+-span.job-location {
+-    font-weight: normal;
+-}
+-
+-span.job-title {
+-    display: inline;
+-}
+-
+-span.job-title::before {
+-    content: "";
+-    display: block;
+-}
+-
+-span.job-title::after {
+-    content: ", ";
+-    font-weight: normal;
+-}
+-
+-span.job-dates {
+-    display: inline;
+-}
+-
+-/* span.job-dates:has(+ span)::after { */
+-/*     content: ", "; */
+-/* } */
+-
+-/* span.job-hours { */
+-/*     display: inline; */
+-/* } */
+-
+-/* span.job-hours::after { */
+-/*     content: ""; */
+-/*     display: block; */
+-/* } */
+-
+-/* span.job-dates:not(:has(+ span.job-hours))::after { */
+-/*     content: ""; */
+-/*     display: block; */
+-/* } */
+-
+-span.job-dates::after {
+-    content: "";
+-    display: block;
+-}
+-
+-@media print {
+-  orphans: 4;
+-  widows: 2;
+-} 
+-
+-}
+--- before/content/resume/resume.css
++++ after/content/resume/resume.css
+@@ -1,53 +1,31 @@
+-/* hide various elements for the resume */
+-.no-resume, .no-resume *
+-{
+-    display: none !important;
++/* Résumé layout and typography, independent of a framework. */
++.resume-sheet .no-resume { display: none !important; }
++.resume-sheet { margin-top: 32px; padding: 0 15px; }
++.resume-layout { display: grid; grid-template-columns: minmax(204px, 23%) minmax(0, 1fr); gap: 30px; align-items: start; }
++.resume-sidebar, .resume-body { min-width: 0; }
++.resume-portrait { text-align: center; margin-top: 5px; }
++img#profilepic { display: inline-block; width: 204px; height: 204px; }
++.pw-resume .resume-identity h1 { font-size: 26px; margin: 21px 0 10.5px; }
++.pw-resume .resume-role { font-family: 'Helvetica Neue', Arial, sans-serif; color: var(--pw-ink); font-weight: 500; font-size: 19px; line-height: 1.25; margin: 10.5px 0; }
++.pw-resume .resume-heading { font-size: 26px; margin: 21px 0 10.5px; }
++.resume-sheet p { margin: 0 0 1em; }
++.resume-sheet ul { margin: 0 0 10.5px; }
++.resume-sheet ul ul { margin-bottom: 0; }
++.resume-sheet li[title="achievements"] > ul { padding-left: 40px; list-style-type: square; }
++.resume-sheet ul.info-links { list-style: none; text-align: right; padding-left: 0; font-size: 14px; }
++.resume-sheet .info-links a { display: inline-flex; align-items: center; white-space: nowrap; overflow-wrap: normal; }
++.resume-sheet .info-links i.fa { width: 1.5em; text-align: center; margin-left: 2px; flex-shrink: 0; }
++.resume-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 4px; }
++.pw-resume .resume-action { display: inline-flex; align-items: center; gap: 4px; border: 1px solid var(--pw-ink); background: var(--pw-ink); color: var(--pw-paper); border-radius: 0; font: 400 14px/1.4 system-ui, sans-serif; padding: 9px 14px; text-decoration: none; cursor: pointer; }
++.pw-resume .resume-action:hover { opacity: .85; }
++@media screen and (max-width: 991px) {
++  .resume-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+ }
+-
+-.mugshot {
+-    text-align: center;
+-    margin-top: 5px;
++@media screen and (max-width: 540px) {
++  .resume-sheet { padding: 0; }
++  .pw-resume .resume-action { min-height: 44px; }
+ }
+-
+-img#profilepic {
+-    width: 204px;
+-    height: 204px;
+-}
+-
+-ul.info-links {
+-    list-style-type: none;
+-    text-align: right;
+-}
+-
+-ul.info-links i.fa {
+-    width: 1.5em;
+-    text-align: center;
+-    margin-left: 2px;
+-}
+-
+-/* Keep contact labels and their icons together within the desktop sidebar. */
+-@media screen {
+-    ul.info-links {
+-        padding-left: 0;
+-        font-size: 14px;
+-    }
+-
+-    ul.info-links a {
+-        display: inline-flex;
+-        align-items: center;
+-        white-space: nowrap;
+-        overflow-wrap: normal;
+-    }
+-
+-    ul.info-links i.fa {
+-        flex-shrink: 0;
+-    }
+-}
+-
+-.download-buttons {
+-    text-align: center;
+-}
+-
++/* Preserve the existing content-specific job, degree, and skill presentation. */
+ ul.job-listing, ul.degree-listing, ul.skill-listing {
+     list-style-type: none;
+     padding-left: 0px;
+--- before/docs/hugo-upgrade.md
++++ after/docs/hugo-upgrade.md
+@@ -238,12 +238,15 @@
+ 
+ ### Frontend dependencies
+ 
+-The repository bundles Bootstrap **3.3.5**, jQuery **2.1.4**, Bootswatch styles, and
+-Font Awesome. The Hugo migration preserves those files and the current visual
+-appearance. Updating them requires its own migration: Bootstrap's grid,
+-navigation, buttons, labels, and custom CSS cannot be replaced by current
+-Bootstrap assets without adapting the templates. Review the game showcase and
+-resume print styling as part of that work.
++The Hugo migration preserved Bootstrap **3.3.5**, jQuery **2.1.4**, Bootswatch
++styles, and Font Awesome. A subsequent frontend cleanup removed the Bootstrap
++and jQuery runtime includes, migrated layouts and controls to semantic native
++CSS, and removed `params.theme`. Font Awesome remains separate. Legacy framework
++files retain their public URLs; deployment still must not delete archive assets.
++The résumé keeps its custom screen/print styles, 11.8pt print type, 1.23 line
++height, and 0.5in body margins. See the
++[frontend cleanup validation](frontend-cleanup/resume-css/README.md) for rendered
++desktop/mobile, palette, and print evidence.
+ 
+ ### Publishing site changes
+ 
+--- before/docs/standalone-site.md
++++ after/docs/standalone-site.md
+@@ -17,8 +17,9 @@
+ The old theme's overridden layouts, unused navigation/homepage helpers, preview
+ images, and theme metadata are not needed by the site. `.gitmodules`, the theme
+ Git link, the Hugo `theme` setting, Makefile `--theme` arguments, and CI submodule
+-checkout were removed. `params.theme.name` still selects a local Bootswatch file;
+-it does not load an external theme. `config.yaml` retains the minimum Hugo version
++checkout were removed. The subsequent frontend cleanup also removed
++`params.theme` and all shared-shell Bootstrap/Bootswatch and jQuery includes.
++`config.yaml` retains the minimum Hugo version
+ of 0.158.0, and production uses extended 0.167.0.
+ 
+ Use `make build`, `make serve`, and `make check` directly after cloning.
+@@ -27,10 +28,16 @@
+ canonical feed regressions. It does not download a theme. The canonical site
+ feeds remain `/index.rss` and `/index.atom`; other sections still produce HTML only.
+ 
+-The migration is an ownership change for templates and assets. Bootstrap,
+-jQuery, Font Awesome, public URLs, handwritten HTML, and deployment behavior
+-retain their existing versions and behavior. Frontend dependency upgrades should
+-be handled separately.
++The initial consolidation was an ownership change for templates and assets.
++The subsequent frontend cleanup replaced Bootstrap layout and control classes
++with semantic classes and focused Grid/Flexbox CSS, including the résumé.
++Shared-shell pages load no Bootstrap CSS/JavaScript or jQuery. Font Awesome
++remains separate, and all historical asset URLs, handwritten HTML, downloadable
++résumés, and deployment behavior are preserved. The résumé keeps its scoped
++11.8pt print typography and three-page Chromium Letter layout.
++
++See [the non-résumé migration evidence](frontend-cleanup/non-resume-css/README.md)
++and [the résumé and final cleanup evidence](frontend-cleanup/resume-css/README.md).
+ 
+ Validation with Hugo extended 0.164.0 and 0.167.0 passed the site, isolated template,
+ and feed regression checks. A fresh before/after build with 0.167.0 preserved all
+--- before/layouts/_partials/header.html
++++ after/layouts/_partials/header.html
+@@ -9,10 +9,6 @@
+   <title>{{ .Title }} · {{ .Site.Title }}</title>
+   <link rel="canonical" href="{{ .Permalink }}">
+   <link rel="icon" href="{{ "favicon.ico" | relURL }}">
+-  {{/* The résumé retains Bootstrap until its separate layout migration. */}}
+-  {{ if $isResume }}
+-  <link rel="stylesheet" href="{{ printf "css/theme/%s.css" (.Site.Params.theme.name | default "default") | relURL }}">
+-  {{ end }}
+   <link rel="stylesheet" href="{{ "css/font-awesome.min.css" | relURL }}">
+   <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+   <link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
+@@ -24,7 +20,7 @@
+   <link href="{{ .Permalink }}" rel="alternate" type="{{ .MediaType.Type }}" title="{{ $.Site.Title }} — {{ if eq .Name "rss" }}RSS{{ else }}Atom{{ end }}">
+   {{ end }}
+ </head>
+-<body class="pw-site{{ with .Section }} pw-section-{{ . }}{{ end }}{{ if $isResume }} pw-resume{{ else }} pw-native{{ end }}">
++<body class="pw-site pw-native{{ with .Section }} pw-section-{{ . }}{{ end }}{{ if $isResume }} pw-resume{{ end }}">
+   <a class="pw-skip" href="#pw-content">Skip to content</a>
+   <div class="pw-page">
+     {{ partial "site-nav.html" . }}
+--- before/layouts/resume/single.html
++++ after/layouts/resume/single.html
+@@ -1,11 +1,7 @@
+ {{ partial "header.html" . }}
+ 
+-<div class="container white-rounded">
+-	<div class="row">
+-		<div class="col-md-12">
+-			{{ .Content }}
+-		</div>
+-	</div>
+-</div>
++<main class="resume-sheet">
++  {{ .Content }}
++</main>
+ 
+ {{ partial "footer.html" . }}
+--- before/scripts/check-hugo.py
++++ after/scripts/check-hugo.py
+@@ -107,9 +107,27 @@
+     check_discovery(output)
+ 
+     resume = HTML(output / "resume/index.html")
+-    require(' pw-resume"' in resume.text and any(
+-        t == "link" and "css/theme/" in a.get("href", "") for t, a in resume.elements),
+-        "The résumé must retain its Bootstrap stylesheet during the native CSS migration")
++    require(any(t == "main" and a.get("class") == "resume-sheet"
++                for t, a in resume.elements), "Missing native résumé wrapper")
++    require(any(t == "aside" and a.get("class") == "resume-sidebar"
++                for t, a in resume.elements), "Missing résumé contact sidebar")
++    require(not any(t == "pre" for t, _ in resume.elements),
++            "Résumé HTML must not become an indented Markdown code block")
++    require('mailto:patrick@wagstrom.net' in resume.text and 'fa-envelope' in resume.text,
++            "Missing résumé email address or inline icon")
++    require(any(t == "a" and a.get("class") == "resume-action"
++                and local_file(output, "/resume/" + a.get("href", "")).is_file()
++                for t, a in resume.elements), "Missing résumé download control or PDF")
++    require(any(t == "button" and a.get("onclick") == "window.print();"
++                for t, a in resume.elements), "Missing résumé print control")
++    for _, attrs in resume.elements:
++        require(not any(re.fullmatch(r"row|container|col-(?:xs|sm|md|lg)-.*|btn(?:-.*)?", c)
++                        for c in attrs.get("class", "").split()),
++                "Résumé still uses Bootstrap layout or button classes")
++    for source in (Path(__file__).resolve().parents[1] / "content/resume").glob("*.pdf"):
++        target = output / "resume" / source.name
++        require(target.is_file() and target.read_bytes() == source.read_bytes(),
++                f"Résumé download changed or disappeared: {source.name}")
+     for css in ("/resume/resume.css", "/resume/print.css"):
+         require(any(t == "link" and a.get("href") == css for t, a in resume.elements),
+                 f"Missing resume stylesheet: {css}")
+@@ -124,19 +142,23 @@
+             "Legacy comment mapping changed")
+     game = (output / "games/amelias-sea-turtle-adventure/index.html").read_text()
+     require("/emulator/" in game and "w2-player" in game, "Game player did not render")
+-    # Bootstrap remains available at its old URL, but only résumé pages select it.
++    check_frontend(output)
++    check_tutorials(output)
++    check_writing(output)
++
++
++def check_frontend(output):
++    """Historical framework URLs remain available; shared-shell pages must not load them."""
+     for path in output.rglob("*.html"):
+         text = path.read_text()
+-        if 'class="pw-site' not in text:
++        if 'class="pw-site' not in text and 'class="pw-home' not in text:
+             continue
+         page = HTML(path)
+-        frameworks = [a.get("href", "") for t, a in page.elements
+-                      if t == "link" and a.get("rel") == "stylesheet"
+-                      and "css/theme/" in a.get("href", "")]
+-        require(bool(frameworks) == (' pw-resume"' in text),
+-                f"Bootstrap CSS must be limited to the résumé: {path.relative_to(output)}")
+-    check_tutorials(output)
+-    check_writing(output)
++        for tag, attrs in page.elements:
++            asset = attrs.get("src", "") if tag == "script" else attrs.get("href", "") if (
++                tag == "link" and attrs.get("rel") == "stylesheet") else ""
++            require(not re.search(r"css/theme/|bootstrap|jquery", asset, re.I),
++                    f"Shared-shell page loads a retired framework: {path.relative_to(output)}: {asset}")
+ 
+ 
+ def check_writing(output):
+@@ -213,6 +235,7 @@
+             ET.parse(path)
+         require(ET.parse(output / "tags/index.xml").findall("./channel/item"),
+                 "Fallback taxonomy feed is empty")
++        check_frontend(output)
+ 
+ 
+ if __name__ == "__main__":
+--- before/static/css/site.css
++++ after/static/css/site.css
+@@ -1,4 +1,4 @@
+-/* Shared site palette and chrome. Native page content is scoped below the résumé shell. */
++/* Shared site palette, chrome, and focused native page styles. */
+ .pw-home, .pw-site {
+   color-scheme: light dark;
+   --pw-paper: light-dark(#f7f4e9, #202821);
+@@ -27,17 +27,11 @@
+   line-height: 1.25;
+ }
+ .pw-site p { margin-bottom: 1em; }
+-.pw-resume .container { width: 100%; max-width: 1120px; }
+-.pw-resume .white-rounded { background: transparent; color: inherit; border-radius: 0; }
+-.pw-resume #pw-content > .container { margin-top: 32px; }
+ .pw-site img { max-width: 100%; }
+ .pw-site pre { color: var(--pw-text); background: light-dark(#ecebdf, #182019); border: 1px solid var(--pw-rule); font-size: 14px; }
+ .pw-site code { color: var(--pw-link); background: light-dark(#ecebdf, #182019); }
+ .pw-site pre code { color: inherit; background: transparent; }
+-.pw-resume .btn { text-decoration: none; }
+-.pw-resume .btn-primary { background: var(--pw-ink); color: var(--pw-paper); border-color: var(--pw-ink); }
+ .pw-site table { color: var(--pw-text); }
+-.pw-resume table a:not(.btn) { color: var(--pw-link); }
+ .pw-site table thead { background: light-dark(#ecebdf, #182019); }
+ /* Small native typography layer. Page layouts use their own Grid/Flexbox classes. */
+ .pw-native :where(h1, h2, h3) { margin: 21px 0 10.5px; }
+@@ -122,8 +116,6 @@
+ }
+ @media print {
+   .pw-site { color-scheme: light; background: white; }
+-  .pw-site.pw-resume { font-size: 11.8pt; line-height: 1.23; margin: .5in; }
+   .pw-site .pw-top, .pw-site .pw-footer, .pw-site .pw-skip { display: none; }
+   .pw-site .pw-page { max-width: none; padding: 0; }
+-  .pw-resume #pw-content > .container { margin-top: 0; }
+ }
+--- before/static/css/style.css
++++ after/static/css/style.css
+@@ -1,15 +1,5 @@
+ body {
+     text-align: left;
+-}
+-
+-.white-rounded {
+-    border-radius: 6px;
+-    background-color: white;
+-    color: #444;
+-}
+-
+-.jumbotron {
+-    border-radius: 6px;
+ }
+ 
+ pre {

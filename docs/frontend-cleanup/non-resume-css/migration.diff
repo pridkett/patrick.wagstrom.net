@@ -1,0 +1,408 @@
+--- before/layouts/list.html
++++ after/layouts/list.html
+@@ -1,27 +1,11 @@
+ {{ partial "header.html" . }}
+-	<div class="row">
+-		<div class="text-center">
+-			<h3>
+-				{{ if .Site.Params.strings.posts_list_header }}
+-					{{ .Site.Params.strings.posts_list_header }}
+-				{{ else }}
+-					Posts
+-				{{ end }}</h3>
+-	    </div>
+-    </div>
+-	<div class="row">
+-		<div class="col-md-offset-1 col-md-10">
+-			<ul>
+-				{{ range .Pages }}
+-					{{ if ne .Params.menu "main" }}
+-						{{ partial "post-title.html" . }}
+-					{{ end }}
+-				{{ end }}
+-			</ul>
+-		</div>
+-    </div>
+-	<div class="row">
+-		<hr>
+-	</div>
+-
++<main class="pw-listing">
++  <h1 class="pw-page-title">{{ .Site.Params.strings.posts_list_header | default .Title }}</h1>
++  {{ with .Content }}<div class="pw-document-body">{{ . }}</div>{{ end }}
++  <ul class="pw-page-list">
++    {{ range .Pages }}
++      {{ if ne .Params.menu "main" }}{{ partial "post-title.html" . }}{{ end }}
++    {{ end }}
++  </ul>
++</main>
+ {{ partial "footer.html" . }}
+--- before/scripts/check-hugo.py
++++ after/scripts/check-hugo.py
+@@ -107,13 +107,16 @@
+     check_discovery(output)
+ 
+     resume = HTML(output / "resume/index.html")
++    require(' pw-resume"' in resume.text and any(
++        t == "link" and "css/theme/" in a.get("href", "") for t, a in resume.elements),
++        "The résumé must retain its Bootstrap stylesheet during the native CSS migration")
+     for css in ("/resume/resume.css", "/resume/print.css"):
+         require(any(t == "link" and a.get("href") == css for t, a in resume.elements),
+                 f"Missing resume stylesheet: {css}")
+         require(local_file(output, css).is_file(), f"Missing resume asset: {css}")
+     require("bibliography-conference" in (output / "publications/index.html").read_text(),
+             "Bibliography shortcode did not render")
+-    require("screenshot col-md" in (output / "screenshots/index.html").read_text(),
++    require('class="pw-gallery-entry"' in (output / "screenshots/index.html").read_text(),
+             "Screenshots shortcode did not render")
+     post = output / "weblog/2003/05/23/lpdforfunandmp3playing/index.html"
+     require(post.is_file(), "Legacy weblog URL is missing")
+@@ -121,6 +124,17 @@
+             "Legacy comment mapping changed")
+     game = (output / "games/amelias-sea-turtle-adventure/index.html").read_text()
+     require("/emulator/" in game and "w2-player" in game, "Game player did not render")
++    # Bootstrap remains available at its old URL, but only résumé pages select it.
++    for path in output.rglob("*.html"):
++        text = path.read_text()
++        if 'class="pw-site' not in text:
++            continue
++        page = HTML(path)
++        frameworks = [a.get("href", "") for t, a in page.elements
++                      if t == "link" and a.get("rel") == "stylesheet"
++                      and "css/theme/" in a.get("href", "")]
++        require(bool(frameworks) == (' pw-resume"' in text),
++                f"Bootstrap CSS must be limited to the résumé: {path.relative_to(output)}")
+     check_tutorials(output)
+     check_writing(output)
+ 
+--- before/assets/games/games.css
++++ after/assets/games/games.css
+@@ -1,4 +1,4 @@
+-/* Cartridge colors match Superhero; type and action buttons inherit the site theme. */
++/* Cartridge artwork has its own palette; the player sits in the shared site shell. */
+ .w2-games { text-align: left; padding: clamp(20px, 2.5vw, 48px); margin: 28px auto; width: calc(100% - clamp(30px, 6vw, 160px)); }
+ .w2-games [hidden] { display: none !important; }
+ .w2-heading { margin-bottom: 30px; }
+@@ -33,7 +33,11 @@
+ .w2-play-area:fullscreen iframe { height: 100%; }
+ .w2-play-area:fullscreen .w2-player-actions { flex-shrink: 0; }
+ .w2-player-actions { padding: 18px 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+-.w2-player-actions .btn { min-height: 44px; display: inline-flex; align-items: center; }
++.w2-action { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; padding: 8px 16px; border: 1px solid #4e5d6c; background: #4e5d6c; color: #fff; font: 400 15px/1.4 system-ui, sans-serif; text-align: center; cursor: pointer; touch-action: manipulation; }
++.pw-site .w2-action { color: #fff; text-decoration: none; }
++.w2-action:hover { background: #3e4a56; }
++.pw-site .w2-download { background: var(--pw-ink); color: var(--pw-paper); border-color: var(--pw-ink); }
++.w2-download:hover { filter: brightness(.9); }
+ .w2-back { display: inline-block; margin-bottom: 24px; }
+ .w2-game-details h2 { font-size: 23px; margin: 0 0 16px; color: inherit; }
+ .w2-game-details p { font-size: 16px; line-height: 1.7; }
+--- before/static/css/site.css
++++ after/static/css/site.css
+@@ -1,4 +1,4 @@
+-/* Shared site chrome; keep the legacy framework available to page content. */
++/* Shared site palette and chrome. Native page content is scoped below the résumé shell. */
+ .pw-home, .pw-site {
+   color-scheme: light dark;
+   --pw-paper: light-dark(#f7f4e9, #202821);
+@@ -27,18 +27,63 @@
+   line-height: 1.25;
+ }
+ .pw-site p { margin-bottom: 1em; }
+-.pw-site .container { width: 100%; max-width: 1120px; }
+-.pw-site .white-rounded { background: transparent; color: inherit; border-radius: 0; }
+-.pw-site #pw-content > .container { margin-top: 32px; }
++.pw-resume .container { width: 100%; max-width: 1120px; }
++.pw-resume .white-rounded { background: transparent; color: inherit; border-radius: 0; }
++.pw-resume #pw-content > .container { margin-top: 32px; }
+ .pw-site img { max-width: 100%; }
+ .pw-site pre { color: var(--pw-text); background: light-dark(#ecebdf, #182019); border: 1px solid var(--pw-rule); font-size: 14px; }
+ .pw-site code { color: var(--pw-link); background: light-dark(#ecebdf, #182019); }
+ .pw-site pre code { color: inherit; background: transparent; }
+-.pw-site .btn { text-decoration: none; }
+-.pw-site .btn-primary { background: var(--pw-ink); color: var(--pw-paper); border-color: var(--pw-ink); }
++.pw-resume .btn { text-decoration: none; }
++.pw-resume .btn-primary { background: var(--pw-ink); color: var(--pw-paper); border-color: var(--pw-ink); }
+ .pw-site table { color: var(--pw-text); }
+-.pw-site table a:not(.btn) { color: var(--pw-link); }
++.pw-resume table a:not(.btn) { color: var(--pw-link); }
+ .pw-site table thead { background: light-dark(#ecebdf, #182019); }
++/* Small native typography layer. Page layouts use their own Grid/Flexbox classes. */
++.pw-native :where(h1, h2, h3) { margin: 21px 0 10.5px; }
++.pw-native :where(h4, h5, h6) { margin: 10.5px 0; }
++.pw-native :where(h1) { font-size: 39px; }
++.pw-native :where(h2) { font-size: 32px; }
++.pw-native :where(h3) { font-size: 26px; }
++.pw-native :where(h4) { font-size: 19px; }
++.pw-native :where(h5) { font-size: 15px; }
++.pw-native :where(h6) { font-size: 13px; }
++.pw-native :where(p, ul, ol, dl) { margin-top: 0; }
++.pw-native :where(ul, ol, dl) { margin-bottom: 10.5px; }
++.pw-native :where(ul, ol) { padding-left: 40px; }
++.pw-native :where(dt) { font-weight: 700; }
++.pw-native :where(dd) { margin-left: 0; }
++.pw-native :where(hr) { margin: 21px 0; border: 0; border-top: 1px solid var(--pw-rule); }
++.pw-native :where(figure) { margin-top: 0; margin-bottom: 0; }
++.pw-native :where(img) { vertical-align: middle; height: auto; }
++.pw-native :where(table) { border-collapse: collapse; border-spacing: 0; }
++.pw-native :where(th) { text-align: left; }
++.pw-native :where(blockquote) { margin: 0 0 21px; padding: 10.5px 21px; border-left: 5px solid var(--pw-rule); }
++.pw-native :where(blockquote p:last-child) { margin-bottom: 0; }
++.pw-native :where(pre, code, kbd, samp) { font-family: Menlo, Consolas, monospace; }
++.pw-native :where(pre) { margin: 0 0 10.5px; padding: 10px; overflow-x: auto; line-height: 1.6; }
++.pw-native :where(code, kbd) { padding: 2px 4px; font-size: .9em; }
++.pw-native :where(pre code) { padding: 0; font-size: inherit; white-space: pre; }
++.pw-native :where(kbd) { background: var(--pw-ink); color: var(--pw-paper); }
++.pw-native :where(button, input, select, textarea) { font: inherit; color: inherit; }
++.pw-native :where(button) { cursor: pointer; }
++.pw-native [hidden] { display: none !important; }
++.pw-document { margin: 32px auto 0; padding: 21px 15px 0; }
++.pw-site .pw-page-title { margin: 0 0 10.5px; font-size: 26px; }
++.pw-document-body { display: flow-root; min-width: 0; }
++.pw-document-body pre, .pw-document-body .highlight { max-width: 100%; }
++.pw-document-body table { display: block; width: max-content; max-width: 100%; overflow-x: auto; }
++.pw-archive-note { padding: 15px; border-left: 4px solid var(--pw-link); background: light-dark(#ecebdf, #182019); }
++.pw-listing, .pw-article { max-width: 840px; margin: 32px auto 0; padding: 21px 15px 0; }
++.pw-native .pw-page-list { list-style: none; padding: 0; margin: 26px 0; }
++.pw-list-entry { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--pw-rule); }
++.pw-site .pw-list-entry h2 { margin: 0; font-size: 19px; }
++.pw-list-entry time, .pw-article-meta { color: var(--pw-muted); font-size: 14px; }
++.pw-list-entry time { flex-shrink: 0; }
++.pw-article-meta { margin-bottom: 24px; }
++@media (max-width: 540px) {
++  .pw-list-entry { flex-direction: column; gap: 6px; }
++}
+ .pw-site .pw-top { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-bottom: 18px; border-bottom: 1px solid var(--pw-rule); }
+ .pw-site .pw-address { font-size: 12px; color: var(--pw-muted); text-decoration: none; }
+ .pw-site .pw-top nav { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; }
+@@ -80,5 +125,5 @@
+   .pw-site.pw-resume { font-size: 11.8pt; line-height: 1.23; margin: .5in; }
+   .pw-site .pw-top, .pw-site .pw-footer, .pw-site .pw-skip { display: none; }
+   .pw-site .pw-page { max-width: none; padding: 0; }
+-  .pw-site #pw-content > .container { margin-top: 0; }
++  .pw-resume #pw-content > .container { margin-top: 0; }
+ }
+--- before/static/css/weblog.css
++++ after/static/css/weblog.css
+@@ -18,10 +18,10 @@
+ .pw-site .pw-entry h2 { font-size: 27px; line-height: 1.25; letter-spacing: -.02em; margin: 8px 0 12px; }
+ .pw-entry p { max-width: 65ch; margin: 0; }
+ .pw-pagination { margin-top: 10px; border-top: 1px solid var(--pw-rule); }
+-.pw-pagination .pagination { display: flex; flex-wrap: wrap; gap: 4px; }
+-.pw-pagination .pagination > li > a { border: 0; background: transparent; color: var(--pw-link); border-radius: 0; }
++.pw-pagination .pagination { display: flex; flex-wrap: wrap; gap: 4px; list-style: none; padding: 0; margin: 21px 0; }
++.pw-pagination .pagination > li > a { display: flex; align-items: center; justify-content: center; min-width: 40px; min-height: 44px; padding: 6px 12px; background: transparent; color: var(--pw-link); text-decoration: none; }
+ .pw-pagination .pagination > .active > a { background: var(--pw-ink); color: var(--pw-paper); }
+-.pw-pagination .pagination > .disabled > a { color: var(--pw-muted); background: transparent; }
++.pw-pagination .pagination > .disabled > a { color: var(--pw-muted); background: transparent; pointer-events: none; }
+ .pw-post { max-width: 900px; margin: 0 auto; padding-top: 34px; }
+ .pw-post > article { padding-bottom: 0; }
+ .pw-post-heading { max-width: 680px; margin: 0 auto 38px; }
+--- before/layouts/page/single.html
++++ after/layouts/page/single.html
+@@ -1,19 +1,9 @@
+ {{ partial "header.html" . }}
+-
+-<div class="container white-rounded">
+-  <div class="row">
+-    <div class="col-md-12">
+-      <h3 class="page-title">{{ .Title }}</h3>
+-    </div>
+-  </div>
+-  <div class="row">
+-    <div class="col-md-12">
+-      {{ if .Params.archived }}
+-      <p class="alert alert-info">Historical tutorial, originally published {{ .Date.Format "January 2, 2006" }}. Preserved with its original instructions and screenshots.</p>
+-      {{ end }}
+-      {{ .Content }}
+-    </div>
+-  </div>
+-</div>
+-
++<main class="pw-document">
++  <h1 class="pw-page-title">{{ .Title }}</h1>
++  {{ if .Params.archived }}
++  <p class="pw-archive-note">Historical tutorial, originally published {{ .Date.Format "January 2, 2006" }}. Preserved with its original instructions and screenshots.</p>
++  {{ end }}
++  <div class="pw-document-body">{{ .Content }}</div>
++</main>
+ {{ partial "footer.html" . }}
+--- before/layouts/post/single.html
++++ after/layouts/post/single.html
+@@ -1,32 +1,13 @@
+ {{ partial "header.html" . }}
+-
+-<div class="container">
+-	<div class="row">
+-		<div class="col-md-offset-1 col-md-10">
+-			<h3>{{ .Title }}</h3>
+-				<span class="label label-primary">{{ if .Site.Params.strings.date_format }}{{ .Date.Format .Site.Params.strings.date_format }}{{ else }}{{ .Date.Format "Mon, Jan 2, 2006" }}{{ end }}</span> in 
+-				{{ range $i, $e :=.Params.categories }}
+-					{{if $i}} , {{end}}
+-					<a href="/categories/{{ . | urlize }}">{{ . }}</a>
+-				{{ end }} using tags
+-				{{ range $i, $e :=.Params.tags }}
+-					{{if $i}} , {{end}}
+-					<a href="/tags/{{ . | urlize }}">{{ . }}</a>
+-				{{ end }}
+-			</small>
+-		</div>
+-	</div>
+-	<div class="row">
+-		<div class="col-md-offset-1 col-md-10">
+-			<br>
+-			{{ .Content }}
+-		</div>
+-	</div>
+-	<div class="row">
+-		<div class="col-md-12">
+-			<hr>
+-		</div>
+-	</div>
+-</div>
+-
++<main class="pw-document pw-article">
++  <header>
++    <h1 class="pw-page-title">{{ .Title }}</h1>
++    <p class="pw-article-meta">
++      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format (.Site.Params.strings.date_format | default "Mon, Jan 2, 2006") }}</time>
++      {{ with .Params.categories }} in {{ range $i, $category := . }}{{ if $i }}, {{ end }}<a href="/categories/{{ . | urlize }}">{{ . }}</a>{{ end }}{{ end }}
++      {{ with .Params.tags }} using tags {{ range $i, $tag := . }}{{ if $i }}, {{ end }}<a href="/tags/{{ . | urlize }}">{{ . }}</a>{{ end }}{{ end }}
++    </p>
++  </header>
++  <div class="pw-document-body">{{ .Content }}</div>
++</main>
+ {{ partial "footer.html" . }}
+--- before/layouts/_partials/post-title.html
++++ after/layouts/_partials/post-title.html
+@@ -1,8 +1,4 @@
+-<div class="row">
+-	<div class="col-md-offset-2 col-md-6 col-md-offset-2 col-md-6">
+-		<h4><a href="{{.Permalink}}">{{ .Title }}</a></h4>
+-	</div>
+-	<div class="col-md-4 col-md-4">
+-		<h4>{{ if .Site.Params.strings.date_format }}{{ .Date.Format .Site.Params.strings.date_format }}{{ else }}{{ .Date.Format "Mon, Jan 2, 2006" }}{{ end }}</h4>
+-	</div>
+-</div>
++<li class="pw-list-entry">
++  <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
++  {{ if not .Date.IsZero }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format (.Site.Params.strings.date_format | default "Mon, Jan 2, 2006") }}</time>{{ end }}
++</li>
+--- before/layouts/_partials/header.html
++++ after/layouts/_partials/header.html
+@@ -1,3 +1,4 @@
++{{- $isResume := or (eq .RelPermalink ("resume/" | relURL)) (eq .Type "resume") (eq .Section "resume") -}}
+ <!DOCTYPE html>
+ <html lang="{{ .Site.Language.Locale }}">
+ <head>
+@@ -8,8 +9,10 @@
+   <title>{{ .Title }} · {{ .Site.Title }}</title>
+   <link rel="canonical" href="{{ .Permalink }}">
+   <link rel="icon" href="{{ "favicon.ico" | relURL }}">
+-  {{/* Retain the existing framework for legacy content, the résumé, and games. */}}
++  {{/* The résumé retains Bootstrap until its separate layout migration. */}}
++  {{ if $isResume }}
+   <link rel="stylesheet" href="{{ printf "css/theme/%s.css" (.Site.Params.theme.name | default "default") | relURL }}">
++  {{ end }}
+   <link rel="stylesheet" href="{{ "css/font-awesome.min.css" | relURL }}">
+   <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+   <link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
+@@ -21,7 +24,7 @@
+   <link href="{{ .Permalink }}" rel="alternate" type="{{ .MediaType.Type }}" title="{{ $.Site.Title }} — {{ if eq .Name "rss" }}RSS{{ else }}Atom{{ end }}">
+   {{ end }}
+ </head>
+-<body class="pw-site{{ with .Section }} pw-section-{{ . }}{{ end }}{{ if eq .RelPermalink ("resume/" | relURL) }} pw-resume{{ end }}">
++<body class="pw-site{{ with .Section }} pw-section-{{ . }}{{ end }}{{ if $isResume }} pw-resume{{ else }} pw-native{{ end }}">
+   <a class="pw-skip" href="#pw-content">Skip to content</a>
+   <div class="pw-page">
+     {{ partial "site-nav.html" . }}
+--- before/layouts/_shortcodes/screenshots.html
++++ after/layouts/_shortcodes/screenshots.html
+@@ -1,7 +1,8 @@
+-<div class="container">
++<div class="pw-gallery">
+ {{ range hugo.Data.screenshots }}
+-  <div class="row">
+-    <div class="screenshot col-md-offset-1 col-md-10"><a href="shots/{{ .image}}"><img src="thumbs/{{ .image }}"></a><span class="date">{{ .date }}:</span> {{ .desc | safeHTML}}</div>
+-  </div>
++  <figure class="pw-gallery-entry">
++    <a href="shots/{{ .image }}"><img src="thumbs/{{ .image }}" alt="Desktop screenshot, {{ .date }}" loading="lazy"></a>
++    <figcaption><span class="date">{{ .date }}:</span> {{ .desc | safeHTML }}</figcaption>
++  </figure>
+ {{ end }}
+ </div>
+--- before/layouts/tutorials/section.html
++++ after/layouts/tutorials/section.html
+@@ -1,12 +1,6 @@
+ {{ partial "header.html" . }}
+-
+-<main class="container white-rounded">
+-  <div class="row">
+-    <div class="col-md-12">
+-      <h3 class="page-title">{{ .Title }}</h3>
+-      {{ .Content }}
+-    </div>
+-  </div>
++<main class="pw-document">
++  <h1 class="pw-page-title">{{ .Title }}</h1>
++  <div class="pw-document-body">{{ .Content }}</div>
+ </main>
+-
+ {{ partial "footer.html" . }}
+--- before/layouts/games/single.html
++++ after/layouts/games/single.html
+@@ -1,7 +1,7 @@
+ {{ partial "header.html" . }}
+ {{ partial "games/assets.html" . }}
+ {{ $rom := partial "games/rom-url.html" . }}
+-<main class="white-rounded w2-games w2-game-page" id="w2-games">
++<main class="w2-games w2-game-page" id="w2-games">
+   <a class="w2-back" href="{{ .CurrentSection.RelPermalink }}">← All games</a>
+   <header class="w2-heading"><span class="w2-platform">{{ .Params.platform | default "Game Boy Color" }}</span><h1>{{ .Title }}</h1><p>{{ .Description }}</p></header>
+   <div class="w2-game-layout">
+@@ -10,7 +10,7 @@
+       <div class="w2-single-player" id="w2-single-player">
+         <iframe src="/emulator/?rom={{ $rom | urlquery }}" title="Play {{ .Title }}" allow="autoplay; fullscreen; gamepad" allowfullscreen></iframe>
+       </div>
+-      <div class="w2-player-actions"><a class="btn btn-primary" href="{{ $rom }}" download>Download ROM</a>{{ with .Params.sourceURL }}<a class="btn btn-default" href="{{ . }}">Source code</a>{{ end }}<button type="button" id="w2-fullscreen" class="btn btn-default" hidden>Fullscreen</button></div>
++      <div class="w2-player-actions"><a class="w2-action w2-download" href="{{ $rom }}" download>Download ROM</a>{{ with .Params.sourceURL }}<a class="w2-action" href="{{ . }}">Source code</a>{{ end }}<button type="button" id="w2-fullscreen" class="w2-action" hidden>Fullscreen</button></div>
+       {{ else }}<p>This cartridge is coming soon.</p>{{ end }}
+     </section>
+     <aside class="w2-game-details" aria-label="Game information">
+--- before/layouts/games/list.html
++++ after/layouts/games/list.html
+@@ -1,6 +1,6 @@
+ {{ partial "header.html" . }}
+ {{ partial "games/assets.html" . }}
+-<main class="white-rounded w2-games w2-library" id="w2-games">
++<main class="w2-games w2-library" id="w2-games">
+   <header class="w2-heading"><h1>{{ .Title }}</h1><div>{{ .Content }}</div></header>
+   <div class="w2-cartridges">
+     {{ range .RegularPages.ByWeight }}
+--- before/content/screenshots/screenshots.css
++++ after/content/screenshots/screenshots.css
+@@ -1,16 +1,10 @@
+-.screenshot {
+-    margin: 1ex;
+-    clear: both;
++/* A thumbnail and its description stay together, without floated grid columns. */
++.pw-gallery { max-width: 860px; margin: 24px 23px 0; }
++.pw-gallery .pw-gallery-entry { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 18px; align-items: start; margin: 0 0 32px; padding: 0; text-align: left; }
++.pw-gallery-entry img { display: block; width: 200px; height: auto; }
++.pw-gallery-entry figcaption { font-weight: 400; }
++.pw-gallery-entry .date { font-weight: 700; }
++@media (max-width: 600px) {
++  .pw-gallery { margin: 24px 0 0; }
++  .pw-gallery .pw-gallery-entry { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+ }
+-
+-.screenshot img {
+-    margin-right: 2ex;
+-    margin-bottom: 2ex;
+-    display: inline-block;
+-    float: left;
+-}
+-
+-.screenshot span.date {
+-    font-weight: bold;
+-}
+-

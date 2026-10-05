@@ -1,0 +1,16 @@
+<footer class="pw-footer">
+  <section class="pw-contact" aria-labelledby="pw-contact-heading">
+    <div>
+      <h2 id="pw-contact-heading">Say hello.</h2>
+      <a href="mailto:{{ .Site.Params.authorEmail }}">{{ .Site.Params.authorEmail }}</a>
+    </div>
+    <nav class="pw-social" aria-label="Find me and subscribe">
+      {{ with .Site.Params.github }}<a href="{{ . }}">{{ partial "home-link-icon.html" "github" }}<span>GitHub</span></a>{{ end }}
+      {{ with .Site.Params.linkedin }}<a href="{{ . }}">{{ partial "home-link-icon.html" "linkedin" }}<span>LinkedIn</span></a>{{ end }}
+      {{ range partial "feed-links.html" . }}
+      <a href="{{ .RelPermalink }}">{{ partial "home-link-icon.html" .Name }}<span>{{ if eq .Name "rss" }}RSS{{ else }}Atom{{ end }}</span></a>
+      {{ end }}
+    </nav>
+  </section>
+  <p class="pw-footer-note">{{ with (.Site.GetPage "/").Params.footerNote }}{{ . }}{{ end }}</p>
+</footer>

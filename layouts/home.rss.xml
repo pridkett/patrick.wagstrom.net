@@ -1,0 +1,2 @@
+{{- $pages := where (where .Site.RegularPages "Type" "in" (slice "post" "link" "weblog")) "Params.menu" "ne" "main" -}}
+{{- partial "rss.html" (dict "page" . "channel" . "pages" $pages) -}}

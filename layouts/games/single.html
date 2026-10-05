@@ -1,7 +1,7 @@
 {{ partial "header.html" . }}
 {{ partial "games/assets.html" . }}
 {{ $rom := partial "games/rom-url.html" . }}
-<main class="white-rounded w2-games w2-game-page" id="w2-games">
+<main class="w2-games w2-game-page" id="w2-games">
   <a class="w2-back" href="{{ .CurrentSection.RelPermalink }}">← All games</a>
   <header class="w2-heading"><span class="w2-platform">{{ .Params.platform | default "Game Boy Color" }}</span><h1>{{ .Title }}</h1><p>{{ .Description }}</p></header>
   <div class="w2-game-layout">
@@ -10,7 +10,7 @@
       <div class="w2-single-player" id="w2-single-player">
         <iframe src="/emulator/?rom={{ $rom | urlquery }}" title="Play {{ .Title }}" allow="autoplay; fullscreen; gamepad" allowfullscreen></iframe>
       </div>
-      <div class="w2-player-actions"><a class="btn btn-primary" href="{{ $rom }}" download>Download ROM</a>{{ with .Params.sourceURL }}<a class="btn btn-default" href="{{ . }}">Source code</a>{{ end }}<button type="button" id="w2-fullscreen" class="btn btn-default" hidden>Fullscreen</button></div>
+      <div class="w2-player-actions"><a class="w2-action w2-download" href="{{ $rom }}" download>Download ROM</a>{{ with .Params.sourceURL }}<a class="w2-action" href="{{ . }}">Source code</a>{{ end }}<button type="button" id="w2-fullscreen" class="w2-action" hidden>Fullscreen</button></div>
       {{ else }}<p>This cartridge is coming soon.</p>{{ end }}
     </section>
     <aside class="w2-game-details" aria-label="Game information">

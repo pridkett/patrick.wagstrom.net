@@ -1,6 +1,6 @@
 {{ partial "header.html" . }}
 {{ partial "games/assets.html" . }}
-<main class="white-rounded w2-games w2-library" id="w2-games">
+<main class="w2-games w2-library" id="w2-games">
   <header class="w2-heading"><h1>{{ .Title }}</h1><div>{{ .Content }}</div></header>
   <div class="w2-cartridges">
     {{ range .RegularPages.ByWeight }}

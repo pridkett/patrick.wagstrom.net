@@ -39,9 +39,6 @@ params:
   linkedin: "http://www.linkedin.com/in/pwagstrom"
   location: "Connecticut"
   githubrepo: "https://github.com/pridkett/patrick.wagstrom.net/"
-  theme:
-    inverse: true
-    name: "superhero"
   strings:
     home_link: "<i class=\"fa fa-home\"></i> Patrick Wagstrom"
   commentsengine: intensedebate
@@ -91,7 +88,9 @@ params:
   canonicalFeeds: true
   feedLimit: 15
 
-theme: "hugo-theme-patrick-custom"
+module:
+  hugoVersion:
+    min: "0.158.0"
 
 mediaTypes:
   application/atom+xml:

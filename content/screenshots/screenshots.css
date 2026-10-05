@@ -1,16 +1,10 @@
-.screenshot {
-    margin: 1ex;
-    clear: both;
+/* A thumbnail and its description stay together, without floated grid columns. */
+.pw-gallery { max-width: 860px; margin: 24px 23px 0; }
+.pw-gallery .pw-gallery-entry { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 18px; align-items: start; margin: 0 0 32px; padding: 0; text-align: left; }
+.pw-gallery-entry img { display: block; width: 200px; height: auto; }
+.pw-gallery-entry figcaption { font-weight: 400; }
+.pw-gallery-entry .date { font-weight: 700; }
+@media (max-width: 600px) {
+  .pw-gallery { margin: 24px 0 0; }
+  .pw-gallery .pw-gallery-entry { grid-template-columns: minmax(0, 1fr); gap: 12px; }
 }
-
-.screenshot img {
-    margin-right: 2ex;
-    margin-bottom: 2ex;
-    display: inline-block;
-    float: left;
-}
-
-.screenshot span.date {
-    font-weight: bold;
-}
-

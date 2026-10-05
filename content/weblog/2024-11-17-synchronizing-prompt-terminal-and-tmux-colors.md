@@ -1,5 +1,6 @@
 ---
 title: "Synchronizing Prompt, Terminal Emulator, and Tmux Colors"
+summary: "A small Rust project to coordinate colors across my shell prompt, terminal emulator, and tmux—and make it easier to recognize which machine I’m using over SSH."
 date: 2024-11-17T09:56:59-05:00
 slug: synchronizing-prompt-terminal-emulator-and-tmux-colors
 draft: false

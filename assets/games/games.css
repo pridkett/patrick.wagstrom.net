@@ -1,4 +1,4 @@
-/* Cartridge colors match Superhero; type and action buttons inherit the site theme. */
+/* Cartridge artwork has its own palette; the player sits in the shared site shell. */
 .w2-games { text-align: left; padding: clamp(20px, 2.5vw, 48px); margin: 28px auto; width: calc(100% - clamp(30px, 6vw, 160px)); }
 .w2-games [hidden] { display: none !important; }
 .w2-heading { margin-bottom: 30px; }
@@ -33,7 +33,11 @@
 .w2-play-area:fullscreen iframe { height: 100%; }
 .w2-play-area:fullscreen .w2-player-actions { flex-shrink: 0; }
 .w2-player-actions { padding: 18px 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
-.w2-player-actions .btn { min-height: 44px; display: inline-flex; align-items: center; }
+.w2-action { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; padding: 8px 16px; border: 1px solid #4e5d6c; background: #4e5d6c; color: #fff; font: 400 15px/1.4 system-ui, sans-serif; text-align: center; cursor: pointer; touch-action: manipulation; }
+.pw-site .w2-action { color: #fff; text-decoration: none; }
+.w2-action:hover { background: #3e4a56; }
+.pw-site .w2-download { background: var(--pw-ink); color: var(--pw-paper); border-color: var(--pw-ink); }
+.w2-download:hover { filter: brightness(.9); }
 .w2-back { display: inline-block; margin-bottom: 24px; }
 .w2-game-details h2 { font-size: 23px; margin: 0 0 16px; color: inherit; }
 .w2-game-details p { font-size: 16px; line-height: 1.7; }

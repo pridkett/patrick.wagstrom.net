@@ -1,0 +1,8 @@
+{{ partial "header.html" . }}
+<main class="pw-writing">
+  {{ partial "weblog-heading.html" (dict "Site" .Site "archive" false) }}
+  {{ $paginator := .Paginate (.Site.GetPage "/weblog").RegularPagesRecursive.ByDate.Reverse }}
+  {{ range $paginator.Pages }}{{ partial "post-snippet.html" . }}{{ end }}
+  <nav class="pw-pagination" aria-label="Writing pages">{{ partial "pagination.html" . }}</nav>
+</main>
+{{ partial "footer.html" . }}

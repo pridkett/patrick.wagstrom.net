@@ -1,0 +1,3 @@
+{{- $base := urls.Parse .page.Permalink -}}
+{{- $reference := urls.Parse (.url | htmlUnescape) -}}
+{{- return ($base.ResolveReference $reference).String -}}

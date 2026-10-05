@@ -1,0 +1,7 @@
+{{- $pages := .RegularPages -}}
+{{- if .IsHome -}}
+  {{- $pages = .Site.RegularPages -}}
+{{- else if eq .Kind "taxonomy" -}}
+  {{- $pages = .Pages -}}
+{{- end -}}
+{{- partial "rss.html" (dict "page" . "channel" . "pages" $pages) -}}

@@ -1,0 +1,8 @@
+<header class="pw-writing-heading">
+  <h1>Writing</h1>
+  {{ with (.Site.GetPage "/weblog").Content }}<div class="pw-writing-intro">{{ . }}</div>{{ end }}
+  <nav class="pw-writing-views" aria-label="Browse writing">
+    <a href="{{ "weblog/" | relURL }}"{{ if .archive }} aria-current="page"{{ end }}>By year</a>
+    <a href="{{ "weblog/recent/" | relURL }}"{{ if not .archive }} aria-current="page"{{ end }}>Recent posts</a>
+  </nav>
+</header>

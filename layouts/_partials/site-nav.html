@@ -1,0 +1,10 @@
+<header class="pw-top">
+  <a class="pw-address" href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
+  <nav aria-label="Main navigation">
+    <a href="{{ "weblog/" | relURL }}"{{ if eq .Section "weblog" }} aria-current="{{ if eq .RelPermalink "/weblog/" }}page{{ else }}true{{ end }}"{{ end }}>Writing</a>
+    <a href="{{ "games/" | relURL }}"{{ if eq .Section "games" }} aria-current="{{ if eq .RelPermalink "/games/" }}page{{ else }}true{{ end }}"{{ end }}>Games</a>
+    <a href="{{ "publications/" | relURL }}"{{ if eq .RelPermalink ("publications/" | relURL) }} aria-current="page"{{ end }}>Publications</a>
+    <a href="{{ "research/" | relURL }}"{{ if eq .RelPermalink ("research/" | relURL) }} aria-current="page"{{ else if eq .Section "research" }} aria-current="true"{{ end }}>Research</a>
+    <a href="{{ "resume/" | relURL }}"{{ if eq .RelPermalink ("resume/" | relURL) }} aria-current="page"{{ end }}>Résumé</a>
+  </nav>
+</header>

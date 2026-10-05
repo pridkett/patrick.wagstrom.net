@@ -1,0 +1,1 @@
+{{- return (first (int (.page.Site.Params.feedLimit | default 15)) .pages.ByDate.Reverse) -}}

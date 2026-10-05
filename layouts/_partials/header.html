@@ -1,0 +1,27 @@
+{{- $isResume := or (eq .RelPermalink ("resume/" | relURL)) (eq .Type "resume") (eq .Section "resume") -}}
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Locale }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ .Description | default .Title }}">
+  <meta name="author" content="{{ .Site.Params.authorName }}">
+  <title>{{ .Title }} · {{ .Site.Title }}</title>
+  <link rel="canonical" href="{{ .Permalink }}">
+  <link rel="icon" href="{{ "favicon.ico" | relURL }}">
+  <link rel="stylesheet" href="{{ "css/font-awesome.min.css" | relURL }}">
+  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+  <link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
+  {{ if eq .Section "weblog" }}<link rel="stylesheet" href="{{ "css/weblog.css" | relURL }}">{{ end }}
+  {{ range .Params.stylesheets }}
+  <link rel="stylesheet" href="{{ .href }}"{{ with .media }} media="{{ . }}"{{ end }}>
+  {{ end }}
+  {{ range partial "feed-links.html" . }}
+  <link href="{{ .Permalink }}" rel="alternate" type="{{ .MediaType.Type }}" title="{{ $.Site.Title }} — {{ if eq .Name "rss" }}RSS{{ else }}Atom{{ end }}">
+  {{ end }}
+</head>
+<body class="pw-site pw-native{{ with .Section }} pw-section-{{ . }}{{ end }}{{ if $isResume }} pw-resume{{ end }}">
+  <a class="pw-skip" href="#pw-content">Skip to content</a>
+  <div class="pw-page">
+    {{ partial "site-nav.html" . }}
+    <div id="pw-content" tabindex="-1">
